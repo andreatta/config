@@ -1,0 +1,22 @@
+! Map umlauts to AltGr
+keycode 108 = Mode_switch
+
+! umlauts and some special chars
+keysym a = a A adiaeresis Adiaeresis
+keysym o = o O odiaeresis Odiaeresis
+keysym u = u U udiaeresis Udiaeresis
+
+keysym c = c C copyright U2184
+keysym e = e E U01DD U018E
+keysym m = m M mu
+keysym r = r R registered
+keysym s = s S ssharp
+
+keysym 1 = 1 exclam degree
+keysym 5 = 5 percent EuroSign
+
+! Who needs CapsLock anyway..
+! make it a second Esc (vim style)
+remove Lock = Caps_Lock
+keysym Caps_Lock = Escape
+add Lock = Caps_Lock
