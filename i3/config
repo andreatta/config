@@ -25,9 +25,6 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -87,15 +84,15 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
+bindsym $mod+2 workspace 2 wǝb
+bindsym $mod+3 workspace 3 m@il
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 10 v!rt
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
@@ -124,8 +121,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
@@ -137,7 +132,7 @@ mode "resize" {
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 pp
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
@@ -146,30 +141,67 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# color defines for zenburn style i3
+set $bg     #2c2c2e
+set $fg     #9f9f9f
+set $hi     #efef8f
+set $ac     #a0afa0
+set $tx     #040404
+set $ia     #8f8f8f
+set $be     #8faf9f
+set $yw     #ccdc90
+set $gn     #88b090
+set $rd     #e89393
+
+# set some nice colors      border     background  text
+client.focused              $ac        $ac         $tx
+client.unfocused            $bg        $bg         $ia
+client.focused_inactive     $bg        $bg         $ac
+client.urgent               $rd        $rd         $tx
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-}
+    status_command i3status --config ~/.i3/i3status.conf
 
-# set some nice colors   border     background  text
-client.focused           #AACCBB    #AACCBB     #2C2D2E
-client.unfocused         #2C2D2E    #2C2D2E     #707678
-client.focused_inactive  #2C2D2E    #2C2D2E     #AACCBB
-client.urgent            #FEA63C    #4D4D4D     #FFE863
-
-bar {
     colors {
-        background #000000
-            statusline #ffffff
-            focused_workspace  #77AA99 #3D3D3D  #AACCBB
-            active_workspace   #77AA99 #3D3D3D  #AACCBB
-            inactive_workspace #2C2D2E #2C2D2E  #707678
-            urgent_workspace   #FEA63C #4D4D4D  #FFE863
+        background          $bg
+        statusline          $fg
+        separator           $hi
+        focused_workspace   $gn        $bg        $ac
+        active_workspace    $gn        $ac        $tx
+        inactive_workspace  $bg        $bg        $ia
+        urgent_workspace    $rd        $bg        $ac
     }
 }
 
 # enable floating mode for some applications
-for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable     #ddd
-for_window [title="Event Tester"] floating enable                           #xev
+for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
+for_window [title="Event Tester"] floating enable
+for_window [class="Qalculate"] floating enable
 
+# My favorite programs
+bindsym $mod+Return exec urxvt #i3-sensible-terminal
+bindsym $sup+c      exec qalculate
+bindsym $sup+w      exec chromium
+bindsym $sup+e      exec thunderbird
+bindsym $sup+i      exec inkscape
+bindsym $sup+g      exec gimp
+bindsym $sup+v      exec vlc
+bindsym $sup+x      exec keepassx
+bindsym $sup+z      exec filezilla
+bindsym $sup+b      exec bash -c ~/develop/scripts/start-vbox.sh
+bindsym $sup+l      exec xflock4
+bindsym $sup+q      exec qtcreator
+bindsym XF86ScreenSaver exec xflock4
+#bindsym XF86Launch1     exec xfce4-terminal --drop-down
+
+# always open some programs on specified workspace
+assign [class="Chromium"] 2 wǝb
+assign [class="Thunderbird"] 3 m@il
+assign [class="VirtualBox"] 10 v!rt
+
+# scratchpad
+exec --no-startup-id urxvt -name 'scratchpad_urxvt' -g 130x24
+for_window [instance="scratchpad_urxvt"] move to scratchpad, border 1pixel
+bindsym XF86Launch1 [instance="scratchpad_urxvt"] scratchpad show, move position 110px 0px
