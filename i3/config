@@ -7,6 +7,7 @@
 # modifier = Alt, $sup = Wind0ws key
 set $mod Mod1
 set $sup Mod4
+set $psst --no-startup-id
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -60,7 +61,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+s layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+$sup layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -74,17 +74,29 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# workspace defines
+set $w1 1
+set $w2 2wǝb
+set $w3 3m@il
+set $w4 4
+set $w5 5
+set $w6 6
+set $w7 7
+set $w8 8
+set $w9 9♪
+set $w0 10v!rt
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2 wǝb
-bindsym $mod+3 workspace 3 m@il
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10 v!rt
+bindsym $mod+1 workspace $w1
+bindsym $mod+2 workspace $w2
+bindsym $mod+3 workspace $w3
+bindsym $mod+4 workspace $w4
+bindsym $mod+5 workspace $w5
+bindsym $mod+6 workspace $w6
+bindsym $mod+7 workspace $w7
+bindsym $mod+8 workspace $w8
+bindsym $mod+9 workspace $w9
+bindsym $mod+0 workspace $w0
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
@@ -92,16 +104,16 @@ bindsym $sup+Left  workspace prev
 bindsym $sup+Up    workspace back_and_forth
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to $w1
+bindsym $mod+Shift+2 move container to $w2
+bindsym $mod+Shift+3 move container to $w3
+bindsym $mod+Shift+4 move container to $w4
+bindsym $mod+Shift+5 move container to $w5
+bindsym $mod+Shift+6 move container to $w6
+bindsym $mod+Shift+7 move container to $w7
+bindsym $mod+Shift+8 move container to $w8
+bindsym $mod+Shift+9 move container to $w9
+bindsym $mod+Shift+0 move container to $w10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -169,25 +181,28 @@ bar {
 
 # enable floating mode for some applications
 for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
-for_window [title="Event Tester"] floating enable
+for_window [title="Event Tester"] floating enable   # xev
 for_window [class="Qalculate"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
-for_window [instance="xfce4-notifyd"] floating enable
+for_window [instance="xfce4-notifyd"] floating enable, border none
 for_window [instance="Msgcompose"] floating enable
+for_window [class="Audacious"] floating enable, border none
 
 for_window [class="URxvt" title="^[^:]+:(?<!w530:)"] border normal
 
 #scratchpads
-bindsym $mod+p scratchpad show
+bindsym $mod+Shift+Super_L move scratchpad
+bindsym $mod+Super_L scratchpad show
 
-#for_window [instance="rainlendar"] move scratchpad
+for_window [instance="rainlendar"] move scratchpad
 
 #exec --no-startup-id urxvt -name 'scratchpad_urxvt' -g 130x24
 #for_window [instance="scratchpad_urxvt"] move to scratchpad, border 1pixel
 #bindsym XF86Launch1 [instance="scratchpad_urxvt"] scratchpad show, move position 110px 0px
 
 # My favorite programs
-bindsym $sup+b exec --no-startup-id "~/develop/scripts/start-vbox.sh"
+bindsym $sup+a exec audacious
+bindsym $sup+b exec $psst "~/develop/scripts/start-vbox.sh"
 bindsym $sup+c exec qalculate
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec thunar
@@ -197,9 +212,9 @@ bindsym $sup+i exec inkscape
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec xflock4
 bindsym $sup+q exec qtcreator
-bindsym $sup+r exec ranger
+bindsym $sup+r exec $psst urxvt -c 'ranger'
 bindsym $sup+s exec sunflower
-bindsym $sup+t exec --no-startup-id "~/develop/scripts/start-teamviewer.sh"
+bindsym $sup+t exec $psst "~/develop/scripts/start-teamviewer.sh"
 bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
@@ -210,6 +225,10 @@ bindsym XF86ScreenSaver exec xflock4
 #bindsym XF86Launch1     exec xfce4-terminal --drop-down
 
 # always open some programs on specified workspace
-assign [class="Chromium"]    2 wǝb
-assign [class="Thunderbird"] 3 m@il
-assign [class="VirtualBox"]  10 v!rt
+assign [class="Chromium"]    $w2
+assign [class="Thunderbird"] $w3
+assign [class="Audacious"]   $w9
+assign [class="VirtualBox"]  $w0
+
+# autostart
+exec --no-startup-id /usr/bin/feh --bg-scale ~/graphics/soly.jpg
