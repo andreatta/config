@@ -75,16 +75,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace defines
-set $w1 1
-set $w2 2wǝb
-set $w3 3m@il
-set $w4 4
-set $w5 5
-set $w6 6
-set $w7 7
-set $w8 8
+set $w1 1©
+set $w2 2✆
+set $w3 3✉
+set $w4 4☘
+set $w5 5☦
+set $w6 6☣
+set $w7 7☘
+set $w8 8☯
 set $w9 9♪
-set $w0 10v!rt
+set $w0 10☠
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -102,6 +102,7 @@ bindsym $mod+0 workspace $w0
 bindsym $sup+Right workspace next
 bindsym $sup+Left  workspace prev
 bindsym $sup+Up    workspace back_and_forth
+workspace_auto_back_and_forth yes
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $w1
@@ -202,7 +203,7 @@ for_window [instance="rainlendar"] move scratchpad
 
 # My favorite programs
 bindsym $sup+a exec audacious
-bindsym $sup+b exec $psst "~/develop/scripts/start-vbox.sh"
+bindsym $sup+b exec $psst ~/develop/scripts/start-vbox.sh
 bindsym $sup+c exec qalculate
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec thunar
@@ -211,16 +212,16 @@ bindsym $sup+h exec rainlendar
 bindsym $sup+i exec inkscape
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec xflock4
+bindsym $sup+m exec gvim
 bindsym $sup+q exec qtcreator
-bindsym $sup+r exec $psst urxvt -c 'ranger'
+bindsym $sup+r exec $psst urxvt
 bindsym $sup+s exec sunflower
-bindsym $sup+t exec $psst "~/develop/scripts/start-teamviewer.sh"
+bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
 bindsym $sup+z exec filezilla
-#specialkeys
-bindsym $mod+Return exec urxvt #i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 bindsym XF86ScreenSaver exec xflock4
 #bindsym XF86Launch1     exec xfce4-terminal --drop-down
 
