@@ -224,6 +224,9 @@ bindsym $sup+z exec filezilla
 bindsym $mod+Return exec urxvt
 bindsym XF86ScreenSaver exec xflock4
 #bindsym XF86Launch1     exec xfce4-terminal --drop-down
+bindsym XF86AudioPlay exec audacious -t
+bindsym XF86AudioNext exec audacious -fp
+bindsym XF86AudioPrev exec audacious -rp
 
 # always open some programs on specified workspace
 assign [class="Chromium"]    $w2
