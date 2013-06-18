@@ -75,7 +75,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # workspace defines
-set $w1 1©
+set $w1 1ϲεε
 set $w2 2✆
 set $w3 3✉
 set $w4 4☘
@@ -188,7 +188,7 @@ for_window [instance="TeamViewer.exe"] floating enable
 for_window [instance="xfce4-notifyd"] floating enable, border none
 for_window [instance="Msgcompose"] floating enable
 for_window [class="Audacious"] floating enable, border none
-
+# return to normal border (after ssh session)
 for_window [class="URxvt" title="^[^:]+:(?<!w530:)"] border normal
 
 #scratchpads
@@ -214,14 +214,14 @@ bindsym $sup+k exec wireshark
 bindsym $sup+l exec xflock4
 bindsym $sup+m exec gvim
 bindsym $sup+q exec qtcreator
-bindsym $sup+r exec $psst urxvt
-bindsym $sup+s exec sunflower
+bindsym $sup+s exec synapse
 bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
 bindsym $sup+z exec filezilla
 bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec ~/develop/scripts/start-urxvt-pwd.sh
 bindsym XF86ScreenSaver exec xflock4
 #bindsym XF86Launch1     exec xfce4-terminal --drop-down
 bindsym XF86AudioPlay exec audacious -t
