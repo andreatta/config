@@ -221,7 +221,7 @@ bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
 bindsym $sup+z exec filezilla
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec ~/develop/scripts/start-urxvt-pwd.sh
+bindsym $mod+Shift+Return exec urxvt -cd `xcwd`
 bindsym XF86ScreenSaver exec xflock4
 #bindsym XF86Launch1     exec xfce4-terminal --drop-down
 bindsym XF86AudioPlay exec audacious -t
