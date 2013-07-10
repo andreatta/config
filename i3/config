@@ -146,6 +146,12 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# show CapsLock state in statusbar
+bindsym Caps_Lock mode "caps"
+mode "caps" {
+        bindsym Caps_Lock mode "default"
+}
+
 # color defines for zenburn styled i3
 set $bg     #2c2c2e
 set $fg     #9f9f9f
@@ -202,6 +208,7 @@ for_window [instance="rainlendar"] move scratchpad
 #bindsym XF86Launch1 [instance="scratchpad_urxvt"] scratchpad show, move position 110px 0px
 
 # My favorite programs
+bindsym $sup+d exec "sudo zsh -u `$USER`"
 bindsym $sup+a exec audacious
 bindsym $sup+b exec $psst ~/develop/scripts/start-vbox.sh
 bindsym $sup+c exec qalculate
