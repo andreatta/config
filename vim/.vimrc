@@ -11,28 +11,23 @@ filetype plugin indent on
 
 set ofu=syntaxcomplete#Complete
 syntax on
-
 set t_Co=256
 colorscheme zenburn
 
 set nocompatible
-set relativenumber          " use relative numbers to make it easier to jump
-set cursorline              " highlight current line
-set linespace=0             " minimal space between rows
+set relativenumber
+set history=700
 set wildmenu
 set wildmode=list:longest,full
 set ruler
 set noerrorbells
+set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
 set showcmd
 set showmode
-set mouse=a                 " enable mouse usage
-set mousehide               " hide mouse cursor when typing
-set showmatch               " highlight matching brackets
-set hlsearch
-"set gdefault
+set mouse=a
 set list listchars=tab:\|-,trail:-,extends:$,nbsp:=
 "set list listchars=tab:\|-,extends:$,precedes:<,nbsp:=
 "set lcs=tab:┅,trail:>·,extends:>,precedes:<,nbsp:&
@@ -50,20 +45,13 @@ if has('statusline')
     set statusline+=\ [@\%03.3b/0x\%02.2B] " ASCII / Hex value of char
     set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
 endif
-"
+
+" always show filename
+"set statusline+=%f
 let mapleader = ","
-" clear selection from search
-nnoremap <leader><space> :noh<cr>
 
 set undofile
 set undodir=$HOME/.vim/undo
-
-" enable backup function
-set backup
-if has('persistent_undo')
-    set undofile                " So is persistent undo ...
-    set undolevels=1000         " Maximum number of changes that can be undone
-    set undoreload=10000        " Maximum number lines to save for undo on a buffer reloauuuuendif
 
 " programming stuff
 au BufNewFile,BufRead *.c map <F5> :make<cr>
@@ -71,21 +59,28 @@ au BufNewFile,BufRead *.c map <F10> :cp<cr>
 au BufNewFile,BufRead *.c map <F11> :cc<cr>
 au BufNewFile,BufRead *.c map <F12> :cn<cr>
 
-" improve searching ability
 " use normal regex in search
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
 set smartcase
+"set gdefault
 set incsearch
+set showmatch
+set hlsearch
 
 " save with sudo permission
 cmap w!! %!sudo tee > /dev/null %
+
+nmap <F8> :TagbarToggle<CR>
 
 " F12 to toggle paste mode
 map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
+" clear search selection with ESC
+"nnoremap <esc> :noh<return><esc>
+nnoremap <leader><space> :noh<cr>
 
 
 
