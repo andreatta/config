@@ -20,11 +20,12 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+F4      kill
+bindsym Control+q  kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 # only show programs with a .desktop
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec $psst i3-dmenu-desktop
 
 # change focus (vim style)
 bindsym $mod+h focus left
@@ -72,7 +73,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # workspace defines
 set $w1 1ϲεε
@@ -219,14 +220,16 @@ bindsym $sup+h exec rainlendar
 bindsym $sup+i exec inkscape
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec xflock4
-bindsym $sup+m exec gvim
+bindsym $sup+m exec mixxx
 bindsym $sup+q exec qtcreator
+bindsym $sup+r exec urxvt -e ranger --selectfile=`xcwd`
 bindsym $sup+s exec synapse
 bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
 bindsym $sup+z exec filezilla
+#bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt -cd `xcwd`
 bindsym XF86ScreenSaver exec xflock4
@@ -234,6 +237,8 @@ bindsym XF86ScreenSaver exec xflock4
 bindsym XF86AudioPlay exec audacious -t
 bindsym XF86AudioNext exec audacious -fp
 bindsym XF86AudioPrev exec audacious -rp
+
+bindsym $mod+Tab exec simpleswitcher -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
 
 # always open some programs on specified workspace
 assign [class="Chromium"]    $w2
