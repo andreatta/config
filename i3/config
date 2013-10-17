@@ -9,6 +9,9 @@ set $mod Mod1
 set $sup Mod4
 set $psst --no-startup-id
 
+# set default orientation to vertical
+#exec i3-msg split v
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -20,7 +23,7 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+F4      kill
-bindsym Control+q  kill
+bindsym Control+q    kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -149,6 +152,7 @@ mode "resize" {
 
 # show CapsLock state in statusbar
 bindsym Caps_Lock mode "caps"
+bindsym Shift+Caps_Lock mode "caps"
 mode "caps" {
         bindsym Caps_Lock mode "default"
 }
@@ -209,7 +213,7 @@ for_window [instance="rainlendar"] move scratchpad
 #bindsym XF86Launch1 [instance="scratchpad_urxvt"] scratchpad show, move position 110px 0px
 
 # My favorite programs
-bindsym $sup+d exec "sudo zsh -u `$USER`"
+#bindsym $sup+d exec "sudo zsh -u `$USER`"
 bindsym $sup+a exec audacious
 bindsym $sup+b exec $psst ~/develop/scripts/start-vbox.sh
 bindsym $sup+c exec qalculate

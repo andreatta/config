@@ -53,6 +53,8 @@ URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 
+Urxvt*urgentOnBell: true
+
 ! urxvt tabs settings:
 # URxvt.tabbed.tabbar-fg: 2
 # URxvt.tabbed.tabbar-bg: 0

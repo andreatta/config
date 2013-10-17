@@ -1,3 +1,8 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! show current map: xmodmap -pke
+! reload xmodmap: xmodmap ~/.Xmodmap
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 ! Map umlauts to AltGr
 keycode 108 = Mode_switch
 
@@ -11,12 +16,11 @@ keysym e = e E U01DD U018E
 keysym m = m M mu
 keysym r = r R registered
 keysym s = s S ssharp
+keysym k = k K U26B7
 
-keysym 1 = 1 exclam degree
+keysym 0 = 0 parenright degree
 keysym 5 = 5 percent EuroSign
 
-! Who needs CapsLock anyway..
-! make it a second Esc (vim style)
-remove Lock = Caps_Lock
+! who needs CapsLock anyway
+clear Lock
 keysym Caps_Lock = Escape
-add Lock = Caps_Lock
