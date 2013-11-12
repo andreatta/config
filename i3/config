@@ -15,7 +15,7 @@ set $psst --no-startup-id
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango: Inconsolata 13
+font pango: Inconsolata 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -225,12 +225,14 @@ bindsym $sup+i exec inkscape
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec xflock4
 bindsym $sup+m exec mixxx
+bindsym $sup+p exec "xrandr --output HDMI1 --auto && xrandr --output LVDS1 --off"
+bindsym $sup+Shift+p exec "xrandr --output LVDS1 --auto"
 bindsym $sup+q exec qtcreator
 bindsym $sup+r exec urxvt -e ranger --selectfile=`xcwd`
 bindsym $sup+s exec synapse
 bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+v exec vlc
-bindsym $sup+w exec chromium
+bindsym $sup+w exec chromium-browser
 bindsym $sup+x exec keepassx
 bindsym $sup+z exec filezilla
 #bindsym $mod+Return exec urxvt
