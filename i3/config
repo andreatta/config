@@ -9,8 +9,13 @@ set $mod Mod1
 set $sup Mod4
 set $psst --no-startup-id
 
-# set default orientation to vertical
-#exec i3-msg split v
+#new_window 1pixel
+#new_float  normal
+#hide_edge_borders both
+bindsym $mod+b border toggle
+
+# autostart
+exec $psst feh --bg-scale ~/img/soly1.jpg
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -23,7 +28,6 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 bindsym $mod+F4      kill
-bindsym Control+q    kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -199,24 +203,21 @@ for_window [instance="TeamViewer.exe"] floating enable
 for_window [instance="xfce4-notifyd"] floating enable, border none
 for_window [instance="Msgcompose"] floating enable
 for_window [class="Audacious"] floating enable, border none
+for_window [instance="pcalc.exe"] floating enabled
+for_window [class="^(?i)chromium$"] border none
+for_window [class="Thunderbird"] border none
 # return to normal border (after ssh session)
-for_window [class="URxvt" title="^[^:]+:(?<!w530:)"] border normal
+for_window [class="URxvt" title="^can@w530"] border normal
 
 #scratchpads
 bindsym $mod+Shift+Super_L move scratchpad
 bindsym $mod+Super_L scratchpad show
-
 for_window [instance="rainlendar"] move scratchpad
 
-#exec --no-startup-id urxvt -name 'scratchpad_urxvt' -g 130x24
-#for_window [instance="scratchpad_urxvt"] move to scratchpad, border 1pixel
-#bindsym XF86Launch1 [instance="scratchpad_urxvt"] scratchpad show, move position 110px 0px
-
 # My favorite programs
-#bindsym $sup+d exec "sudo zsh -u `$USER`"
 bindsym $sup+a exec audacious
 bindsym $sup+b exec $psst ~/develop/scripts/start-vbox.sh
-bindsym $sup+c exec qalculate
+bindsym $sup+c exec wine "C:\\Program Files\\AnalogX\\PCalc\\pcalc.exe"   
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec thunar
 bindsym $sup+g exec gimp
@@ -235,11 +236,9 @@ bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium-browser
 bindsym $sup+x exec keepassx
 bindsym $sup+z exec filezilla
-#bindsym $mod+Return exec urxvt
 bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return exec urxvt -cd `xcwd`
+bindsym $mod+Shift+Return "exec xcwd | xargs urxvt -cd"
 bindsym XF86ScreenSaver exec xflock4
-#bindsym XF86Launch1     exec xfce4-terminal --drop-down
 bindsym XF86AudioPlay exec audacious -t
 bindsym XF86AudioNext exec audacious -fp
 bindsym XF86AudioPrev exec audacious -rp
@@ -252,5 +251,12 @@ assign [class="Thunderbird"] $w3
 assign [class="Audacious"]   $w9
 assign [class="VirtualBox"]  $w0
 
-# autostart
-exec --no-startup-id /usr/bin/feh --bg-scale ~/graphics/soly.jpg
+#exec $psst urxvt -g 125x12+120 -name "quake_urxvt"
+#for_window [instance="quake_urxvt"] floating enable, move to scratchpad, border 1pixel
+#bindsym XF86Launch1 [instance="quake_urxvt"] scratchpad show, move position 150px 0px
+
+# quake style terminal
+exec $psst urxvt -name "quake_urxvt"
+for_window [instance="quake_urxvt"] floating enable, border none;
+for_window [instance="quake_urxvt"] move scratchpad; [instance="quake_urxvt"] scratchpad show; move position 0px 0px; resize grow height 400px; resize grow width 683px; move scratchpad
+bindsym XF86Launch1 [instance="quake_urxvt"] scratchpad show
