@@ -7,7 +7,10 @@
 # modifier = Alt, $sup = Wind0ws key
 set $mod Mod1
 set $sup Mod4
+# start application without hourglass mouse poiter
 set $psst --no-startup-id
+# immediatly update the statusbar
+set refresh && killall -SIGUSR1 i3status
 
 #new_window 1pixel
 #new_float  normal
@@ -243,6 +246,13 @@ bindsym XF86ScreenSaver exec xflock4
 bindsym XF86AudioPlay exec audacious -t
 bindsym XF86AudioNext exec audacious -fp
 bindsym XF86AudioPrev exec audacious -rp
+# Fn+key does not work on xe700
+
+bindsym Control+F8 exec pactl set-sink-volume 0 -- +5% $refresh
+bindsym Control+F7 exec pactl set-sink-volume 0 -- -5% $refresh
+bindsym Control+F6 exec pactl set-sink-mute 0 -- toggle
+bindsym Control+F2 exec xbacklight -10%
+bindsym Control+F3 exec xbacklight +10%
 
 bindsym $mod+Tab exec simpleswitcher -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
 
