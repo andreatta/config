@@ -243,14 +243,18 @@ bindsym $sup+z exec filezilla
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return "exec xcwd | xargs urxvt -cd"
 bindsym XF86ScreenSaver exec xflock4
+
 bindsym XF86AudioPlay exec audacious -t
 bindsym XF86AudioNext exec audacious -fp
 bindsym XF86AudioPrev exec audacious -rp
-# Fn+key does not work on xe700
 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 -- +5% $refresh
 bindsym Control+F8 exec pactl set-sink-volume 0 -- +5% $refresh
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -- -5% $refresh
 bindsym Control+F7 exec pactl set-sink-volume 0 -- -5% $refresh
+bindsym XF86AudioMute exec pactl set-sink-mute 0 -- toggle
 bindsym Control+F6 exec pactl set-sink-mute 0 -- toggle
+# Not all Fn+key are generated on xe700
 bindsym Control+F2 exec xbacklight -10%
 bindsym Control+F3 exec xbacklight +10%
 
