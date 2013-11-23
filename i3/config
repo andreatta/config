@@ -206,6 +206,7 @@ for_window [class="Audacious"] floating enable, border none
 for_window [instance="pcalc.exe"] floating enabled
 for_window [class="^(?i)chromium"] border none
 for_window [class="Thunderbird"] border none
+for_window [class="Synapse"] border none
 # return to normal border (after ssh session)
 for_window [class="URxvt" title="^can@w530"] border normal
 
