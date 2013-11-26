@@ -1,0 +1,380 @@
+### Panelrc ###
+### These settings are for xfec & LXDE's panels. ### 
+### And a few extra xfce tweaks. ###
+
+  #############################################################
+# PANEL SETTINGS / XFCE / LXDE / GNOME2
+#############################################################
+
+style "panel"  = "gtk_color"
+{
+	WnckTasklist	:: fade-overlay-rect		= 1
+	WnckTasklist	:: fade-opacity			= 1.0
+	WnckTasklist	:: fade-loop-time		= 6.0
+
+	GtkArrow	:: arrow-scaling		= 0.4
+	
+	xthickness = 0
+	ythickness = 0
+
+
+
+	bg_pixmap[NORMAL] 			= "panel-background/panel-26.png"
+  engine "pixmap"
+  {
+  }
+}
+
+#############################################################
+#THESE DECLARATIONS MAKE SURE THE PANEL STILL USES PANEL STYLE
+#many of these are depreciated with gnome-2
+#############################################################
+
+class	"PanelToplevel*" 							style		"panel"			# For Window List Menu... I think
+widget_class "*PanelToplevel*"		style "panel"
+class "*Mail*" 				style "panel"
+class "*notif*" 			style "panel"
+class "*Notif*" 			style "panel"
+class "*Tray*" 				style "panel"
+class "*tray*" 				style "panel"
+widget_class "*Mail*" 			style "panel"
+widget_class "*notif*" 			style "panel"
+widget_class "*Notif*" 			style "panel"
+widget_class "*Tray*" 			style "panel"
+widget_class "*tray*" 			style "panel"
+widget_class "*BonoboDockItem" 		style "panel"
+class "*BonoboDockItem" 		style "panel"
+widget "*TrayIcon*" 			style "panel"
+class "*Panel*Applet*" 			style "panel"
+widget_class "*Panel*GtkToggleButton" 	style "panel"
+widget_class	"*Panel*GtkToggleButton*"						style		"panel"
+widget_class "*Panel*GtkButton" 	style "panel"
+widget_class "*.Panel*Button*GtkLabel" 	style "panel"
+widget_class "*.Panel*GtkLabel" 	style "panel"
+widget "*PanelWidget*" 			style "panel"
+widget "*PanelApplet*" 			style "panel"
+widget "*fast-user-switch*"		style "panel"
+widget "*CPUFreq*Applet*"		style "panel"
+widget "*indicator-applet*"		style "panel"
+class "PanelApp*"			style "panel"
+widget_class "*computertemp*"		style "panel"
+widget_class "*Applet*Tomboy*"		style "panel"
+widget_class "*Applet*Netstatus*"	style "panel"
+widget "*.tclock.*"		style "panel"
+widget "*.taskbar.*"		style "panel"
+widget_class "*GtkBgbox*"	style "panel"
+class		"PanelApplet" 								style		"panel"			# Task List, Calendar Button, Grip
+widget		"*Deskbar*Arrow" 							style		"panel"			# Deskbar Panel Applet
+#############################################################
+#THE COMMENTED CLASSES FIXES A PANEL BUG THAT MADE SOME 
+#TRAY ICONS MOVE DOWN 1 PIXEL , A VERY BIG THANKS TO MOOMEX
+#FOR THIS INFORMATION!!!!!!
+#############################################################
+# THANKS TO merlwiz79 FOR THESE FIXES
+#############################################################
+
+widget_class "*Netstatus*" 		style "panel"
+widget_class "*Tomboy*Tray*" 		style "panel"
+widget "*fast-user-switch*" 		style "panel"
+widget_class "*PanelToplevel*" 		style "panel"
+class "Xfce*Panel*" 			style "panel"
+widget_class "*Xfce*Panel*" 		style "panel"
+widget_class "*PanelApplet*" 		style "panel"
+widget_class "*PanelWidget*" 		style "panel"
+widget		"*Xfce*Panel*Tasklist*"							style:rc		"panel"
+
+#############################################################
+
+style "panel-buttons"
+{
+	xthickness            			= 4
+	ythickness            			= 4
+	GtkWidget::focus_padding 		= 2
+	
+	fg[NORMAL]			= shade(0.92, @fg_color)
+	fg[PRELIGHT]		= @selected_fg_color
+	fg[SELECTED]		= @selected_fg_color
+	fg[INSENSITIVE]		= shade(0.5, @fg_color)
+	fg[ACTIVE]			= "#dddddd"
+
+	engine "pixmap"
+	 { 
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= NORMAL
+		file            		= "images/buttons/panel/panel-normal.svg"
+		border          		= { 4, 4, 5,4 }
+		stretch         		= TRUE
+	}	
+	image
+	{
+		function        		= BOX
+		shadow					= OUT
+		recolorable     		= TRUE
+		state					= PRELIGHT
+		file            		= "images/buttons/panel/panel-hover.svg"
+		border          		= { 4, 4, 5,4 }
+		stretch         		= TRUE
+	}		
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		shadow					= IN
+		state					= PRELIGHT
+		file            		= "images/buttons/panel/panel-active-hover.svg"
+		border          		= { 4, 4, 5,4 }
+		stretch         		= TRUE
+	}
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= ACTIVE
+		file            		= "images/buttons/panel/panel-active.svg"
+		border          		= { 4, 4, 5,4 }
+		stretch         		= TRUE
+	}  
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= INSENSITIVE
+		file            		= "images/buttons/panel/panel-normal.svg"
+		border          		= { 4, 4, 5,4 }
+		stretch         		= TRUE
+		overlay_file			= "images/other/stripes-b.png"
+	 overlay_stretch			= FALSE
+	} 
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= SELECTED
+		file            		= "images/buttons/panel/panel-active.svg"
+		border          		= { 4, 4, 5,4 }
+		stretch         		= TRUE
+	}  
+ }
+}
+
+style "panel-toggle-buttons" = "panel"
+{
+	GtkWidget::focus_padding = 0
+	
+	xthickness            			= 4
+	ythickness            			= 1
+
+	bg[NORMAL]	= shade (1.1, "#0a0a0a")
+	bg[ACTIVE]	= shade (0.9, "#0a0a0a")
+	bg[PRELIGHT]	= shade (1.3, "#0a0a0a")
+	bg[SELECTED]	= shade (0.78, "#0a0a0a")
+
+	engine "pixmap" 
+   {
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= NORMAL
+		file            		= "images/other/panel.png"
+		border          		= { 2,2,2,2 }
+		stretch         		= TRUE
+	}
+	image
+	{
+		function				= BOX
+		recolorable				= TRUE
+		shadow					= OUT
+		state					= PRELIGHT
+		file					= "images/buttons/panel/panel-menu.svg"
+		border					= { 3,3,3,3 }
+		stretch					= TRUE
+	}
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		shadow					= IN
+		state					= PRELIGHT
+		file            		= "images/buttons/panel/panel-menu-active.svg"
+		border          		= { 3,3,3,3 }
+		stretch         		= TRUE
+	}
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= ACTIVE
+		file					= "images/buttons/panel/panel-menu-active.svg"
+		border					= { 3,3,3,3 }
+		stretch         		= TRUE
+	} 
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= INSENSITIVE
+		file					= "images/buttons/panel/panel-menu.svg"
+		border					= { 3,3,3,3 }
+		stretch         		= TRUE
+	}
+	image
+	{
+		function        		= BOX
+		recolorable     		= TRUE
+		state					= SELECTED
+		file					= "images/buttons/panel/panel-menu-active.svg"
+		border					= { 3,3,3,3 }
+		stretch         		= TRUE
+	}  
+  }
+}
+
+# This applies to xfce clock for some reason #
+# change the color to whatever you like, replace the '*' with the name of the font of your choice
+# and lastly change the '10' to whatever font size you would like #
+style "panel-frame-label"
+{
+	fg[NORMAL]   =  shade(1.0, @text_color)
+	
+	engine "murrine"
+ 	{
+		text_shade = 1.3
+		textstyle = 2
+		
+	}
+}
+
+style "switcher" = "gtk_color"
+{
+xthickness 		= 3
+ythickness 		= 3
+
+	bg[NORMAL]			= shade(0.88, @bg_color)
+	bg[PRELIGHT]		= shade (0.78, @bg_color)
+	bg[SELECTED]		= @selected_bg_color
+
+	fg[NORMAL]			= "#787878"
+	fg[PRELIGHT]		= "#9d9d9d"
+	fg[SELECTED]		= shade(1.8, @selected_bg_color)
+
+}
+
+widget_class "*Pager*" 				style "switcher"
+
+style "xfdesktop-icon-view" { 
+	XfdesktopIconView::label-alpha = 120.00
+
+		base[NORMAL] 	= "#000000"
+		base[SELECTED] 	= @selected_bg_color
+		base[ACTIVE] 	= shade (0.7, @selected_bg_color)
+		base[INSENSITIVE] = "#1f1f1f"
+		fg[NORMAL]		= "#d2d2d2"
+		fg[SELECTED] 	= @selected_fg_color
+		fg[ACTIVE] 		= "#ababab"
+
+	engine "murrine" { 	
+		textstyle 	= 1 
+}}
+
+#This is for the desktop icons
+widget_class "*XfdesktopIconView*" style "xfdesktop-icon-view"
+
+#this is the open close log-out dialogue button# ##(otherwise try 'xfce-panel-button') its sub class of GtkButton!##
+widget_class "*<XfceArrowButton>" 	style "panel-toggle-buttons"
+widget_class "*<XfceActionsPlugin>*"  style "panel-toggle-buttons"
+
+#This is the mount button#
+widget_class "*XfcePanelPlugin.GtkButton"  style "panel-toggle-buttons"
+
+#This is the volume button#
+widget_class "*XfceVolumeButton*"  style "panel-toggle-buttons"
+
+#xfce system tray#
+widget_class "*XfceSystrayPlugin"   style "panel"
+
+widget 	"*dict*Applet*"	style "panel-toggle-buttons"
+#This is the applications Menu Button#
+widget_class "*Panel*GtkToggleButton" 		style "panel-toggle-buttons"
+
+widget_class "*Xfce*NetkTasklist*GtkToggleButton" style "panel-toggle-buttons"
+
+#This is for the window-list/task-list buttons#
+widget_class "*PanelToplevel*GtkToggleButton"   style "button" #LXDE's task list buttons are inside GtkEventboxes.  There fore the 'panel-button' wont draw properly.  So I chose to use the default buttons here.#
+widget "*tasklist*" 			style:highest "panel-buttons"
+
+#This is for the panel clock#
+widget_class "*Panel*.<GtkFrame>.<GtkLabel>" 		style "panel-frame-label"
+
+#
+
+style "panel_text"  
+{
+engine "murrine"
+ 	{
+		text_shade = 1.3
+		textstyle = 2
+		
+	}
+} 
+
+# Menubar
+widget "*PanelMenuBar*"				style "panel"
+widget_class "*Panel*<GtkMenuBar>*"		style "panel"
+#widget "*.clock-applet-button.*"		style "panel"
+widget "*PanelApplet*"				style "panel"
+#widget_class "*PanelAppletFrame*BonoboWidget*"	style "panel"
+
+widget_class "*Panel*GtkLabel" style "panel_text"
+widget_class "*<XfceArrowButton>*<GtkLabel>" style:highest "panel_text"
+widget_class "*<XfceActionsPlugin>*<GtkLabel>" style:highest "panel_text"
+widget_class "*Panel*GtkToggleButton*<GtkLabel>" style:highest "panel_text"
+widget_class "*tasklist*<GtkLabel>" style:highest "panel_text"
+
+
+style "panel-progressbar" {
+	xthickness	= 1
+	ythickness	= 1
+	
+	fg[PRELIGHT] 	= "#040404"
+	fg[NORMAL] 		= shade(0.9, @text_color)
+    font_name 		= "Bold"
+	
+	bg[NORMAL]  = "#1a1a1a"
+	bg[SELECTED]	=  @fg_color
+	bg[INSENSITIVE]	= "#161616"
+	bg[ACTIVE]	= "#1a1a1a"
+
+	engine "murrine" {
+		progressbarstyle	= 0
+		#gradient_shades		= {0.80, 1.00, 1.00, 1.20}
+		glazestyle		= 1
+		roundness			= 0
+		reliefstyle			= 0
+		trough_border_shades = {0.9, 3.0}
+		#border_shades		= { 3.1, 0.4 }
+		textstyle		= 1	
+		text_shade = 0.8
+	}
+}
+
+style "panel-menu-progressbar" = "panel-progressbar" {
+	bg[ACTIVE]	= "#121212"
+engine "murrine" {
+		progressbarstyle	= 0
+		gradient_shades		= {1.20, 1.00, 1.0, 0.75}
+		glazestyle		= 0
+		roundness			= 2
+		reliefstyle			= 0
+		trough_border_shades = {0.75, 1.75}
+		textstyle		= 1	
+		text_shade = 0.8
+		trough_shades		= {0.90,  1.4}
+	}
+}
+
+widget_class "*Panel*<GtkProgressBar>" 		style "panel-progressbar"
+widget_class "*<GtkMenu>*<GtkProgressBar>" 		style "panel-menu-progressbar"

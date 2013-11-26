@@ -1,0 +1,1038 @@
+@define-color documents_collection_bg #000000;
+
+/* gnome-documents */
+
+/*This provides indented shadow behind tabs*/
+NautilusWindow GtkPaned,
+NemoWindow GtkPaned {
+	background-color: transparent;
+	background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.46),
+                                      rgba(0,0,0,0.0)50px,
+                                      rgba(0,0,0,0)), 
+                                      url("assets/delorean-darker-bg.png");
+    background-repeat: repeat;
+}
+
+
+.toolbar.menubar NautilusPathBar.linked .button, 
+.toolbar.menubar NautilusPathBar .button,
+GtkFileChooserDefault .linked .button,
+.toolbar.menubar NautilusPathBar.linked .button:backdrop, 
+.toolbar.menubar NautilusPathBar .button:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:backdrop, 
+.toolbar.menubar NautilusPathBar .button:hover:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.28) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked .button,
+GtkFileChooserDefault .linked .button:backdrop, 
+GtkFileChooserDefault .linked .button:hover:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.10) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+							
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:hover,
+GtkFileChooserDefault .linked .button:hover {
+	background-image: url("assets/arrow-up-pathbar-bottom-dummy.svg"),
+						-gtk-gradient (radial, 
+										center 1.5, 0,
+										center 1.3, 0.7,
+										from(rgba(255,255,255,0.65)),
+										to(transparent));
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.58) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+	transition: 60ms ease-out; 
+	background-repeat: no-repeat;
+    background-position: center bottom; 
+    background-size: 13px 13px, auto;                               		
+}
+
+GtkFileChooserDefault .linked .button:hover {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset; 			
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active,
+.toolbar.menubar NautilusPathBar.linked .button:active:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.14) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				
+				1px 0 alpha(white, 0.03) inset;	
+	background-image: url("assets/arrow-up-pathbar-bottom-dark.svg"),
+					  linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 96%,
+                                      rgba(255,255,255,0.32)
+                                      );    
+	transition: 20ms ease-out;	
+	background-repeat: no-repeat;
+    background-position: center bottom;	
+    background-size: 13px 13px, auto;		
+}
+
+GtkFileChooserDefault .linked .button:active,
+GtkFileChooserDefault .linked .button:active:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:backdrop {
+	box-shadow: 0 1px alpha(black, 0.56) inset,
+				0 2px alpha(black, 0.14) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.08) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;
+				
+	background-image: url("assets/arrow-up-file-pathbar-bottom-dark.svg"),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.12)
+                                      );                                                                 			
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active:hover {
+	background-image: url("assets/arrow-up-pathbar-bottom-dark.svg"),
+						-gtk-gradient (radial, 
+										center 1.5, 0,
+										center 1.3, 0.7,
+										from(rgba(255,255,255,0.65)),
+										to(transparent)),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 94%,
+                                      alpha(mix(white, @theme_selected_bg_color, 0.65), 0.4)
+                                      );
+	
+    transition: 60ms ease-out;				
+	border-image: none;	
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto, auto;	
+    
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.14) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked .button:active:hover {
+	background-image: url("assets/arrow-up-file-pathbar-bottom-dark.svg"),
+						-gtk-gradient (radial, 
+										center 1.5, 0,
+										center 1.3, 0.7,
+										from(rgba(255,255,255,0.6)),
+										to(transparent)),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 96%,
+                                      alpha(mix(white, @theme_selected_bg_color, 0.65), 0.4)
+                                      );
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.18) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;                                   
+                                     
+    transition: 20ms ease-out;	
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto, auto;
+}
+
+/* Leftmost toolbars-button */
+.toolbar.menubar NautilusPathBar.linked .button:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:hover:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.28) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset;									
+}
+
+GtkFileChooserDefault .linked  .button:first-child,
+GtkFileChooserDefault .linked  .button:hover:first-child,
+GtkFileChooserDefault .linked  .button:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:hover:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:first-child,
+GtkFileChooserDefault .linked  .button:active:hover:first-child,
+GtkFileChooserDefault .linked  .button:active:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:insensitive:first-child,
+GtkFileChooserDefault .linked  .button:insensitive:first-child:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.10) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+/* Leftmost toolbars-button normal */
+.toolbar.menubar NautilusPathBar.linked .button:hover:first-child {  
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.58) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset;		
+}
+
+GtkFileChooserDefault .linked .button:hover:first-child { 
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+/* Leftmost toolbars-button active */
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child:backdrop {	
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.14) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;							
+}
+
+GtkFileChooserDefault .linked .button:active:first-child,
+GtkFileChooserDefault .linked .button:active:first-child:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:first-child:backdrop {
+    box-shadow: 0 1px alpha(black, 0.56) inset,
+				0 2px alpha(black, 0.14) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.08) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;				
+}
+
+GtkFileChooserDefault .linked .button:active:hover:first-child {
+    box-shadow: 0 1px alpha(black, 0.56) inset,
+				0 2px alpha(black, 0.14) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.18) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;				
+}
+
+/* Leftmost toolbars-button insensitive */
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child:backdrop {
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.26) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;            
+}
+
+GtkFileChooserDefault .linked .button:insensitive:first-child,
+GtkFileChooserDefault .linked .button:insensitive:first-child:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.10) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				-1px 0 alpha(black, 0.22) inset;            
+}
+
+/* Rightmost toolbar-button */
+.toolbar.menubar NautilusPathBar.linked .button:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:hover:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child:backdrop {
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.28) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;					
+}
+
+GtkFileChooserDefault .linked  .button:last-child,
+GtkFileChooserDefault .linked  .button:hover:last-child,
+GtkFileChooserDefault .linked  .button:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:hover:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:last-child,
+GtkFileChooserDefault .linked  .button:active:hover:last-child,
+GtkFileChooserDefault .linked  .button:active:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:insensitive:last-child,
+GtkFileChooserDefault .linked  .button:insensitive:last-child:backdrop {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.10) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/* Rightmost toolbar-button normal */
+.toolbar.menubar NautilusPathBar.linked .button:hover:last-child {   
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.58) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;	
+}
+
+GtkFileChooserDefault .linked .button:hover:last-child { 
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/* Rightmost toolbar-button active */
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child:backdrop {
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.14) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;	
+}
+
+GtkFileChooserDefault .linked  .button:active:last-child,
+GtkFileChooserDefault .linked  .button:active:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:last-child:backdrop {
+    border-image-width: 0;			
+	box-shadow: 0 1px alpha(black, 0.56) inset,
+				0 2px alpha(black, 0.14) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.08) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;	
+}
+
+GtkFileChooserDefault .linked  .button:active:hover:last-child{
+    border-image-width: 0;			
+	box-shadow: 0 1px alpha(black, 0.56) inset,
+				0 2px alpha(black, 0.14) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(mix(white, @theme_selected_bg_color, 0.85), 0.18) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;	
+}
+
+/* Rightmost toolbar-button insensitive */
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.26) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(black, 0.22) inset;
+}
+
+GtkFileChooserDefault .linked .button:insensitive:last-child,
+GtkFileChooserDefault .linked .button:insensitive:last-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+	
+				0 -1px alpha(white, 0.10) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/***************************************************/
+NemoWindow .toolbar .button:hover {
+    border-color: #0f0f0f;
+}
+
+NemoWindow .toolbar .button:active,
+NemoWindow .toolbar .button:active:hover {
+	border-color: #080808;
+}    
+
+NemoWindow .primary-toolbar .button,
+NemoWindow .primary-toolbar .button:insensitive
+NemoWindow .primary-toolbar .button:backdrop,
+NemoWindow .primary-toolbar .button:hover:backdrop,
+NemoWindow .primary-toolbar .button:insensitive:backdrop {
+	border-image: none;
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+    
+    transition: 120ms ease-in-out;
+}
+
+NemoWindow .primary-toolbar .button:hover:hover {
+    border-image: url("borders/primary/primary-hover-dark.svg") 4 / 4px stretch;
+}
+
+NemoWindow .primary-toolbar .button:active,
+NemoWindow .primary-toolbar .button:active:hover,
+NemoWindow .primary-toolbar .button:active:insensitive:insensitive {
+    border-image: url("borders/primary/primary-active-dark.svg") 4 / 4px stretch;
+}
+
+NemoWindow .primary-toolbar .button:active:backdrop,
+NemoWindow .primary-toolbar .button:active:hover:backdrop,
+NemoWindow .primary-toolbar .button:active:insensitive:insensitive:backdrop {
+    border-image: url("borders/primary/primary-active-backdrop-dark.svg") 4 / 4px stretch;
+}
+
+/************************************************/
+/* evolution & Rhythmbox-Search-Entry */
+RBSource .entry { /*Fixes unreadable text in HTML messages and mail lists for DARK Themes*/
+	color: @theme_fg_color;
+    box-shadow: 0 -1px rgba(255,255,255,0.09) inset,
+				
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+				
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;			
+	background-color: #080808;	
+}
+
+RBSource .entry:focus { 
+	color: shade(@theme_text_color, 1.1);
+    box-shadow: 0 -1px rgba(255,255,255,0.09) inset,
+				
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+				
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;			
+	background-color: #030303;	
+}	
+
+RBSource .entry:backdrop,
+RBSource .entry:focus:backdrop,
+EShellWindow .entry:backdrop,
+EShellWindow .entry:focus:backdrop {
+    color: shade(@theme_fg_color, 0.8);
+    background-color: shade(#080808,0.6);
+    background-image: none;		
+}
+
+RBSource .toolbar .button:hover {
+	border-image: url("borders/button/button-hover-dark.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+}
+
+RBSource .toolbar .button:active,
+RBSource .toolbar .button:hover:active,
+RBSource .toolbar .button:hover:active,
+RBSource .toolbar GtkMenuButton.button:active,
+RBSource .toolbar GtkMenuButton.button.raised:active {
+	border-image: url("borders/button/button-hover-dark.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+}
+
+/***************** Evolution ************************/
+EMailShellContent .entry {
+	background-image:none;
+	background-color: mix(#2a2a2a, @theme_selected_bg_color, 0.04);
+	color: #ddddd4;
+}
+
+ECalShellContent .entry,
+EMemoShellContent .entry,
+ETaskShellContent .entry {
+	background-image:none;
+	background-color: #828282;
+	color: #060606;
+}
+
+ESearchbar .entry,
+EShellSearchbar .entry { 
+	color: @theme_fg_color;
+    box-shadow: 0 -1px rgba(255,255,255,0.11) inset,
+				
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+				
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;			
+	background-color: #080808;	
+}
+
+ESearchbar .entry:focus,
+EShellSearchbar .entry:focus { 
+	color: shade(@theme_text_color, 1.1);
+    box-shadow: 0 -1px rgba(255,255,255,0.11) inset,
+				
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+				
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;		
+	background-color: #030303;	
+}
+
+ESearchbar .entry:backdrop:backdrop,
+EShellSearchbar .entry:backdrop:backdrop,
+ESearchbar .entry:focus:backdrop:backdrop,
+EShellSearchbar .entry:focus:backdrop:backdrop {
+    color: shade(@theme_fg_color, 0.8);
+    background-color: #060606;
+    background-image: none;		
+}
+
+EAttachmentPaned* .entry,
+EShellWindow EPreviewPane* .entry,
+EBookShellContent EPreviewPane* .entry {
+	color: #e2e2e2;
+	background-color: #030303;
+	background-image: none;
+}		
+	
+/* *Evolution Calendar* */
+ECalendar {
+	background-color: #0d0d0d;
+	background-image: none;
+	color: #d2d2d2;
+}
+
+EShellWindow .entry EWeekView*, /*days of week background in MonthView*/
+EShellWindow EWeekView* {
+	background-image: none;
+	background-color: mix(shade(@theme_fg_color, 0.95), shade(@theme_selected_bg_color, 0.85), 0.3);
+}
+
+/***************************************/
+.documents-collection-icon {
+    background-color: @documents_collection_bg;
+    border-radius: 8px;
+}
+
+
+
+/* epiphany */
+EphyToolbar.toolbar .entry {
+	color: @theme_fg_color;
+	background-color: #080808;	
+}
+
+EphyToolbar.toolbar .entry:focus {
+	color: shade(@theme_text_color, 1.1);
+	background-color: #030303;	
+}
+
+EphyToolbar.toolbar .entry:backdrop {
+	color: shade(@theme_fg_color, 0.8);
+    background-color: #060606;
+    background-image: none;	
+}
+
+EphyToolbar.toolbar .entry:first-child,
+EphyToolbar.toolbar .entry:focus:first-child,
+EphyToolbar.toolbar .entry:backdrop:first-child {
+    box-shadow: 0 -1px rgba(255,255,255,0.09) inset,
+				
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+				
+				-1px 0 rgba(0,0,0,0.56) inset;
+}
+
+EphyToolbar.toolbar .entry:last-child,
+EphyToolbar.toolbar .entry:focus:last-child,
+EphyToolbar.toolbar .entry:backdrop:last-child {
+    box-shadow: 0 -1px rgba(255,255,255,0.09) inset,
+				
+				0px 1px rgba(0,0,0,0.20) inset,
+				0px 2px rgba(0,0,0,0.16) inset,
+				0px 3px rgba(0,0,0,0.12) inset,
+				0px 4px rgba(0,0,0,0.08) inset,
+				0px 5px rgba(0,0,0,0.04) inset,
+				0px 6px rgba(0,0,0,0.02) inset,
+				
+				1px 0 rgba(255,255,255,0.06) inset,
+				
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;
+}
+
+EphyToolbar .location-entry .button,
+EphyToolbar .location-entry .button:hover,
+EphyToolbar .location-entry .button:active,
+EphyToolbar .location-entry .button:active:hover,
+EphyToolbar .location-entry .button:backdrop,
+EphyToolbar .location-entry .button:hover:backdrop,
+EphyToolbar .location-entry .button:insensitive, 
+EphyToolbar .location-entry .button:insensitive:backdrop {
+    background-color: #080808;
+    box-shadow: 0 -1px rgba(255,255,255,0.09) inset,
+				
+				0px 1px rgba(0,0,0,0.20) inset,
+				0px 2px rgba(0,0,0,0.16) inset,
+				0px 3px rgba(0,0,0,0.12) inset,
+				0px 4px rgba(0,0,0,0.08) inset,
+				0px 5px rgba(0,0,0,0.04) inset,
+				0px 6px rgba(0,0,0,0.02) inset,
+				
+				1px 0 rgba(255,255,255,0.06) inset;
+}
+
+EphyToolbar .location-entry .button:first-child,
+EphyToolbar .location-entry .button:first-child:hover,
+EphyToolbar .location-entry .button:first-child:active,
+EphyToolbar .location-entry .button:first-child:active:hover,
+EphyToolbar .location-entry .button:backdrop:first-child, 
+EphyToolbar .location-entry .button:backdrop:hover:first-child,
+EphyToolbar .location-entry .button:insensitive:first-child, 
+EphyToolbar .location-entry .button:insensitive:backdrop:first-child {
+	box-shadow: 0 -1px rgba(255,255,255,0.09) inset,
+				
+				0px 1px rgba(0,0,0,0.20) inset,
+				0px 2px rgba(0,0,0,0.16) inset,
+				0px 3px rgba(0,0,0,0.12) inset,
+				0px 4px rgba(0,0,0,0.08) inset,
+				0px 5px rgba(0,0,0,0.04) inset,
+				0px 6px rgba(0,0,0,0.02) inset,
+				
+				0 1px rgba(0,0,0,0.58) inset;			
+}
+
+/*contacts*/
+/* Border on the right in the left menu toolbar */
+.contacts-left-toolbar.toolbar.menubar {
+    border-image: linear-gradient(to bottom, transparent, #030303);
+    border-image-width: 0 1px 0 0;
+    border-image-slice: 1;
+}
+
+.contacts-left-toolbar.toolbar.menubar:backdrop {
+    border-image: linear-gradient(to bottom, transparent, shade(#030303, 0.8));
+    border-image-width: 0 1px 0 0;
+    border-image-slice: 1;
+}
+
+/* Sidebar with line at top and the left */
+ContactsWindow .sidebar.frame {
+ border-width: 1px 1px 0 0;
+ border-style: solid;
+ border-color: #030303;
+ border-image: none;
+ border-radius: 0;
+ padding: 0;
+}
+
+.contacts-button:active {
+ border-color: #0a0a0a;
+ border-image: none;
+}
+
+.toolbar.contacts-edit-toolbar,
+.toolbar.contacts-selection-toolbar { /*Not sure about this*/
+	padding: 6px;
+	border-width: 1px 0 0 0;
+	border-style: solid;
+	border-color: alpha(black, 0.45);
+	border-image: none;
+	background-color: transparent;
+    background-image: linear-gradient(to bottom, 
+                                     alpha(white, 0.2), 
+                                     alpha(black, 0.2)
+                                      ),
+                      linear-gradient(to bottom, 
+                                     alpha(white, 0.06), 
+                                     alpha(white, 0.06)
+                                      );                
+    box-shadow: inset 0 1px alpha(white, 0.09),
+				inset 0 2px alpha(white, 0.01),
+				inset 0 -1px alpha(black, 0.26),
+				inset 0 -2px alpha(black, 0.02);			
+}
+
+.toolbar.contacts-edit-toolbar:backdrop,
+.toolbar.contacts-selection-toolbar:backdrop { 
+	background-color: transparent;
+    background-image: linear-gradient(to bottom, 
+                                     alpha(white, 0.15), 
+                                     alpha(black, 0.15)
+                                      ),
+                      linear-gradient(to bottom, 
+                                     alpha(white, 0.0), 
+                                     alpha(white, 0.0)
+                                      );                
+    box-shadow: inset 0 1px alpha(white, 0.07),
+				inset 0 2px alpha(white, 0.005),
+				inset 0 -1px alpha(black, 0.26),
+				inset 0 -2px alpha(black, 0.02);			
+}
+
+EvWindow.background EvSidebarAnnotations.vertical GtkToolPalette > GtkToolItemGroup > .button { 
+    border-image: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 1px;
+    border-color: #020202;
+}
+
+MathWindow {
+    color: @theme_text_color;    
+    background-image: url("assets/delorean-darker-bg.png");
+    background-repeat: repeat;
+    background-position: top left;
+}
+MathWindow .button {
+	background-image: linear-gradient(to bottom, 
+                                      alpha(white, 0.06), 
+                                      alpha(white, 0.0) 49%,
+                                      alpha(black, 0.01) 51%,
+                                      alpha(black, 0.26)
+                                      ),
+                      linear-gradient(to bottom, 
+                                      #060606, 
+                                      #060606
+                                      );
+    border-color: shade(#060606, 0.7);
+    box-shadow: 0 1px alpha(white, 0.07) inset,
+				1px 0 alpha(white, 0.02) inset;
+}
+
+MathWindow .button:backdrop,
+MathWindow .button:hover:backdrop {
+	background-image: linear-gradient(to bottom, 
+                                      alpha(white, 0.04), 
+                                      alpha(white, 0.0) 49%,
+                                      alpha(black, 0.01) 51%,
+                                      alpha(black, 0.22)
+                                      ),
+                      linear-gradient(to bottom, 
+                                      shade(#060606, 0.8), 
+                                      shade(#060606, 0.8)
+                                      );
+    border-color: shade(#060606, 0.5);
+    box-shadow: 0 1px alpha(white, 0.04) inset;
+}
+
+MathWindow .button:hover {
+	background-image: linear-gradient(to bottom, 
+                                      alpha(white, 0.12), 
+                                      alpha(white, 0.0) 49%,
+                                      alpha(black, 0.01) 51%,
+                                      alpha(black, 0.20)
+                                      ),
+                      linear-gradient(to bottom, 
+                                      mix(#060606, @theme_selected_bg_color, 0.08), 
+                                      mix(#060606, @theme_selected_bg_color, 0.08)
+                                      );
+    border-color: shade(#060606, 0.7);
+    box-shadow: 0 1px alpha(white, 0.07) inset,
+				1px 0 alpha(white, 0.02) inset;                                  
+}
+
+MathWindow .button:active,
+MathWindow .button:active:hover {
+	border-color: shade(#060606, 0.5);
+    box-shadow: 0 1px alpha(white, 0.04) inset,
+				-1px 0 alpha(white, 0.02) inset;                               
+}
+
+MathWindow .button:nth-child(last),
+MathWindow .button:nth-child(last):backdrop,
+MathWindow .button:nth-child(last):hover:backdrop {
+	border-image: url("borders/button/button-dark.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+}
+
+MathWindow .button:nth-child(last):hover {
+	border-image: url("borders/button/button-hover-dark.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+}	
+
+MathWindow .button:nth-child(last):active,
+MathWindow .button:nth-child(last):active:hover {
+	border-image: url("borders/button/button-active-dark.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+}		
+
+	
+
+
+
+
+	

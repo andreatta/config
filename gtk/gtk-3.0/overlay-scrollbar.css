@@ -1,0 +1,33 @@
+/* overlay scrollbar */
+OsThumb {
+    color: shade (@fg_color, 1.6);
+}
+
+OsThumb:selected,
+OsScrollbar:selected {
+	background-color: shade(@theme_selected_bg_color,1.2);
+}
+
+OsThumb:active,
+OsScrollbar:active {
+	background-color: shade (@bg_color, 0.65);
+}
+
+OsThumb:insensitive,
+OsScrollbar:insensitive {
+	background-color: shade (@bg_color, 0.85);
+}
+
+/*******************
+ * scrolled window *
+ *******************/
+.ubuntu-online-accounts.frame {
+    border-width: 2px;
+    border-radius: 2px;
+    padding: 0;
+	border-image: url("assets/frame-3.png") 2 / 2px stretch;
+}
+
+.ubuntu-online-accounts.frame {
+    border-top-width: 0;
+}

@@ -1,0 +1,38 @@
+/*Unity Simple*/
+UnityPanelWidget,
+.unity-panel {
+	 background-image: linear-gradient(to bottom, 
+                                      mix(#0d0d0d, @theme_selected_bg_color, 0.04), 
+                                      mix(#0b0b0b, @theme_selected_bg_color, 0.04)
+                                      );
+    background-color: transparent;                                 
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: #060606;
+}
+
+.unity-panel.menubar,
+.unity-panel .menubar {
+	color: @theme_text_color;
+    text-shadow: 0 -1px alpha(black, 0.45);
+}
+
+.unity-panel.menuitem,
+.unity-panel .menuitem {
+	color: @theme_text_color;
+	icon-shadow: 0 -1px alpha(black, 0.45);
+}
+	
+.unity-panel.menubar.menuitem:hover,
+.unity-panel.menubar .menuitem *:hover {
+    color: @theme_selected_fg_color;
+    text-shadow: 0 -1px alpha(black, 0.45);
+    background-image: none;               
+	background-color: alpha(white, 0.03);
+	box-shadow: none; 
+	border-image: none;
+    border-radius: 0px;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: alpha(black, 0.1); 
+}

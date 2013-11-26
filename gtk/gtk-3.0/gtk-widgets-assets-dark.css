@@ -1,0 +1,286 @@
+/***************
+ * Resize grip *
+ ***************/
+
+.grip {
+    background-color: transparent;
+    background-image: url("assets/resize-grip.svg");
+}
+
+/*******************
+ * Pane separators *
+ *******************/
+.pane-separator {
+    background-image: url("assets/pane-separator-grip-dark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pane-separator:hover {
+    background-image: url("assets/pane-separator-grip-prelight-dark.svg");
+}
+
+.pane-separator.vertical {
+    background-image: url("assets/pane-separator-grip-vertical-dark.svg");
+}
+
+.pane-separator.vertical:hover {
+    background-image: url("assets/pane-separator-grip-vertical-prelight-dark.svg");
+}
+
+/*************************
+ * Check and Radio items *
+ *************************/
+.check {
+    background-image: url("assets/check-radio/check-unchecked-dark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.check:insensitive {
+    background-image: url("assets/check-radio/check-unchecked-insensitive-dark.svg");
+}
+ 
+.check:active {
+    background-image: url("assets/check-radio/check-active-dark.svg");
+}
+
+.check:active:insensitive {
+    background-image: url("assets/check-radio/check-active-insensitive-inset-dark.svg");
+}
+
+.check:inconsistent {
+    background-image: url("assets/check-radio/check-mixed-inset-dark.svg");
+}
+
+.check:inconsistent:insensitive {
+    background-image: url("assets/check-radio/check-mixed-insensitive-inset-dark.svg");
+}
+
+.radio {
+    background-image: url("assets/check-radio/radio-un-dark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.radio:insensitive {
+    background-image: url("assets/check-radio/radio-insensitive-dark.svg");
+}
+
+.radio:active {
+    background-image: url("assets/check-radio/radio-active-dark.svg");
+}
+
+.radio:active:insensitive {
+    background-image: url("assets/check-radio/radio-insensitive-active-dark.svg");
+}
+
+.radio:inconsistent {
+    background-image: url("assets/check-radio/radio-mixed-dark.svg");
+}
+
+.radio:inconsistent:insensitive {
+    background-image: url("assets/check-radio/radio-mixed-insensitive-dark.svg");
+}
+
+/*********************
+ * GtkScale's slider *
+ *********************/
+ /*
+.scale.slider,
+.scale.slider.horizontal {
+    background-image: url("assets/scale-slider-horz-dark.png");
+}
+
+.scale.slider:hover,
+.scale.slider.horizontal:hover {
+    background-image: url("assets/scale-slider-horz-hover-dark.png");
+}
+
+.scale.slider:active,
+.scale.slider:active:hover,
+.scale.slider.horizontal:active,
+.scale.slider.horizontal:active:hover {
+    background-image: url("assets/scale-slider-horz-active-dark.png");
+}
+
+.scale.slider:backdrop,
+.scale.slider:backdrop:hover,
+.scale.slider.horizontal:backdrop,
+.scale.slider.horizontal:backdrop:hover {
+    background-image: url("assets/scale-slider-horz-backdrop-dark.png");
+}
+
+.scale.slider:insensitive,
+.scale.slider:insensitive:hover,
+.scale.slider.horizontal:insensitive,
+.scale.slider.horizontal:insensitive:hover {
+    background-image: url("assets/scale-slider-horz-insensitive-dark.png");
+}
+
+.scale.slider:insensitive:backdrop,
+.scale.slider:insensitive:backdrop:hover,
+.scale.slider.horizontal:insensitive:backdrop,
+.scale.slider.horizontal:insensitive:backdrop:hover {
+    background-image: url("assets/scale-slider-horz-backdrop-insensitive-dark.png");
+}
+
+
+.scale.slider.vertical {
+    background-image: url("assets/scale-slider-vert-dark.png");
+}
+
+.scale.slider.vertical:hover {
+    background-image: url("assets/scale-slider-vert-hover-dark.png");
+}
+
+.scale.slider.vertical:active,
+.scale.slider.vertical:active:hover {
+    background-image: url("assets/scale-slider-vert-active-dark.png");
+}
+
+.scale.slider.vertical:backdrop,
+.scale.slider.vertical:backdrop:hover {
+    background-image: url("assets/scale-slider-vert-backdrop-dark.png");
+}
+
+.scale.slider.vertical:insensitive,
+.scale.slider.vertical:insensitive:hover {
+    background-image: url("assets/scale-slider-vert-insensitive-dark.png");
+}
+
+.scale.slider.vertical:insensitive:backdrop,
+.scale.slider.vertical:insensitive:backdrop:hover {
+    background-image: url("assets/scale-slider-vert-backdrop-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.horizontal {
+    background-image: url("assets/scale-slider-up-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.horizontal:hover {
+    background-image: url("assets/scale-slider-up-hover-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.horizontal:active,
+.scale.scale-has-marks-above.slider.horizontal:active:hover {
+    background-image: url("assets/scale-slider-up-active-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.horizontal:insensitive,
+.scale.scale-has-marks-above.slider.horizontal:insensitive:hover {
+    background-image: url("assets/scale-slider-up-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.horizontal:backdrop,
+.scale.scale-has-marks-above.slider.horizontal:backdrop:hover {
+    background-image: url("assets/scale-slider-up-backdrop-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.horizontal:backdrop:insensitive,
+.scale.scale-has-marks-above.slider.horizontal:backdrop:insensitive:hover {
+    background-image: url("assets/scale-slider-up-backdrop-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.vertical {
+    background-image: url("assets/scale-slider-left-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.vertical:hover {
+    background-image: url("assets/scale-slider-left-hover-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.vertical:active,
+.scale.scale-has-marks-above.slider.vertical:active:hover {
+    background-image: url("assets/scale-slider-left-active-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.vertical:insensitive,
+.scale.scale-has-marks-above.slider.vertical:insensitive:hover {
+    background-image: url("assets/scale-slider-left-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.vertical:backdrop,
+.scale.scale-has-marks-above.slider.vertical:backdrop:hover {
+    background-image: url("assets/scale-slider-left-backdrop-dark.png");
+}
+
+.scale.scale-has-marks-above.slider.vertical:backdrop:insensitive,
+.scale.scale-has-marks-above.slider.vertical:backdrop:insensitive:hover {
+    background-image: url("assets/scale-slider-left-backdrop-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.horizontal {
+    background-image: url("assets/scale-slider-down-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.horizontal:hover {
+    background-image: url("assets/scale-slider-down-hover-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.horizontal:active,
+.scale.scale-has-marks-below.slider.horizontal:active:hover {
+    background-image: url("assets/scale-slider-down-active-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.horizontal:insensitive,
+.scale.scale-has-marks-below.slider.horizontal:insensitive:hover {
+    background-image: url("assets/scale-slider-down-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.horizontal:backdrop,
+.scale.scale-has-marks-below.slider.horizontal:backdrop:hover {
+    background-image: url("assets/scale-slider-down-backdrop-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.horizontal:backdrop:insensitive,
+.scale.scale-has-marks-below.slider.horizontal:backdrop:insensitive:hover {
+    background-image: url("assets/scale-slider-down-backdrop-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.vertical {
+    background-image: url("assets/scale-slider-right-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.vertical:hover {
+    background-image: url("assets/scale-slider-right-hover-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.vertical:active,
+.scale.scale-has-marks-below.slider.vertical:active:hover {
+    background-image: url("assets/scale-slider-right-active-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.vertical:insensitive,
+.scale.scale-has-marks-below.slider.vertical:insensitive:hover {
+    background-image: url("assets/scale-slider-right-insensitive-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.vertical:backdrop,
+.scale.scale-has-marks-below.slider.vertical:backdrop:hover {
+    background-image: url("assets/scale-slider-right-backdrop-dark.png");
+}
+
+.scale.scale-has-marks-below.slider.vertical:backdrop:insensitive,
+.scale.scale-has-marks-below.slider.vertical:backdrop:insensitive:hover {
+    background-image: url("assets/scale-slider-right-backdrop-insensitive-dark.png");
+}*/
+
+/********************************
+ * Touch text selection handles *
+ ********************************/
+ /*
+.cursor-handle.bottom {
+    background-image: url("assets/scale-slider-up-backdrop-dark.png");
+}
+
+.cursor-handle.top {
+    background-image: url("assets/scale-slider-down-backdrop-dark.png");
+}*/
+
+/****************
+ * Content view *
+ ****************/
+.content-view.view {
+    background-image: url("assets/noise-texture-dark.png");
+}

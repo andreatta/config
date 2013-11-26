@@ -1,0 +1,4403 @@
+@define-color documents_emblem_bg #3465a4;
+@define-color documents_collection_bg #d3d7cf;
+
+/****************
+ * Applications *
+ ****************/
+/* used by gnome-font-viewer and sushi */
+SushiFontWidget {
+    padding: 6px 12px;
+}
+
+/* gnome-terminal */
+TerminalScreen {
+    background-color: shade(@notebook_color, 0.4);
+    color: @theme_text_color;
+    -TerminalScreen-background-darkness: 0.95;
+}
+
+TerminalWindow GtkNotebook.notebook {
+    border-bottom-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+/* nautilus */
+/*This provides indented shadow behind tabs*/
+NautilusWindow GtkPaned {
+	background-color: transparent;
+	background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.46),
+                                      rgba(0,0,0,0.0)50px,
+                                      rgba(0,0,0,0)),
+                                      url("assets/delorean-dark-bg.png");
+    background-repeat: repeat;
+}
+
+NautilusWindow GtkPaned:backdrop {
+}
+
+ /*fixes issue with view after closing tabs is background-image*/
+NautilusWindow NautilusView,
+NemoWindow NemoView {
+	background-image: none;
+	background-color: @view-row;
+}
+
+.nautilus-canvas-item,
+.nemo-canvas-item {
+    border-radius: 5px;
+}
+
+.nautilus-desktop.nautilus-canvas-item,
+.nemo-desktop.nemo-canvas-item {
+    color: @theme_text_color;
+    text-shadow: 1px 1px black;
+}
+
+.nautilus-desktop.nautilus-canvas-item:active,
+.nemo-desktop.nemo-canvas-item:active {
+    color: shade(@theme_fg_color,0.8);
+}
+
+.nautilus-desktop.nautilus-canvas-item:selected,
+.nemo-desktop.nemo-canvas-item:selected {
+    color: @theme_selected_fg_color;
+    text-shadow: 1px 1px alpha(black, 0.3);
+}
+
+.nautilus-desktop.nautilus-canvas-item:active,
+.nautilus-desktop.nautilus-canvas-item:prelight,
+.nemo-desktop.nemo-canvas-item:active,
+.nemo-desktop.nemo-canvas-item:prelight {
+    text-shadow: none;
+}
+
+.nautilus-desktop.nautilus-canvas-item:selected:backdrop,
+.nemo-desktop.nemo-canvas-item:selected:backdrop {
+    color: shade(@theme_selected_fg_color, 0.7);
+}
+
+/* ** */
+
+/* *Nautilus 3.4 and nemo* */
+.nautilus-inactive-pane .view,
+.nemo-inactive-pane .view {
+    background-color: shade(@theme_bg_color, 0.8);
+    color: shade(@theme_text_color, 0.8);
+}
+
+.nautilus-inactive-pane .view:selected,
+.nautilus-inactive-pane .nautilus-canvas-item:selected,
+.nemo-inactive-pane .view:selected,
+.nemo-inactive-pane .nemo-canvas-item:selected {
+    background-color: shade(@theme_selected_bg_color, 0.8);
+    color: shade(@theme_selected_fg_color, 0.8);
+}
+
+.nautilus-inactive-pane .expander.view:selected,
+.nemo-inactive-pane .expander.view:selected {
+    background-color: shade(@theme_selected_bg_color, 0.8);
+    color: @expander_row_selected_color;
+    border-color: shade(@expander_row_selected_color, 1.045);
+}
+
+/* *** */
+/*
+NemoNotebook.notebook tab.top:active,
+NautilusNotebook.notebook tab.top:active {
+	background-color: @notebook_color;
+    box-shadow: inset 0 1px alpha (white, 0.18);
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.2),
+                                      alpha(white, 0.08) 39%,
+                                      alpha(black, 0.2) 41%,
+                                      alpha(black, 0.08)
+                                      ),
+					linear-gradient(to bottom,
+                                      mix(@notebook_color, @theme_selected_bg_color, 0.25),
+                                      @notebook_color 50%,
+                                      @notebook_color
+                                      );
+    border-image-source: -gtk-gradient (linear,
+                                             left top, left bottom,
+                                             from (mix(shade(@notebook_color, 0.9), @theme_selected_bg_color, 0.2)),
+                                             to (shade(@notebook_color, 0.35)));
+}
+
+NemoNotebook.notebook tab:active:backdrop,
+NautilusNotebook.notebook tab:active:backdrop {
+	box-shadow: inset 0 1px alpha (white, 0.09);
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.1),
+                                      alpha(white, 0.04) 39%,
+                                      alpha(black, 0.1) 41%,
+                                      alpha(black, 0.04)
+                                      ),
+					linear-gradient(to bottom,
+                                      shade(@notebook_color, 0.8),
+                                      shade(@notebook_color, 0.8)
+                                      );
+}  */
+
+NautilusWindow .sidebar .frame,
+NemoWindow .sidebar .frame {
+    border-width: 0px 0 0 0;
+    border-style: solid;
+    border-image: none;
+    border-top-color: shade (@theme_base_color, 1.06);
+    border-radius: 0;
+}
+
+NautilusWindow .sidebar .frame:backdrop,
+NemoWindow .sidebar .frame:backdrop {
+    border-top-color: shade (@theme_base_color, 0.86);
+}
+
+NautilusWindow > GtkGrid > .pane-separator,
+NautilusWindow > GtkGrid > .pane-separator:hover,
+NemoWindow > GtkGrid > .pane-separator,
+NemoWindow > GtkGrid > .pane-separator:hover {
+    border-width: 0px 0px 0px 1px;
+    border-style: solid;
+    border-color: shade(@sidebar_bg, 0.92);
+    border-right-color: shade (@theme_base_color, 0.70);
+    border-left-color: alpha(white, 0.015);
+    background-color: @theme_base_color;
+    color: shade (@theme_bg_color, 0.9);
+}
+
+NautilusWindow > GtkGrid > .pane-separator:backdrop,
+NautilusWindow > GtkGrid > .pane-separator:hover:backdrop,
+NemoWindow > GtkGrid > .pane-separator:backdrop,
+NemoWindow > GtkGrid > .pane-separator:hover:backdrop {
+    border-width: 0px 0px 0 1px;
+    border-style: solid;
+    border-color: shade(@sidebar_bg, 0.72);
+    border-right-color: shade (@theme_base_color, 0.56);
+    border-left-color: alpha(white, 0.005);
+    background-color: shade(@theme_base_color, 0.8);
+    background-image: none;
+}
+
+NautilusView.frame,
+NautilusNotebook.notebook,
+NemoView.frame,
+NemoNotebook.notebook {
+    border-right-width: 0;
+    border-left-width: 1px;
+    border-bottom-width: 0;
+    border-top-width: 0;
+    border-left-color: shade (@theme_base_color, 0.70);
+}
+
+NautilusView.frame:backdrop,
+NautilusNotebook.notebook:backdrop,
+NemoView.frame:backdrop,
+NemoNotebook.notebook:backdrop {
+    border-right-width: 0;
+    border-left-width: 1px;
+    border-bottom-width: 0;
+    border-top-width: 0;
+    border-left-color: shade (@theme_base_color, 0.60);
+}
+
+NautilusNotebook.notebook,
+NemoNotebook.notebook {
+    border-top-width: 1px;
+    border-top-color: shade( @notebook_tab_bg, 1.85);
+    background-color: shade(@notebook_color, 0.92);
+}
+
+NautilusNotebook.notebook:backdrop,
+NemoNotebook.notebook:backdrop {
+    border-top-width: 1px;
+    border-top-color: shade( @notebook_tab_bg, 1.45);
+}
+
+NautilusNotebook.notebook tab,
+NemoNotebook.notebook tab {
+    border-color: shade (@theme_base_color, 0.74);
+    box-shadow: inset 0 1px alpha(white, 0.12);
+}
+
+NautilusNotebook.notebook tab:backdrop,
+NemoNotebook.notebook tab:backdrop {
+    border-color: shade (@theme_base_color, 0.64);
+    box-shadow: inset 0 1px alpha(white, 0.06);
+}
+
+NautilusNotebook.notebook tab:active,
+NemoNotebook.notebook tab:active {
+    box-shadow: inset 0 1px alpha(white, 0.16);
+}
+
+NautilusNotebook.notebook tab:active:backdrop,
+NemoNotebook.notebook tab:active:backdrop {
+    box-shadow: inset 0 1px alpha(white, 0.08);
+}
+
+NautilusNotebook.notebook tab.top:active,
+NemoNotebook.notebook tab.top:active {
+    border-image-source: -gtk-gradient (linear,
+                                             left top, left bottom,
+                                             from (mix(shade (@theme_base_color, 0.68), @theme_selected_bg_color, 0.14)),
+                                             to (shade(@notebook_color, 0.45)));
+}
+
+NautilusNotebook.notebook tab.top:active:backdrop,
+NemoNotebook.notebook tab.top:active:backdrop {
+    border-image-source: -gtk-gradient (linear,
+                                             left top, left bottom,
+                                             from (mix(shade (@theme_base_color, 0.50), @theme_selected_bg_color, 0.14)),
+                                             to (shade(@notebook_color, 0.35)));
+}
+
+NautilusNotebook .frame,
+NemoNotebook .frame {
+    border-width: 0px 0 0 0px;
+    border-color:shade (@theme_base_color, 0.70);
+    border-image:none;
+}
+
+NautilusNotebook .frame:backdrop,
+NemoNotebook .frame:backdrop {
+    border-width: 0px 0 0 0;
+    border-color: shade(@notebook_color, 0.72);
+    border-image:none;
+}
+
+NautilusWindow .toolbar.menubar {/*removes bottom border of toolbar in nautilus otherwise we get double border*/
+	border-style: solid;
+	border-width: 0 0 1px 0;
+	border-bottom-color:  shade (@theme_base_color, 0.86);
+	}
+
+NautilusWindow .toolbar.menubar:backdrop {
+	border-width: 0 0 1px 0;
+	border-bottom-color:  shade (@theme_base_color, 0.72);
+	}
+
+NautilusToolbar .button {
+    icon-shadow: 0 1px @button_text_shadow;
+}
+
+NautilusToolbar .button *:active {
+    icon-shadow: 0 1px @button_active_text_shadow;
+}
+
+NautilusToolbar .button *:insensitive,
+NautilusToolbar .button *:active:insensitive {
+    text-shadow: none;
+}
+
+NautilusQueryEditor .primary-toolbar.toolbar {
+    border-bottom-width: 0;
+    border-radius: 0;
+}
+
+NautilusQueryEditor .toolbar {
+    padding-top: 3px;
+    padding-bottom: 2px;
+
+    border-width: 0px 0 1px 0;
+    border-style: solid;
+    border-color: alpha(white, 0.06);
+    background-color: alpha(black, 0.15);
+	 background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.1),
+                                      alpha(white, 0.03) 49%,
+                                      alpha(black, 0.2) 51%,
+                                      alpha(black, 0.1)
+                                      ),
+                       linear-gradient(to bottom,
+									  alpha(black, 0.7),
+									  alpha(black, 0.7)
+									  );
+    box-shadow: inset 0 1px alpha(white, 0.06),
+				inset 0 -1px alpha(white, 0.03);
+}
+
+NautilusQueryEditor .toolbar:nth-child(2) {
+    border-bottom-color: alpha(black, 0.74);
+}
+
+NautilusQueryEditor .toolbar:backdrop {
+    border-color: alpha(white, 0.03);
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.08),
+                                      alpha(white, 0.02) 49%,
+                                      alpha(black, 0.20) 51%,
+                                      alpha(black, 0.02)
+                                      ),
+                       linear-gradient(to bottom,
+									  alpha(black, 0.7),
+									  alpha(black, 0.7)
+									  );
+    box-shadow: inset 0 1px alpha(white, 0.07),
+				inset 0 -1px alpha(white, 0.015);
+}
+
+NautilusQueryEditor .toolbar:backdrop:nth-child(2) {
+    border-bottom-color: alpha(black, 0.64);
+}
+
+NautilusQueryEditor .toolbar:nth-child(2) .button,
+NautilusQueryEditor .toolbar:nth-child(3) .button {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.15),
+                                      alpha(white, 0.08) 49%,
+                                      alpha(black, 0.25) 51%,
+                                      alpha(black, 0.15)
+                                      ),
+                       linear-gradient(to bottom,
+									  #060606,
+									  #060606
+									  );
+
+    box-shadow: inset 1px 0 @inset_light_color,
+				inset -1px 0 alpha(white, 0.015),
+
+				inset 0 -1px alpha(black, 0.42),
+				inset 0 -2px alpha(black, 0.03),
+
+				inset 0 1px alpha(white, 0.03),
+				inset 0 2px alpha(white, 0.01);
+}
+
+NautilusQueryEditor .toolbar:nth-child(2) .button:hover,
+NautilusQueryEditor .toolbar:nth-child(3) .button:hover {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+	background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.08),
+                                      alpha(white, 0.12) 49%,
+                                      alpha(black, 0.22) 51%,
+                                      alpha(black, 0.08)
+                                      ),
+                       linear-gradient(to bottom,
+									  #040404,
+									  #040404
+									  );
+     box-shadow: inset 1px 0 alpha(@inset_light_color, 0.8),
+				inset -1px 0 alpha(white, 0.015),
+
+				inset 0 -1px alpha(black, 0.42),
+				inset 0 -2px alpha(black, 0.03),
+
+				inset 0 1px alpha(black, 0.03),
+				inset 0 2px alpha(black, 0.01);
+}
+
+NautilusQueryEditor .toolbar:nth-child(2) .button:active,
+NautilusQueryEditor .toolbar:nth-child(2) .button:active:hover,
+NautilusQueryEditor .toolbar:nth-child(3) .button:active,
+NautilusQueryEditor .toolbar:nth-child(3) .button:active:hover {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+	background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.12),
+                                      alpha(black, 0.22) 49%,
+                                      alpha(white, 0.005) 51%,
+                                      alpha(white, 0.02)
+                                      ),
+                      linear-gradient(to bottom,
+									  #050505,
+									  #050505
+									  );
+    box-shadow: inset 1px 0 alpha(black, 0.32),
+				inset -1px 0 alpha(white, 0.02),
+
+				inset 0 1px alpha(black, 0.42),
+				inset 0 2px alpha(black, 0.03),
+
+				inset 0 -1px alpha(black, 0.03),
+				inset 0 -2px alpha(black, 0.01);
+}
+
+NautilusQueryEditor .toolbar:nth-child(2) .button:backdrop,
+NautilusQueryEditor .toolbar:nth-child(3) .button:backdrop {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+	background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.075),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.145) 51%,
+                                      alpha(black, 0.075)),
+                       linear-gradient(to bottom,
+									  alpha(#060606, 0.6),
+									  alpha(#060606, 0.6)
+									  );
+
+    box-shadow: inset 1px 0 alpha(white, 0.025),
+				inset -1px 0 alpha(white, 0.01),
+
+				inset 0 -1px alpha(black, 0.36),
+				inset 0 -2px alpha(black, 0.02),
+
+				inset 0 1px alpha(white, 0.015),
+				inset 0 2px alpha(white, 0.005);
+}
+
+NautilusNotebook.notebook NautilusQueryEditor .primary-toolbar.toolbar {
+    border-top-width: 0;
+}
+
+NautilusNotebook.notebook NautilusQueryEditor .primary-toolbar.toolbar:only-child {
+    border-bottom-width: 0px;
+    border-bottom-color:  alpha(black, 0.74);
+}
+
+NautilusNotebook.notebook NautilusQueryEditor .toolbar:last-child {
+    border-bottom-width: 1px;
+    border-bottom-color:  alpha(black, 0.74);
+}
+
+/*TrashBar*/
+NautilusTrashBar GtkLabel,
+.NautilusTrashBar GtkLabel,
+.nautilus-cluebar-label,
+NemoSearchBar GtkLabel,
+.nemo-cluebar-label {
+    font: bold;
+	color:#e2e2e2;
+	text-shadow: -1px -1px alpha(black, 0.29);
+}
+
+NautilusTrashBar .button *,
+NemoTrashBar .button * {
+	color: shade(@theme_text_color, 0.9);
+	text-shadow: 0 -1px alpha(black, 0.3);
+}
+
+NautilusTrashBar .button,
+NautilusTrashBar .button:focus,
+NautilusTrashBar .button.default,
+NemoTrashBar .button,
+NemoTrashBar .button:focus,
+NemoTrashBar .button.default,
+NautilusNotebook.notebook NautilusTrashBar .button,
+NautilusNotebook.notebook NautilusTrashBar .buttton:focus,
+NautilusNotebook.notebook NautilusTrashBar .button.default {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+	background-color:transparent;
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.23),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.14) 51%,
+                                      alpha(black, 0.08)
+                                      );
+
+    box-shadow: inset 0 1px alpha(white, 0.14),
+				inset 0 -1px alpha(white, 0.02),
+				inset 1px 0 alpha(white, 0.07),
+				inset -1px 0 alpha(white, 0.04);
+    }
+
+NautilusTrashBar .button.default *,
+NemoTrashBar .button.default * {
+	color: shade(@theme_selected_bg_color, 1.45);
+	text-shadow: 0 -1px alpha(black, 0.3);
+}
+
+NautilusTrashBar .button:backdrop,
+NautilusTrashBar .button.default:backdrop,
+NemoTrashBar .button:backdrop,
+NemoTrashBar .button.default:backdrop,
+NautilusNotebook.notebook NautilusTrashBar .button:backdrop,
+NautilusNotebook.notebook NautilusTrashBar .button.default:backdrop {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+	background-color:transparent;
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.115),
+                                      alpha(white, 0.02) 49%,
+                                      alpha(black, 0.08) 51%,
+                                      alpha(black, 0.04)
+                                      );
+
+    box-shadow: inset 0 1px alpha(white, 0.07),
+				inset 0 -1px alpha(white, 0.01),
+				inset 1px 0 alpha(white, 0.035),
+				inset -1px 0 alpha(white, 0.02);
+    }
+
+NautilusTrashBar .button *:hover,
+NemoTrashBar .button *:hover {
+	color: @theme_text_color;
+	text-shadow: 0 -1px alpha(black, 0.35);
+}
+
+NautilusTrashBar .button:hover,
+NautilusTrashBar .button.default:hover,
+NemoTrashBar .button:hover,
+NemoTrashBar .button.default:hover,
+NautilusNotebook.notebook NautilusTrashBar .button:hover,
+NautilusNotebook.notebook NautilusTrashBar .button.default:hover {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.29),
+                                      alpha(white, 0.1) 49%,
+                                      alpha(black, 0.2) 51%,
+                                      alpha(black, 0.16)
+                                      );
+    box-shadow: inset 0 1px alpha(white, 0.18),
+				inset 0 -1px alpha(white, 0.02),
+				inset 1px 0 alpha(white, 0.09),
+				inset -1px 0 alpha(white, 0.06);
+}
+
+NautilusTrashBar .button.default *:hover,
+NemoTrashBar .button.default *:hover {
+	color: mix(white, shade(@theme_selected_bg_color, 1.45), 0.6);
+	text-shadow: 0 -1px alpha(black, 0.3);
+}
+
+NautilusTrashBar .button *:active,
+NautilusTrashbar .button *:active:hover,
+NemoTrashBar .button *:active,
+NemoTrashbar .button *:active:hover {
+	color: shade(@theme_selected_bg_color, 1.35);
+}
+
+NautilusTrashBar .button:active:active,
+NautilusTrashbar .button:active:active:hover:hover,
+NautilusTrashBar .button.default:active:active,
+NautilusTrashbar .button.default:active:active:hover:hover,
+NemoTrashBar .button:active:active,
+NemoTrashbar .button:active:active:hover:hover,
+NemoTrashBar .button.default:active:active,
+NemoTrashbar .button.default:active:active:hover:hover,
+NautilusNotebook.notebook NautilusTrashBar .button:active:active,
+NautilusNotebook.notebook NautilusTrashBar .buttton:active:active:hover:hover,
+NautilusNotebook.notebook NautilusTrashBar .button.default:active:active,
+NautilusNotebook.notebook NautilusTrashBar .buttton.default:active:active:hover:hover  {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.29),
+                                      alpha(white, 0.1) 49%,
+                                      alpha(black, 0.2) 51%,
+                                      alpha(black, 0.16)
+                                      ),
+                      linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color,0.2),
+                                      alpha(@theme_selected_bg_color,0.2));
+
+    box-shadow: inset 1px 1px alpha(black, 0.20),
+				inset 2px 2px alpha(black, 0.10),
+				inset 3px 3px alpha(black, 0.08),
+				inset 4px 4px alpha(black, 0.06),
+				inset 5px 5px alpha(black, 0.04),
+				inset 6px 6px alpha(black, 0.02),
+
+				inset -1px -1px alpha(black, 0.10),
+				inset -2px -2px alpha(black, 0.05),
+				inset -3px -3px alpha(black, 0.03),
+				inset -4px -4px alpha(black, 0.02);
+}
+
+NautilusTrashBar .button *:insensitive,
+NautilusTrashBar .button *:insensitive:backdrop,
+NemoTrashBar .button *:insensitive,
+NemoTrashBar .button *:insensitive:backdrop {
+	color: shade(@theme_text_color, 0.5);
+}
+
+NautilusTrashBar .button:insensitive,
+NautilusTrashBar .button:insensitive:backdrop,
+NemoTrashBar .button:insensitive,
+NemoTrashBar .button:insensitive:backdrop,
+NautilusNotebook.notebook NautilusTrashBar .button:insensitive,
+NautilusNotebook.notebook NautilusTrashBar .buttton:insensitive:backdrop {
+	border-image: url("borders/inline/inline-button-q.svg") 4 / 4px stretch;
+    border-radius: 3px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: transparent;
+
+	background-color:transparent;
+	background-image:
+                       linear-gradient(to left top,
+                                      alpha (black, 0.15),
+                                      alpha (black, 0.15) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (black, 0.15) 50%,
+                                      alpha (black, 0.15) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(white, 0.23),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.14) 51%,
+                                      alpha(black, 0.08)
+                                      );
+
+    box-shadow: inset 0 1px alpha(white, 0.14),
+				inset 0 -1px alpha(white, 0.02),
+				inset 1px 0 alpha(white, 0.07),
+				inset -1px 0 alpha(white, 0.04);
+	background-size:  10px 10px, auto;
+}
+
+NemoTrashBar.info:first-child,
+NautilusTrashBar,
+NautilusTrashBar.info,
+NautilusXContentBar.info,
+NautilusSearchBar.info,
+NautilusQueryEditor.info,
+NemoTrashBar,
+NemoTrashBar.info,
+NemoXContentBar.info,
+NemoSearchBar.info,
+NemoQueryEditor.info {
+	color: @theme_fg_color;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.16),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.20) 51%,
+                                      alpha(black, 0.02)
+                                      ),
+                      linear-gradient(to bottom,
+                                      alpha(black, 0.15),
+                                      alpha(black, 0.15)),
+                       linear-gradient(to bottom,
+                                      #121212,
+                                      #121212);
+    background-color: transparent;
+    border-image: none;
+    text-shadow: 0 -1px alpha(black, 0.11);
+    border-width: 0px 0 1px 0;
+    border-style: solid;
+    border-color: @theme_base_color;
+    box-shadow: inset 0 1px alpha(white, 0.06),
+				inset 0 -1px alpha(white, 0.03);
+}
+
+NemoSearchBar.info {
+	border-color: #0f0f0f;
+}
+
+NautilusTrashBar:nth-child(1),
+NautilusTrashBar.info:nth-child(1),
+NautilusXContentBar.info:nth-child(1),
+NautilusSearchBar.info:nth-child(1),
+NautilusQueryEditor.info:nth-child(1),
+NemoTrashBar.info:first-child,
+NemoXContentBar.info:nth-child(1),
+NemoSearchBar.info:nth-child(1),
+NemoQueryEditor.info:nth-child(1) {
+	border-top-width: 1px;
+    border-top-color: @theme_base_color;
+    border-bottom-color: #0d0d0d;
+}
+
+NautilusTrashBar:nth-child(2),
+NautilusTrashBar.info:last-child,
+NautilusXContentBar.info:last-child,
+NautilusQueryEditor.info:last-child,
+NemoTrashBar.info:last-child,
+NemoXContentBar.info:last-child,
+NemoQueryEditor.info:last-child {
+	padding-top: 0;
+	border-top-width: 0;
+	border-bottom-width: 1px;
+	border-bottom-color: #0d0d0d;
+	border-top-color: transparent;
+
+}
+
+NautilusTrashBar.info:last-child,
+NemoTrashBar.info:last-child {
+	border-top-width: 1px;
+	border-top-color:  @theme_base_color;
+	}
+
+NautilusNotebook.notebook NautilusTrashBar:nth-child(1),
+NautilusNotebook.notebook NautilusTrashBar:nth-child(2) {
+	box-shadow: inset 0 1px alpha(white, 0.13),
+				inset 0 -1px alpha(white, 0.03);
+}
+
+NemoTrashBar.info:first-child:backdrop,
+NautilusTrashBar:backdrop,
+NautilusTrashBar.info:backdrop,
+NautilusXContentBar.info:backdrop,
+NautilusSearchBar.info:backdrop,
+NautilusQueryEditor.info:backdrop,
+NemoTrashBar:backdrop,
+NemoTrashBar.info:backdrop,
+NemoXContentBar.info:backdrop,
+NemoSearchBar.info:backdrop,
+NemoQueryEditor.info:backdrop,
+NautilusTrashBar:nth-child(1):backdrop,
+NautilusTrashBar.info:nth-child(1):backdrop,
+NautilusXContentBar.info:nth-child(1):backdrop,
+NautilusSearchBar.info:nth-child(1):backdrop,
+NautilusQueryEditor.info:nth-child(1):backdrop,
+NemoTrashBar.info:first-child:backdrop,
+NemoXContentBar.info:nth-child(1):backdrop,
+NemoSearchBar.info:nth-child(1):backdrop,
+NemoQueryEditor.info:nth-child(1):backdrop,
+NautilusTrashBar:nth-child(2):backdrop,
+NautilusTrashBar.info:last-child:backdrop,
+NautilusXContentBar.info:last-child:backdrop,
+NautilusQueryEditor.info:last-child:backdrop,
+NemoTrashBar.info:last-child:backdrop,
+NemoXContentBar.info:last-child:backdrop,
+NemoQueryEditor.info:last-child:backdrop,
+NautilusNotebook.notebook NautilusTrashBar:nth-child(1):backdrop,
+NautilusNotebook.notebook NautilusTrashBar:nth-child(2):backdrop {
+    color: shade(@theme_fg_color, 0.8);
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.12),
+                                      alpha(white, 0.02) 49%,
+                                      alpha(black, 0.16) 51%,
+                                      alpha(black, 0.02)
+                                      ),
+                      linear-gradient(to bottom,
+                                      alpha(black, 0.25),
+                                      alpha(black, 0.25)),
+                       linear-gradient(to bottom,
+                                      #121212,
+                                      #121212);
+    background-color: transparent;
+    border-image: none;
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: @theme_base_color;
+    box-shadow: inset 0 1px alpha(white, 0.03),
+				inset 0 -1px alpha(white, 0.015);
+    text-shadow: none;
+}
+
+/****Nemo Sidebar Cell Fix****/
+NemoWindow .sidebar .cell:selected:selected { /*removes rounded corners and side box-shadows*/
+	border-radius: 0;
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.09),
+				inset 0 2px alpha(white, 0.02);
+}
+
+NemoWindow .sidebar .cell:selected:hover:focus,
+NemoWindow .sidebar .cell:selected:hover {
+	background-color: transparent;
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.20),
+                                      alpha(black, 0.06)
+                                      ),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.75)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.09),
+				inset 0 2px alpha(white, 0.02);
+}
+
+NemoWindow .sidebar .cell:selected:selected:backdrop,
+NemoWindow .sidebar .cell:selected:hover:backdrop {
+	box-shadow: inset 0 -1px alpha(white, 0.03),
+				inset 0 1px alpha(white, 0.06),
+				inset 0 2px alpha(white, 0.01);
+}
+
+/* ***********Nautilus/FileChooser PathBar Linked Buttons*********** */
+
+.toolbar NautilusPathBar .button {
+    padding: 0px 4px;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button,
+.toolbar.menubar NautilusPathBar .button,
+GtkFileChooserDefault .linked .button {
+	background-color: @pathbar;
+    background-image: url("assets/arrow-up-pathbar-bottom-dummy.svg"),/*Dummy image Fixes the image from being expanded and shrunk whenever a button becomes active*/
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      );
+    border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.44) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+
+	transition: 60ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:backdrop,
+.toolbar.menubar NautilusPathBar .button:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:backdrop,
+.toolbar.menubar NautilusPathBar .button:hover:backdrop {
+	background-color: shade(@pathbar, 0.8);
+	background-image: linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      );
+    border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.44) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+
+	transition: 60ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+GtkFileChooserDefault .linked .button {
+	background-color: @pathbar_filechooser;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.20) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+
+}
+
+GtkFileChooserDefault .linked .button:backdrop,
+GtkFileChooserDefault .linked .button:hover:backdrop {
+	background-color: shade(@pathbar_filechooser, 0.8);
+	background-image: linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      );
+    border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.20) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+
+	transition: 60ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:hover,
+GtkFileChooserDefault .linked .button:hover {
+	background-color: shade(@pathbar, 1.02);
+	background-image: url("assets/arrow-up-pathbar-bottom-dummy.svg"),
+						-gtk-gradient (radial,
+										center 1.5, 0,
+										center 1.3, 0.7,
+										from(rgba(255,255,255,0.6)),
+										to(transparent));
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.48) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+	transition: 60ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto;
+}
+
+GtkFileChooserDefault .linked .button:hover {
+	background-color: shade(@pathbar_filechooser, 1.02);
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.24) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset,
+				1px 0 alpha(white, 0.03) inset;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active {
+	background-color: @pathbar_active;
+	border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+
+	border-image: none;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+
+				1px 0 alpha(white, 0.03) inset;
+	background-image: url("assets/arrow-up-pathbar-bottom.svg"),
+					  linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.18)
+                                      );
+	transition: 20ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:backdrop {
+	background-color: shade(@pathbar_active, 0.8);
+	border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+
+				1px 0 alpha(white, 0.03) inset;
+	background-image: url("assets/arrow-up-pathbar-bottom.svg"),
+					  linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.18)
+                                      );
+	transition: 20ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto;
+}
+
+GtkFileChooserDefault .linked .button:active {
+	background-color: @pathbar_filechooser_active;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.18) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+
+	background-image: url("assets/arrow-up-file-pathbar-bottom.svg"),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.18)
+                                      );
+
+    border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    transition: 20ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto;
+}
+
+GtkFileChooserDefault .linked .button:active:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:backdrop {
+	background-color: shade(@pathbar_filechooser_active, 0.8);
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.12) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+
+	background-image: url("assets/arrow-up-file-pathbar-bottom-backdrop.svg"),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.18)
+                                      );
+
+    border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    transition: 20ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active:hover {
+	background-color: shade(@pathbar_active, 1.02);
+	background-image: url("assets/arrow-up-pathbar-bottom.svg"),
+						-gtk-gradient (radial,
+										center 1.5, 0,
+										center 1.3, 0.7,
+										from(rgba(255,255,255,0.6)),
+										to(transparent)),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.2)
+                                      );
+
+    transition: 60ms ease-out;
+	border-image: none;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto, auto;
+
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked .button:active:hover {
+	background-color: shade(@pathbar_filechooser_active, 1.02);
+
+	background-image: url("assets/arrow-up-file-pathbar-bottom.svg"),
+						-gtk-gradient (radial,
+										center 1.5, 0,
+										center 1.3, 0.7,
+										from(rgba(255,255,255,0.6)),
+										to(transparent)),
+						linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.18)
+                                      );
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.22) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+
+    border-width: 1px;
+    border-radius: 100px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    transition: 20ms ease-out;
+	background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 13px 13px, auto, auto;
+}
+
+/* Middle toolbar-button */
+.toolbar.menubar NautilusPathBar.linked .button,
+.toolbar.menubar NautilusPathBar.linked .button:hover,
+.toolbar.menubar NautilusPathBar.linked .button:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover,
+.toolbar.menubar NautilusPathBar.linked .button:active:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:backdrop,
+GtkFileChooserDefault .linked .button,
+GtkFileChooserDefault .linked .button:hover,
+GtkFileChooserDefault .linked .button:backdrop,
+GtkFileChooserDefault .linked .button:hover:backdrop,
+GtkFileChooserDefault .linked .button:active,
+GtkFileChooserDefault .linked .button:active:hover,
+GtkFileChooserDefault .linked .button:active:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:backdrop,
+GtkFileChooserDefault .linked .button:insensitive,
+GtkFileChooserDefault .linked .button:insensitive:backdrop {
+    border-right-width: 0px;
+    border-left-width:  0px;
+    border-radius: 0;
+    border-image-width: 0;
+}
+
+/* Middle toolbar-button normal */
+.toolbar.menubar NautilusPathBar.linked .button:hover {
+}
+
+/* Middle toolbar-button active */
+.toolbar.menubar NautilusPathBar.linked .button:active,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover {
+}
+
+/* Middle toolbar-button insensitive */
+
+.toolbar.menubar NautilusPathBar.linked .button:insensitive {
+	background-image: linear-gradient(to left top,
+                                      alpha (white, 0.05),
+                                      alpha (white, 0.05) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (white, 0.05) 50%,
+                                      alpha (white, 0.05) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                      linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      ),
+                      linear-gradient(to bottom,
+                                      @notebook_tab_bg,
+                                      @notebook_tab_bg
+                                      );
+
+    background-size: 10px 10px, auto;
+	background-color: transparent;
+	background-repeat: repeat;
+    background-position: left;
+}
+
+GtkFileChooserDefault .linked  .button:insensitive {
+	background-image: linear-gradient(to left top,
+                                      alpha (black, 0.15),
+                                      alpha (black, 0.15) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (black, 0.15) 50%,
+                                      alpha (black, 0.15) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                      linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      ),
+                      linear-gradient(to bottom,
+                                      @pathbar_filechooser,
+                                      @pathbar_filechooser
+                                      );
+
+    background-size: 10px 10px, auto;
+	background-color: transparent;
+	background-repeat: repeat;
+    background-position: left;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:backdrop {
+	background-image: linear-gradient(to left top,
+                                      alpha (white, 0.05),
+                                      alpha (white, 0.05) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (white, 0.05) 50%,
+                                      alpha (white, 0.05) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                      linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      ),
+                      linear-gradient(to bottom,
+                                      shade(@notebook_tab_bg, 0.8),
+                                      shade(@notebook_tab_bg, 0.8)
+                                      );
+
+    background-size: 10px 10px, auto;
+	background-color: transparent;
+	background-repeat: repeat;
+    background-position: left;
+}
+
+GtkFileChooserDefault .linked  .button:insensitive:backdrop {
+	background-image: linear-gradient(to left top,
+                                      alpha (black, 0.15),
+                                      alpha (black, 0.15) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (black, 0.15) 50%,
+                                      alpha (black, 0.15) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                      linear-gradient(to bottom,
+                                      rgba(0,0,0,0.08),
+                                      rgba(0,0,0,0.0) 20%,
+                                      rgba(0,0,0,0.0) 98%,
+                                      rgba(255,255,255,0.16)
+                                      ),
+                      linear-gradient(to bottom,
+                                      shade(@pathbar_filechooser, 0.8),
+                                      shade(@pathbar_filechooser, 0.8)
+                                      );
+
+    background-size: 10px 10px, auto;
+	background-color: transparent;
+	background-repeat: repeat;
+    background-position: left;
+}
+
+/* Leftmost toolbars-button */
+.toolbar.menubar NautilusPathBar.linked .button:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:hover:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:first-child,
+GtkFileChooserDefault .linked  .button:hover:first-child,
+GtkFileChooserDefault .linked  .button:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:hover:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:first-child,
+GtkFileChooserDefault .linked  .button:active:hover:first-child,
+GtkFileChooserDefault .linked  .button:active:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:insensitive:first-child,
+GtkFileChooserDefault .linked  .button:insensitive:first-child:backdrop {
+	border-left-width: 1px;
+    border-right-width: 0;
+    border-image-width: 0;
+    border-radius: 100px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.44) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+GtkFileChooserDefault .linked  .button:first-child,
+GtkFileChooserDefault .linked  .button:hover:first-child,
+GtkFileChooserDefault .linked  .button:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:hover:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:first-child,
+GtkFileChooserDefault .linked  .button:active:hover:first-child,
+GtkFileChooserDefault .linked  .button:active:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:first-child:backdrop,
+GtkFileChooserDefault .linked  .button:insensitive:first-child,
+GtkFileChooserDefault .linked  .button:insensitive:first-child:backdrop {
+	border-radius: 5px;
+	border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.20) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+/* Leftmost toolbars-button normal */
+.toolbar.menubar NautilusPathBar.linked .button:hover:first-child {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.48) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+GtkFileChooserDefault .linked .button:hover:first-child {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.24) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+/* Leftmost toolbars-button active */
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active:first-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:first-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;
+}
+
+GtkFileChooserDefault .linked .button:active:first-child,
+GtkFileChooserDefault .linked .button:active:hover:first-child {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.18) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;
+}
+
+GtkFileChooserDefault .linked .button:active:first-child:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:first-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.12) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;
+}
+
+/* Leftmost toolbars-button insensitive */
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:first-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset;
+}
+
+GtkFileChooserDefault .linked .button:insensitive:first-child,
+GtkFileChooserDefault .linked .button:insensitive:first-child:backdrop {
+	border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.20) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				-1px 0 alpha(black, 0.22) inset;
+}
+
+/* Rightmost toolbar-button */
+.toolbar.menubar NautilusPathBar.linked .button:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:hover:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:last-child,
+GtkFileChooserDefault .linked  .button:hover:last-child,
+GtkFileChooserDefault .linked  .button:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:hover:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:last-child,
+GtkFileChooserDefault .linked  .button:active:hover:last-child,
+GtkFileChooserDefault .linked  .button:active:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:insensitive:last-child,
+GtkFileChooserDefault .linked  .button:insensitive:last-child:backdrop {
+    border-left-width: 0;
+    border-image-width: 0;
+    border-width: 1px 1px 1px 0;
+    border-radius: 100px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.44) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked  .button:last-child,
+GtkFileChooserDefault .linked  .button:hover:last-child,
+GtkFileChooserDefault .linked  .button:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:hover:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:last-child,
+GtkFileChooserDefault .linked  .button:active:hover:last-child,
+GtkFileChooserDefault .linked  .button:active:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:insensitive:last-child,
+GtkFileChooserDefault .linked  .button:insensitive:last-child:backdrop {
+	border-radius: 5px;
+	border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.20) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/* Rightmost toolbar-button normal */
+.toolbar.menubar NautilusPathBar.linked .button:hover:last-child {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.48) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked .button:hover:last-child {
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.24) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/* Rightmost toolbar-button active */
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child {
+    border-image-width: 0;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+.toolbar.menubar NautilusPathBar.linked .button:active:last-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:last-child:backdrop {
+    border-image-width: 0;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked  .button:active:last-child,
+GtkFileChooserDefault .linked  .button:active:hover:last-child {
+    border-image-width: 0;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.18) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+GtkFileChooserDefault .linked  .button:active:last-child:backdrop,
+GtkFileChooserDefault .linked  .button:active:hover:last-child:backdrop {
+    border-image-width: 0;
+	box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.12) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/* Rightmost toolbar-button insensitive */
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:last-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.38) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(black, 0.22) inset;
+}
+
+GtkFileChooserDefault .linked .button:insensitive:last-child,
+GtkFileChooserDefault .linked .button:insensitive:last-child:backdrop {
+    border-image-width: 0;
+    box-shadow: 0 1px alpha(black, 0.42) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.03) inset,
+				0 6px alpha(black, 0.03) inset,
+				0 7px alpha(black, 0.02) inset,
+				0 8px alpha(black, 0.01) inset,
+
+				0 -1px alpha(white, 0.20) inset,
+				0 -2px alpha(black, 0.10) inset,
+				0 -3px alpha(black, 0.02) inset,
+
+				1px 0 alpha(white, 0.03) inset;
+}
+
+/* ***************************************************************** */
+
+/* Linked single toolbar-button */
+.toolbar.menubar NautilusPathBar.linked .button:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:hover:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:only-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:hover:only-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:only-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:only-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:only-child:backdrop,
+GtkFileChooserDefault .linked .button:only-child,
+GtkFileChooserDefault .linked .button:hover:only-child,
+GtkFileChooserDefault .linked .button:only-child:backdrop,
+GtkFileChooserDefault .linked .button:hover:only-child:backdrop,
+GtkFileChooserDefault .linked .button:active:only-child,
+GtkFileChooserDefault .linked .button:active:hover:only-child,
+GtkFileChooserDefault .linked .button:active:only-child:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:only-child:backdrop,
+GtkFileChooserDefault .linked .button:insensitive:only-child,
+GtkFileChooserDefault .linked .button:insensitive:only-child:backdrop {
+    padding-left:  10px;
+    padding-right: 10px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-radius: 100px;
+    border-image-width: 0;
+}
+
+/* Linked single toolbar-button normal */
+.toolbar.menubar NautilusPathBar.linked .button:hover:only-child,
+GtkFileChooserDefault .linked .button:hover:only-child {
+    border-image-width: 0;
+}
+
+/* Linked single toolbar-button active */
+.toolbar.menubar NautilusPathBar.linked .button:active:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:active:only-child:backdrop,
+.toolbar.menubar NautilusPathBar.linked .button:active:hover:only-child:backdrop,
+
+GtkFileChooserDefault .linked .button:active:only-child,
+GtkFileChooserDefault .linked .button:active:hover:only-child,
+GtkFileChooserDefault .linked .button:active:only-child:backdrop,
+GtkFileChooserDefault .linked .button:active:hover:only-child:backdrop {
+    border-image-width: 0;
+
+}
+
+/* Linked single toolbar-button insensitive */
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:only-child,
+.toolbar.menubar NautilusPathBar.linked .button:insensitive:only-child:backdrop,
+GtkFileChooserDefault .linked .button:insensitive:only-child,
+GtkFileChooserDefault .linked .button:insensitive:only-child:backdrop {
+    border-image-width: 0;
+}
+
+/********************* nemo pathbar *********************************/
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton,
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:backdrop {
+	padding: 0px 0px 0px 3px;
+    border-image: 	none;
+	border-style: solid;
+    border-radius: 0px;
+    border-width: 0px;
+	border-color: transparent;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton {
+	background-image: linear-gradient(to right,
+                                      alpha(black, 0.16),
+                                      transparent
+                                      ),
+                       linear-gradient(to left,
+                                      alpha(white, 0.05),
+                                      alpha(white, 0.0) 30px,
+                                      alpha(white, 0.0)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(white, 0.28),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.16) 51%,
+                                      alpha(black, 0.08)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(#2a2a2a, 0.8),
+                                      alpha(#282828, 0.8)
+                                      );
+	background-color: transparent;
+	border-style: solid;
+    border-radius: 0px;
+    border-width: 0;
+    border-color: alpha(black, 0.30);
+	box-shadow: 0 1px alpha(white, 0.14) inset,
+				0 2px alpha(white, 0.02) inset,
+				0 -1px alpha(black, 0.43) inset,
+				0 -2px alpha(black, 0.04) inset,
+				-1px 0 alpha(black, 0.24) inset,
+				-2px 0 alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.04) inset,
+				2px 0 alpha(white, 0.02) inset;
+	transition: 260ms ease-in;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:hover {
+	background-color: transparent;
+    background-image: linear-gradient(to right,
+                                      alpha(black, 0.20),
+                                      transparent
+                                      ),
+                       linear-gradient(to left,
+                                      alpha(white, 0.05),
+                                      alpha(white, 0.0) 30px,
+                                      alpha(white, 0.0)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(white, 0.28),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.16) 51%,
+                                      alpha(black, 0.08)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(mix(#1a1a1a, @theme_selected_bg_color, 0.4), 0.8),
+                                      alpha(mix(#181818, @theme_selected_bg_color, 0.4), 0.8)
+                                      );
+    border-width: 0;
+    border-color: alpha(black, 0.27);
+	box-shadow: 0 1px alpha(white, 0.16) inset,
+				0 2px alpha(white, 0.02) inset,
+				0 -1px alpha(black, 0.43) inset,
+				0 -2px alpha(black, 0.04) inset,
+				-1px 0 alpha(black, 0.24) inset,
+				-2px 0 alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.06) inset,
+				2px 0 alpha(white, 0.02) inset;
+	transition: 260ms ease-in;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:backdrop,
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:hover:backdrop {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.14),
+                                      alpha(white, 0.02) 49%,
+                                      alpha(black, 0.08) 51%,
+                                      alpha(black, 0.04)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(shade(#2a2a2a, 0.8), 0.8),
+                                      alpha(shade(#282828, 0.8), 0.8)
+                                      );
+	background-color: transparent;
+	border-width: 0;
+    border-color: alpha(black, 0.30);
+	box-shadow: 0 1px alpha(white, 0.06) inset,
+				0 2px alpha(white, 0.02) inset,
+				0 -1px alpha(black, 0.43) inset,
+				0 -2px alpha(black, 0.04) inset,
+				-1px 0 alpha(black, 0.24) inset,
+				-2px 0 alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.03) inset,
+				2px 0 alpha(white, 0.01) inset;
+	transition: 260ms ease-in;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:active {
+    border-width: 0;
+    border-color: alpha(black, 0.24);
+
+	background-color: transparent;
+
+	box-shadow: 0 1px alpha(white, 0.14) inset,
+				0 2px alpha(white, 0.02) inset,
+				0 -1px alpha(black, 0.43) inset,
+				0 -2px alpha(black, 0.04) inset,
+				-1px 0 alpha(black, 0.24) inset,
+				-2px 0 alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.06) inset,
+				2px 0 alpha(white, 0.02) inset;
+	background-image: linear-gradient(to right,
+                                      alpha(black, 0.32),
+                                      transparent
+                                      ),
+                       linear-gradient(to left,
+                                      alpha(white, 0.09),
+                                      alpha(white, 0.0) 30px,
+                                      alpha(white, 0.0)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(white, 0.28),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.16) 51%,
+                                      alpha(black, 0.08)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 0.8),
+                                      alpha(@theme_selected_bg_color, 0.8)
+                                      );
+	transition: 260ms ease-in;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:active:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to right,
+                                      alpha(black, 0.32),
+                                      transparent
+                                      ),
+                       linear-gradient(to left,
+                                      alpha(white, 0.11),
+                                      alpha(white, 0.0) 30px,
+                                      alpha(white, 0.0)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(white, 0.28),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.16) 51%,
+                                      alpha(black, 0.08)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 1),
+                                      alpha(@theme_selected_bg_color, 1)
+                                      );
+    border-width: 0;
+    border-color: alpha(black, 0.24);
+	box-shadow: 0 1px alpha(white, 0.14) inset,
+				0 2px alpha(white, 0.02) inset,
+				0 -1px alpha(black, 0.43) inset,
+				0 -2px alpha(black, 0.04) inset,
+				-1px 0 alpha(black, 0.24) inset,
+				-2px 0 alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.06) inset,
+				2px 0 alpha(white, 0.02) inset;
+	transition: 260ms ease-in;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:active:backdrop,
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton:active:hover:backdrop {
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.14),
+                                      alpha(white, 0.02) 49%,
+                                      alpha(black, 0.08) 51%,
+                                      alpha(black, 0.04)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 0.6),
+                                      alpha(@theme_selected_bg_color, 0.6)
+                                      );
+	background-color: transparent;
+	border-width: 0;
+    border-color: alpha(black, 0.24);
+	box-shadow: 0 1px alpha(white, 0.06) inset,
+				0 2px alpha(white, 0.02) inset,
+				0 -1px alpha(black, 0.43) inset,
+				0 -2px alpha(black, 0.04) inset,
+				-1px 0 alpha(black, 0.24) inset,
+				-2px 0 alpha(black, 0.02) inset,
+				1px 0 alpha(white, 0.04) inset,
+				2px 0 alpha(white, 0.02) inset;
+	transition: 260ms ease-in;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton * {
+	color: #dddddd;
+	 text-shadow: 0 -1px alpha(black, 0.32);
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:hover {
+	color: #e2e2e2;
+	text-shadow: 0 -1px alpha(black, 0.4);
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:backdrop,
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:hover:backdrop {
+	color: shade(@theme_text_color, 0.8);
+	 text-shadow: none;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:active,
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:hover:active {
+    font: bold;
+	color:  @button_active_text;
+	text-shadow: 1px 1px @button_active_text_shadow;
+}
+
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:active:backdrop,
+NemoWindow .primary-toolbar.toolbar NemoPathbarButton *:hover:active:backdrop {
+    font: bold;
+	color:  shade(@button_active_text, 0.8);
+	text-shadow: none;
+}
+
+/* Nemo small status bar buttons */
+NemoWindow .toolbar .button GtkImage:active,
+NemoWindow .toolbar .button GtkImage:active:hover,
+NemoWindow .toolbar .button GtkImage:hover,
+NemoWindow .toolbar .button GtkImage {
+    color: @theme_fg_color;
+}
+
+NemoWindow .primary-toolbar.toolbar .button GtkImage {
+    color: @theme_text_color;
+}
+
+/*****Fix for nemo bottom toolbar buttons******/
+NemoWindow .toolbar .button {
+	background-image:none;
+	background-color: transparent;
+	border-color: transparent;
+	border-image:none;
+	box-shadow:none;
+	transition: 110ms ease-out;
+	padding: 1px;
+	}
+
+NemoWindow .toolbar .button:hover {
+    border-image: none;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #1f1f1f;
+	background-color: @button_gradient_color_c;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.4)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.36)
+                                      ),
+                        linear-gradient(to bottom,
+                                      shade(@button_gradient_color_a, 0.98),
+                                      shade(@button_gradient_color_c, 0.98)
+                                      );
+       box-shadow: 0 1px alpha(white, 0.09) inset,
+				0 2px alpha(white, 0.015) inset,
+				1px 0 alpha(white, 0.045) inset,
+				-1px 0 alpha(white, 0.03) inset,
+				0 -1px alpha(white, 0.045) inset,
+				0 -2px alpha(black, 0.02) inset,
+				0 -3px alpha(black, 0.01) inset;
+}
+
+NemoWindow .toolbar .button:active,
+NemoWindow .toolbar .button:active:hover {
+	border-image: none;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #181818;
+	background-image: linear-gradient(to bottom,
+                                      mix(@button_gradient_active_a, @theme_selected_bg_color, 0.65),
+                                      mix(@button_gradient_active_c, @theme_selected_bg_color, 0.65));
+    background-color: transparent;
+}
+
+NemoWindow .toolbar .button:active:hover {
+	background-image: linear-gradient(to bottom,
+                                      mix(@button_gradient_active_a, @theme_selected_bg_color, 0.75),
+                                      mix(@button_gradient_active_c, @theme_selected_bg_color, 0.75));
+    background-color: transparent;
+}
+
+NemoWindow .toolbar .button * {
+	color: #dddddd;
+	icon-shadow: 1px 1px alpha(black, 0.46);
+}
+
+NemoWindow .toolbar .button *:hover {
+	color: #ededed;
+	icon-shadow: 1px 1px alpha(black, 0.68);
+}
+
+NemoWindow .toolbar .button *:active,
+NemoWindow .toolbar .button *:active:hover {
+	color: #f8f8f8;
+	icon-shadow: -1px -1px alpha(black, 0.48);
+}
+
+NemoWindow .toolbar .button *:backdrop,
+NemoWindow .toolbar .button *:backdrop:hover,
+NemoWindow .toolbar .button *:backdrop:active,
+NemoWindow .toolbar .button *:backdrop:active:hover {
+	icon-shadow: none;
+}
+
+/*for the above fix to work primary-toolbar buttons must be defined again here. Not ideal*/
+
+
+NemoWindow .primary-toolbar .button:hover:hover {
+
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: red;
+	background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.28),
+                                      alpha(white, 0.04) 54%,
+                                      alpha(black, 0.16) 55%,
+                                      alpha(black, 0.08)
+                                      ),
+                       linear-gradient(to bottom,
+                                      alpha(black, 0.4),
+                                      alpha(black, 0.4)
+                                      ),
+                       linear-gradient(to bottom,
+                                      @primary-toolbar_button_a,
+                                      @primary-toolbar_button_b
+                                      );
+
+	box-shadow: 0 1px alpha(white, 0.04) inset,
+				0 2px alpha(white, 0.01) inset,
+				0 -1px alpha(black, 0.18) inset,
+				-1px 0 alpha(black, 0.1) inset,
+				1px 0 alpha(white, 0.02) inset;
+}
+
+NemoWindow .primary-toolbar .button:active {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.22),
+                                      alpha(white, 0.05) 54%,
+                                      alpha(black, 0.25) 55%,
+                                      alpha(black, 0.14)
+                                      ),
+                     linear-gradient(to bottom,
+                                      mix(alpha(black, 0.7), @theme_selected_bg_color, 0.2),
+                                      mix(alpha(black, 0.7), @theme_selected_bg_color, 0.2)
+                                      ),
+                     linear-gradient(to bottom,
+                                      @primary-toolbar_button_a,
+                                      @primary-toolbar_button_a
+                                      );
+    box-shadow: 0 -1px alpha(black, 0.08) inset,
+				0 1px alpha(black, 0.24) inset,
+				0 2px alpha(black, 0.04) inset,
+				1px 0 alpha(black, 0.06) inset,
+				-1px 0 alpha(black, 0.04) inset;
+}
+
+NemoWindow .primary-toolbar .button:active:hover {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.2),
+                                      alpha(white, 0.04) 54%,
+                                      alpha(black, 0.24) 55%,
+                                      alpha(black, 0.12)
+                                      ),
+                     linear-gradient(to bottom,
+                                      alpha(black, 0.6),
+                                      alpha(black, 0.6)
+                                      ),
+                     linear-gradient(to bottom,
+                                      @primary-toolbar_button_a,
+                                      @primary-toolbar_button_b
+                                      );
+    box-shadow: 0 -1px alpha(black, 0.08) inset,
+				0 1px alpha(black, 0.24) inset,
+				0 2px alpha(black, 0.04) inset,
+				1px 0 alpha(black, 0.06) inset,
+				-1px 0 alpha(black, 0.04) inset;
+}
+
+NemoWindow .primary-toolbar .button:active:backdrop,
+NemoWindow .primary-toolbar .button:active:hover:backdrop {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.1),
+                                      alpha(white, 0.02) 54%,
+                                      alpha(black, 0.12) 55%,
+                                      alpha(black, 0.06)
+                                      ),
+                     linear-gradient(to bottom,
+                                      alpha(black, 0.6),
+                                      alpha(black, 0.6)
+                                      ),
+                     linear-gradient(to bottom,
+                                      shade(@primary-toolbar_button_a, 0.8),
+                                      shade(@primary-toolbar_button_b, 0.8)
+                                      );
+    box-shadow: 0 -1px alpha(black, 0.08) inset,
+				0 1px alpha(black, 0.24) inset,
+				0 2px alpha(black, 0.04) inset,
+				1px 0 alpha(black, 0.06) inset,
+				-1px 0 alpha(black, 0.04) inset;
+ }
+
+NemoWindow .primary-toolbar .button:active:insensitive:insensitive {
+    background-color: transparent;
+    background-image: linear-gradient(to left top,
+                                      alpha (black, 0.15),
+                                      alpha (black, 0.15) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (black, 0.15) 50%,
+                                      alpha (black, 0.15) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                     linear-gradient(to bottom,
+                                      alpha(white, 0.2),
+                                      alpha(white, 0.04) 54%,
+                                      alpha(black, 0.24) 55%,
+                                      alpha(black, 0.12)
+                                      ),
+                     linear-gradient(to bottom,
+                                      alpha(black, 0.6),
+                                      alpha(black, 0.6)
+                                      ),
+                     linear-gradient(to bottom,
+                                      @primary-toolbar_button_a,
+                                      @primary-toolbar_button_b
+                                      );
+    background-size: 10px 10px, auto, auto, auto;
+
+    box-shadow: 0 -1px alpha(black, 0.08) inset,
+				0 1px alpha(black, 0.24) inset,
+				0 2px alpha(black, 0.04) inset,
+				1px 0 alpha(black, 0.06) inset,
+				-1px 0 alpha(black, 0.04) inset;
+}
+
+NemoWindow .primary-toolbar .button:active:insensitive:insensitive:backdrop {
+    background-color: transparent;
+    background-image: linear-gradient(to left top,
+                                      alpha (black, 0.15),
+                                      alpha (black, 0.15) 25%,
+                                      transparent 25%,
+                                      transparent 50%,
+                                      alpha (black, 0.15) 50%,
+                                      alpha (black, 0.15) 75%,
+                                      transparent 75%,
+                                      transparent
+                                      ),
+                     linear-gradient(to bottom,
+                                      alpha(white, 0.1),
+                                      alpha(white, 0.02) 54%,
+                                      alpha(black, 0.12) 55%,
+                                      alpha(black, 0.06)
+                                      ),
+                     linear-gradient(to bottom,
+                                      alpha(black, 0.6),
+                                      alpha(black, 0.6)
+                                      ),
+                     linear-gradient(to bottom,
+                                      shade(@primary-toolbar_button_a, 0.8),
+                                      shade(@primary-toolbar_button_b, 0.8)
+                                      );
+    background-size: 10px 10px, auto, auto, auto;
+
+    box-shadow: 0 -1px alpha(black, 0.08) inset,
+				0 1px alpha(black, 0.24) inset,
+				0 2px alpha(black, 0.04) inset,
+				1px 0 alpha(black, 0.06) inset,
+				-1px 0 alpha(black, 0.04) inset;
+}
+
+NemoWindow .primary-toolbar .button:hover:backdrop,
+NemoWindow .primary-toolbar .button:insensitive:insensitive,
+NemoWindow .primary-toolbar .button:insensitive:insensitive:backdrop {
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+}
+
+NemoWindow .primary-toolbar .button,
+NemoWindow .primary-toolbar .button:insensitive
+NemoWindow .primary-toolbar .button:backdrop,
+NemoWindow .primary-toolbar .button:hover:backdrop,
+NemoWindow .primary-toolbar .button:insensitive:backdrop {
+	border-image: none;
+	border-radius: 3px;
+	border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+
+    transition: 120ms ease-in-out;
+}
+
+NemoWindow .primary-toolbar .button:hover:hover {
+    border-image: url("borders/primary/primary-hover.svg") 4 / 4px stretch;
+}
+
+NemoWindow .primary-toolbar .button:active,
+NemoWindow .primary-toolbar .button:active:hover,
+NemoWindow .primary-toolbar .button:active:insensitive:insensitive {
+    border-image: url("borders/primary/primary-active.svg") 4 / 4px stretch;
+}
+
+NemoWindow .primary-toolbar .button:active:backdrop,
+NemoWindow .primary-toolbar .button:active:hover:backdrop,
+NemoWindow .primary-toolbar .button:active:insensitive:insensitive:backdrop {
+    border-image: url("borders/primary/primary-active-backdrop.svg") 4 / 4px stretch;
+}
+
+
+/* *** GtkFileChooser FIX for sidebar hover during backdrop *** */
+GtkFileChooserDefault .sidebar.view:hover:backdrop {
+    color: shade(@theme_text_color, 0.8);
+    border-width: 1px;
+
+    background: @sidebar_background;
+    background-image: url("assets/contacts-stripes-9.png"),
+					  linear-gradient(to bottom,
+                                      @sidebar_background,
+                                      @sidebar_background
+                                      );
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 6px;
+}
+
+GtkFileChooserDefault .cell:selected:backdrop,
+GtkFileChooserDefault .cell:selected:hover:backdrop {
+	border-width: 0px;
+	border-style: solid;
+	border-color: transparent;
+
+	color: shade(#e2e2e2, 0.8);
+	text-shadow: none;
+
+	background-color: shade(@cell-selected, 0.8);
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.03),
+                                      alpha(black, 0.03)
+                                      );
+    box-shadow: inset 0 -1px alpha(black, 0.14),
+				inset 0 -2px alpha(black, 0.04),
+				inset 0 -3px alpha(black, 0.01),
+				inset 0 1px alpha(black, 0.32),
+				inset 0 2px alpha(white, 0.015),
+				inset 0 3px alpha(white, 0.002),
+                inset -1px 0 alpha(black, 0.04),
+                inset 1px 0 alpha(white, 0.01);
+}
+
+/********************** *Evolution* ****************************/
+EMailShellContent .entry {
+	background-image:none;
+	background-color: mix(#2a2a2a, @theme_selected_bg_color, 0.04);
+	color: #ddddd4;
+}
+
+ECalShellContent .entry,
+EMemoShellContent .entry,
+ETaskShellContent .entry {
+	background-image:none;
+	background-color: #828282;
+	color: #060606;
+}
+
+ESearchbar .entry,
+EShellSearchbar .entry,
+ESearchbar .entry:focus,
+EShellSearchbar .entry:focus {
+	color: @entry_text_color;
+    border-style: solid;
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.82);
+
+    background-color: shade(@theme_fg_color,0.92);
+	border-image: none;
+	box-shadow: 0 -1px rgba(255,255,255,0.10) inset,
+
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;
+}
+
+ESearchbar .entry:focus,
+EShellSearchbar .entry:focus {
+	color: @entry_text_focus_color;
+    background-color: shade(@theme_text_color, 1.03);
+}
+
+ESearchbar .entry:backdrop:backdrop,
+EShellSearchbar .entry:backdrop:backdrop,
+ESearchbar .entry:focus:backdrop:backdrop,
+EShellSearchbar .entry:focus:backdrop:backdrop {
+    color: shade(@theme_fg_color,0.72);
+    background-color: shade(@entry_text_color, 0.8);
+    background-image: none;
+}
+
+EShellWindow .entry:insensitive {
+	background-color: mix(shade(@insensitive_fg_color, 2.4), @theme_selected_bg_color, 0.08);
+}
+
+EShellWindow GtkEventBox* {
+	color: mix(white, @theme_selected_bg_color, 0.1);
+	text-shadow: 1px 1px alpha(black, 0.18);
+}
+
+EShellWindow GtkEventBox*:backdrop {
+	color: shade(mix(white, @theme_selected_bg_color, 0.1), 0.8);
+	text-shadow: none;
+}
+
+EAttachmentPaned* .entry,
+EShellWindow EPreviewPane* .entry,
+EBookShellContent EPreviewPane* .entry {
+	color: #e2e2e2;
+	background-color: #161616;
+	background-image: none;
+}
+
+/* *Evolution Calendar* */
+EShellWindow ECalShell*.entry,
+EShellWindow ECalShellSidebar .entry {
+	border-radius: 2px;
+}
+
+ECalendar {
+	background-color: #1a1a1a;
+	background-image: none;
+	color: #d2d2d2;
+}
+
+EShellWindow .entry EWeekView*, /*days of week background in MonthView*/
+EShellWindow EWeekView* {
+	background-image: none;
+	background-color: mix(shade(@theme_fg_color, 0.45), shade(@theme_selected_bg_color, 0.85), 0.25);
+}
+
+/* *Evolution Task/Memo* */
+ETaskTable *,
+EMemoTable *  {
+	color: shade(@theme_selected_bg_color, 0.75);
+	background-color: mix(shade(@theme_fg_color, 0.6), @theme_selected_bg_color, 0.08);
+	background-image: none;
+}
+
+/* *Evolution Mail* */
+MessageList*,
+MessageList {
+	color: shade(#ddddd4, 0.45);
+	background-color: mix(@theme_base_color, @theme_selected_bg_color, 0.1);
+	background-image: none;
+}
+
+/*evolution contacts*/
+EAddressbookView .entry *,
+EAddressbookView .entry {
+	background-image:none;
+	background-color: @view-row;
+	color: @theme_fg_color;
+	}
+
+EMinicardViewWidget *,
+EMinicardViewWidget {
+	background-image:none;
+	background-color: shade(@cell-selected, 0.6);
+	color: @theme_fg_color;
+	text-shadow: 1px 1px black;
+	box-shadow: inset -1px 0 alpha(white, 0.075);
+	}
+
+EMinicardViewWidget:selected:selected:selected {
+	background-image:none;
+	background-color: shade(@theme_selected_bg_color, 0.94);
+	color: @theme_selected_fg_color;
+	text-shadow: 1px 1px black;
+	}
+
+/*
+ECalShellSidebar .cell,
+ECalShellSidebar .view,
+EMemoShellSidebar .view,
+EMemoShellSidebar .cell,
+ETaskShellSidebar .cell,
+ETaskShellSidebar .view,
+EBookShellSidebar .cell,
+EBookShellSidebar .view,
+EMailShellSidebar .cell,
+EMailShellSidebar .view {
+	color: shade(@theme_text_color, 1.1);
+    border-width: 1px;
+
+    background: @sidebar_background;
+    background-image: url("assets/contacts-stripes-9.png"),
+					  linear-gradient(to bottom,
+                                      @sidebar_background,
+                                      @sidebar_background
+                                      );
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 6px, auto;}*/
+
+/* *******************Rhythmbox*************************** */
+RBSource .entry,
+RBSource .entry:focus { /*Fixes unreadable text in HTML messages and mail lists for DARK Themes*/
+	color: @entry_text_color;
+    border-style: solid;
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.82);
+
+    background-color: shade(@theme_fg_color,0.92);
+	border-image: none;
+	box-shadow: 0 -1px rgba(255,255,255,0.10) inset,
+
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;
+}
+
+RBSource .entry:focus  {
+	color: @entry_text_focus_color;
+    background-color: shade(@theme_text_color, 1.03);
+}
+
+RBSource .entry:backdrop,
+RBSource .entry:focus:backdrop {
+    color: shade(@entry_text_color, 1.2);
+    background-color: shade(@theme_text_color,0.72);
+    background-image: none;
+}
+
+RBSource .toolbar .button,
+RBSource .toolbar .button:backdrop,
+RBSource .toolbar .button:hover:backdrop {
+	border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: none;
+    transition: 240ms ease-in-out;
+    box-shadow: none;
+    background-image:none;
+    background-color: transparent;
+}
+
+RBSource .toolbar .button:hover {
+	background-color: @button_gradient_color_c;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.5)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.26)
+                                      ),
+                        linear-gradient(to bottom,
+                                      shade(@button_gradient_color_a, 0.98),
+                                      shade(@button_gradient_color_c, 0.98)
+                                      );
+       box-shadow: 0 1px alpha(white, 0.09) inset,
+				0 2px alpha(white, 0.015) inset,
+				1px 0 alpha(white, 0.045) inset,
+				-1px 0 alpha(white, 0.03) inset,
+				0 -1px alpha(white, 0.045) inset,
+				0 -2px alpha(black, 0.02) inset,
+				0 -3px alpha(black, 0.01) inset;
+    transition: 240ms ease-in;
+	border-image: url("borders/button/button-hover.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+RBSource .toolbar .button *:hover {
+	transition: 180ms ease-in;
+}
+
+RBSource .toolbar .button *:backdrop,
+RBSource .toolbar .button *:hover:backdrop {
+	text-shadow: none;
+}
+
+RBSource .toolbar .button:active,
+RBSource .toolbar .button:hover:active {
+	background-color: @button_gradient_color_a;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.6)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.5)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.08);
+    transition: 280ms ease-in-out;
+	border-image: url("borders/button/button-hover.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+RBSource .toolbar .button:hover:active,
+RBSource .toolbar GtkMenuButton.button:active,
+RBSource .toolbar GtkMenuButton.button.raised:active {
+    background-color: @menu_background_color;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.8)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.65)
+                                      );
+	border-image: url("borders/button/button-hover.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.08);
+
+}
+
+RBSource .toolbar .button:active:backdrop,
+RBSource .toolbar .button:hover:active:backdrop {
+	background-color: shade(@button_gradient_color_a, 0.8);
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.4)),
+										to(alpha(black, 0.04))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.35)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.03),
+				inset 0 1px alpha(white, 0.08),
+				inset 0 2px alpha(white, 0.01),
+                inset -1px 0 alpha(white, 0.02),
+                inset 1px 0 alpha(white, 0.04);
+
+}
+
+
+
+RBSource .toolbar .button *:active {
+	color: @button_active_text;
+	text-shadow: 1px 1px alpha(black, 0.42);
+}
+
+RBSource .toolbar .button *:hover:active {
+	color: shade(@button_active_text, 1.1);
+	text-shadow: 1px 1px alpha(black, 0.52);
+}
+
+RBSource .toolbar .button *:active:backdrop,
+RBSource .toolbar .button *:hover:active:backdrop {
+	color:  shade(@button_active_text, 0.8);
+	text-shadow: none;
+}
+/*
+RBSource .toolbar GtkMenuButton.button:active,
+RBSource .toolbar GtkMenuButton.button.raised:active {
+    box-shadow: inset 0 -1px alpha(black, 0.26),
+				inset 0 1px alpha(white, 0.12),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.06);
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.22),
+                                      alpha(white, 0.04) 49%,
+                                      alpha(black, 0.04) 50%,
+                                      alpha(black, 0.22)
+                                      ),
+                                      linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 1.0),
+                                      alpha(@theme_selected_bg_color, 1.0)
+                                      );
+    background-color: @theme_selected_bg_color;
+    border-radius: 3px ;
+    border-image: url("borders/button/button-active.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+RBSource .toolbar GtkMenuButton.button *:active,
+RBSource .toolbar GtkMenuButton.button.raised *:active,
+RBSource .toolbar GtkMenuButton.button *:active:hover,
+RBSource .toolbar GtkMenuButton.button.raised *:active:hover {
+	color: #040404;
+	text-shadow: 1px 1px alpha(white, 0.12);
+}
+
+RBSource .toolbar .linked.raised GtkMenuButton.button *:active,
+RBSource .toolbar GtkMenuButton.button.linked.raised *:active {
+    icon-shadow: none;
+}*/
+
+RBHeader *{
+	color: mix(#ededed, @theme_selected_bg_color, 0.03);
+	text-shadow: alpha(black, 0.26) 0 -1px,
+					alpha(black, 0.16) 0 1px,
+					alpha(black, 0.26) 1px 0,
+					alpha(black, 0.16) -1px 0;
+}
+
+/* gedit */
+
+GeditWindow .pane-separator,
+GeditWindow .pane-separator:hover {
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: shade(@sidebar_bg, 0.92);
+    border-right-color: shade (@theme_base_color, 0.70);
+    border-left-color: alpha(white, 0.015);
+    background-color: @theme_base_color;
+    color: shade (@theme_bg_color, 0.9);
+}
+
+GeditWindow .pane-separator:backdrop,
+GeditWindow .pane-separator:hover:backdrop {
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: shade(@sidebar_bg, 0.72);
+    border-right-color: shade (@theme_base_color, 0.56);
+    border-left-color: alpha(white, 0.005);
+    background-color: shade(@theme_base_color, 0.8);
+    background-image: none;
+}
+
+GeditPanel.title GtkLabel {
+    padding: 7px 0 6px 0;
+    font: bold;
+    color: shade(@theme_text_color, 1.12);
+    text-shadow: -1px -1px alpha(black, 0.32);
+}
+
+GeditPanel.title GtkLabel:backdrop {
+    color: shade(@theme_text_color, 0.92);
+    text-shadow: none;
+}
+
+GeditPanel .toolbar {
+    border-style: none;
+    background-color: transparent;
+}
+
+GeditDocumentsPanel .view {
+    background-color: @view-row;
+}
+
+GeditDocumentsPanel .view:backdrop {
+    background-color: shade(@view-row, 0.8);
+}
+
+GeditPanel .notebook {
+    padding: 0px;
+    border-width: 1px 0;
+}
+
+GeditWindow .notebook {
+    border-width: 1px 0;
+}
+
+GeditPanel .notebook tab,
+GeditWindow .notebook tab {
+    border-width: 0;
+}
+
+GeditStatusComboBox .button {
+    text-shadow: none;
+}
+
+GeditStatusComboBox .button:backdrop,
+GeditStatusComboBox .button:backdrop:hover,
+GeditStatusComboBox .button,
+GeditStatusComboBox .button:hover,
+GeditStatusComboBox .button:active,
+GeditStatusComboBox .button:active:hover {
+    padding: 1px 8px 2px 4px;
+}
+
+GeditStatusComboBox .button:hover,
+GeditStatusComboBox .button:active,
+GeditStatusComboBox .button:active:hover {
+}
+
+GeditStatusComboBox .button:backdrop,
+GeditStatusComboBox .button:backdrop:hover {
+    border-color: transparent;
+    background-color: transparent;
+    background-image:none;
+    box-shadow: none;
+}
+
+GeditViewFrame .gedit-search-slider {
+    background-color: alpha(@theme_base_color, 0.8);
+    padding: 6px;
+    border-color: shade (@theme_base_color, 0.8);
+    border-radius: 0 0 3px 3px;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    background-image:none;
+    border-image:none;
+    box-shadow: 0 1px alpha(black, 0.16) inset,
+				0 2px alpha(black, 0.06) inset,
+				0 3px alpha(black, 0.02) inset;
+}
+
+GeditViewFrame .gedit-search-slider .entry:focus:focus {
+	color: #040404;
+	background-image: none;
+}
+
+GeditViewFrame .gedit-search-slider .entry:focus:selected:selected {
+	color: @theme_selected_fg_color;
+    background-color: @theme_selected_bg_color;
+}
+
+GeditViewFrame .gedit-search-slider .button {
+    border-image: none;
+}
+
+GeditViewFrame .gedit-search-slider .not-found {
+    color: @error_fg_color;
+    background-image: none;
+    background-color: @error_bg_color;
+}
+
+GeditViewFrame .gedit-search-slider .not-found:selected {
+    background-color: @theme_selected_bg_color;
+    color: @theme_selected_fg_color;
+}
+
+/* gnome-documents */
+.documents-dropdown,
+.documents-dropdown .view {
+    background-color: shade (@theme_base_color, 0.8);
+}
+
+.documents-dropdown.frame {
+    padding: 6px;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-radius: 0 0 5px 5px;
+    border-image: none;
+    border-color: shade (@theme_base_color, 0.62);
+}
+
+.documents-dropdown .view.radio,
+.documents-dropdown .view.radio:focused,
+.documents-dropdown .view.radio:selected {
+    background-image: none;
+    background-color: alpha(@theme_base_color, 0.0);
+}
+
+.documents-dropdown .view.radio:active,
+.documents-dropdown .view.radio:active:focused,
+.documents-dropdown .view.radio:active:prelight {
+    background-image: url("assets/sidebar-radio/sidebar-radio-checked.svg");
+}
+
+.documents-dropdown .view.radio:prelight {
+    background-image: url("assets/sidebar-radio/sidebar-radio-prelight.svg");
+}
+
+.documents-dropdown .view.radio:active:selected,
+.documents-dropdown .view.radio:active:selected:focused {
+    background-image: url("assets/sidebar-radio/sidebar-radio-selected.svg");
+}
+
+.documents-dropdown .view.radio:selected:prelight,
+.documents-dropdown .view.radio:selected:focused {
+    background-image: url("assets/sidebar-radio/sidebar-radio-selected-prelight.svg");
+}
+
+.documents-load-more.button {
+    border-image: none;
+    border-color: @borders;
+    border-width: 1px 0 0;
+    border-radius: 0;
+}
+
+.documents-scrolledwin.frame {
+    border-width: 1px 0 0;
+    border-radius: 0;
+}
+
+.documents-icon-bg {
+    background-color: @documents_emblem_bg;
+    border-radius: 4px;
+
+    color: @theme_base_color;
+}
+
+.documents-collection-icon {
+    background-color: @documents_collection_bg;
+    border-radius: 8px;
+}
+
+.documents-counter {
+    background-image: url('assets/dnd-counter.svg');
+    background-size: contain;
+    background-color: transparent;
+    color: @theme_base_color;
+    font: bold;
+}
+
+.documents-favorite.button *:active,
+.documents-favorite.button *:active:hover {
+    color: shade(@theme_selected_bg_color, 1.20);
+}
+
+.documents-entry-tag {
+    background-color: @entry_tag_bg;
+    color: @entry_tag_fg;
+
+    border-radius: 4px;
+    border-width: 0;
+
+    margin: 2px;
+    padding: 4px;
+}
+
+.documents-entry-tag:hover {
+    background-color: shade(@entry_tag_bg, 1.10);
+    color: shade(@entry_tag_fg, 1.2);
+}
+
+.documents-entry-tag.button,
+.documents-entry-tag.button:hover,
+.documents-entry-tag.button:active,
+.documents-entry-tag.button:active:hover {
+    background-color: transparent;
+    background-image: none;
+    border-image: none;
+    border-width: 0;
+
+    box-shadow: none;
+}
+
+.documents-entry-tag.button:hover {
+    color: shade(@entry_tag_bg, 2.10);
+}
+
+/* baobab */
+
+.baobab-toolbar.toolbar {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+}
+
+.cell.baobab-level-cell,
+.cell.baobab-level-cell:hover,
+.cell.baobab-level-cell:selected,
+.cell.baobab-level-cell:selected:focus,
+.cell.baobab-level-cell:selected:hover {
+    border-color: #484848;
+    border-width: 1px;
+    border-radius: 3px;
+    border-style: solid;
+    background-color: shade(@notebook_tab_bg, 0.6);
+    border-image: none;
+    background-image: none;
+    box-shadow: none;
+}
+
+.cell.baobab-level-cell:selected,
+.cell.baobab-level-cell:selected:focus,
+.cell.baobab-level-cell:selected:hover {
+    border-color: #686868;
+}
+
+.cell.baobab-level-cell:backdrop,
+.cell.baobab-level-cell:hover:backdrop,
+.cell.baobab-level-cell:selected:backdrop,
+.cell.baobab-level-cell:selected:focus:backdrop,
+.cell.baobab-level-cell:selected:hover:backdrop {
+    border-color: shade(#484848, 0.8);
+    border-width: 1px;
+    border-radius: 3px;
+    border-style: solid;
+    background-color: shade(@notebook_tab_bg, 0.4);
+    border-image: none;
+    background-image: none;
+    box-shadow: none;
+}
+
+.cell.baobab-level-cell:selected:backdrop,
+.cell.baobab-level-cell:selected:focus:backdrop,
+.cell.baobab-level-cell:selected:hover:backdrop {
+    border-color: shade(#686868, 0.8);
+}
+
+.cell.baobab-level-cell.fill-block,
+.cell.baobab-level-cell.fill-block:selected,
+.cell.baobab-level-cell.fill-block:selected:hover {
+    background-color: #edd400;
+}
+
+.cell.baobab-level-cell.fill-block.level-low,
+.cell.baobab-level-cell.fill-block.level-low:hover {
+    background-color: #73d216;
+}
+
+.cell.baobab-level-cell.fill-block.level-high,
+.cell.baobab-level-cell.fill-block.level-high:hover {
+    background-color: #cc0000;
+}
+
+.cell.baobab-level-cell.fill-block:backdrop,
+.cell.baobab-level-cell.fill-block:hover:backdrop,
+.cell.baobab-level-cell.fill-block.level-low:backdrop,
+.cell.baobab-level-cell.fill-block.level-high:backdrop {
+    background-color: shade(@progressbar_background_a, 0.8);
+}
+
+.cell.baobab-cell-error {
+    color: @error_color;
+}
+
+.cell.baobab-cell-warning {
+    color: @warning_color;
+}
+
+.cell.baobab-cell-warning:selected,
+.cell.baobab-cell-error:selected {
+    color: @theme_selected_fg_color;
+}
+
+.cell.baobab-cell-warning:backdrop,
+.cell.baobab-cell-error:backdrop,
+.cell.baobab-cell-warning:selected:backdrop,
+.cell.baobab-cell-error:selected:backdrop {
+    color: shade(@theme_fg_color, 0.8);
+}
+
+BaobabWindow.background GdStack > GtkGrid > GtkScrolledWindow.frame {
+    border-radius: 0;
+    border-width: 0 1px 0 0;
+}
+
+BaobabWindow.background,
+BaobabWindow.background:backdrop {
+	background-image: none;
+	background-color: shade(@notebook_tab_bg, 0.6);
+}
+
+BaobabWindow.background  GtkRadioButton.button {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.075),
+                                      alpha(white, 0.0) 39%,
+                                      alpha(black, 0.0) 40%,
+                                      alpha(black, 0.1)),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.2)
+                                      );
+	background-color: alpha(black, 0.6);
+}
+
+BaobabWindow.background  GtkRadioButton.button:hover {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.105),
+                                      alpha(white, 0.0) 39%,
+                                      alpha(black, 0.0) 40%,
+                                      alpha(black, 0.1)),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.3)
+                                      );
+	background-color: alpha(black, 0.8);
+}
+
+BaobabWindow.background  GtkRadioButton.button:insensitive,
+BaobabWindow.background  GtkRadioButton.button:insensitive:backdrop,
+BaobabWindow.background  GtkRadioButton.button:backdrop,
+BaobabWindow.background  GtkRadioButton.button:backdrop:hover {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.035),
+                                      alpha(white, 0.0) 39%,
+                                      alpha(black, 0.0) 40%,
+                                      alpha(black, 0.1)),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.1)
+                                      );
+	background-color: alpha(black, 0.6);
+	background-size: auto, auto;
+}
+
+BaobabWindow.background  GtkRadioButton.button:active {
+	background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.08),
+                                      alpha(white, 0.0) 59%,
+                                      alpha(black, 0.0) 60%,
+                                      alpha(white, 0.025)),
+                      linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 0.5),
+                                      alpha(@theme_selected_bg_color, 0.6)
+                                      );
+	background-color: alpha(black, 0.6);
+}
+
+BaobabWindow.background  GtkRadioButton.button:active:hover {
+	background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.1),
+                                      alpha(black, 0.0) 49%,
+                                      alpha(white, 0.0) 50%,
+                                      alpha(white, 0.04)
+                                      ),
+                      linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 0.7),
+                                      alpha(@theme_selected_bg_color, 0.8)
+                                      );
+	background-color: alpha(black, 0.6);
+}
+
+BaobabWindow.background  GtkRadioButton.button:active:insensitive,
+BaobabWindow.background  GtkRadioButton.button:active:insensitive:backdrop,
+BaobabWindow.background  GtkRadioButton.button:active:backdrop,
+BaobabWindow.background  GtkRadioButton.button:active:hover:backdrop {
+	background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.08),
+                                      alpha(white, 0.0) 59%,
+                                      alpha(black, 0.0) 60%,
+                                      alpha(white, 0.015)),
+                      linear-gradient(to bottom,
+                                      alpha(@theme_selected_bg_color, 0.3),
+                                      alpha(@theme_selected_bg_color, 0.4)
+                                      );
+	background-color: alpha(black, 0.4);
+	background-size: auto, auto;
+}
+
+BaobabWindow.background  GtkRadioButton.button,
+BaobabWindow.background  GtkRadioButton.button:hover,
+BaobabWindow.background  GtkRadioButton.button:backdrop,
+BaobabWindow.background  GtkRadioButton.button:hover:backdrop,
+BaobabWindow.background  GtkRadioButton.button:insensitive {
+	border-image: url("borders/button/baobab-button.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+BaobabWindow.background  GtkRadioButton.button:active,
+BaobabWindow.background  GtkRadioButton.button:active:hover,
+BaobabWindow.background  GtkRadioButton.button:active:backdrop,
+BaobabWindow.background  GtkRadioButton.button:active:hover:backdrop,
+BaobabWindow.background  GtkRadioButton.button:active:insensitive {
+	border-image: url("borders/button/baobab-button-active.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+BaobabWindow.background  GtkRadioButton.button:first-child,
+BaobabWindow.background  GtkRadioButton.button:first-child:hover,
+BaobabWindow.background  GtkRadioButton.button:first-child:active,
+BaobabWindow.background  GtkRadioButton.button:first-child:active:hover,
+
+BaobabWindow.background  GtkRadioButton.button:first-child:backdrop,
+BaobabWindow.background  GtkRadioButton.button:first-child:hover:backdrop,
+BaobabWindow.background  GtkRadioButton.button:first-child:active:backdrop,
+BaobabWindow.background  GtkRadioButton.button:first-child:active:hover:backdrop,
+
+BaobabWindow.background  GtkRadioButton.button:last-child:active,
+BaobabWindow.background  GtkRadioButton.button:last-child:active:hover,
+
+BaobabWindow.background  GtkRadioButton.button:last-child:active:backdrop,
+BaobabWindow.background  GtkRadioButton.button:last-child:active:hover:backdrop {
+	box-shadow: 0 1px alpha(black, 0.28) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.04) inset,
+				0 4px alpha(black, 0.01) inset,
+				0 -1px alpha(black, 0.12) inset,
+
+				-1px 0 alpha(black, 0.68) inset,
+
+				1px 0 alpha(black, 0.08) inset,
+				2px 0 alpha(black, 0.02) inset;
+}
+
+BaobabWindow.background  GtkRadioButton.button:last-child,
+BaobabWindow.background  GtkRadioButton.button:last-child:hover,
+BaobabWindow.background  GtkRadioButton.button:last-child:backdrop,
+BaobabWindow.background  GtkRadioButton.button:last-child:hover:backdrop {
+	box-shadow: 0 1px alpha(black, 0.28) inset,
+				0 2px alpha(black, 0.12) inset,
+				0 3px alpha(black, 0.04) inset,
+				0 4px alpha(black, 0.01) inset,
+
+				0 -1px alpha(black, 0.08) inset,
+
+				1px 0 alpha(white, 0.03) inset,
+				-1px 0 alpha(black, 0.08) inset,
+
+				-2px 0 alpha(black, 0.02) inset;
+}
+
+/*
+BaobabWindow .content-view.view {
+	background-color: shade(@notebook_tab_bg, 0.8);
+}
+
+BaobabWindow .content-view.view:backdrop,
+BaobabWindow .content-view.view:hover:backdrop {
+	background-color: shade(@notebook_tab_bg, 0.6);
+}
+
+BaobabWindow .content-view.view .separator,
+BaobabWindow .content-view.view .separator:backdrop {
+	border-color: shade(@notebook_tab_bg, 0.4);
+	border-image: none;
+}*/
+
+BaobabWindow .content-view.view:hover {
+	background-color: shade(@content_view_view, 0.8);
+	background-image: none;
+}
+
+
+BaobabWindow .content-view.view:active,
+BaobabWindow .content-view.view:active:hover {
+	background-color: mix(@content_view_view, @theme_selected_bg_color, 0.5);
+}
+
+BaobabWindow GtkInfoBar.warning,
+BaobabWindow GtkInfoBar.error {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: @borders;
+}
+
+/* epiphany */
+
+EphyToolbar.toolbar .entry,
+EphyToolbar.toolbar .entry:focus,
+EphyToolbar.toolbar .entry:backdrop {
+	color: @entry_text_color;
+    border-style: solid;
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.82);
+	border-image: none;
+	background-color: shade(@theme_fg_color,0.92);
+}
+
+EphyToolbar.toolbar .entry:focus {
+	color: @entry_text_color;
+	background-color: shade(@theme_text_color, 1.03);
+}
+
+EphyToolbar.toolbar .entry:backdrop {
+	color: shade(@entry_text_color, 1.2);
+    background-color: shade(@theme_text_color,0.72);
+    background-image: none;
+}
+
+EphyToolbar.toolbar .entry:first-child,
+EphyToolbar.toolbar .entry:focus:first-child,
+EphyToolbar.toolbar .entry:backdrop:first-child {
+    border-right-width: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding-left: 6px;
+    padding-right: 4px;
+
+    box-shadow: 0 -1px rgba(255,255,255,0.14) inset,
+
+				1px 1px rgba(0,0,0,0.20) inset,
+				2px 2px rgba(0,0,0,0.16) inset,
+				3px 3px rgba(0,0,0,0.12) inset,
+				4px 4px rgba(0,0,0,0.08) inset,
+				5px 5px rgba(0,0,0,0.04) inset,
+				6px 6px rgba(0,0,0,0.02) inset,
+
+				-1px 0 rgba(0,0,0,0.56) inset;
+}
+
+EphyToolbar.toolbar .entry:last-child,
+EphyToolbar.toolbar .entry:focus:last-child,
+EphyToolbar.toolbar .entry:backdrop:last-child {
+    border-left-width: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    padding-left: 4px;
+    padding-right: 6px;
+
+    box-shadow: 0 -1px rgba(255,255,255,0.14) inset,
+
+				0px 1px rgba(0,0,0,0.20) inset,
+				0px 2px rgba(0,0,0,0.16) inset,
+				0px 3px rgba(0,0,0,0.12) inset,
+				0px 4px rgba(0,0,0,0.08) inset,
+				0px 5px rgba(0,0,0,0.04) inset,
+				0px 6px rgba(0,0,0,0.02) inset,
+
+				1px 0 rgba(255,255,255,0.14) inset,
+
+				-1px 0 rgba(0,0,0,0.08) inset,
+				-2px 0 rgba(0,0,0,0.06) inset,
+				-3px 0 rgba(0,0,0,0.04) inset,
+				-4px 0 rgba(0,0,0,0.02) inset;
+}
+/*
+EphyToolbar.toolbar .entry:focus {
+    box-shadow: 0 1px #3a3a3a inset,
+				0 -1px #515151 inset,
+				1px 0 #434343 inset,
+
+				0 2px rgba(0,0,0,0.20) inset,
+				0 3px rgba(0,0,0,0.14) inset,
+				0 4px rgba(0,0,0,0.08) inset,
+				0 5px rgba(0,0,0,0.06) inset,
+				0 6px rgba(0,0,0,0.04) inset,
+				0 7px rgba(0,0,0,0.02) inset,
+				0 8px rgba(0,0,0,0.005) inset,
+
+				2px 0 rgba(0,0,0,0.09) inset,
+				4px 0 rgba(0,0,0,0.03) inset;
+}
+
+EphyToolbar.toolbar .entry:focus:last-child {
+    box-shadow: 0 1px #3a3a3a inset,
+				0 -1px #515151 inset,
+				-1px 0 #434343 inset,
+
+				0 2px rgba(0,0,0,0.20) inset,
+				0 3px rgba(0,0,0,0.14) inset,
+				0 4px rgba(0,0,0,0.08) inset,
+				0 5px rgba(0,0,0,0.06) inset,
+				0 6px rgba(0,0,0,0.04) inset,
+				0 7px rgba(0,0,0,0.02) inset,
+				0 8px rgba(0,0,0,0.005) inset,
+
+				-2px 0 rgba(0,0,0,0.09) inset,
+				-4px 0 rgba(0,0,0,0.03) inset;
+}*/
+
+EphyToolbar .location-entry .button,
+EphyToolbar .location-entry .button:hover,
+EphyToolbar .location-entry .button:active,
+EphyToolbar .location-entry .button:active:hover,
+EphyToolbar .location-entry .button:backdrop,
+EphyToolbar .location-entry .button:hover:backdrop,
+EphyToolbar .location-entry .button:insensitive,
+EphyToolbar .location-entry .button:insensitive:backdrop {
+    color: @internal_element_color;
+    -GtkButton-child-displacement-y: 0;
+    border-style: solid;
+    border-radius: 100px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: shade(@theme_bg_color, 0.8);
+	border-image: none;
+
+    background-color: shade(@theme_text_color, 0.75);
+    background-image: none;
+    padding-left: 4px;
+    padding-right: 4px;
+    box-shadow: 0 -1px rgba(255,255,255,0.04) inset,
+
+				0px 1px rgba(0,0,0,0.10) inset,
+				0px 2px rgba(0,0,0,0.08) inset,
+				0px 3px rgba(0,0,0,0.06) inset,
+				0px 4px rgba(0,0,0,0.04) inset,
+				0px 5px rgba(0,0,0,0.03) inset,
+				0px 6px rgba(0,0,0,0.02) inset,
+
+				1px 0 rgba(255,255,255,0.08) inset;
+}
+
+EphyToolbar .location-entry .button:backdrop,
+EphyToolbar .location-entry .button:backdrop:first-child,
+EphyToolbar .location-entry .button:backdrop:hover,
+EphyToolbar .location-entry .button:backdrop:hover:first-child,
+EphyToolbar .location-entry .button:backdrop:last-child,
+EphyToolbar .location-entry .button:backdrop:hover:last-child {
+    background-color: transparent;
+    background-image: -gtk-gradient(linear,
+                                    left top, left bottom,
+                                    from(shade(mix(@theme_text_color, @theme_selected_bg_color,0.7), 0.8)),
+                                    to(shade(mix(@theme_text_color, @theme_selected_bg_color,0.84), 0.8)));
+}
+
+EphyToolbar .location-entry .button:last-child,
+EphyToolbar .location-entry .button:last-child:hover,
+EphyToolbar .location-entry .button:last-child:active,
+EphyToolbar .location-entry .button:last-child:active:hover,
+EphyToolbar .location-entry .button:backdrop:last-child,
+EphyToolbar .location-entry .button:backdrop:hover:last-child,
+EphyToolbar .location-entry .button:insensitive:last-child,
+EphyToolbar .location-entry .button:insensitive:backdrop:last-child {
+    border-left-width: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+}
+
+EphyToolbar .location-entry .button:first-child,
+EphyToolbar .location-entry .button:first-child:hover,
+EphyToolbar .location-entry .button:first-child:active,
+EphyToolbar .location-entry .button:first-child:active:hover,
+EphyToolbar .location-entry .button:backdrop:first-child,
+EphyToolbar .location-entry .button:backdrop:hover:first-child,
+EphyToolbar .location-entry .button:insensitive:first-child,
+EphyToolbar .location-entry .button:insensitive:backdrop:first-child {
+	border-right-width: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    /* flip the box-shadow division*/
+    box-shadow: 0 -1px rgba(255,255,255,0.04) inset,
+
+				0px 1px rgba(0,0,0,0.10) inset,
+				0px 2px rgba(0,0,0,0.08) inset,
+				0px 3px rgba(0,0,0,0.06) inset,
+				0px 4px rgba(0,0,0,0.04) inset,
+				0px 5px rgba(0,0,0,0.03) inset,
+				0px 6px rgba(0,0,0,0.02) inset,
+
+				0 1px rgba(0,0,0,0.58) inset;
+}
+
+EphyToolbar .location-entry .button {
+    background-image: -gtk-gradient(linear,
+                                    left top, left bottom,
+                                    from(mix(@theme_base_color, @theme_selected_bg_color,0.8)),
+                                    to(mix(@theme_base_color, @theme_selected_bg_color,0.9)));
+}
+
+EphyToolbar .location-entry .button:hover {
+    background-image: -gtk-gradient(linear,
+                                    left top, left bottom,
+                                    from(mix(@theme_base_color, @theme_selected_bg_color,0.7)),
+                                    to(mix(@theme_base_color, @theme_selected_bg_color,0.8)));
+}
+
+EphyToolbar .location-entry .button:active,
+EphyToolbar .location-entry .button:active:hover {
+    background-image: -gtk-gradient(linear,
+                                    left top, left bottom,
+                                    from(mix(@theme_base_color, @theme_selected_bg_color,0.6)),
+                                    to(mix(@theme_base_color, @theme_selected_bg_color,0.58)));
+}
+
+EphyToolbar .location-entry .button * {
+    color:#d2d2d2;
+    icon-shadow: 1px 1px alpha(black, 0.14);
+}
+
+EphyToolbar .location-entry .button *:hover {
+    color: #e2e2e2;
+    icon-shadow: 1px 1px alpha(black, 0.24);
+}
+
+EphyToolbar .location-entry .button *:active,
+EphyToolbar .location-entry .button *:active:hover {
+    color: #f8f8f8;
+    icon-shadow: 1px 1px alpha(black, 0.3);
+}
+
+EphyNotebook.notebook {
+    border-width: 1px 0 1px 0;
+}
+
+EphyNotebook.notebook tab {
+    border-width: 0;
+}
+
+TerminalWindow .notebook tab.top:active,
+GeditWindow .notebook tab.top:active,
+EphyNotebook.notebook tab.top:active {
+	background-color: @notebook_color;
+    box-shadow: inset 0 1px alpha (white, 0.18);
+    background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.2),
+                                      alpha(white, 0.08) 39%,
+                                      alpha(black, 0.2) 41%,
+                                      alpha(black, 0.08)
+                                      ),
+					linear-gradient(to bottom,
+                                      mix(@notebook_color, @theme_selected_bg_color, 0.45),
+                                      @notebook_color
+                                      );
+    border-image-source: -gtk-gradient (linear,
+                                             left top, left bottom,
+                                             from (mix(shade(@notebook_color, 0.9), @theme_selected_bg_color, 0.2)),
+                                             to (shade(@notebook_color, 0.35)));
+}
+
+EphyToolbar.toolbar .button {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#ephy-page-menu-button.active-menu {
+    background-color: alpha(black, 0.65);
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.8)),
+										to(alpha(black, 0.06))),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.65)
+                                      );
+	icon-shadow: 1px 1px alpha(black, 0.14);
+	box-shadow: 0 1px alpha(black, 0.2) inset,
+				1px 0 alpha(black, 0.1) inset,
+				-1px 0 alpha(black, 0.1) inset,
+				0 2px alpha(black, 0.08) inset,
+				2px 0 alpha(black, 0.04) inset,
+				-2px 0 alpha(black, 0.02) inset;
+}
+
+EphyOverview GtkScrolledWindow {
+    background-color: @theme_base_color;
+}
+
+EphyOverview GtkScrolledWindow:backdrop {
+    background-color: shade(@theme_base_color, 0.8);
+}
+
+/* sets top and bottom borders on the main scrolled window for toolbar visual
+ * division and search/downloadbar */
+EphyWindow.background EphyEmbed.vertical GtkScrolledWindow.frame {
+    border-color: @borders;
+    border-width: 1px 0;
+    border-radius: 0;
+}
+
+/* removes any border from the overview scrolled window, since it's overlaid */
+EphyWindow.background EphyEmbed.vertical EphyOverview .documents-scrolledwin {
+    border-style: none;
+}
+
+/* remove top and bottom borders from the main scrolled window when inside a notebook tab */
+EphyWindow.background EphyNotebook.notebook EphyEmbed.vertical GtkScrolledWindow {
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+/* remove bottom borders from the  main scrolled window when no bars at the bottom of the screen are shown */
+EphyWindow.background EphyNotebook:last-child EphyEmbed.vertical GtkScrolledWindow,
+EphyWindow.background EphyNotebook.notebook:last-child {
+    border-bottom-width: 0;
+}
+
+/* Gnome Contacts */
+
+/* Line at top in contacts pane, similar to .documents-scrolledwin.frame */
+.contacts-content.frame {
+ border-width: 1px 0 0 0;
+ border-radius: 0;
+}
+
+/* Background color in contacts pane, similar to .documents-main-view.view */
+.contacts-main-view.view {
+background-image: url("assets/contacts-stripes-9.png"),
+						linear-gradient(to bottom,
+                                     @content_view_view,
+                                     @content_view_view);
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 6px;
+}
+
+.contacts-main-view.view:backdrop {
+background-image: url("assets/contacts-stripes-9.png"),
+						linear-gradient(to bottom,
+                                     shade(@content_view_view, 0.8),
+                                      shade(@content_view_view, 0.8));
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 6px;
+}
+
+.contacts-main-view.view .button { /*fixes from drawing a normal state before the hover*/
+	transition: 0ms ease-in;
+}
+
+.contacts-suggestion {
+ background-color: #434343;
+ color: #ffffff;
+ border-radius: 4px;
+}
+
+.contacts-suggestion:backdrop {
+ background-color: shade(#434343, 0.8);
+ color: #dddddd;
+ border-radius: 4px;
+}
+
+/* Border on the right in the left menu toolbar */
+.contacts-left-toolbar.toolbar.menubar {
+    border-image: linear-gradient(to bottom, transparent, #080808);
+    border-image-width: 0 1px 0 0;
+    border-image-slice: 1;
+}
+
+.contacts-left-toolbar.toolbar.menubar:backdrop {
+    border-image: linear-gradient(to bottom, transparent, shade(#080808, 0.8));
+    border-image-width: 0 1px 0 0;
+    border-image-slice: 1;
+}
+
+/* Sidebar with line at top and the left */
+ContactsWindow .sidebar.frame {
+ border-width: 1px 1px 0 0;
+ border-style: solid;
+ border-color: #080808;
+ border-image: none;
+ border-radius: 0;
+ padding: 0;
+}
+
+.contacts-avatar-frame.frame {
+ border-width: 1px 1px 0 1px;
+ border-style: solid;
+ border-color: transparent;
+ border-image: none;
+ border-radius: 0;
+ padding: 0;
+}
+
+/* Primary toolbar with no line at top to avoid conflicts with frame border */
+ContactsWindow .primary-toolbar.toolbar {
+ border-width: 0 0 1px 0;
+ border-color: shade(@sidebar_background, 0.6);
+ border-image: none;
+}
+
+ContactsWindow .primary-toolbar.toolbar:backdrop {
+ border-color: shade(@sidebar_background, 0.4);
+ }
+
+ContactsWindow .sidebar .view,
+ContactsWindow ContactsListPane,
+ContactsWindow ContactsView {
+	background: @sidebar_background;
+	background-image: none;
+	color: @theme_text_color;
+	border-radius: 0;
+}
+
+ContactsWindow .sidebar .view:hover,
+ContactsWindow ContactsListPane:hover,
+ContactsWindow ContactsView:hover {
+	background: mix(@sidebar_background, @theme_selected_bg_color, 0.02);
+	background-image: none;
+	border-radius: 0;
+}
+
+ContactsWindow .sidebar .view:backdrop,
+ContactsWindow ContactsListPane:backdrop,
+ContactsWindow ContactsView:backdrop {
+	background: shade(@sidebar_background, 0.8);
+	background-image: none;
+	color: shade(@theme_text_color, 0.8);
+	border-radius: 0;
+}
+
+ContactsWindow ContactsView:selected:hover,
+ContactsWindow ContactsView:selected:focus:hover,
+ContactsWindow ContactsView:selected,
+ContactsWindow ContactsView:selected:focus,
+ContactsWindow .sidebar .view:selected,
+ContactsWindow .sidebar .view:selected:focus {
+	border-style: solid;
+	border-width:  0;
+	border-color: transparent;
+	border-radius: 2px;
+	background-color:  @sidebar_background;
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.18),
+                                      alpha(black, 0.06)
+                                      ),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.65)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.06);
+}
+
+ContactsWindow ContactsView:selected:hover:backdrop,
+ContactsWindow ContactsView:selected:focus:hover:backdrop,
+ContactsWindow ContactsView:selected:backdrop,
+ContactsWindow ContactsView:selected:focus:backdrop,
+ContactsWindow .sidebar .view:selected:backdrop,
+ContactsWindow .sidebar .view:selected:focus:backdrop {
+	background-color:  shade(@sidebar_background, 0.8);
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.16),
+                                      alpha(black, 0.06)
+                                      ),
+                      linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.45)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.03),
+				inset 0 1px alpha(white, 0.055),
+				inset 0 2px alpha(white, 0.01),
+                inset -1px 0 alpha(white, 0.02),
+                inset 1px 0 alpha(white, 0.03);
+}
+
+ContactsWindow ContactsView *:selected:hover,
+ContactsWindow ContactsView *:selected:focus:hover,
+ContactsWindow ContactsView *:selected,
+ContactsWindow ContactsView *:selected:focus,
+ContactsWindow .sidebar .view *:selected,
+ContactsWindow .sidebar .view *:selected:focus {
+	color: #e2e2e2;
+	background-color: transparent;
+}
+
+ContactsWindow ContactsView *:selected:hover:backdrop,
+ContactsWindow ContactsView *:selected:focus:hover:backdrop,
+ContactsWindow ContactsView *:selected:backdrop,
+ContactsWindow ContactsView *:selected:focus:backdrop,
+ContactsWindow .sidebar .view *:selected:backdrop,
+ContactsWindow .sidebar .view *:selected:focus:backdrop {
+	color: shade(#e2e2e2, 0.8);
+	background-color: transparent;
+}
+
+ContactsWindow .sidebar .view *:hover,
+ContactsWindow ContactsListPane *:hover,
+ContactsWindow ContactsView *:hover {
+	color: shade(@theme_text_color, 1.1);
+}
+
+.contacts-button:active {
+ border-color: #0f0f0f;
+ border-image: none;
+}
+
+.contacts-entry {
+ border-image: none;
+ border-width: 1px;
+ border-radius: 3px;
+}
+
+.contacts-entry:selected,
+.contacts-entry:selected:focus {
+ background-color: @theme_selected_bg_color;
+ color: @theme_selected_fg_color;
+}
+
+.contacts-entry.contacts-postal-entry,
+.contacts-entry.contacts-postal-entry:focus {
+box-shadow:none;
+ border-radius: 0 0 0 0;
+ border-width: 1px 1px 0px 1px;
+}
+
+.contacts-entry.contacts-postal-entry:focus {
+border-image:none;
+}
+
+.contacts-entry.contacts-postal-entry:nth-child(first),
+.contacts-entry.contacts-postal-entry:nth-child(first):focus {
+ border-radius: 4px 4px 0 0;
+}
+
+.contacts-entry.contacts-postal-entry:nth-child(last),
+.contacts-entry.contacts-postal-entry:nth-child(last):focus {
+ border-radius: 0 0 4px 4px;
+ border-width: 1px;
+}
+
+.button.contacts-square {
+ padding: 0px;
+}
+
+.contacts-combo .button {
+	background-color:transparent;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.6)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.5)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.08);
+}
+
+.contacts-combo .button:hover {
+	background-color: transparent;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.8)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.65)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.08);
+    transition: 240ms ease-out;
+}
+
+.contacts-combo .button:backdrop,
+.contacts-combo .button:hover:backdrop {
+	background-color: transparent;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.3)),
+										to(alpha(black, 0.03))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.25)
+                                      );
+    box-shadow: inset 0 -1px alpha(white, 0.035),
+				inset 0 1px alpha(white, 0.06),
+				inset 0 2px alpha(white, 0.012),
+                inset -1px 0 alpha(white, 0.025),
+                inset 1px 0 alpha(white, 0.04);
+}
+
+.toolbar.contacts-edit-toolbar {
+  padding: 6px;
+  background-color: #787878;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #bbbeb7;
+  border-image: none;
+}
+
+.toolbar.contacts-edit-toolbar:backdrop {
+  padding: 6px;
+  background-color: shade(#787878, 0.8);
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: shade(#bbbeb7, 0.8);
+  border-image: none;
+}
+
+.toolbar.contacts-edit-toolbar .button {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.toolbar.contacts-selection-toolbar {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #bbbeb7;
+  border-image: none;
+}
+
+.toolbar.contacts-selection-toolbar:backdrop {
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: shade(#bbbeb7, 0.8);
+  border-image: none;
+}
+
+/* gnome-photos */
+
+.photos-icon-bg {
+  icon-shadow: 0 1px #000000;
+}
+
+/* Gucharmap */
+GucharmapChartable:active,
+GucharmapChartable:focus,
+GucharmapChartable:selected {
+ background-color: @theme_selected_bg_color;
+ color: @theme_selected_fg_color;
+}
+
+/* evince */
+EvWindow.background > GtkBox.vertical > GtkPaned.horizontal > GtkBox.vertical > GtkScrolledWindow.frame {
+    border-width: 0;
+    border-radius: 0;
+}
+
+EvWindow.background EvSidebar.vertical .frame {
+    border-width: 1px 0 0;
+    border-radius: 0;
+}
+
+EvWindow.background EvSidebar.vertical .notebook {
+    border-width: 1px 0 0;
+}
+
+EvWindow.background EvSidebarAnnotations.vertical GtkToolPalette > GtkToolItemGroup > .button {
+    border-image: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0 0 1px;
+    border-color: #121212;
+}
+
+EvWindow.background EvSidebar.vertical .notebook .frame {
+    border-width: 0;
+}
+
+EvWindow .pane-separator,
+EvWindow .pane-separator:hover {
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: shade(@sidebar_bg, 0.92);
+    border-right-color: shade (@theme_base_color, 0.70);
+    border-left-color: alpha(white, 0.015);
+    background-color: @theme_base_color;
+    color: shade (@theme_bg_color, 0.9);
+}
+
+EvWindow .pane-separator:backdrop,
+EvWindow .pane-separator:hover:backdrop {
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: shade(@sidebar_bg, 0.72);
+    border-right-color: shade (@theme_base_color, 0.56);
+    border-left-color: alpha(white, 0.005);
+    background-color: shade(@theme_base_color, 0.8);
+    background-image: none;
+}
+
+EvWindow.background EggFindBar.toolbar {
+    border-width: 1px 0 0;
+}
+
+/* gcalctool */
+
+MathWindow * {
+    background-color: transparent;
+}
+
+MathWindow {
+    color: @theme_text_color;
+    background-image: url("assets/delorean-dark-bg.png");
+    background-repeat: repeat;
+    background-position: top left;
+}
+
+MathDisplay GtkTextView.view,
+MathDisplay GtkTextView.view:focus {
+	-GtkWidget-cursor-color: white;
+
+	color: @theme_text_color;
+    background-color: #000;
+}
+
+MathDisplay GtkTextView.view:backdrop {
+	-GtkWidget-cursor-color: @theme_text_color;
+
+	color: shade(@theme_text_color, 0.8);
+    background-color: #020202;
+}
+
+MathWindow.background > GtkBox.vertical > GtkBox.vertical > GtkScrolledWindow {
+	padding: 			 3px;
+    border-width: 		 1px;
+	border-radius: 		 5px;
+    border-style: 		 solid;
+	border-top-color: 	 alpha(#000, 0.24);
+	border-left-color: 	 alpha(#000, 0.14);
+	border-right-color:  alpha(#fff, 0.14);
+	border-bottom-color: alpha(#fff, 0.16);
+	background-color: #000;
+	border-image: 		 none;
+}
+
+MathWindow.background > GtkBox.vertical > GtkBox.vertical > GtkScrolledWindow:backdrop {
+	border-top-color: 	 alpha(#000, 0.24);
+	border-left-color: 	 alpha(#000, 0.14);
+	border-right-color:  alpha(#fff, 0.07);
+	border-bottom-color: alpha(#fff, 0.08);
+	background-color: #020202;
+}
+
+MathWindow *:insensitive {
+    color: shade(@insensitive_fg_color, 1.65);
+	text-shadow: 1px 1px alpha(black, 0.18);
+	background-color: transparent;
+}
+
+MathWindow .button {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.06),
+                                      alpha(white, 0.0) 49%,
+                                      alpha(black, 0.01) 51%,
+                                      alpha(black, 0.26)
+                                      ),
+                      linear-gradient(to bottom,
+                                      #0a0a0a,
+                                      #0a0a0a
+                                      );
+    background-color: transparent;
+    border-image:none;
+    border-radius: 0;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: shade(#0a0a0a, 0.7);
+    box-shadow: 0 1px alpha(white, 0.11) inset,
+				1px 0 alpha(white, 0.02) inset;
+}
+
+MathWindow .button:backdrop,
+MathWindow .button:hover:backdrop {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.04),
+                                      alpha(white, 0.0) 49%,
+                                      alpha(black, 0.01) 51%,
+                                      alpha(black, 0.22)
+                                      ),
+                      linear-gradient(to bottom,
+                                      shade(#0a0a0a, 0.8),
+                                      shade(#0a0a0a, 0.8)
+                                      );
+    background-color: transparent;
+    border-image:none;
+    border-radius: 0;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: shade(#0a0a0a, 0.7);
+    box-shadow: 0 1px alpha(white, 0.06) inset;
+}
+
+MathWindow .button:hover {
+	background-image: linear-gradient(to bottom,
+                                      alpha(white, 0.12),
+                                      alpha(white, 0.0) 49%,
+                                      alpha(black, 0.01) 51%,
+                                      alpha(black, 0.20)
+                                      ),
+                      linear-gradient(to bottom,
+                                      mix(#0e0e0e, @theme_selected_bg_color, 0.04),
+                                      mix(#0e0e0e, @theme_selected_bg_color, 0.04)
+                                      );
+    background-color: transparent;
+    border-image:none;
+    border-radius: 0;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: shade(#0a0a0a, 0.7);
+    box-shadow: 0 1px alpha(white, 0.11) inset,
+				1px 0 alpha(white, 0.02) inset;
+    transition: 130ms ease-in;
+}
+
+MathWindow .button:active,
+MathWindow .button:active:hover {
+	background-image: linear-gradient(to bottom,
+                                      alpha(black, 0.16),
+                                      alpha(black, 0.0) 49%,
+                                      alpha(white, 0.0) 51%,
+                                      alpha(white, 0.06)
+                                      ),
+                      linear-gradient(to bottom,
+                                      mix(#040404, @theme_selected_bg_color, 0.55),
+                                      mix(#040404, @theme_selected_bg_color, 0.55)
+                                      );
+    background-color: transparent;
+    border-image:none;
+    border-radius: 0;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: shade(#090909, 0.7);
+    box-shadow: 0 1px alpha(white, 0.06) inset,
+				-1px 0 alpha(white, 0.03) inset;
+    transition: 120ms ease-in;
+}
+
+MathWindow .button:nth-child(last) {
+	border-image: url("borders/button/button.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+
+	background-color: @button_gradient_color_a;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.6)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.5)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.08);
+}
+
+MathWindow .button:nth-child(last):hover {
+	border-image: url("borders/button/button-hover.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 2px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+    transition: 320ms ease-in;
+
+	background-color: @menu_background_color;
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.8)),
+										to(alpha(black, 0.06))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.65)
+                                      );
+
+	box-shadow: inset 0 -1px alpha(white, 0.06),
+				inset 0 1px alpha(white, 0.11),
+				inset 0 2px alpha(white, 0.02),
+                inset -1px 0 alpha(white, 0.04),
+                inset 1px 0 alpha(white, 0.08);
+}
+
+MathWindow .button:nth-child(last):active,
+MathWindow .button:nth-child(last):active:hover {
+	border-image: url("borders/button/button-active.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+	box-shadow: 0 1px alpha(black, 0.10) inset,
+				0 2px alpha(black, 0.10) inset,
+				0 3px alpha(black, 0.06) inset,
+				0 4px alpha(black, 0.03) inset,
+				0 5px alpha(black, 0.01) inset,
+
+				-1px 0 alpha(black, 0.03) inset,
+				-2px 0 alpha(black, 0.01) inset,
+
+				1px 0 alpha(black, 0.08) inset,
+				2px 0 alpha(black, 0.04) inset,
+				3px 0 alpha(black, 0.02) inset;
+
+	background-image: linear-gradient(to bottom,
+                                      @button_gradient_active_a,
+                                      @button_gradient_active_c);
+    background-color: transparent;
+}
+
+
+MathWindow .button:nth-child(last):backdrop,
+MathWindow .button:nth-child(last):hover:backdrop {
+	border-image: url("borders/button/button.svg") 3 3 4 3 / 3px 3px 4px 3px stretch;
+    border-radius: 3px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-color: transparent;
+
+	background-color: shade(@button_gradient_color_a, 0.8);
+	background-image: -gtk-gradient (radial,
+										center -0.5, 0,
+										center -0.1, 1.0,
+										from(rgba(255,255,255,0.3)),
+										to(alpha(black, 0.03))),
+						linear-gradient(to bottom,
+                                      transparent,
+                                      alpha(@theme_selected_bg_color, 0.25)
+                                      );
+    box-shadow: inset 0 -1px alpha(white, 0.035),
+				inset 0 1px alpha(white, 0.06),
+				inset 0 2px alpha(white, 0.012),
+                inset -1px 0 alpha(white, 0.025),
+                inset 1px 0 alpha(white, 0.04);
+}
+
+
+/************
+ * Tooltips * * *here because it wont draw unless at the absolute end of the css pages*
+ ************/
+.tooltip {
+	color: @theme_tooltip_fg_color;
+    padding: 4px;
+
+    border-style: solid;
+    border-radius: 5px;
+	border-color: alpha(@theme_tooltip_bg_color, 0.92);
+
+    background-color: alpha(@theme_tooltip_bg_color, 0.0);
+	background-image: linear-gradient(to bottom,
+                                      alpha(@theme_tooltip_bg_color, 0.8),
+                                      alpha(@theme_tooltip_bg_color, 0.85));
+    text-shadow: 1px 1px black;
+}
+
+.tooltip * {
+    background-color: transparent;
+}
+
