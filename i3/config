@@ -222,7 +222,7 @@ for_window [instance="rainlendar"] move scratchpad
 bindsym $sup+a exec audacious
 bindsym $sup+b exec $psst ~/develop/scripts/start-vbox.sh
 bindsym $sup+c exec wine "C:\\Program Files\\AnalogX\\PCalc\\pcalc.exe"   
-bindsym $sup+e exec thunderbird
+bindsym $sup+e exec evolution
 bindsym $sup+f exec thunar
 bindsym $sup+g exec gimp
 bindsym $sup+h exec rainlendar
