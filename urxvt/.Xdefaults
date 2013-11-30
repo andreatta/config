@@ -34,10 +34,10 @@ URxvt*color7  : #D3D7CF
 URxvt*color15 : #EEEEEC
 
 !urxvt fonts: 
-#URxvt*font: xft:Inconsolata:pixelsize=16
-#URxvt*boldFont: xft:Inconsolata:bold:pixelsize=16
-URxvt*font: xft:Monospace:pixelsize=13
-URxvt*boldFont: xft:Monospace:bold:pixelsize=13
+URxvt*font: xft:Inconsolatai-dz-Powerline:pixelsize=16
+URxvt*boldFont: xft:Inconsolata-dz-Powerline:bold:pixelsize=16
+#URxvt*font: xft:Monospace:pixelsize=13
+#URxvt*boldFont: xft:Monospace:bold:pixelsize=13
 
 !urxvt extensions:
 #URxvt.perl-ext-common:  default,matcher,tabbedex
