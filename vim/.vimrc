@@ -6,13 +6,13 @@
 " - spf13
 " - leetless
 """""""""""""""""""""""""""""""""""""""""""""
-call pathogen#infect()
+"call pathogen#infect()
 filetype plugin indent on
 
 set ofu=syntaxcomplete#Complete
 syntax on
 set t_Co=256
-colorscheme zenburn
+colorscheme desert
 
 set nocompatible
 set relativenumber
@@ -48,7 +48,7 @@ endif
 
 " always show filename
 "set statusline+=%f
-let mapleader = ","
+let mapleader = "-"
 
 set undofile
 set undodir=$HOME/.vim/undo
