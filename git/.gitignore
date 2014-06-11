@@ -1,0 +1,39 @@
+###########################################
+# untracked files for git
+# andreatta
+###########################################
+# UN*X: ~/.gitignore
+# WIN:  %USERPROFILE%/.gitignore
+###########################################
+
+# objects
+###########################################
+*.a
+*.o
+
+# temporary files
+###########################################
+*.swp
+*.bkp
+*.tmp
+*.log
+
+# ST10
+###########################################
+*.obj
+*.m66
+*.lst
+
+# Qt
+###########################################
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-build-*
+*.autosave
