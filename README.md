@@ -1,4 +1,4 @@
-config
-======
+cee config files
+================
 
-various dotfiles (config files) I use...
+Dotfiles (config files) in use for some of my favourite applications.
