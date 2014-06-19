@@ -1,27 +1,32 @@
 """""""""""""""""""""""""""""""""""""""""""""
 " ceerious vimrc
-" Thanks to:
-" - MALiCE
-" - GerGap
-" - spf13
-" - leetless
 """""""""""""""""""""""""""""""""""""""""""""
-call pathogen#infect()
+
+"call pathogen#infect()
 filetype plugin indent on
 
 set ofu=syntaxcomplete#Complete
 syntax on
 set t_Co=256
-colorscheme zenburn
+colorscheme hipster
 
 set nocompatible
+
+" set relative numbers except for current row a/k/a hybrid number mode
 set relativenumber
+set number
+
+" show cross disable with \c (mapleader+c)
+set cursorline
+set cursorcolumn
+:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
 set history=700
 set wildmenu
 set wildmode=list:longest,full
 set ruler
 set noerrorbells
-set expandtab
+"set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
@@ -46,9 +51,8 @@ if has('statusline')
     set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
 endif
 
-" always show filename
-"set statusline+=%f
-let mapleader = ","
+" use default mapleader
+"let mapleader = "\"
 
 set undofile
 set undodir=$HOME/.vim/undo
@@ -64,7 +68,7 @@ nnoremap / /\v
 vnoremap / /\v
 set ignorecase
 set smartcase
-"set gdefault
+set gdefault
 set incsearch
 set showmatch
 set hlsearch
