@@ -1,0 +1,69 @@
+##################################################
+# ceerious settings
+##################################################
+
+xvt*termName: rxvt-unicode-256color
+
+# hide mouse pointer as soon as start typing
+urxvt.pointerBlank: 		True
+#urxvt*pointerBlankDelay: 	3
+
+# fade unfocused windows
+urxvt*fading:               40
+urxvt*fadeColor:            #000000
+
+!urxvt color scheme:
+urxvt*background: #222222
+urxvt*foreground: #777777
+
+! color for URL
+urxvt*colorUL : #86a2b0
+
+! black
+urxvt*color0  : #2E3436
+urxvt*color8  : #555753
+! red
+urxvt*color1  : #CC0000
+urxvt*color9  : #EF2929
+! green
+urxvt*color2  : #4E9A06
+urxvt*color10 : #8AE234
+! yellow
+urxvt*color3  : #C4A000
+urxvt*color11 : #FCE94F
+! blue
+urxvt*color4  : #3465A4
+urxvt*color12 : #729FCF
+! magenta
+urxvt*color5  : #75507B
+urxvt*color13 : #AD7FA8
+! cyan
+urxvt*color6  : #06989A
+urxvt*color14 : #34E2E2
+! white
+urxvt*color7  : #D3D7CF
+urxvt*color15 : #EEEEEC
+
+!urxvt fonts:
+urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=10
+urxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=13
+
+!urxvt extensions:
+urxvt.perl-ext-common:      default,matcher
+
+!enabling clickable links:
+xvt.perl-ext-common:        default,matcher
+URxvt.url-launcher:         /usr/bin/xdg-open
+URxvt.matcher.button:       1
+
+URxvt.keysym.C-Delete:      perl:matcher:last
+URxvt.keysym.M-Delete:      perl:matcher:list
+
+!urxvt scrolling options and cursor style:
+urxvt*saveLines:            12000
+urxvt*scrollstyle:          plain
+urxvt*scrollBar:            false
+urxvt*cursorBlink:          true
+urxvt*cursorUnderline:      true
+
+urxvt*urgentOnBell:         true
