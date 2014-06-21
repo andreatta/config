@@ -1,26 +1,30 @@
-#!/bin/sh
+#!/bin/bash
+############################################################
+# 
+############################################################
+
+function lock {
+    i3lock -i ~/img/deathstar.jpg
+}
 
 case "$1" in
     lock)
-        i3lock -c 000000
+        lock
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
-        sudo pm-suspend | i3lock -c 000000
-        ;;
-    hibernate)
-        sudo pm-hibernate
+        systemctl suspend | lock
         ;;
     reboot)
-        sudo reboot
+        systemctl reboot
         ;;
     shutdown)
-        sudo poweroff
+        systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
         exit 2
 esac
 
