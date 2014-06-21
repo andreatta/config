@@ -159,13 +159,13 @@ mode "resize" {
 ##
 # system
 ##
-set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 bindsym $mod+Delete mode "$mode_system"
+bindsym Ctrl+$mod+Backspace mode "$mode_system"
+set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec $psst ~/.i3/i3exit.sh lock, mode "default"
     bindsym e exec $psst ~/.i3/i3exit.sh logout, mode "default"
     bindsym s exec $psst ~/.i3/i3exit.sh suspend, mode "default"
-    bindsym h exec $psst ~/.i3/i3exit.sh hibernate, mode "default"
     bindsym r exec $psst ~/.i3/i3exit.sh reboot, mode "default"
     bindsym Shift+s exec $psst ~/.i3/i3exit.sh shutdown, mode "default"
 

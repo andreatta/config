@@ -4,7 +4,7 @@
 ############################################################
 
 function lock {
-    i3lock -i ~/img/deathstar.jpg
+    i3lock -i ~/img/deathstar.png
 }
 
 case "$1" in
@@ -20,11 +20,11 @@ case "$1" in
     reboot)
         systemctl reboot
         ;;
-    shutdown)
+    poweroff)
         systemctl poweroff
         ;;
     *)
-        echo "Usage: $0 {lock|logout|suspend|reboot|shutdown}"
+        echo "Usage: $0 {lock|logout|suspend|reboot|poweroff}"
         exit 2
 esac
 
