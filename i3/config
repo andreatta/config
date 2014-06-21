@@ -16,6 +16,7 @@ bindsym $mod+b border toggle
 
 # autostart
 exec $psst feh --bg-scale ~/img/soly.jpg
+exec i3-sensible-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -159,15 +160,15 @@ mode "resize" {
 ##
 # system
 ##
+set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (p) poweroff
 bindsym $mod+Delete mode "$mode_system"
-bindsym Ctrl+$mod+Backspace mode "$mode_system"
-set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
+bindsym Ctrl+$mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
     bindsym l exec $psst ~/.i3/i3exit.sh lock, mode "default"
     bindsym e exec $psst ~/.i3/i3exit.sh logout, mode "default"
     bindsym s exec $psst ~/.i3/i3exit.sh suspend, mode "default"
     bindsym r exec $psst ~/.i3/i3exit.sh reboot, mode "default"
-    bindsym Shift+s exec $psst ~/.i3/i3exit.sh shutdown, mode "default"
+    bindsym p exec $psst ~/.i3/i3exit.sh poweroff, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
