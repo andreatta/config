@@ -15,8 +15,11 @@ set $psst --no-startup-id
 bindsym $mod+b border toggle
 
 # autostart
-exec $psst feh --bg-scale ~/img/soly.jpg
-exec i3-sensible-terminal
+#exec $psst feh --bg-scale ~/img/soly.jpg
+#exec i3-sensible-terminal
+exec $psst nm-applet
+exec $psst urxvtd -q -o -f
+exec urxvtc
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -160,12 +163,12 @@ mode "resize" {
 ##
 # system
 ##
-set $mode_system (l) lock, (e) logout, (s) suspend, (r) reboot, (p) poweroff
+set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
 bindsym $mod+Delete mode "$mode_system"
 bindsym Ctrl+$mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
     bindsym l exec $psst ~/.i3/i3exit.sh lock, mode "default"
-    bindsym e exec $psst ~/.i3/i3exit.sh logout, mode "default"
+    bindsym o exec $psst ~/.i3/i3exit.sh logout, mode "default"
     bindsym s exec $psst ~/.i3/i3exit.sh suspend, mode "default"
     bindsym r exec $psst ~/.i3/i3exit.sh reboot, mode "default"
     bindsym p exec $psst ~/.i3/i3exit.sh poweroff, mode "default"
@@ -256,22 +259,23 @@ bindsym $sup+g exec gimp
 bindsym $sup+h exec rainlendar
 bindsym $sup+i exec inkscape
 bindsym $sup+k exec wireshark
-bindsym $sup+l exec xflock4
+bindsym $sup+l exec libreoffice
 bindsym $sup+m exec mixxx
 bindsym $sup+p exec "xrandr --output HDMI1 --auto && xrandr --output LVDS1 --off"
 bindsym $sup+Shift+p exec "xrandr --output LVDS1 --auto"
 bindsym $sup+q exec qtcreator
-bindsym $sup+r exec urxvt -e ranger --selectfile=`xcwd`
+bindsym $sup+r exec urxvtc -e ranger --selectfile=`xcwd`
 bindsym $sup+s exec synapse
 bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
+bindsym $sup+u exec $psst optirun uzbl-browser
 bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 bindsym $sup+z exec filezilla
-bindsym $mod+Return exec urxvt
-bindsym $mod+Shift+Return "exec xcwd | xargs urxvt -cd"
-bindsym XF86ScreenSaver exec xflock4
+bindsym $mod+Return exec urxvtc
+bindsym $mod+Shift+Return "exec xcwd | xargs urxvtc -cd"
+bindsym XF86ScreenSaver exec $psst ~/.i3/i3exit.sh lock
 bindsym XF86AudioPlay exec audacious -t
 bindsym XF86AudioNext exec audacious -fp
 bindsym XF86AudioPrev exec audacious -rp
@@ -285,5 +289,6 @@ bindsym $mod+Tab exec simpleswitcher -i3 -now -font "Inconsolata-10" -fg "#9f9f9
 # always open some programs on specified workspace
 assign [class="Chromium"]    $w2
 assign [class="Thunderbird"] $w3
+assign [class="QtCreator"]   $w4
 assign [class="Audacious"]   $w9
 assign [class="VirtualBox"]  $w0
