@@ -7,6 +7,9 @@ alias df='df -h'
 alias pac='sudo pacman -S'
 alias aur='sudo packer -S'
 
+alias i3c='vim ~/.i3/config'
+alias i3s='vim ~/.i3/i3status.conf'
+
 # start vim with sudo rights
 alias suv='sudo vim -u ~/.vimrc +"colorscheme desert"'
 
