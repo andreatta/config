@@ -13,13 +13,15 @@ set $psst --no-startup-id
 #new_float  normal
 #hide_edge_borders both
 bindsym $mod+b border toggle
+new_window  normal 0 px
+new_float   normal 3 px
 
 # autostart
 #exec $psst feh --bg-scale ~/img/soly.jpg
 #exec i3-sensible-terminal
 exec $psst nm-applet
 exec $psst urxvtd -q -o -f
-exec urxvtc
+exec $psst urxvtc
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -100,6 +102,17 @@ set $w8 8☯
 set $w9 9♪
 set $w0 10☠
 
+set $w10 x1©
+set $w11 x2⚓
+set $w12 x3✉
+set $w13 x4☘
+set $w14 x5☦
+set $w15 x6☣
+set $w16 x7☘
+set $w17 x8☯
+set $w18 x9♪
+set $w19 x10☠
+
 # switch to workspace
 bindsym $mod+1 workspace $w1
 bindsym $mod+2 workspace $w2
@@ -111,6 +124,17 @@ bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
 bindsym $mod+0 workspace $w0
+
+bindsym $mod+Ctrl+1 workspace $w10
+bindsym $mod+Ctrl+2 workspace $w11
+bindsym $mod+Ctrl+3 workspace $w12
+bindsym $mod+Ctrl+4 workspace $w13
+bindsym $mod+Ctrl+5 workspace $w14
+bindsym $mod+Ctrl+6 workspace $w15
+bindsym $mod+Ctrl+7 workspace $w16
+bindsym $mod+Ctrl+8 workspace $w17
+bindsym $mod+Ctrl+9 workspace $w18
+bindsym $mod+Ctrl+0 workspace $w19
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
@@ -292,3 +316,6 @@ assign [class="Thunderbird"] $w3
 assign [class="QtCreator"]   $w4
 assign [class="Audacious"]   $w9
 assign [class="VirtualBox"]  $w0
+
+# let vim know the i3 config syntax
+# vim:filetype=i3
