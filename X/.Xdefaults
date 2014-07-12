@@ -12,37 +12,38 @@ urxvt.pointerBlank: 		True
 urxvt*fading:               40
 urxvt*fadeColor:            #000000
 
+# hipster themed colors
 !urxvt color scheme:
 urxvt*background: #222222
-urxvt*foreground: #777777
+urxvt*foreground: #c3c6ca
 
 ! color for URL
-urxvt*colorUL : #86a2b0
+urxvt*colorUL : #8dabcd
 
 ! black
-urxvt*color0  : #2E3436
-urxvt*color8  : #555753
+urxvt*color0  : #576157
+urxvt*color8  : #000000
 ! red
-urxvt*color1  : #CC0000
-urxvt*color9  : #EF2929
+urxvt*color1  : #ffd700
+urxvt*color9  : #a1481e
 ! green
-urxvt*color2  : #4E9A06
-urxvt*color10 : #8AE234
+urxvt*color2  : #d6d69a
+urxvt*color10 : #5f875f
 ! yellow
-urxvt*color3  : #C4A000
-urxvt*color11 : #FCE94F
+urxvt*color3  : #f8f893
+urxvt*color11 : #fce94f
 ! blue
-urxvt*color4  : #3465A4
-urxvt*color12 : #729FCF
+urxvt*color4  : #8faf9f
+urxvt*color12 : #709080
 ! magenta
-urxvt*color5  : #75507B
-urxvt*color13 : #AD7FA8
+urxvt*color5  : #bf9b76
+urxvt*color13 : #ad5234
 ! cyan
-urxvt*color6  : #06989A
-urxvt*color14 : #34E2E2
+urxvt*color6  : #34E2E2
+urxvt*color14 : #06989A
 ! white
-urxvt*color7  : #D3D7CF
-urxvt*color15 : #EEEEEC
+urxvt*color7  : #f9f8ff
+urxvt*color15 : #857b6f
 
 !urxvt fonts:
 urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=10
