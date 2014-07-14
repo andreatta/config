@@ -2,33 +2,35 @@
 # ceerious i3 config
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# let vim know the i3 config syntax
+# vim:filetype=i3
 ###############################################################################
 
-# modifier = Alt, $sup = Wind0ws key
+# modifier = Alt, $sup = 'strange wiggly flag' key
 set $mod Mod1
 set $sup Mod4
 set $psst --no-startup-id
 
-#new_window 1pixel
-#new_float  normal
-#hide_edge_borders both
 bindsym $mod+b border toggle
 new_window  normal 0 px
 new_float   normal 3 px
+#hide_edge_borders both
 
 # autostart
 #exec $psst feh --bg-scale ~/img/soly.jpg
-#exec i3-sensible-terminal
 exec $psst nm-applet
 exec $psst urxvtd -q -o -f
 exec $psst urxvtc
+exec xbacklight = 60
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 #font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 #font pango: Inconsolata 10
 #font pango:DejaVu Sans Mono 8
-font pango:Droid Sans, FontAwesome 9
+#font pango:Droid Sans, FontAwesome 9
+font pango:Source Code Pro for Powerline 10px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -37,10 +39,8 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 bindsym $mod+F4      kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# only show programs with a .desktop
-bindsym $mod+d exec $psst i3-dmenu-desktop
+# start dmenu-xft, patch necessary for custom font
+bindsym $mod+d exec dmenu_run -i -l 23 -p 'gogo Gadget' -fn 'Source Code Pro for Powerline:bold:pixelsize=32' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
 
 # change focus (vim style)
 bindsym $mod+h focus left
@@ -175,7 +175,7 @@ mode "resize" {
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 pp
+        bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
@@ -235,7 +235,8 @@ client.urgent               $rd        $rd         $tx
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:Droid Sans, FontAwesome 11
+    font pango:Source Code Pro for Powerline 11
+    #font pango:Droid Sans, FontAwesome 11
     position top
 
     status_command i3status --config ~/.i3/i3status.conf
@@ -275,10 +276,10 @@ for_window [instance="rainlendar"] move scratchpad
 
 # My favorite programs
 bindsym $sup+a exec audacious
-bindsym $sup+b "exec ~/develop/scripts/vbox-start.sh"
+bindsym $sup+b exec ~/develop/scripts/vbox-start.sh
 bindsym $sup+c exec wine "C:\\Program Files\\AnalogX\\PCalc\\pcalc.exe"
 bindsym $sup+e exec thunderbird
-bindsym $sup+f exec thunar
+bindsym $sup+f exec pcmanfm
 bindsym $sup+g exec gimp
 bindsym $sup+h exec rainlendar
 bindsym $sup+i exec inkscape
@@ -298,17 +299,21 @@ bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 bindsym $sup+z exec filezilla
 bindsym $mod+Return exec urxvtc
-bindsym $mod+Shift+Return "exec xcwd | xargs urxvtc -cd"
-bindsym XF86ScreenSaver exec $psst ~/.i3/i3exit.sh lock
-bindsym XF86AudioPlay exec audacious -t
-bindsym XF86AudioNext exec audacious -fp
-bindsym XF86AudioPrev exec audacious -rp
-bindsym XF86AudioLowerVolume exec amixer set Master playback 1-
-bindsym XF86AudioRaiseVolume exec amixer set Master playback 1+
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5%
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5%
+bindsym $mod+Shift+Return exec urxvtc --chdir `xcwd`
+#bindsym $mod+Shift+Return exec urxvtc --chdir ${PWD}
 
-bindsym $mod+Tab exec simpleswitcher -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
+# Specialkeys
+bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
+bindsym XF86AudioPlay           exec audacious -t
+bindsym XF86AudioNext           exec audacious -fp
+bindsym XF86AudioPrev           exec audacious -rp
+bindsym XF86AudioLowerVolume    exec amixer set Master playback 1-
+bindsym XF86AudioRaiseVolume    exec amixer set Master playback 1+
+bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
+bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
+#bindsym XF86Launch1             exec $psst urxvtc
+
+#bindsym $mod+Tab exec simpleswitcher -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
 
 # always open some programs on specified workspace
 assign [class="Chromium"]    $w2
@@ -317,5 +322,3 @@ assign [class="QtCreator"]   $w4
 assign [class="Audacious"]   $w9
 assign [class="VirtualBox"]  $w0
 
-# let vim know the i3 config syntax
-# vim:filetype=i3
