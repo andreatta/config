@@ -1,53 +1,64 @@
 ##################################################
 # ceerious settings
+# checkout the look with: colorcode
 ##################################################
 
-xvt*termName: rxvt-unicode-256color
+xvt*termName:   rxvt-unicode-256color
+
+!urxvt fonts:
+urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=10
+urxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=13
+
+!urxvt scrolling options:
+urxvt*saveLines:            12000
+urxvt*scrollstyle:          plain
+urxvt*scrollBar:            false
+
+urxvt*urgentOnBell:         true
+urxvt*cursorColor:          #555
+urxvt*cursorColor2:         #cee
+urxvt*cursorBlink:          true
+urxvt*cursorUnderline:      false
 
 # hide mouse pointer as soon as start typing
-urxvt.pointerBlank: 		True
-#urxvt*pointerBlankDelay: 	3
+urxvt.pointerBlank: 		true
+urxvt*pointerBlankDelay: 	1
 
 # fade unfocused windows
 urxvt*fading:               40
 urxvt*fadeColor:            #000000
 
-# hipster themed colors
 !urxvt color scheme:
-urxvt*background: #222222
-urxvt*foreground: #c3c6ca
+urxvt*background:           #222222
+urxvt*foreground:           #aaaaaa
 
 ! color for URL
-urxvt*colorUL : #8dabcd
+urxvt*colorUL :             #8dabcd
 
 ! black
-urxvt*color0  : #576157
-urxvt*color8  : #000000
+urxvt*color0  :             #2f4f4f
+urxvt*color8  :             #000000
 ! red
-urxvt*color1  : #ffd700
-urxvt*color9  : #a1481e
+urxvt*color1  :             #ffa500
+urxvt*color9  :             #a1481e
 ! green
-urxvt*color2  : #d6d69a
-urxvt*color10 : #5f875f
+urxvt*color2  :             #81c181
+urxvt*color10 :             #6c9339
 ! yellow
-urxvt*color3  : #f8f893
-urxvt*color11 : #fce94f
+urxvt*color3  :             #f8f893
+urxvt*color11 :             #fce94f
 ! blue
-urxvt*color4  : #8faf9f
-urxvt*color12 : #709080
+urxvt*color4  :             #8faf9f
+urxvt*color12 :             #709080
 ! magenta
-urxvt*color5  : #bf9b76
-urxvt*color13 : #ad5234
+urxvt*color5  :             #bf9b76
+urxvt*color13 :             #ad5234
 ! cyan
-urxvt*color6  : #34E2E2
-urxvt*color14 : #06989A
+urxvt*color6  :             #6abbb4
+urxvt*color14 :             #2a6560
 ! white
-urxvt*color7  : #f9f8ff
-urxvt*color15 : #857b6f
-
-!urxvt fonts:
-urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=10
-urxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=13
+urxvt*color7  :             #f9f8ff
+urxvt*color15 :             #857b6f
 
 !urxvt extensions:
 urxvt.perl-ext-common:      default,matcher
@@ -60,11 +71,3 @@ URxvt.matcher.button:       1
 URxvt.keysym.C-Delete:      perl:matcher:last
 URxvt.keysym.M-Delete:      perl:matcher:list
 
-!urxvt scrolling options and cursor style:
-urxvt*saveLines:            12000
-urxvt*scrollstyle:          plain
-urxvt*scrollBar:            false
-urxvt*cursorBlink:          true
-urxvt*cursorUnderline:      true
-
-urxvt*urgentOnBell:         true
