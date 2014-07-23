@@ -37,3 +37,11 @@ ui_*.h
 Makefile*
 *-build-*
 *.autosave
+
+# latex
+###########################################
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.synctex.gz
