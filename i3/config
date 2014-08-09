@@ -11,6 +11,7 @@
 set $mod Mod1
 set $sup Mod4
 set $psst --no-startup-id
+set $update && killall -SIGUSR1 i3status
 
 bindsym $mod+b border toggle
 new_window  normal 0 px
@@ -255,20 +256,18 @@ bar {
 # enable floating mode for some applications
 for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
 for_window [title="Event Tester"] floating enable   # xev
-for_window [class="Qalculate"] floating enable
+for_window [class="Speedcrunch"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
 for_window [instance="xfce4-notifyd"] floating enable, border none
-for_window [instance="Msgcompose"] floating enable
 for_window [class="Audacious"] floating enable, border none
 for_window [instance="pcalc.exe"] floating enabled
 for_window [class="^(?i)chromium$"] border none
-for_window [class="Thunderbird" instance="Mail"] border none
 for_window [class="^(?i)chromium"] border none
 for_window [class="Thunderbird"] border none
-for_window [class="Synapse"] border none
+for_window [class="Thunderbird" instance="Mail"] border none
+for_window [instance="Msgcompose"] floating enable border normal
 #for_window [class="rdesktop"] fullscreen
-# return to normal border (after ssh session)
-for_window [class="URxvt" title="^can@w530"] border normal
+for_window [class="URxvt"] border none
 
 #scratchpads
 bindsym $mod+Shift+Super_L move scratchpad
@@ -278,7 +277,7 @@ for_window [instance="rainlendar"] move scratchpad
 # My favorite programs
 bindsym $sup+a exec audacious
 bindsym $sup+b exec ~/develop/scripts/vbox-start.sh
-bindsym $sup+c exec wine "C:\\Program Files\\AnalogX\\PCalc\\pcalc.exe"
+bindsym $sup+c exec speedcrunch
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec pcmanfm
 bindsym $sup+g exec gimp
@@ -311,11 +310,12 @@ bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
 bindsym XF86AudioPlay           exec audacious -t
 bindsym XF86AudioNext           exec audacious -fp
 bindsym XF86AudioPrev           exec audacious -rp
-bindsym XF86AudioLowerVolume    exec amixer set Master playback 1-
-bindsym XF86AudioRaiseVolume    exec amixer set Master playback 1+
+bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume 0 -- -5% && pactl set-sink-mute 0 0 $update
+bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume 0 -- +5% && pactl set-sink-mute 0 0 $update
+bindsym XF86AudioMute           exec $psst pactl set-sink-mute 0 toggle $update
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
-bindsym XF86Launch1             exec $psst urxvtc
+bindsym XF86Launch1             exec $psst speedcrunch
 
 # list open windows to switch to
 bindsym $mod+Tab exec rofi -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
