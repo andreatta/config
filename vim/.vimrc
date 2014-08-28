@@ -16,7 +16,7 @@ set nocompatible
 set relativenumber
 set number
 
-" show cross disable with \c (mapleader+c)
+" show cross disable with (mapleader+c)
 set cursorline
 set cursorcolumn
 :nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
