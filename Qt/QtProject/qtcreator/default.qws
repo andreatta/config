@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorSession>
+<!-- Written by QtCreator 3.2.0, 2014-08-28T11:34:36. -->
+<qtcreator>
+ <data>
+  <variable>Color</variable>
+  <value type="QString">#666666</value>
+ </data>
+ <data>
+  <variable>EditorSettings</variable>
+  <value type="QByteArray">AAAAD0VkaXRvck1hbmFnZXJWNAAAAAIAAABQAC8AaABvAG0AZQAvAGMAYQBuAC8AcwByAGMALwBxAHQALwBwAGUAdABDAGwAaQBlAG4AdAAvAHAAZQB0AEMAbABpAGUAbgB0AC4AcAByAG8AAAAMAAAAABgAAAABAAAAAAAAAAAAAAARAAAAJwAAAAAAAABKAC8AaABvAG0AZQAvAGMAYQBuAC8AcwByAGMALwBxAHQALwBwAGUAdABDAGwAaQBlAG4AdAAvAGMAbABpAGUAbgB0AC4AYwBwAHAAAAAMAAAAABgAAAABAAAAAAAAAAAAAAALAAAAIQAAAAAAAAABAAAASgAvAGgAbwBtAGUALwBjAGEAbgAvAHMAcgBjAC8AcQB0AC8AcABlAHQAQwBsAGkAZQBuAHQALwBjAGwAaQBlAG4AdAAuAGMAcABwAAAAFABjAGwAaQBlAG4AdAAuAGMAcABwAAAAE0NwcEVkaXRvci5DKytFZGl0b3IAAAClAAAADWN1cnJlbnRlZGl0b3IAAABKAC8AaABvAG0AZQAvAGMAYQBuAC8AcwByAGMALwBxAHQALwBwAGUAdABDAGwAaQBlAG4AdAAvAGMAbABpAGUAbgB0AC4AYwBwAHAAAAAmAEMAcABwAEUAZABpAHQAbwByAC4AQwArACsARQBkAGkAdABvAHIAAAAYAAAAAQAAAAAAAAAAAAAACwAAACEAAAAA</value>
+ </data>
+ <data>
+  <variable>ProjectDependencies</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>ProjectList</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">/home/can/src/qt/petClient/petClient.pro</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>StartupProject</variable>
+  <value type="QString">/home/can/src/qt/petClient/petClient.pro</value>
+ </data>
+ <data>
+  <variable>value-ActiveMode</variable>
+  <value type="QString">Edit</value>
+ </data>
+ <data>
+  <variable>value-Breakpoints</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-DebuggerToolTips</variable>
+  <value type="QString">&lt;?xml version=&quot;1.0&quot;?&gt;&lt;DebuggerToolTips version=&quot;1.0&quot;/&gt;
+</value>
+ </data>
+ <data>
+  <variable>value-DefaultFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-IndividualFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-ProjectTree.ExpandData</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-Watchers</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>valueKeys</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">ActiveMode</value>
+   <value type="QString">Breakpoints</value>
+   <value type="QString">DebuggerToolTips</value>
+   <value type="QString">DefaultFormats</value>
+   <value type="QString">IndividualFormats</value>
+   <value type="QString">ProjectTree.ExpandData</value>
+   <value type="QString">Watchers</value>
+  </valuelist>
+ </data>
+</qtcreator>

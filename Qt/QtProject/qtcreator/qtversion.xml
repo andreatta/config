@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorQtVersions>
+<!-- Written by QtCreator 3.2.0, 2014-08-28T11:30:31. -->
+<qtcreator>
+ <data>
+  <variable>QtVersion.0</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">2</value>
+   <value type="QString" key="Name">Qt 5.3.0 in PATH (lib)</value>
+   <value type="QString" key="QMakePath">/usr/lib/qt/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.1</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">13</value>
+   <value type="QString" key="Name">Qt 5.3.1 (rpi-qt-stable)</value>
+   <value type="QString" key="QMakePath">/home/can/rpi/rpi-qt-stable/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">RemoteLinux.EmbeddedLinuxQt</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.2</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">17</value>
+   <value type="QString" key="Name">Qt 5.3.1 (rpi-qt-stable) (2)</value>
+   <value type="QString" key="QMakePath">/home/can/src/rpi/rpi-qt-stable/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">RemoteLinux.EmbeddedLinuxQt</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>

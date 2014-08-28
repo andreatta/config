@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippets>
+    <snippet group="C++" trigger="cc" id="" complement="///" removed="false" modified="false">/* $$ */</snippet>
+    <snippet group="C++" trigger="class" id="cpp_qobjectclass" complement="derived from QObject" removed="false" modified="true">class $name$ : public QObject
+{
+    Q_OBJECT
+public:
+    $name$() {}
+    virtual ~$name$() {}
+};</snippet>
+    <snippet group="C++" trigger="li" id="" complement="" removed="false" modified="false">/******************************************************************************/
+</snippet>
+    <snippet group="C++" trigger="msg" id="" complement="" removed="false" modified="false">QMessageBox::information(this,&quot;$title$&quot;, &quot;$text$&quot;);</snippet>
+</snippets>

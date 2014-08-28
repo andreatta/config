@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on Do. Aug. 28 11:36:16 2014 by Qt Creator 3.2.0-->
+<externaltool id="vi">
+    <description>Opens the current file in vim</description>
+    <displayname>Edit with vim</displayname>
+    <category>Text</category>
+    <executable output="showinpane" error="showinpane" modifiesdocument="yes">
+        <path>urxvt</path>
+        <arguments>-geom %{CurrentDocument:ColumnCount}x%{CurrentDocument:RowCount}+%{CurrentDocument:XPos}+%{CurrentDocument:YPos} -e vim &quot;%{CurrentDocument:FilePath}&quot; +%{CurrentDocument:Row}</arguments>
+        <workingdirectory>%{CurrentDocument:Path}</workingdirectory>
+    </executable>
+</externaltool>
