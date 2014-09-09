@@ -12,6 +12,7 @@ set $mod Mod1
 set $sup Mod4
 set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
+#set unmute &&
 
 bindsym $mod+b border toggle
 new_window  normal 0 px
@@ -19,7 +20,7 @@ new_float   normal 3 px
 #hide_edge_borders both
 
 # autostart
-#exec $psst feh --bg-scale ~/img/soly.jpg
+exec $psst feh --bg-scale ~/img/deathstar.png
 exec $psst nm-applet
 exec $psst urxvtd -q -o -f
 exec $psst urxvtc
@@ -100,7 +101,7 @@ set $w5 5☦
 set $w6 6☣
 set $w7 7☘
 set $w8 8☯
-set $w9 9♪
+set $w9 9
 set $w0 10☠
 
 set $w10 x1©
@@ -203,6 +204,27 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
+##
+# move floating windows with keys
+bindsym $mod+m mode "move" focus floating
+mode "move" {
+    bindsym $mod+Tab focus right
+
+    bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # show CapsLock state in statusbar
 bindsym Caps_Lock mode "caps"
 bindsym Shift+Caps_Lock mode "caps"
@@ -236,11 +258,13 @@ client.urgent               $rd        $rd         $tx
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    font pango:Source Code Pro for Powerline 11
-    #font pango:Droid Sans, FontAwesome 11
+    strip_workspace_numbers yes
+    tray_output none
+    font pango:Source Code Pro for Powerline, FontAwesome 11
     position top
 
     status_command i3status --config ~/.i3/i3status.conf
+    #status_command ~/.i3/i3-conky-initscript.sh
 
     colors {
         background          $bg
@@ -261,10 +285,9 @@ for_window [instance="TeamViewer.exe"] floating enable
 for_window [instance="xfce4-notifyd"] floating enable, border none
 for_window [class="Audacious"] floating enable, border none
 for_window [instance="pcalc.exe"] floating enabled
-for_window [class="^(?i)chromium$"] border none
 for_window [class="^(?i)chromium"] border none
 for_window [class="Thunderbird"] border none
-for_window [class="Thunderbird" instance="Mail"] border none
+#for_window [class="Thunderbird" instance="Mail"] border none
 for_window [instance="Msgcompose"] floating enable border normal
 #for_window [class="rdesktop"] fullscreen
 for_window [class="URxvt"] border none
@@ -277,22 +300,27 @@ for_window [instance="rainlendar"] move scratchpad
 # My favorite programs
 bindsym $sup+a exec audacious
 bindsym $sup+b exec ~/develop/scripts/vbox-start.sh
-bindsym $sup+c exec speedcrunch
+#bindsym $sup+c exec speedcrunch
+bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\PCalc\\pcalc.exe"
+#bindsym $sup+d
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec pcmanfm
 bindsym $sup+g exec gimp
 bindsym $sup+h exec rainlendar
 bindsym $sup+i exec inkscape
+#bindsym $sup+j
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec libreoffice
 bindsym $sup+m exec mixxx
+#bindsym $sup+n
+#bindsym $sup+o
 #bindsym $sup+p exec "xrandr --output HDMI1 --auto && xrandr --output LVDS1 --off"
 #bindsym $sup+Shift+p exec "xrandr --output LVDS1 --auto"
 bindsym $sup+q exec qtcreator
 bindsym $sup+r exec urxvtc -e ranger --selectfile=`xcwd`
 bindsym $sup+s exec "rofi -snow -terminal urxvtc"
 bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
-bindsym $sup+u exec $psst optirun uzbl-browser
+#bindsym $sup+u exec $psst optirun uzbl-browser
 bindsym $sup+v exec vlc
 bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
@@ -301,9 +329,20 @@ bindsym $sup+z exec filezilla
 bindsym $mod+Return exec urxvtc
 bindsym $mod+Shift+Return exec urxvtc --chdir `xcwd`
 #bindsym $mod+Shift+Return exec urxvtc --chdir ${PWD}
+bindsym $sup+1 exec "forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta"
+#bindsym $sup+2 exec urxvtc
+#bindsym $sup+3
+#bindsym $sup+3
+#bindsym $sup+4
+#bindsym $sup+5
+#bindsym $sup+6
+#bindsym $sup+7
+#bindsym $sup+8
+#bindsym $sup+9
+bindsym $sup+0 exec urxvtc, focus, floating enable
 
 # remote desktop
-bindsym $sup+F5 exec "rdesktop -f -g 1920x1080 -P -z -x l -r sound:off -u 'GRAPH-TECH\can' gt-server5:3389"
+bindsym $sup+5 exec "rdesktop -f -g 1920x1080 -P -z -x l -r sound:off -u 'GRAPH-TECH\can' gt-server5:3389"
 
 # Specialkeys
 bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
