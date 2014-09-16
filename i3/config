@@ -327,9 +327,9 @@ bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
 bindsym XF86AudioPlay           exec audacious -t
 bindsym XF86AudioNext           exec audacious -fp
 bindsym XF86AudioPrev           exec audacious -rp
-bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume 0 -- -5% && pactl set-sink-mute 0 0 $update
-bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume 0 -- +5% && pactl set-sink-mute 0 0 $update
-bindsym XF86AudioMute           exec $psst pactl set-sink-mute 0 toggle $update
+bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -- -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
+bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -- +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
+bindsym XF86AudioMute           exec $psst pactl set-sink-mute @DEFAULT_SINK@ toggle $update
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
 bindsym XF86Launch1             exec $psst speedcrunch
