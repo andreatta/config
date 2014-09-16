@@ -93,16 +93,16 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # workspace defines
-set $w1 1❶ ©
-set $w2 2❷ ⚓
-set $w3 3❸ ✉
-set $w4 4❹ ☘
-set $w5 5❺ ☦
-set $w6 6❻ ☣
+set $w1 1❶ 
+set $w2 2❷ 
+set $w3 3❸ 
+set $w4 4❹ 
+set $w5 5❺ 
+set $w6 6❻ 
 set $w7 7❼ ☘
-set $w8 8❽ ☯
+set $w8 8❽ 
 set $w9 9❾ 
-set $w0 10❿ ☠
+set $w0 10❿ 
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
