@@ -93,27 +93,16 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # workspace defines
-set $w1 1©
-set $w2 2⚓
-set $w3 3✉
-set $w4 4☘
-set $w5 5☦
-set $w6 6☣
-set $w7 7☘
-set $w8 8☯
-set $w9 9
-set $w0 10☠
-
-set $w10 x1©
-set $w11 x2⚓
-set $w12 x3✉
-set $w13 x4☘
-set $w14 x5☦
-set $w15 x6☣
-set $w16 x7☘
-set $w17 x8☯
-set $w18 x9♪
-set $w19 x10☠
+set $w1 1❶ ©
+set $w2 2❷ ⚓
+set $w3 3❸ ✉
+set $w4 4❹ ☘
+set $w5 5❺ ☦
+set $w6 6❻ ☣
+set $w7 7❼ ☘
+set $w8 8❽ ☯
+set $w9 9❾ 
+set $w0 10❿ ☠
 
 # switch to workspace
 bindsym $mod+1 workspace $w1
@@ -126,17 +115,6 @@ bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
 bindsym $mod+0 workspace $w0
-
-bindsym $mod+Ctrl+1 workspace $w10
-bindsym $mod+Ctrl+2 workspace $w11
-bindsym $mod+Ctrl+3 workspace $w12
-bindsym $mod+Ctrl+4 workspace $w13
-bindsym $mod+Ctrl+5 workspace $w14
-bindsym $mod+Ctrl+6 workspace $w15
-bindsym $mod+Ctrl+7 workspace $w16
-bindsym $mod+Ctrl+8 workspace $w17
-bindsym $mod+Ctrl+9 workspace $w18
-bindsym $mod+Ctrl+0 workspace $w19
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
