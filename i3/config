@@ -132,7 +132,7 @@ bindsym $mod+Shift+6 move container to workspace $w6
 bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
-bindsym $mod+Shift+0 move container to workspace $w10
+bindsym $mod+Shift+0 move container to workspace $w0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -269,6 +269,7 @@ for_window [class="Thunderbird"] border none
 for_window [instance="Msgcompose"] floating enable border normal
 #for_window [class="rdesktop"] fullscreen
 for_window [class="URxvt"] border none
+for_window [class="URxvt" title="sage"] floating enable border pixel 3
 
 #scratchpads
 bindsym $mod+Shift+Super_L move scratchpad
@@ -279,7 +280,8 @@ for_window [instance="rainlendar"] move scratchpad
 bindsym $sup+a exec audacious
 bindsym $sup+b exec ~/develop/scripts/vbox-start.sh
 #bindsym $sup+c exec speedcrunch
-bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\PCalc\\pcalc.exe"
+#bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\PCalc\\pcalc.exe"
+bindsym $sup+c exec urxvtc -e sage
 #bindsym $sup+d
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec pcmanfm
