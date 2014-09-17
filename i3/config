@@ -15,7 +15,7 @@ set $update && killall -SIGUSR1 i3status
 #set unmute &&
 
 bindsym $mod+b border toggle
-new_window  normal 0 px
+new_window  pixel 0 px
 new_float   normal 3 px
 #hide_edge_borders both
 
@@ -237,7 +237,7 @@ client.urgent               $rd        $rd         $tx
 # finds out, if available)
 bar {
     strip_workspace_numbers yes
-    tray_output none
+    #tray_output none
     font pango:Source Code Pro for Powerline, FontAwesome 11
     position top
 
@@ -247,7 +247,7 @@ bar {
     colors {
         background          $bg
         statusline          $fg
-        separator           $tx
+        separator           #4c4c4c
         focused_workspace   $ia        $bg        $ia
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $ia        $tx
