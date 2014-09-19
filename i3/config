@@ -226,12 +226,15 @@ set $be     #8faf9f
 set $yw     #ccdc90
 set $gn     #88b090
 set $rd     #e89393
+set $id     #004c4c
 
-# set some nice colors      border     background  text
-client.focused              $ac        $ac         $tx
-client.unfocused            $bg        $bg         $ia
-client.focused_inactive     $bg        $bg         $ac
-client.urgent               $rd        $rd         $tx
+# set some nice colors      border  background  text    indicator
+client.focused              $ac     $ac         $tx     $id
+client.unfocused            $bg     $bg         $ia     $id
+client.focused_inactive     $bg     $bg         $ac     $id
+client.urgent               $rd     $rd         $tx     $id
+#border & incicator are ignored
+#client.placeholder          $bg     $bg         $bg     $bg
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -247,7 +250,7 @@ bar {
     colors {
         background          $bg
         statusline          $fg
-        separator           #4c4c4c
+        separator           $id
         focused_workspace   $ia        $bg        $ia
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $ia        $tx
