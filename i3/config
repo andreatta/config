@@ -38,8 +38,7 @@ font pango:Source Code Pro for Powerline 10px
 floating_modifier $mod
 
 # kill focused window
-bindsym $mod+Shift+q kill
-bindsym $mod+F4      kill
+bindsym $mod+Shift+q    kill
 
 # start dmenu-xft, patch necessary for custom font
 bindsym $mod+d exec dmenu_run -i -l 23 -p 'gogo Gadget' -fn 'Source Code Pro for Powerline:bold:pixelsize=32' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
@@ -227,6 +226,7 @@ set $yw     #ccdc90
 set $gn     #88b090
 set $rd     #e89393
 set $id     #004c4c
+set $ce     #ceecee
 
 # set some nice colors      border  background  text    indicator
 client.focused              $ac     $ac         $tx     $id
@@ -244,7 +244,9 @@ bar {
     font pango:Source Code Pro for Powerline, FontAwesome 11
     position top
 
-    status_command i3status --config ~/.i3/i3status.conf
+    #status_command i3status --config ~/.i3/i3status.conf
+    # use patched i3status
+    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
     #status_command ~/.i3/i3-conky-initscript.sh
 
     colors {
@@ -284,6 +286,7 @@ bindsym $sup+a exec audacious
 bindsym $sup+b exec ~/develop/scripts/vbox-start.sh
 #bindsym $sup+c exec speedcrunch
 #bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\PCalc\\pcalc.exe"
+#bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
 bindsym $sup+c exec urxvtc -e sage
 #bindsym $sup+d
 bindsym $sup+e exec thunderbird
