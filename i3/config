@@ -24,7 +24,7 @@ exec $psst feh --bg-scale ~/img/deathstar.png
 exec $psst nm-applet
 exec $psst urxvtd -q -o -f
 exec $psst urxvtc
-#exec xbacklight = 60
+exec $psst xbacklight -set 33
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -40,7 +40,7 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q    kill
 
-# start dmenu-xft, patch necessary for custom font
+# start customized dmenu for launching any program
 bindsym $mod+d exec dmenu_run -i -l 23 -p 'gogo Gadget' -fn 'Source Code Pro for Powerline:bold:pixelsize=32' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
 
 # change focus (vim style)
@@ -91,7 +91,7 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+c focus child
 
-# workspace defines
+# define names for workspaces with some nice symbols
 set $w1 1❶ 
 set $w2 2❷ 
 set $w3 3❸ 
@@ -214,7 +214,7 @@ mode "caps" {
         bindsym $mod+Caps_Lock mode "default"
 }
 
-# color defines for zenburn styled i3
+# ceerious styled i3
 set $bg     #2c2c2e
 set $fg     #9f9f9f
 set $hi     #efef8f
@@ -276,6 +276,8 @@ for_window [instance="Msgcompose"] floating enable border normal
 for_window [class="URxvt"] border none
 for_window [class="URxvt" title="sage"] floating enable border pixel 3
 
+#bindsym $mod+Shift+z floating enable; resize grow width 1920 px; resize grow height 500 px; move position center; move scratchpad
+
 #scratchpads
 bindsym $mod+Shift+Super_L move scratchpad
 bindsym $mod+Super_L scratchpad show
@@ -326,6 +328,10 @@ bindsym $sup+1 exec "forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser
 #bindsym $sup+8
 #bindsym $sup+9
 bindsym $sup+0 exec urxvtc, focus, floating enable
+
+# screenshot & open in gimp
+bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym $mod+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
 # remote desktop
 bindsym $sup+5 exec "rdesktop -f -g 1920x1080 -P -z -x l -r sound:off -u 'GRAPH-TECH\can' gt-server5:3389"
