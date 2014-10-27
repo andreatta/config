@@ -1,9 +1,0 @@
-[user]
-	email = cyril@andreatta.ch
-	name = Cyril Andreatta
-[push]
-	default = simple
-[core]
-	excludesfile = ~/.gitignore
-[gui]
-	recentrepo = /home/can/src/qt/ferag-simulator-2014
