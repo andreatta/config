@@ -3,7 +3,7 @@
 # checkout the look with: colorcode
 ##################################################
 
-xvt*termName:   rxvt-unicode-256color
+urxvt*termName:   rxvt-unicode-256color
 
 !urxvt fonts:
 urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=10
@@ -28,37 +28,38 @@ urxvt*pointerBlankDelay: 	1
 urxvt*fading:               40
 urxvt*fadeColor:            #000000
 
+# global colors that also work for xterm
 !urxvt color scheme:
-urxvt*background:           #222222
-urxvt*foreground:           #aaaaaa
+*background:           #222222
+*foreground:           #aaaaaa
 
 ! color for URL
-urxvt*colorUL :             #8dabcd
+*colorUL :             #8dabcd
 
 ! black
-urxvt*color0  :             #2f4f4f
-urxvt*color8  :             #000000
+*color0  :             #2f4f4f
+*color8  :             #000000
 ! red
-urxvt*color1  :             #ffa500
-urxvt*color9  :             #a1481e
+*color1  :             #ffa500
+*color9  :             #a1481e
 ! green
-urxvt*color2  :             #81c181
-urxvt*color10 :             #6c9339
+*color2  :             #81c181
+*color10 :             #6c9339
 ! yellow
-urxvt*color3  :             #f8f893
-urxvt*color11 :             #fce94f
+*color3  :             #f8f893
+*color11 :             #fce94f
 ! blue
-urxvt*color4  :             #8faf9f
-urxvt*color12 :             #709080
+*color4  :             #8faf9f
+*color12 :             #709080
 ! magenta
-urxvt*color5  :             #bf9b76
-urxvt*color13 :             #ad5234
+*color5  :             #bf9b76
+*color13 :             #ad5234
 ! cyan
-urxvt*color6  :             #6abbb4
-urxvt*color14 :             #2a6560
+*color6  :             #6abbb4
+*color14 :             #2a6560
 ! white
-urxvt*color7  :             #f9f8ff
-urxvt*color15 :             #857b6f
+*color7  :             #f9f8ff
+*color15 :             #857b6f
 
 !urxvt extensions:
 urxvt.perl-ext-common:      default,matcher
@@ -70,4 +71,3 @@ URxvt.matcher.button:       1
 
 URxvt.keysym.C-Delete:      perl:matcher:last
 URxvt.keysym.M-Delete:      perl:matcher:list
-
