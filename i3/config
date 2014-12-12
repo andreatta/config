@@ -22,10 +22,15 @@ bindsym $mod+b border toggle
 
 # autostart
 exec $psst feh --bg-scale ~/img/deathstar.png
-exec $psst nm-applet
+#exec $psst nm-applet
 exec $psst urxvtd -q -o -f
-exec $psst urxvtc
-exec $psst xbacklight -set 33
+#exec $psst urxvtc
+exec $psst "xbacklight -set 33"
+exec $psst "xflux -l 47.2 -g 7.5"
+
+# Open a small terminal at startup
+#exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 70x15
+#for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 865px 512px; move scratchpad
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -40,7 +45,7 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+Shift+q    kill
-bindsym $mod+Shift+w    exec xkill
+bindsym $mod+Shift+w    exec 'xkill'
 
 # rename workspace
 #bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
@@ -125,6 +130,7 @@ bindsym $sup+Right workspace next
 bindsym $sup+Left  workspace prev
 bindsym $sup+Up    workspace back_and_forth
 workspace_auto_back_and_forth yes
+bindsym $sup+Escape [urgent=latest] focus
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $w1
@@ -137,6 +143,13 @@ bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w0
+
+# always open some programs on specified workspace
+assign [class="Chromium"]    $w2
+assign [class="Thunderbird"] $w3
+assign [class="QtCreator"]   $w4
+assign [class="Audacious"]   $w9
+assign [class="VirtualBox"]  $w0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -266,18 +279,20 @@ bar {
 
 # enable floating mode for some applications
 for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
-for_window [title="Event Tester"] floating enable   # xev
-for_window [class="Speedcrunch"] floating enable
+# xev keyboard capture window
+for_window [title="Event Tester"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
 for_window [class="Audacious"] floating enable, border none
 for_window [instance="pcalc.exe"] floating enabled
+for_window [instance="speedcrunch"] floating enabled
 for_window [class="^(?i)chromium"] border none
 for_window [class="Thunderbird"] border none
 #for_window [class="Thunderbird" instance="Mail"] border none
 for_window [instance="Msgcompose"] floating enable border normal
-#for_window [class="rdesktop"] fullscreen
+for_window [class="rdesktop"] fullscreen
 for_window [class="URxvt"] border none
 for_window [class="URxvt" title="sage"] floating enable border pixel 3
+for_window [title="^Dia v"] resize shrink width 33 px
 
 #bindsym $mod+Shift+z floating enable; resize grow width 1920 px; resize grow height 500 px; move position center; move scratchpad
 
@@ -285,6 +300,7 @@ for_window [class="URxvt" title="sage"] floating enable border pixel 3
 bindsym $mod+Shift+Super_L move scratchpad
 bindsym $mod+Super_L scratchpad show
 for_window [instance="rainlendar"] move scratchpad
+for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
 bindsym $sup+a exec audacious
@@ -297,7 +313,7 @@ bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\PCalc\\pcalc.exe"
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec pcmanfm
 bindsym $sup+g exec gimp
-bindsym $sup+h exec rainlendar
+bindsym $sup+h exec hterm
 bindsym $sup+i exec inkscape
 #bindsym $sup+j
 bindsym $sup+k exec wireshark
@@ -317,30 +333,30 @@ bindsym $sup+w exec chromium
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 bindsym $sup+z exec filezilla
+
 bindsym $mod+Return exec urxvtc
 bindsym $mod+Shift+Return exec urxvtc --chdir `xcwd`
 #bindsym $mod+Shift+Return exec urxvtc --chdir ${PWD}
-bindsym $sup+1 exec "forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta"
-#bindsym $sup+2 exec urxvtc
+bindsym $sup+1 exec "urxvt -e forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta"
+bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
 #bindsym $sup+3
 #bindsym $sup+3
 #bindsym $sup+4
-#bindsym $sup+5
-#bindsym $sup+6
+# remote desktop
+bindsym $sup+5 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-server5:3389"
+bindsym $sup+6 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'Administrator' gt-server6:3389"
 #bindsym $sup+7
 #bindsym $sup+8
 #bindsym $sup+9
-bindsym $sup+0 exec urxvtc, focus, floating enable
+bindsym $sup+0 focus, floating enable
 
 # screenshot & open in gimp
 bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
 
-# remote desktop
-bindsym $sup+5 exec "rdesktop -f -g 1920x1080 -P -z -x l -r sound:off -u 'GRAPH-TECH\can' gt-server5:3389"
-
 # Specialkeys
 bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
+bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
 bindsym XF86AudioPlay           exec audacious -t
 bindsym XF86AudioNext           exec audacious -fp
 bindsym XF86AudioPrev           exec audacious -rp
@@ -354,10 +370,4 @@ bindsym XF86Launch1             exec $psst speedcrunch
 # list open windows to switch to
 bindsym $mod+Tab exec rofi -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
 
-# always open some programs on specified workspace
-assign [class="Chromium"]    $w2
-assign [class="Thunderbird"] $w3
-assign [class="QtCreator"]   $w4
-assign [class="Audacious"]   $w9
-assign [class="VirtualBox"]  $w0
 
