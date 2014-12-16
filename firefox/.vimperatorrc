@@ -1,0 +1,6 @@
+# use alphabet for link shortcuts
+set hintchars=hjklasdfgyuiopqwertnmzxcvb
+
+# beautify link highlights
+highlight Hint font-size:200%;color:#ceecee;background-color:#2e2e2e;padding:2px;
+highlight HintElem background-color: #cceeee;  color: black;
