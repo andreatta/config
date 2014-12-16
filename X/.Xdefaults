@@ -71,3 +71,6 @@ URxvt.matcher.button:       1
 
 URxvt.keysym.C-Delete:      perl:matcher:last
 URxvt.keysym.M-Delete:      perl:matcher:list
+
+!disable printing from terminal
+URxvt.print-pipe: "cat > /dev/null"
