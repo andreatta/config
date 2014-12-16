@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorDebuggers>
-<!-- Written by QtCreator 3.2.0, 2014-08-28T11:30:31. -->
+<!-- Written by QtCreator 3.3.0, 2014-12-16T09:12:48. -->
 <qtcreator>
  <data>
   <variable>DebuggerItem.0</variable>
@@ -14,6 +14,7 @@
    <value type="QString" key="DisplayName">System GDB at /usr/bin/gdb</value>
    <value type="int" key="EngineType">1</value>
    <value type="QString" key="Id">{a9f18c01-eeb9-4ebe-8299-6f03396156f3}</value>
+   <value type="QString" key="Version"></value>
   </valuemap>
  </data>
  <data>
@@ -28,11 +29,42 @@
    <value type="QString" key="DisplayName">gcc-linaro-arm-linux-gnueabihf-raspbian-gdb</value>
    <value type="int" key="EngineType">1</value>
    <value type="QString" key="Id">{a926c1d9-3c7e-46c2-a60b-d0cb40c59918}</value>
+   <value type="QString" key="Version"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.2</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/home/can/src/rpi/raspberrypi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-gdb</value>
+   <value type="QString" key="DisplayName">arm-linux-gnueabihf-gdb (x64)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{8757d847-14a5-47b3-92b2-6173f09263a3}</value>
+   <value type="QString" key="Version"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.3</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-generic-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">false</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/home/can/x-tools/arm-unknown-linux-gnueabi/bin/arm-unknown-linux-gnueabi-gdb</value>
+   <value type="QString" key="DisplayName">ct-ng-rpi</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{2ecc9ee2-54bd-4a6f-a783-604d990c94b2}</value>
+   <value type="QString" key="Version"></value>
   </valuemap>
  </data>
  <data>
   <variable>DebuggerItem.Count</variable>
-  <value type="int">2</value>
+  <value type="int">4</value>
  </data>
  <data>
   <variable>Version</variable>

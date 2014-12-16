@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProfiles>
-<!-- Written by QtCreator 3.2.0, 2014-08-28T11:30:31. -->
+<!-- Written by QtCreator 3.3.0, 2014-12-16T09:12:48. -->
 <qtcreator>
  <data>
   <variable>Profile.0</variable>
@@ -12,6 +12,7 @@
     <value type="QString" key="Debugger.Information">{a9f18c01-eeb9-4ebe-8299-6f03396156f3}</value>
     <value type="QString" key="PE.Profile.Device">Desktop Device</value>
     <value type="QByteArray" key="PE.Profile.DeviceType">Desktop</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
     <value type="QString" key="PE.Profile.SysRoot"></value>
     <value type="QString" key="PE.Profile.ToolChain">ProjectExplorer.ToolChain.Gcc:{93341e28-592b-4c08-9fbd-45d2b270ec8d}</value>
     <value type="QString" key="QtPM4.mkSpecInformation"></value>
@@ -32,11 +33,12 @@
    <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
    <valuemap type="QVariantMap" key="PE.Profile.Data">
     <value type="QString" key="Android.GdbServer.Information"></value>
-    <value type="QString" key="Debugger.Information">{a926c1d9-3c7e-46c2-a60b-d0cb40c59918}</value>
+    <value type="QString" key="Debugger.Information">{2ecc9ee2-54bd-4a6f-a783-604d990c94b2}</value>
     <value type="QString" key="PE.Profile.Device">{8d1a52b3-f145-4a9a-a4ed-cd689f618228}</value>
     <value type="QString" key="PE.Profile.DeviceType">GenericLinuxOsType</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
     <value type="QString" key="PE.Profile.SysRoot">/home/can/src/rpi/rpi-rootfs-copy</value>
-    <value type="QString" key="PE.Profile.ToolChain">ProjectExplorer.ToolChain.Gcc:{8127d309-a39d-4412-b5e6-beb3d058e31d}</value>
+    <value type="QString" key="PE.Profile.ToolChain">ProjectExplorer.ToolChain.Gcc:{bc25428e-7992-4362-8649-1d7ad269def6}</value>
     <value type="QString" key="QtPM4.mkSpecInformation"></value>
     <value type="int" key="QtSupport.QtInformation">17</value>
    </valuemap>
