@@ -45,7 +45,7 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+Shift+q    kill
-bindsym $mod+Shift+w    exec 'xkill'
+bindsym $mod+Shift+w    exec "xterm -e xkill"
 
 # rename workspace
 #bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
@@ -296,6 +296,7 @@ for_window [class="URxvt" title="sage"] floating enable border pixel 3
 for_window [title="^Dia v"] resize shrink width 33 px
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
+for_window [class="XTerm" title="^xkill"] floating enabled border pixel 1
 
 #bindsym $mod+Shift+z floating enable; resize grow width 1920 px; resize grow height 500 px; move position center; move scratchpad
 
@@ -307,11 +308,10 @@ for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
 bindsym $sup+a exec audacious
-bindsym $sup+b exec ~/develop/scripts/vbox-start.sh
+bindsym $sup+b exec brasero
 #bindsym $sup+c exec speedcrunch
 bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\PCalc\\pcalc.exe"
 #bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
-#bindsym $sup+c exec urxvtc -e sage
 #bindsym $sup+d
 bindsym $sup+e exec thunderbird
 bindsym $sup+f exec pcmanfm
@@ -329,7 +329,7 @@ bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk && xset +dpms
 #bindsym $sup+Shift+p exec "xrandr --output LVDS1 --auto"
 bindsym $sup+q exec qtcreator
 bindsym $sup+r exec urxvtc -e ranger --selectfile=`xcwd`
-bindsym $sup+s exec "rofi -snow -terminal urxvtc"
+bindsym $sup+s exec "rofi -snow -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvtc"
 bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 #bindsym $sup+u exec $psst optirun uzbl-browser
 bindsym $sup+v exec vlc
