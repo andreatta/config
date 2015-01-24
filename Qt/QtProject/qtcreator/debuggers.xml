@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorDebuggers>
-<!-- Written by QtCreator 3.3.0, 2014-12-16T09:12:48. -->
+<!-- Written by QtCreator 3.3.0, 2015-01-23T13:01:51. -->
 <qtcreator>
  <data>
   <variable>DebuggerItem.0</variable>
@@ -63,8 +63,38 @@
   </valuemap>
  </data>
  <data>
+  <variable>DebuggerItem.4</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">x86-linux-android-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">true</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/android-ndk/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-gdb</value>
+   <value type="QString" key="DisplayName">Android Debugger for Android GCC (x86-4.9)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{fc407c97-8551-4d25-88c6-830993c274a1}</value>
+   <value type="QString" key="Version"></value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DebuggerItem.5</variable>
+  <valuemap type="QVariantMap">
+   <valuelist type="QVariantList" key="Abis">
+    <value type="QString">arm-linux-android-elf-32bit</value>
+   </valuelist>
+   <value type="bool" key="AutoDetected">true</value>
+   <value type="QString" key="AutoDetectionSource"></value>
+   <value type="QString" key="Binary">/opt/android-ndk/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gdb</value>
+   <value type="QString" key="DisplayName">Android Debugger for Android GCC (arm-4.9)</value>
+   <value type="int" key="EngineType">1</value>
+   <value type="QString" key="Id">{1b256d67-a59a-40ec-b323-a8f4d8484980}</value>
+   <value type="QString" key="Version"></value>
+  </valuemap>
+ </data>
+ <data>
   <variable>DebuggerItem.Count</variable>
-  <value type="int">4</value>
+  <value type="int">6</value>
  </data>
  <data>
   <variable>Version</variable>

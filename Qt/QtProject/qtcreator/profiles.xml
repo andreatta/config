@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProfiles>
-<!-- Written by QtCreator 3.3.0, 2014-12-16T09:12:48. -->
+<!-- Written by QtCreator 3.3.0, 2015-01-23T13:01:51. -->
 <qtcreator>
  <data>
   <variable>Profile.0</variable>
@@ -51,8 +51,42 @@
   </valuemap>
  </data>
  <data>
+  <variable>Profile.2</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">true</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <value type="QString" key="Android.GdbServer.Information">/opt/android-ndk/prebuilt/android-arm/gdbserver/gdbserver</value>
+    <value type="QString" key="Debugger.Information">{1b256d67-a59a-40ec-b323-a8f4d8484980}</value>
+    <value type="QString" key="PE.Profile.Device">Android Device</value>
+    <value type="QString" key="PE.Profile.DeviceType">Android.Device.Type</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
+    <value type="QString" key="PE.Profile.SysRoot"></value>
+    <value type="QString" key="PE.Profile.ToolChain">Qt4ProjectManager.ToolChain.Android:{e2a91fa0-da83-460c-8072-72564c6d7f22}</value>
+    <value type="QString" key="QtPM4.mkSpecInformation"></value>
+    <value type="int" key="QtSupport.QtInformation">22</value>
+   </valuemap>
+   <value type="QString" key="PE.Profile.Icon">:/android/images/QtAndroid.png</value>
+   <value type="QString" key="PE.Profile.Id">{288442b9-2fe8-4ffc-a8c5-3d17a9c0c813}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Android for armeabi-v7a (GCC 4.9, Qt 5.4.0)</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo">
+    <value type="QString">QtSupport.QtInformation</value>
+    <value type="QString">QtPM4.mkSpecInformation</value>
+    <value type="QString">Debugger.Information</value>
+    <value type="QString">PE.Profile.SysRoot</value>
+    <value type="QString">PE.Profile.Environment</value>
+    <value type="QString">Android.GdbServer.Information</value>
+    <value type="QString">PE.Profile.Device</value>
+    <value type="QString">PE.Profile.ToolChain</value>
+    <value type="QString">PE.Profile.DeviceType</value>
+   </valuelist>
+  </valuemap>
+ </data>
+ <data>
   <variable>Profile.Count</variable>
-  <value type="int">2</value>
+  <value type="int">3</value>
  </data>
  <data>
   <variable>Profile.Default</variable>

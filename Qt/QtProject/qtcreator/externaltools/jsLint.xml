@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on Sa. Jan. 3 12:19:08 2015 by Qt Creator 3.3.0-->
+<externaltool id="jsLint">
+    <description>jslint</description>
+    <displayname>jsLint</displayname>
+    <category>Qt Quick</category>
+    <executable output="showinpane" error="showinpane" modifiesdocument="no">
+        <path>jslint</path>
+        <arguments>%{CurrentDocument:FilePath}</arguments>
+        <workingdirectory>%{CurrentDocument:Path}</workingdirectory>
+    </executable>
+</externaltool>

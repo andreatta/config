@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorToolChains>
-<!-- Written by QtCreator 3.3.0, 2014-12-16T09:12:48. -->
+<!-- Written by QtCreator 3.3.0, 2015-01-23T13:01:51. -->
 <qtcreator>
  <data>
   <variable>ToolChain.0</variable>
@@ -35,7 +35,7 @@
  <data>
   <variable>ToolChain.10</variable>
   <valuemap type="QVariantMap">
-   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/x86-4.6/prebuilt/linux-x86_64/bin/i686-linux-android-gcc</value>
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/x86-4.8/prebuilt/linux-x86_64/bin/i686-linux-android-gcc</value>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
@@ -43,13 +43,29 @@
    </valuelist>
    <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">x86-linux-android-elf-32bit</value>
    <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (x86-4.6)</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{5b58e286-39ae-4f5d-a6f0-83f19cd026f3}</value>
-   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.6</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (x86-4.8)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{3d35a82b-cfd2-4998-a745-41e08cc1b964}</value>
+   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.8</value>
   </valuemap>
  </data>
  <data>
   <variable>ToolChain.11</variable>
+  <valuemap type="QVariantMap">
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/x86-4.9/prebuilt/linux-x86_64/bin/i686-linux-android-gcc</value>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
+    <value type="QString">x86-linux-android-elf-32bit</value>
+   </valuelist>
+   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">x86-linux-android-elf-32bit</value>
+   <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (x86-4.9)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{db97ebc3-e64b-4d5a-8210-0fa150a434c4}</value>
+   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.9</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>ToolChain.12</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc</value>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
@@ -60,8 +76,40 @@
    <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">arm-linux-android-elf-32bit</value>
    <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
    <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (arm-4.6)</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{68565e6a-57c8-4c32-840d-a23b8ea64169}</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{f0cbb92a-6721-4beb-8ce8-a6c2543b67b2}</value>
    <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.6</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>ToolChain.13</variable>
+  <valuemap type="QVariantMap">
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc</value>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
+    <value type="QString">arm-linux-android-elf-32bit</value>
+   </valuelist>
+   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">arm-linux-android-elf-32bit</value>
+   <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (arm-4.8)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{dc347e30-b2dc-425e-94b5-5de992ba1bfe}</value>
+   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.8</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>ToolChain.14</variable>
+  <valuemap type="QVariantMap">
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc</value>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
+    <value type="QString">arm-linux-android-elf-32bit</value>
+   </valuelist>
+   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">arm-linux-android-elf-32bit</value>
+   <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (arm-4.9)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{e2a91fa0-da83-460c-8072-72564c6d7f22}</value>
+   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.9</value>
   </valuemap>
  </data>
  <data>
@@ -131,17 +179,17 @@
  <data>
   <variable>ToolChain.6</variable>
   <valuemap type="QVariantMap">
-   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/x86-4.8/prebuilt/linux-x86_64/bin/i686-linux-android-gcc</value>
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/mipsel-linux-android-4.6/prebuilt/linux-x86_64/bin/mipsel-linux-android-gcc</value>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
-    <value type="QString">x86-linux-android-elf-32bit</value>
+    <value type="QString">mips-linux-android-elf-32bit</value>
    </valuelist>
-   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">x86-linux-android-elf-32bit</value>
+   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">mips-linux-android-elf-32bit</value>
    <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (x86-4.8)</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{b7c49925-9e50-4c3d-91b6-8d882a2601bf}</value>
-   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.8</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (mips-4.6)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{d010714e-8d60-4639-88ac-e4749145762e}</value>
+   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.6</value>
   </valuemap>
  </data>
  <data>
@@ -156,30 +204,14 @@
    <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">mips-linux-android-elf-32bit</value>
    <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
    <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (mips-4.8)</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{6a8a0cc9-4955-4e04-9f00-05b2630576d1}</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{c445647f-5b5a-4c97-9b27-a7b23a469bc8}</value>
    <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.8</value>
   </valuemap>
  </data>
  <data>
   <variable>ToolChain.8</variable>
   <valuemap type="QVariantMap">
-   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc</value>
-   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
-   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
-   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
-    <value type="QString">arm-linux-android-elf-32bit</value>
-   </valuelist>
-   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">arm-linux-android-elf-32bit</value>
-   <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (arm-4.8)</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{dc379f50-1d55-4b68-aec6-2fc3a72bbf2c}</value>
-   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.8</value>
-  </valuemap>
- </data>
- <data>
-  <variable>ToolChain.9</variable>
-  <valuemap type="QVariantMap">
-   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/mipsel-linux-android-4.6/prebuilt/linux-x86_64/bin/mipsel-linux-android-gcc</value>
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/mipsel-linux-android-4.9/prebuilt/linux-x86_64/bin/mipsel-linux-android-gcc</value>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
    <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
@@ -187,14 +219,30 @@
    </valuelist>
    <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">mips-linux-android-elf-32bit</value>
    <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (mips-4.6)</value>
-   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{e4fb4cb7-affe-4edc-859e-44626dee2d34}</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (mips-4.9)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{7633a062-782d-4bc8-9f68-02b59ac7f10f}</value>
+   <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.9</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>ToolChain.9</variable>
+  <valuemap type="QVariantMap">
+   <value type="QString" key="ProjectExplorer.GccToolChain.Path">/opt/android-ndk/toolchains/x86-4.6/prebuilt/linux-x86_64/bin/i686-linux-android-gcc</value>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformCodeGenFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.PlatformLinkerFlags"/>
+   <valuelist type="QVariantList" key="ProjectExplorer.GccToolChain.SupportedAbis">
+    <value type="QString">x86-linux-android-elf-32bit</value>
+   </valuelist>
+   <value type="QString" key="ProjectExplorer.GccToolChain.TargetAbi">x86-linux-android-elf-32bit</value>
+   <value type="bool" key="ProjectExplorer.ToolChain.Autodetect">true</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.DisplayName">Android GCC (x86-4.6)</value>
+   <value type="QString" key="ProjectExplorer.ToolChain.Id">Qt4ProjectManager.ToolChain.Android:{a9135e0d-c94c-4b95-894d-916839b96e9d}</value>
    <value type="QString" key="Qt4ProjectManager.Android.NDK_TC_VERION">4.6</value>
   </valuemap>
  </data>
  <data>
   <variable>ToolChain.Count</variable>
-  <value type="int">12</value>
+  <value type="int">15</value>
  </data>
  <data>
   <variable>Version</variable>

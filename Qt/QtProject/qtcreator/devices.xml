@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorDevices>
-<!-- Written by QtCreator 3.3.0, 2014-12-16T09:12:48. -->
+<!-- Written by QtCreator 3.3.0, 2015-01-23T13:01:51. -->
 <qtcreator>
  <data>
   <variable>DeviceManager</variable>
@@ -29,23 +29,6 @@
      <value type="int" key="Version">0</value>
     </valuemap>
     <valuemap type="QVariantMap">
-     <value type="int" key="Authentication">1</value>
-     <value type="QString" key="DebugServerKey"></value>
-     <value type="QString" key="FreePortsSpec"></value>
-     <value type="QString" key="Host"></value>
-     <value type="QString" key="InternalId">Android Device</value>
-     <value type="QString" key="KeyFile"></value>
-     <value type="QString" key="Name">Run on Android</value>
-     <value type="int" key="Origin">1</value>
-     <value type="QString" key="OsType">Android.Device.Type</value>
-     <value type="QString" key="Password"></value>
-     <value type="int" key="SshPort">0</value>
-     <value type="int" key="Timeout">0</value>
-     <value type="int" key="Type">0</value>
-     <value type="QString" key="Uname"></value>
-     <value type="int" key="Version">0</value>
-    </valuemap>
-    <valuemap type="QVariantMap">
      <value type="int" key="Authentication">3</value>
      <value type="QString" key="DebugServerKey"></value>
      <value type="QString" key="FreePortsSpec">10000-10100</value>
@@ -60,6 +43,23 @@
      <value type="int" key="Timeout">10</value>
      <value type="int" key="Type">0</value>
      <value type="QString" key="Uname">allfarm</value>
+     <value type="int" key="Version">0</value>
+    </valuemap>
+    <valuemap type="QVariantMap">
+     <value type="int" key="Authentication">1</value>
+     <value type="QString" key="DebugServerKey"></value>
+     <value type="QString" key="FreePortsSpec"></value>
+     <value type="QString" key="Host"></value>
+     <value type="QString" key="InternalId">Android Device</value>
+     <value type="QString" key="KeyFile"></value>
+     <value type="QString" key="Name">Run on Android</value>
+     <value type="int" key="Origin">1</value>
+     <value type="QString" key="OsType">Android.Device.Type</value>
+     <value type="QString" key="Password"></value>
+     <value type="int" key="SshPort">0</value>
+     <value type="int" key="Timeout">0</value>
+     <value type="int" key="Type">0</value>
+     <value type="QString" key="Uname"></value>
      <value type="int" key="Version">0</value>
     </valuemap>
    </valuelist>
