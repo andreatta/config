@@ -1,0 +1,7 @@
+[push]
+	default = simple
+[core]
+	excludesfile = /home/can/.gitignore
+[user]
+	email = cyril@andreatta.ch
+	name = Cyril
