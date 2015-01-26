@@ -12,14 +12,16 @@ keysym o = o O odiaeresis Odiaeresis
 keysym u = u U udiaeresis Udiaeresis
 
 keysym c = c C copyright U2184
-keysym d = d D Greek_DELTA
+keysym d = d D Greek_alpha Greek_DELTA
 keysym e = e E U01DD U018E
 keysym m = m M Greek_mu
 keysym n = n N Greek_ETA
-keysym p = p P Greek_PI
+keysym p = p P Greek_rho Greek_pi
 keysym r = r R registered Greek_OMEGA
 keysym s = s S ssharp
 keysym k = k K U26B7
+keysym v = v V U03D1
+keysym y = y Y Greek_UPSILON
 
 keysym 0 = 0 parenright degree
 keysym 5 = 5 percent EuroSign
