@@ -32,6 +32,9 @@ sed -i 'Xd' ~/.ssh/known_hosts
 # get external IP
 wget -q -O - http://showip.spamt.net/
 
+# set fixed IP
+ip addr add 192.168.112.111/24 dev enp0s25
+
 #################################
 # TMUX
 #################################

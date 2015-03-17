@@ -25,7 +25,7 @@ keysym y = y Y Greek_UPSILON
 
 keysym 0 = 0 parenright degree
 keysym 5 = 5 percent EuroSign
-keysym 8 = 8 ampersand infinity
+keysym 8 = 8 asterisk infinity
 
 ! who needs CapsLock anyway
 clear Lock

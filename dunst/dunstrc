@@ -160,7 +160,7 @@
 
 [urgency_critical]
     background = "#e89393"
-    foreground = "#a0afa0"
+    foreground = "#dedede"
     timeout = 0
 
 

@@ -1,6 +1,6 @@
 ##################################################
 # ceerious settings
-# checkout the look with: colorcode
+# checkout the look with: colortheme
 ##################################################
 
 urxvt*termName:   rxvt-unicode-256color
