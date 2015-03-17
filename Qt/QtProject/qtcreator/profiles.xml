@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProfiles>
-<!-- Written by QtCreator 3.3.0, 2015-01-25T03:01:16. -->
+<!-- Written by QtCreator 3.3.2, 2015-03-13T23:56:35. -->
 <qtcreator>
  <data>
   <variable>Profile.0</variable>
@@ -72,14 +72,14 @@
    <value type="QString" key="PE.Profile.Name">Android for armeabi-v7a (GCC 4.9, Qt 5.4.0)</value>
    <value type="bool" key="PE.Profile.SDK">false</value>
    <valuelist type="QVariantList" key="PE.Profile.StickyInfo">
-    <value type="QString">QtSupport.QtInformation</value>
-    <value type="QString">QtPM4.mkSpecInformation</value>
     <value type="QString">Debugger.Information</value>
+    <value type="QString">Android.GdbServer.Information</value>
+    <value type="QString">QtPM4.mkSpecInformation</value>
     <value type="QString">PE.Profile.SysRoot</value>
     <value type="QString">PE.Profile.Environment</value>
-    <value type="QString">Android.GdbServer.Information</value>
     <value type="QString">PE.Profile.Device</value>
     <value type="QString">PE.Profile.ToolChain</value>
+    <value type="QString">QtSupport.QtInformation</value>
     <value type="QString">PE.Profile.DeviceType</value>
    </valuelist>
   </valuemap>

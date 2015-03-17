@@ -5,3 +5,8 @@
 [user]
 	email = cyril@andreatta.ch
 	name = Cyril
+[diff]
+    tool = kdiff3
+[difftool "kdiff3"]
+        cmd = kdiff3 \"$LOCAL\" \"$REMOTE\"
+
