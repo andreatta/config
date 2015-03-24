@@ -1,69 +1,55 @@
-"""""""""""""""""""""""""""""""""""""""""""""
-" ceerious vimrc
-"""""""""""""""""""""""""""""""""""""""""""""
-
-"call pathogen#infect()
-filetype plugin indent on
-
-set ofu=syntaxcomplete#Complete
-syntax on
-set t_Co=256
-colorscheme hipster
+""""""""""""""""""""""""""
+" ceerious vim config
+""""""""""""""""""""""""""
 
 set nocompatible
+filetype off
 
-" set relative numbers except for current row a/k/a hybrid number mode
-set relativenumber
-set number
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" show cross disable with (mapleader+c)
-set cursorline
-set cursorcolumn
-:nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'bling/vim-airline'
 
-set history=700
+" All of your Plugins must be added before the following line
+"--------------------------------------------------------------------------------------------------
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"--------------------------------------------------------------------------------------------------
+
+set t_co=256
+set background=dark
+colorscheme gruvbox
+
+" convenience functions
+syntax on
+
 set wildmenu
 set wildmode=list:longest,full
 set ruler
 set noerrorbells
-"set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
-set showcmd
-set showmode
-set mouse=a
-set list listchars=tab:\|-,trail:-,extends:$,nbsp:=
-"set list listchars=tab:\|-,extends:$,precedes:<,nbsp:=
-"set lcs=tab:┅,trail:>·,extends:>,precedes:<,nbsp:&
 
-"set cmdheight=2
-if has('statusline')
-    set laststatus=2
+set mouse=a									" allow mouse for 'these®' moments
 
-    " Broken down into easily includeable segments
-    set statusline=%<%f\ " Filename
-    set statusline+=%w%h%m%r " Options
-    "set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y] " filetype
-    set statusline+=\ [%{getcwd()}] " current dir
-    set statusline+=\ [@\%03.3b/0x\%02.2B] " ASCII / Hex value of char
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%% " Right aligned file nav info
-endif
-
-" use default mapleader
-"let mapleader = "\"
-
-set undofile
-set undodir=$HOME/.vim/undo
-
-" programming stuff
-au BufNewFile,BufRead *.c map <F5> :make<cr>
-au BufNewFile,BufRead *.c map <F10> :cp<cr>
-au BufNewFile,BufRead *.c map <F11> :cc<cr>
-au BufNewFile,BufRead *.c map <F12> :cn<cr>
-
-" use normal regex in search
+" search helpers
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -73,38 +59,38 @@ set incsearch
 set showmatch
 set hlsearch
 
-" save with sudo permission
-cmap w!! %!sudo tee > /dev/null %
+" airline config
+set laststatus=2
+let g:airline_theme='base16'
+let g:airline_powerline_fonts=1
+let g:airline_right_sep=''		" arrow had an ugly 1 pixel gap
+""
 
-nmap <F8> :TagbarToggle<CR>
+" number lines in hybrid mode
+set relativenumber
+set number
+
+"set cursorline								" highlight current cursor position
+"set cursorcolumn
+
+set undofile								" global undo file
+set undodir=$HOME/.vim/undo
+set history=5000
+
+
+"""""""""
+" special mappings
+
+nmap <Leader><Space> :nohl<CR>
+" toggle highlighting line 
+:nnoremap <Leader>c :set cursorline! <CR> 
+" toggle cursor cross 
+:nnoremap <Leader>C :set cursorline! cursorcolumn!<CR>
 
 " F12 to toggle paste mode
 map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
-" clear search selection with ESC
-"nnoremap <esc> :noh<return><esc>
-nnoremap <leader><space> :noh<cr>
+" save with sudo permission
+cmap w!! %!sudo tee > /dev/null %
 
-
-
-
-" show current function within source code
-" does *NOT* yet work!!!
-nmap _F :call CurrentFunc()<CR>
-" side effect: register k and mark k will be changed
-
-func! CurrentFunc()
-  exec "normal mk"
-  " c-type code have remarkable definitions from other OO code.
-  let l:extension = expand("%:e")
-  if l:extension == "c"
-  exec "normal ][%b%b"
-  else
-  exec "?private\\|public\\|protected\\|procedure\\|function\\s\\+\.*("
-  endif
-  "TODO: maybe you need to open your closed fold at
-  first
-  exec "normal v$\"ky`k"
-  exec "echo @k"
-endfunc " CurrentFunc
