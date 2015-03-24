@@ -8,5 +8,5 @@
 [diff]
     tool = kdiff3
 [difftool "kdiff3"]
-        cmd = kdiff3 \"$LOCAL\" \"$REMOTE\"
+    cmd = kdiff3 \"$LOCAL\" \"$REMOTE\"
 
