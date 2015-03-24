@@ -6,7 +6,7 @@
 urxvt*termName:   rxvt-unicode-256color
 
 !urxvt fonts:
-urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=10
+urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=13
 urxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=13
 
 !urxvt scrolling options:
