@@ -38,7 +38,6 @@ colorscheme gruvbox
 
 " convenience functions
 syntax on
-
 set wildmenu
 set wildmode=list:longest,full
 set ruler
@@ -46,6 +45,7 @@ set noerrorbells
 set smarttab
 set shiftwidth=4
 set tabstop=4
+set nrformats=								" numbers starting with 0 are also decimal
 
 set mouse=a									" allow mouse for 'these®' moments
 
@@ -63,23 +63,21 @@ set hlsearch
 set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
-let g:airline_right_sep=''		" arrow had an ugly 1 pixel gap
+let g:airline_right_sep=''					" arrow had an ugly 1 pixel gap
 ""
 
-" number lines in hybrid mode
-set relativenumber
-set number
+set number									" display linenumbers (relative mode can be toggled)
 
-"set cursorline								" highlight current cursor position
-"set cursorcolumn
+set cursorline								" highlight line horizontally
+set cursorcolumn							" highlight line vertically
 
 set undofile								" global undo file
 set undodir=$HOME/.vim/undo
-set history=5000
+set history=500
 
-
-"""""""""
+""""""""""""""""""""""""""
 " special mappings
+""""""""""""""""""""""""""
 
 nmap <Leader><Space> :nohl<CR>
 " toggle highlighting line 
@@ -94,3 +92,5 @@ set pastetoggle=<F12>
 " save with sudo permission
 cmap w!! %!sudo tee > /dev/null %
 
+" toggle relative line numbers
+nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
