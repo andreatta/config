@@ -241,7 +241,7 @@ set $ac     #a0afa0
 set $tx     #040404
 set $ia     #8f8f8f
 set $be     #8faf9f
-set $yw     #ccdc90
+set $yw     #f8f893
 set $gn     #88b090
 set $rd     #e89393
 set $id     #666666
@@ -251,7 +251,7 @@ set $ce     #ceecee
 client.focused              $id     $ac         $tx     $id
 client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $id
-client.urgent               $rd     $rd         $tx     $id
+client.urgent               $yw     $yw         $tx     $id
 #border & indicator are ignored
 #client.placeholder          $bg     $bg         $bg     $bg
 
@@ -262,9 +262,9 @@ bar {
     font pango:Source Code Pro for Powerline, FontAwesome 11
     position top
 
-    #status_command i3status --config ~/.i3/i3status.conf
+    status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
-    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    #status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
     #status_command ~/.i3/i3-conky-initscript.sh
 
     colors {
@@ -274,7 +274,7 @@ bar {
         focused_workspace   $ia        $bg        $ia
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $ia        $tx
-        urgent_workspace    $rd        $bg        $rd
+        urgent_workspace    $yw        $bg        $yw
     }
 }
 
@@ -334,7 +334,7 @@ bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 #bindsym $sup+u exec $psst optirun uzbl-browser
 bindsym $sup+v exec vlc
 #bindsym $sup+w exec chromium
-bindsym $sup+w exec firefox-developer
+bindsym $sup+w exec firefox
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 bindsym $sup+z exec filezilla
@@ -365,8 +365,8 @@ bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
 #bindsym XF86AudioPlay           exec audacious -t
 #bindsym XF86AudioNext           exec audacious -fp
 #bindsym XF86AudioPrev           exec audacious -rp
-bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -- -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
-bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -- +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
+bindsym XF86AudioLowerVolume    exec 'pactl set-sink-volume @DEFAULT_SINK@ -- -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update'
+bindsym XF86AudioRaiseVolume    exec 'pactl set-sink-volume @DEFAULT_SINK@ -- +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update'
 bindsym XF86AudioMute           exec $psst pactl set-sink-mute @DEFAULT_SINK@ toggle $update
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
