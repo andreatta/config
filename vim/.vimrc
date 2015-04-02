@@ -48,10 +48,13 @@ set noerrorbells
 set smarttab
 set shiftwidth=4
 set tabstop=4
-set nrformats=								" interpret numbers starting with 0 as decimal
-set spell									" spell checking
-set hidden									" allow buffer switching without saving
-set mouse=a									" allow mouse for 'these®' moments
+" interpret numbers starting with 0 as decimal
+set nrformats=								
+set spell
+" allow buffer switching without saving
+set hidden
+" allow mouse for 'these®' moments
+set mouse=a
 
 " search helpers
 nnoremap / /\v
@@ -67,16 +70,20 @@ set hlsearch
 set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
-let g:airline_right_sep=''					" arrow had an ugly 1 pixel gap
+" arrow had an ugly 1 pixel gap
+let g:airline_right_sep=''					
 ""
 
-set number									" display linenumbers (relative mode can be toggled)
+" display linenumbers (relative mode can be toggled)
+set number									
 set relativenumber
+" highlight line horizontally
+set cursorline
+" highlight line vertically					
+set cursorcolumn						
 
-set cursorline								" highlight line horizontally
-set cursorcolumn							" highlight line vertically
-
-set undofile								" global undo file
+" global undo file
+set undofile								
 set undodir=$HOME/.vim/undo
 set history=500
 
