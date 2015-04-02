@@ -18,7 +18,7 @@ Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
-"--------------------------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -33,11 +33,14 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"--------------------------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 
 set t_co=256
 set background=dark
 colorscheme gruvbox
+
+" highlight past column 80
+let &colorcolumn=join(range(81,999),",")
 
 " convenience functions
 syntax on
@@ -49,7 +52,7 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 " interpret numbers starting with 0 as decimal
-set nrformats=								
+set nrformats=
 set spell
 " allow buffer switching without saving
 set hidden
@@ -71,21 +74,24 @@ set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 " arrow had an ugly 1 pixel gap
-let g:airline_right_sep=''					
+let g:airline_right_sep=''
 ""
 
 " display linenumbers (relative mode can be toggled)
-set number									
+set number
 set relativenumber
 " highlight line horizontally
 set cursorline
-" highlight line vertically					
-set cursorcolumn						
+" highlight line vertically
+set cursorcolumn
 
 " global undo file
-set undofile								
+set undofile
 set undodir=$HOME/.vim/undo
 set history=500
+
+" automatically strip trailing whitespace on save
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,vim,config autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 """"""""""""""""""""""""""
 " special mappings
@@ -94,9 +100,9 @@ set history=500
 " clear search highlights
 nmap <Leader><Space> :nohl<CR>
 
-" toggle highlighting line 
-:nnoremap <Leader>c :set cursorline! <CR> 
-" toggle cursor cross 
+" toggle highlighting line
+:nnoremap <Leader>c :set cursorline! <CR>
+" toggle cursor cross
 :nnoremap <Leader>C :set cursorline! cursorcolumn!<CR>
 
 " toggle relative line numbers
@@ -111,3 +117,21 @@ set pastetoggle=<F12>
 
 " save with sudo permission
 cmap w!! %!sudo tee > /dev/null %
+
+""""""""""""""""""""""""""
+" functions
+""""""""""""""""""""""""""
+
+" strip whitespace {
+function! StripTrailingWhitespace()
+	" Preparation: save last search, and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+	" do the business:
+	%s/\s\+$//e
+	" clean up: restore previous search history, and cursor position
+	let @/=_s
+	call cursor(l, c)
+endfunction
+" }
