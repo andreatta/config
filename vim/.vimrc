@@ -13,6 +13,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
+Plugin 'gorodinskiy/vim-coloresque'
+"Plugin 'ap/vim-css-color'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 "--------------------------------------------------------------------------------------------------
@@ -45,8 +48,9 @@ set noerrorbells
 set smarttab
 set shiftwidth=4
 set tabstop=4
-set nrformats=								" numbers starting with 0 are also decimal
-
+set nrformats=								" interpret numbers starting with 0 as decimal
+set spell									" spell checking
+set hidden									" allow buffer switching without saving
 set mouse=a									" allow mouse for 'these®' moments
 
 " search helpers
@@ -67,6 +71,7 @@ let g:airline_right_sep=''					" arrow had an ugly 1 pixel gap
 ""
 
 set number									" display linenumbers (relative mode can be toggled)
+set relativenumber
 
 set cursorline								" highlight line horizontally
 set cursorcolumn							" highlight line vertically
@@ -79,18 +84,23 @@ set history=500
 " special mappings
 """"""""""""""""""""""""""
 
+" clear search highlights
 nmap <Leader><Space> :nohl<CR>
+
 " toggle highlighting line 
 :nnoremap <Leader>c :set cursorline! <CR> 
 " toggle cursor cross 
 :nnoremap <Leader>C :set cursorline! cursorcolumn!<CR>
 
-" F12 to toggle paste mode
+" toggle relative line numbers
+nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
+
+" toggle wrapping of lines
+nmap <Leader>w :set wrap!<CR>
+
+" toggle paste mode
 map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
 " save with sudo permission
 cmap w!! %!sudo tee > /dev/null %
-
-" toggle relative line numbers
-nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
