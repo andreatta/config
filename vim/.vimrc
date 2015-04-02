@@ -75,10 +75,10 @@ set hlsearch
 set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
-" arrow had an ugly 1 pixel gap
+" arrow has an ugly 1 pixel gap
 let g:airline_right_sep = ''
 
-" ASCII HEX current registre
+" ASCII HEX current register
 let g:airline_section_z = '@%3b ℍ%2B ℝ%{v:register} %3p%% %4l% %3v'
 ""
 
@@ -96,7 +96,7 @@ set undodir=$HOME/.vim/undo
 set history=1000
 
 " automatically strip trailing whitespace on save
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,vim,config autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 """"""""""""""""""""""""""
 " special mappings
@@ -122,6 +122,9 @@ set pastetoggle=<F12>
 
 " save with sudo permission
 cmap w!! %!sudo tee > /dev/null %
+
+" % is current file, make %% current directory
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 """"""""""""""""""""""""""
 " functions
