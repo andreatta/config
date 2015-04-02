@@ -1,10 +1,8 @@
+# vi: ft=i3 
 ###############################################################################
 # ceerious i3 config
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#
-# let vim know the i3 config syntax
-# vim:filetype=i3
 ###############################################################################
 
 # modifier = Alt, $sup = 'strange wiggly flag' key
