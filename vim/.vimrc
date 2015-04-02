@@ -14,8 +14,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'bling/vim-airline'
 Plugin 'gorodinskiy/vim-coloresque'
-"Plugin 'ap/vim-css-color'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Lokaltog/vim-easymotion'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------------------
@@ -74,7 +76,10 @@ set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 " arrow had an ugly 1 pixel gap
-let g:airline_right_sep=''
+let g:airline_right_sep = ''
+
+" ASCII HEX current registre
+let g:airline_section_z = '@%3b ℍ%2B ℝ%{v:register} %3p%% %4l% %3v'
 ""
 
 " display linenumbers (relative mode can be toggled)
@@ -88,7 +93,7 @@ set cursorcolumn
 " global undo file
 set undofile
 set undodir=$HOME/.vim/undo
-set history=500
+set history=1000
 
 " automatically strip trailing whitespace on save
 autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql,vim,config autocmd BufWritePre <buffer> call StripTrailingWhitespace()
