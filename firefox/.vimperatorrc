@@ -1,7 +1,8 @@
-# use alphabet for link shortcuts
+" vi: ft=vim
+" use alphabet for link shortcuts
 set hintchars=hjklsadfgqwertyuiopzxcvbnm
 
-# keyboard shortcuts with numbers for first tabs
+" keyboard shortcuts with numbers for first tabs
 noremap <C-1> 1gt
 noremap <leader>1 1gt
 noremap <C-2> 2gt
@@ -13,17 +14,17 @@ noremap <leader>4 4gt
 noremap <C-5> 5gt
 noremap <leader>5 5gt
 
-# switch through tabs
+" switch through tabs
 noremap <left> <C-p>
 noremap <right> <C-n>
 
-# back to the future
+" back to the future
 noremap <PageUp> :back<cr>
 noremap <PageDown> :forward<cr>
 
-# reload config
+" reload config
 map <leader>s :source ~/.vimperatorrc<cr>
 
-# beautify link highlights
-highlight Hint font-size:200%;color:#ceecee;background-color:#2e2e2e;padding:2px;
-highlight HintElem background-color: #cceeee;  color: black;
+" beautify link highlights
+highlight Hint font-size:200%;color:"ceecee;background-color:#2e2e2e;padding:2px;
+highlight HintElem background-color: "cceeee;  color: black;
