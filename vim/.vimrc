@@ -18,6 +18,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------------------
@@ -82,6 +83,10 @@ let g:airline_right_sep = ''
 let g:airline_section_z = '@%3b ℍ%2B ℝ%{v:register} %3p%% %4l% %3v'
 ""
 
+" YouCompleteMe ycm
+"g:ycm_global_ycm_extra_conf
+""
+
 " display linenumbers (relative mode can be toggled)
 set number
 set relativenumber
@@ -98,6 +103,15 @@ set history=1000
 " automatically strip trailing whitespace on save
 autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
+" handle md file as markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" jump to last position on opening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
+
 """"""""""""""""""""""""""
 " special mappings
 """"""""""""""""""""""""""
@@ -106,7 +120,7 @@ autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,c
 nmap <Leader><Space> :nohl<CR>
 
 " toggle highlighting line
-:nnoremap <Leader>c :set cursorline! <CR>
+":nnoremap <Leader>c :set cursorline! <CR>
 " toggle cursor cross
 :nnoremap <Leader>C :set cursorline! cursorcolumn!<CR>
 
