@@ -1,6 +1,6 @@
 " vi: ft=vim
 " use alphabet for link shortcuts
-set hintchars=hjklsadfgqwertyuiopzxcvbnm
+set hintchars=hjklsadgqwertyuiopzxcvbnm
 
 " keyboard shortcuts with numbers for first tabs
 noremap <C-1> 1gt
@@ -26,5 +26,5 @@ noremap <PageDown> :forward<cr>
 map <leader>s :source ~/.vimperatorrc<cr>
 
 " beautify link highlights
-highlight Hint font-size:200%;color:"ceecee;background-color:#2e2e2e;padding:2px;
-highlight HintElem background-color: "cceeee;  color: black;
+highlight Hint font-size:200%;color:#ceecee;background-color:#2e2e2e;padding:2px;
+highlight HintElem background-color:#cceeee;  color: black;
