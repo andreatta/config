@@ -157,3 +157,15 @@ function! StripTrailingWhitespace()
 	call cursor(l, c)
 endfunction
 " }
+
+" save file with ^S
+command -nargs=0 -bar Update if &modified
+                           \|    if empty(bufname('%'))
+                           \|        browse confirm write
+                           \|    else
+                           \|        confirm write
+                           \|    endif
+                           \|endif
+nnoremap <silent> <C-S> :<C-u>Update<CR>
+:inoremap <c-s> <c-o>:Update<CR><CR>
+vmap <C-s> <esc>:w<CR>gv
