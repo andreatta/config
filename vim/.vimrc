@@ -112,6 +112,9 @@ if has("autocmd")
     \| exe "normal! g'\"" | endif
 endif
 
+" git commit messages should always start on first line of file
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
 """"""""""""""""""""""""""
 " special mappings
 """"""""""""""""""""""""""
