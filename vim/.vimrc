@@ -100,20 +100,26 @@ set undofile
 set undodir=$HOME/.vim/undo
 set history=1000
 
-" automatically strip trailing whitespace on save
-autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-
-" handle md file as markdown
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
-" jump to last position on opening a file
+" do some magic depending on file extension
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-endif
+	" automatically strip trailing whitespace on save
+	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config au BufWritePre <buffer> call StripTrailingWhitespace()
 
-" git commit messages should always start on first line of file
-au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+	" handle md file as markdown
+	au BufNewFile,BufReadPost *.md set filetype=markdown
+
+	" jump to last position on opening a file
+	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+	" git commit messages should always start on first line of file
+	au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+	" syntax highlighting for gdb files
+	au BufRead,BufNewFile *.gdb set filetype=gdb
+
+	" reload .vimrc on save
+	au BufWritePost .vimrc source $MYVIMRC
+endif
 
 """"""""""""""""""""""""""
 " special mappings
@@ -121,6 +127,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " clear search highlights
 nmap <Leader><Space> :nohl<CR>
+
+" quickly edit .vimrc
+nmap <Leader>v :tabedit $MYVIMRC<CR>
 
 " toggle highlighting line
 ":nnoremap <Leader>c :set cursorline! <CR>
@@ -143,6 +152,10 @@ cmap w!! %!sudo tee > /dev/null %
 " % is current file, make %% current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" ^S to save current buffer in insert and normal mode
+inoremap <C-s> <esc>:w<cr>a
+nnoremap <C-s> :w<cr>
+
 """"""""""""""""""""""""""
 " functions
 """"""""""""""""""""""""""
@@ -160,15 +173,3 @@ function! StripTrailingWhitespace()
 	call cursor(l, c)
 endfunction
 " }
-
-" save file with ^S
-command -nargs=0 -bar Update if &modified
-                           \|    if empty(bufname('%'))
-                           \|        browse confirm write
-                           \|    else
-                           \|        confirm write
-                           \|    endif
-                           \|endif
-nnoremap <silent> <C-S> :<C-u>Update<CR>
-:inoremap <c-s> <c-o>:Update<CR><CR>
-vmap <C-s> <esc>:w<CR>gv
