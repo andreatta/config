@@ -12,13 +12,15 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------------------
@@ -54,6 +56,12 @@ set noerrorbells
 set smarttab
 set shiftwidth=4
 set tabstop=4
+" wrap lines
+set wrap
+" .. but honor word boundings
+set linebreak
+" mark wrapped lines
+set showbreak=…
 " interpret numbers starting with 0 as decimal
 set nrformats=
 set spell
@@ -61,6 +69,12 @@ set spell
 set hidden
 " allow mouse for 'these®' moments
 set mouse=a
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+"let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 2
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 " search helpers
 nnoremap / /\v
@@ -93,7 +107,7 @@ set relativenumber
 " highlight line horizontally
 set cursorline
 " highlight line vertically
-set cursorcolumn
+"set cursorcolumn
 
 " global undo file
 set undofile
@@ -102,11 +116,17 @@ set history=1000
 
 " do some magic depending on file extension
 if has("autocmd")
+	" reload .vimrc on save => this introduced some lags.. not tested
+	"au BufWritePost .vimrc source $MYVIMRC
+
 	" automatically strip trailing whitespace on save
 	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config au BufWritePre <buffer> call StripTrailingWhitespace()
 
 	" handle md file as markdown
 	au BufNewFile,BufReadPost *.md set filetype=markdown
+
+	" syntax highlighting for gdb files
+	au BufNewFile,BufReadPost *.gdb set filetype=gdb
 
 	" jump to last position on opening a file
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -114,11 +134,8 @@ if has("autocmd")
 	" git commit messages should always start on first line of file
 	au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-	" syntax highlighting for gdb files
-	au BufRead,BufNewFile *.gdb set filetype=gdb
-
-	" reload .vimrc on save
-	au BufWritePost .vimrc source $MYVIMRC
+	" call make on C files
+	au BufNewFile,BufRead *.c map <F5> :make<cr>
 endif
 
 """"""""""""""""""""""""""
@@ -130,11 +147,13 @@ nmap <Leader><Space> :nohl<CR>
 
 " quickly edit .vimrc
 nmap <Leader>v :tabedit $MYVIMRC<CR>
+" .. and reload .vimrc
+nmap <Leader>r :source $MYVIMRC<CR>
 
 " toggle highlighting line
 ":nnoremap <Leader>c :set cursorline! <CR>
 " toggle cursor cross
-:nnoremap <Leader>C :set cursorline! cursorcolumn!<CR>
+nnoremap <Leader>C :exec &cursorcolumn? "set cursorline nocursorcolumn" : "set cursorline cursorcolumn"<CR>
 
 " toggle relative line numbers
 nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
@@ -147,7 +166,7 @@ map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
 " save with sudo permission
-cmap w!! %!sudo tee > /dev/null %
+cmap w!! !sudo tee % >/dev/null
 
 " % is current file, make %% current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -155,6 +174,11 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " ^S to save current buffer in insert and normal mode
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<cr>
+
+" navigate around quickbuffers
+map <F10> :cprevious<CR>
+map <F11> :cclose<CR>
+map <F12> :cnext<CR>
 
 """"""""""""""""""""""""""
 " functions
