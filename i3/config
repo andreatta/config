@@ -20,9 +20,7 @@ bindsym $mod+b border toggle
 
 # autostart
 exec $psst feh --bg-scale ~/img/deathstar.png
-#exec $psst nm-applet
 exec $psst urxvtd -q -o -f
-#exec $psst urxvtc
 exec $psst "xbacklight -set 33"
 exec $psst "xflux -l 47.2 -g 7.5"
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
@@ -363,8 +361,8 @@ bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
 #bindsym XF86AudioPlay           exec audacious -t
 #bindsym XF86AudioNext           exec audacious -fp
 #bindsym XF86AudioPrev           exec audacious -rp
-bindsym XF86AudioLowerVolume    exec 'pactl set-sink-volume @DEFAULT_SINK@ -- -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update'
-bindsym XF86AudioRaiseVolume    exec 'pactl set-sink-volume @DEFAULT_SINK@ -- +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update'
+bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
+bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioMute           exec $psst pactl set-sink-mute @DEFAULT_SINK@ toggle $update
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
