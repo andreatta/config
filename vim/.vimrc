@@ -20,6 +20,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
 "Plugin 'Lokaltog/vim-easymotion'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
@@ -102,7 +103,7 @@ let g:airline_section_z = '@%3b ℍ%2B ℝ%{v:register} %3p%% %4l% %3v'
 ""
 
 " YouCompleteMe ycm
-"g:ycm_global_ycm_extra_conf
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 ""
 
 " display linenumbers (relative mode can be toggled)
@@ -143,8 +144,17 @@ if has("autocmd")
 endif
 
 """"""""""""""""""""""""""
-" special mappings
+" special key mappings
 """"""""""""""""""""""""""
+
+" navigate between split windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 " clear search highlights
 nmap <Leader><Space> :nohl<CR>
