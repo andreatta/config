@@ -22,6 +22,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'vim-scripts/AdvancedSorters'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------------------
@@ -59,7 +60,7 @@ set shiftwidth=4
 set tabstop=4
 " wrap lines
 set wrap
-" .. but honor word boundings
+" .. but honor word boundaries
 set linebreak
 " mark wrapped lines
 set showbreak=…
@@ -96,7 +97,7 @@ set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
 " arrow has an ugly 1 pixel gap
-let g:airline_right_sep = ''
+"let g:airline_right_sep = ''
 
 " ASCII HEX current register
 let g:airline_section_z = '@%3b ℍ%2B ℝ%{v:register} %3p%% %4l% %3v'
