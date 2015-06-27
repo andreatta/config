@@ -3,33 +3,40 @@
 # checkout the look with: colortheme
 ##################################################
 
-urxvt*termName:   rxvt-unicode-256color
+!URxvt*termName:   rxvt-unicode-256color
 
-!urxvt fonts:
-urxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=13,xft:Monospace:size=13
-urxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=13
+URxvt*locale:				true
 
-!urxvt scrolling options:
-urxvt*saveLines:            12000
-urxvt*scrollstyle:          plain
-urxvt*scrollBar:            false
+xterm*faceName:	DejaVu:pixelsize:27
 
-urxvt*urgentOnBell:         true
-urxvt*cursorColor:          #555
-urxvt*cursorColor2:         #cee
-urxvt*cursorBlink:          true
-urxvt*cursorUnderline:      false
+!URxvt fonts:
+URxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=20
+URxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=20
+!URxvt*font: 	xft:Inconsolata For Powerline:pixelsize=23:antialias=true:hinting=slight
+!URxvt*boldFont: xft:Inconsolata For Powerline:bold:pixelsize=23
+!URxvt.letterSpace: -5
+
+!URxvt scrolling options:
+URxvt*saveLines:            12000
+URxvt*scrollstyle:          plain
+URxvt*scrollBar:            false
+
+URxvt*urgentOnBell:         true
+URxvt*cursorColor:          #555
+URxvt*cursorColor2:         #cee
+URxvt*cursorBlink:          true
+URxvt*cursorUnderline:      false
 
 # hide mouse pointer as soon as start typing
-urxvt.pointerBlank: 		true
-urxvt*pointerBlankDelay: 	1
+URxvt.pointerBlank: 		true
+URxvt*pointerBlankDelay: 	1
 
 # fade unfocused windows
-urxvt*fading:               40
-urxvt*fadeColor:            #000000
+URxvt*fading:               40
+URxvt*fadeColor:            #000000
 
 # global colors that also work for xterm
-!urxvt color scheme:
+!URxvt color scheme:
 *background:           #222222
 *foreground:           #aaaaaa
 
@@ -61,8 +68,8 @@ urxvt*fadeColor:            #000000
 *color7  :             #f9f8ff
 *color15 :             #857b6f
 
-!urxvt extensions:
-urxvt.perl-ext-common:      default,matcher
+!URxvt extensions:
+URxvt.perl-ext-common:      default,matcher
 
 !enabling clickable links:
 xvt.perl-ext-common:        default,matcher
