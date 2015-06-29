@@ -10,10 +10,10 @@ URxvt*locale:				true
 xterm*faceName:	DejaVu:pixelsize:27
 
 !URxvt fonts:
-URxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=20
-URxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=20
-!URxvt*font: 	xft:Inconsolata For Powerline:pixelsize=23:antialias=true:hinting=slight
-!URxvt*boldFont: xft:Inconsolata For Powerline:bold:pixelsize=23
+!URxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=20,xft:Monospace:size=20:antialias=true:hinting=true
+!URxvt*boldFont: xft:Source Code Pro for Powerline:bold:pixelsize=20,xft:Monospace:size=20:antialias=true
+URxvt*font: 	xft:Inconsolata For Powerline:pixelsize=23:antialias=true:hinting=slight
+URxvt*boldFont: xft:Inconsolata For Powerline:bold:pixelsize=23
 !URxvt.letterSpace: -5
 
 !URxvt scrolling options:
