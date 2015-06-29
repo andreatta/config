@@ -30,7 +30,7 @@ DISABLE_AUTO_UPDATE="true"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -52,9 +52,12 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git git-fast git-extras github archlinux colorize colored-man cp nmap ssh-agent systemd vi-mode)
 
 # User configuration
+################################################################################
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+
+export QT_STYLE_OVERRIDE=gtk
 
 source $ZSH/oh-my-zsh.sh
 
