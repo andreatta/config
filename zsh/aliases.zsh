@@ -2,7 +2,7 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ll='ls -Ahl'
+#alias ll='ls -Ahl'
 alias lll='ls -Ahls'
 alias df='df -h'
 alias :q='exit'
@@ -23,7 +23,6 @@ alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed 
 # programs
 alias yt='youtube-dl'
 alias c='pcalc'
-alias grep='ack'
 alias pdf=zathura
 alias t=tungsten
 alias mix=alsamixer
@@ -33,11 +32,16 @@ alias tab='i3-msg layout tabbed && '
 # config files
 alias i3c='vim ~/.i3/config'
 alias i3s='vim ~/.i3/i3status.conf'
-alias aka='vim ~/.zsh/alias.zsh'
+alias aka='vim ${ZSH}/custom/aliases.zsh'
+
+# ip address config
+alias ip+='sudo ip addr add dev enp0s25'
+alias ip-='sudo ip addr delete dev enp0s25'
+alias ip~='sudo ip addr replace dev enp0s25'
 
 # start vim with sudo rights (with some fasd magic)
 #alias suv='sudo vim -u ~/.vimrc +"colorscheme desert"'
-alias sv='f -e "sudo vim"'
+alias suv='sudoedit'
 
 # list files in current dir not older than 5 minutes
 # could be appendend with |xargs -r0 rm to delete them
