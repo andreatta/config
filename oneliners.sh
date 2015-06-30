@@ -1,3 +1,6 @@
+# netcat receive hexadecimal values
+nc -l -p <PORT> | xxd
+
 # list available fonts:
 fc-list
 
@@ -32,8 +35,18 @@ sed -i 'Xd' ~/.ssh/known_hosts
 # get external IP
 wget -q -O - http://showip.spamt.net/
 
-# set fixed IP
+#################################
+# IP address handling
+#################################
+
+# set static IP
 ip addr add 192.168.112.111/24 dev enp0s25
+
+# remove IP address
+ip addr delete 192.168.112.111/24 dev enp0s25
+
+# replace IP
+ip addr replace 192.168.112.112/24 dev enp0s25
 
 #################################
 # TMUX
