@@ -3,7 +3,7 @@
 ! reload xmodmap: xmodmap ~/.Xmodmap
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! Map umlauts to AltGr
+! Map umlauts to Alt_R
 keycode 108 = Mode_switch
 
 ! umlauts and some special chars
