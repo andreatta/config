@@ -1,7 +1,7 @@
 # makefile for setting up my config files
 
 .PHONY: \
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh
+	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim
 
 dunst:
 	@mkdir -p ${HOME}/.config/dunst
@@ -29,11 +29,15 @@ ranger:
 
 zsh:
 	@ln -s ${PWD}/zsh/.zshrc ${HOME}
-	@ln -s ${PWD}/zsh/.zsh ${HOME}
 	@ln -s ${PWD}/zsh/.zprofile ${HOME}
+	@ln -s ${PWD}/zsh/aliases.zsh /usr/share/oh-my-zsh/custom
 
 xmodmap:
 	@ln -s ${PWD}/X/.Xmodmap ${HOME}
+
+vim:
+	@cp ${PWD}/vim/.vim ${HOME}
+	@mkdir -p ${HOME}/.vim/undo
 
 zathura:
 	@ln -s ${PWD}/zathura/zathurarc ${HOME}
@@ -42,4 +46,4 @@ zathura:
 etc:
 	issue locale vconsole
 all:
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh
+	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim
