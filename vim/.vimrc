@@ -100,7 +100,7 @@ let g:airline_powerline_fonts=1
 "let g:airline_right_sep = ''
 
 " ASCII HEX current register
-let g:airline_section_z = '@%3b ℍ%2B ℝ%{v:register} %3p%% %4l% %3v'
+let g:airline_section_z = '𝕒%3b 𝕙%2B 𝕣%{v:register} %3p%% %4l% %3v'
 ""
 
 " YouCompleteMe ycm
@@ -118,7 +118,7 @@ set cursorline
 " global undo file
 set undofile
 set undodir=$HOME/.vim/undo
-set history=1000
+set history=2000
 
 " do some magic depending on file extension
 if has("autocmd")
