@@ -4,7 +4,7 @@
 ############################################################
 
 function lock {
-    i3lock -i ~/img/deathstar.png
+    i3lock --ignore-empty-password -i ~/img/vim-dark.png
 }
 
 case "$1" in
