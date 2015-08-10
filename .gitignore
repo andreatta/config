@@ -1,2 +1,4 @@
+*.swp
+
 vim/.vim/undo/
 vim/.vim/.netrwhist
