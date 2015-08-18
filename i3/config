@@ -23,7 +23,7 @@ exec $psst xmodmap ~/.Xmodmap
 exec $psst redshift
 exec $psst "xbacklight -set 33"
 exec $psst feh --bg-scale ~/img/deathstar.png
-exec $psst xautolock -time 5 -locker 'i3lock -i ~/img/vim-dark.png' &
+exec $psst xautolock -time 7 -locker 'i3lock -i ~/img/vim-dark.png' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 # Open a small terminal at startup
@@ -49,7 +49,7 @@ bindsym $mod+Shift+w    exec "xterm -e xkill"
 #bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
-bindsym $mod+d exec $psst dmenu_run -i -l 44 -p 'gogo Gadget' -fn 'Inconsolata:bold:pixelsize=26' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
+bindsym $mod+d exec $psst dmenu_run -i -l 35 -p 'gogo Gadget' -fn 'Inconsolata:bold:pixelsize=36' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
 
 # change focus (vim style)
 bindsym $mod+h focus left
@@ -259,7 +259,7 @@ bar {
     #tray_output none
     #font pango:Inconsolata, FontAwesome 15
     font pango:Source Code Pro for Powerline, FontAwesome 14
-	separator_symbol "⋆"
+    separator_symbol "⋆"
 
     #status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
@@ -267,13 +267,13 @@ bar {
     #status_command ~/.i3/i3-conky-initscript.sh
 
     colors {
-		background          $bg
-		statusline          $sl
-		separator           $id
-		focused_workspace   $ia        $bg        $ia
-		active_workspace    $gn        $ac        $tx
-		inactive_workspace  $bg        $ia        $tx
-		urgent_workspace    $yw        $bg        $yw
+        background          $bg
+        statusline          $sl
+        separator           $id
+        focused_workspace   $ia        $bg        $ia
+        active_workspace    $gn        $ac        $tx
+        inactive_workspace  $bg        $ia        $tx
+        urgent_workspace    $yw        $bg        $yw
     }
 }
 
@@ -321,7 +321,7 @@ bindsym $sup+i exec inkscape
 bindsym $sup+k exec wireshark-qt -style=gtk
 bindsym $sup+l exec libreoffice
 bindsym $sup+m exec mixxx
-bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk && xset +dpms
+bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
 bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
 #bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
 bindsym $sup+p exec "xrandr --output DP1 --auto"
@@ -332,16 +332,15 @@ bindsym $sup+s exec "rofi -snow -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt"
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec vlc
-#bindsym $sup+w exec chromium
 bindsym $sup+w exec firefox
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
-bindsym $sup+z exec filezilla
+#bindsym $sup+z exec filezilla
 
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
 
-bindsym $sup+1 exec "urxvt -e forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta"
+bindsym $sup+1 exec "urxvt -e zsh -c 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
 bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
 #bindsym $sup+3
 #bindsym $sup+3
