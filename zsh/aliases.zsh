@@ -8,6 +8,8 @@ alias df='df -h'
 alias :q='exit'
 alias ZZ='exit'
 alias lsgroups='cut -d: -f1 /etc/group'
+alias o='xdg-open'
+alias wifi='sudo wifi-menu'
 
 # additional git aliases
 alias gmn="git merge --no-ff"
@@ -42,6 +44,8 @@ alias ip~='sudo ip addr replace dev enp0s25'
 # start vim with sudo rights (with some fasd magic)
 #alias suv='sudo vim -u ~/.vimrc +"colorscheme desert"'
 alias suv='sudoedit'
+# quick opening files with vim
+alias v='f -e vim'
 
 # list files in current dir not older than 5 minutes
 # could be appendend with |xargs -r0 rm to delete them

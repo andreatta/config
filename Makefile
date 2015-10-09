@@ -28,9 +28,11 @@ ranger:
 	@$(foreach file,${PWD}/ranger/*,ln -s $(file) ${HOME}/.config/ranger;)
 
 zsh:
+	# use oh-my-zsh from git repo
 	@ln -s ${PWD}/zsh/.zshrc ${HOME}
 	@ln -s ${PWD}/zsh/.zprofile ${HOME}
-	@ln -s ${PWD}/zsh/aliases.zsh /usr/share/oh-my-zsh/custom
+	#@ln -s ${PWD}/zsh/aliases.zsh /usr/share/oh-my-zsh/custom
+	@ln -s ${PWD}/zsh/aliases.zsh ~/src/oh-my-zsh/custom
 
 xmodmap:
 	@ln -s ${PWD}/X/.Xmodmap ${HOME}
