@@ -12,7 +12,6 @@ set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
 
 new_window          pixel 1
-#new_window          normal
 new_float           pixel 3
 hide_edge_borders   both
 bindsym $mod+b border toggle
@@ -23,7 +22,7 @@ exec $psst xmodmap ~/.Xmodmap
 exec $psst redshift
 exec $psst "xbacklight -set 33"
 exec $psst feh --bg-scale ~/img/deathstar.png
-exec $psst xautolock -time 7 -locker 'i3lock -i ~/img/vim-dark.png' &
+exec $psst xautolock -time 9 -locker 'i3lock -i ~/img/vim-dark.png' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 # Open a small terminal at startup
@@ -46,7 +45,7 @@ bindsym $mod+Shift+q    kill
 bindsym $mod+Shift+w    exec "xterm -e xkill"
 
 # rename workspace
-#bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
+bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
 bindsym $mod+d exec $psst dmenu_run -i -l 35 -p 'gogo Gadget' -fn 'Inconsolata:bold:pixelsize=36' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
@@ -100,18 +99,20 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # define names for workspaces with some nice symbols
-set $w1 1❶ 
-set $w2 2❷ 
-set $w3 3❸ 
-set $w4 4❹ 
-set $w5 5❺ 
-set $w6 6❻ 
+set $w0 0✪
+set $w1 1❶ 
+set $w2 2❷ 
+set $w3 3❸ 
+set $w4 4❹ 
+set $w5 5❺ 
+set $w6 6❻ 
 set $w7 7❼ ☘
-set $w8 8❽ 
+set $w8 8❽ 
 set $w9 9❾ 
-set $w0 10❿ 
+set $w10 10❿ 
 
 # switch to workspace
+bindsym $mod+grave workspace $w0
 bindsym $mod+1 workspace $w1
 bindsym $mod+2 workspace $w2
 bindsym $mod+3 workspace $w3
@@ -121,16 +122,17 @@ bindsym $mod+6 workspace $w6
 bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
-bindsym $mod+0 workspace $w0
+bindsym $mod+0 workspace $w10
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
 bindsym $sup+Left  workspace prev
 bindsym $sup+Up    workspace back_and_forth
 workspace_auto_back_and_forth yes
-bindsym $sup+Escape [urgent=latest] focus
+bindsym $sup+Tab [urgent=latest] focus
 
 # move focused container to workspace
+bindsym $mod+Shift+grave move container to workspace $w0
 bindsym $mod+Shift+1 move container to workspace $w1
 bindsym $mod+Shift+2 move container to workspace $w2
 bindsym $mod+Shift+3 move container to workspace $w3
@@ -140,13 +142,14 @@ bindsym $mod+Shift+6 move container to workspace $w6
 bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
-bindsym $mod+Shift+0 move container to workspace $w0
+bindsym $mod+Shift+0 move container to workspace $w10
 
 # always open some programs on specified workspace
-assign [class="Firefox"]     $w2
-assign [class="Thunderbird"] $w3
-assign [class="QtCreator"]   $w4
-assign [class="VirtualBox"]  $w0
+assign [class="Firefox"]     	$w3
+assign [class="qutebrowser"] 	$w3
+assign [class="Thunderbird"] 	$w4
+assign [class="QtCreator"]   	$w6
+assign [class="VirtualBox"]  	$w0
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -261,9 +264,9 @@ bar {
     font pango:Source Code Pro for Powerline, FontAwesome 14
     separator_symbol "⋆"
 
-    #status_command i3status --config ~/.i3/i3status.conf
+    status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
-    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    #status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
     #status_command ~/.i3/i3-conky-initscript.sh
 
     colors {
@@ -278,21 +281,23 @@ bar {
 }
 
 # enable floating mode for some applications
+for_window [window_type="splash"] floating enable
+
 for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
 # xev keyboard capture window
 for_window [title="Event Tester"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
-for_window [class="Audacious"] floating enable, border none
-for_window [instance="pcalc.exe"] floating enabled
+#for_window [class="Audacious"] floating enable, border none
 for_window [instance="speedcrunch"] floating enabled
-for_window [class="^(?i)chromium"] border none
-for_window [class="Thunderbird"] border none
+#for_window [class="^(?i)chromium"] border none
+#for_window [class="Thunderbird"] border none
 #for_window [class="Thunderbird" instance="Mail"] border none
-for_window [instance="Msgcompose"] floating enable border normal
+for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
+#for_window [class="qutebrowser"] tabbed
 for_window [class="rdesktop"] fullscreen
 for_window [class="URxvt"] border pixel 1
-for_window [class="URxvt" title="sage"] floating enable border pixel 3
-for_window [title="^Dia v"] resize shrink width 33 px
+#for_window [class="URxvt" title="sage"] floating enable border pixel 3
+#for_window [title="^Dia v"] resize shrink width 33 px
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
 for_window [class="XTerm" title="^xkill"] floating enabled border pixel 1
@@ -311,17 +316,17 @@ bindsym $sup+b exec brasero
 bindsym $sup+c exec speedcrunch
 #bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
 bindsym $sup+d exec cssh
-#bindsym $sup+e exec thunderbird
-bindsym $sup+e exec kmail
+bindsym $sup+e exec thunderbird
+#bindsym $sup+e exec kmail
 bindsym $sup+f exec pcmanfm
 bindsym $sup+g exec gimp
 bindsym $sup+h exec hterm
 bindsym $sup+i exec inkscape
-#bindsym $sup+j
+bindsym $sup+j exec synology-cloud-station
 bindsym $sup+k exec wireshark-qt -style=gtk
 bindsym $sup+l exec libreoffice
 bindsym $sup+m exec mixxx
-bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
+bindsym $sup+n exec xset -dpms && google-chrome-stable --url netflix.com && xset +dpms
 bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
 #bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
 bindsym $sup+p exec "xrandr --output DP1 --auto"
@@ -332,13 +337,18 @@ bindsym $sup+s exec "rofi -snow -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt"
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec vlc
-bindsym $sup+w exec firefox
+bindsym $sup+w exec qutebrowser
+bindsym $sup+Shift+w exec firefox
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 #bindsym $sup+z exec filezilla
 
 bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
+
+# Mouse magic
+#bindsym --whole-window $mod+button10 workspace prev_on_output
+#bindsym --whole-window $mod+button11 workspace next_on_output
 
 bindsym $sup+1 exec "urxvt -e zsh -c 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
 bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
