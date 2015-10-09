@@ -44,7 +44,7 @@ filetype plugin indent on    " required
 
 set t_co=256
 set background=dark
-colorscheme gruvbox
+colorscheme zenburn
 
 " highlight past column 80
 let &colorcolumn=join(range(81,999),",")
@@ -126,7 +126,7 @@ if has("autocmd")
 	"au BufWritePost .vimrc source $MYVIMRC
 
 	" automatically strip trailing whitespace on save
-	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config au BufWritePre <buffer> call StripTrailingWhitespace()
+	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino au BufWritePre <buffer> call StripTrailingWhitespace()
 
 	" handle md file as markdown
 	au BufNewFile,BufReadPost *.md set filetype=markdown
@@ -140,8 +140,8 @@ if has("autocmd")
 	" git commit messages should always start on first line of file
 	au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
-	" call make on C files
-	au BufNewFile,BufRead *.c map <F5> :make<cr>
+	" call make on compilable files
+	au BufNewFile,BufRead *.c *.md map <F5> :make<cr>
 endif
 
 """"""""""""""""""""""""""
