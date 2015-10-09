@@ -35,6 +35,9 @@ sed -i 'Xd' ~/.ssh/known_hosts
 # get external IP
 wget -q -O - http://showip.spamt.net/
 
+# play DVDs
+sudo pacman -S libdvdcss libdvdread libdvdnav
+
 #################################
 # IP address handling
 #################################
