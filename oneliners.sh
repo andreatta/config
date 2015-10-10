@@ -79,3 +79,14 @@ showmount -e <SERVER-IP>
 
 # mount NFS share
 sudo mount -t nfs <SERVER>:<PATH> </mountpoint/on/client>
+
+#################################
+# VIM
+#################################
+
+# install / update YCM
+cd ~/.vim/bundle/YouCompleteMe
+python2 install.py --clang-completer --system-libclang
+
+# .ycm_extra_conf.py fallback is in ~/.vim
+# It can be copied to specific project folder if it needs to be adapted.
