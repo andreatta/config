@@ -104,7 +104,7 @@ let g:airline_section_z = '𝕒%3b 𝕙%2B 𝕣%{v:register} %3p%% %4l% %3v'
 ""
 
 " YouCompleteMe ycm
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 ""
 
 " display linenumbers (relative mode can be toggled)
@@ -141,7 +141,7 @@ if has("autocmd")
 	au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 	" call make on compilable files
-	au BufNewFile,BufRead *.c *.md map <F5> :make<cr>
+	au BufNewFile,BufReadPost *.c,*.md map <F5> :make<cr>
 endif
 
 """"""""""""""""""""""""""
