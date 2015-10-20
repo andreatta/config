@@ -1,7 +1,7 @@
 # makefile for setting up my config files
 
 .PHONY: \
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroser
+	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroser compton
 
 dunst:
 	@mkdir -p ${HOME}/.config/dunst
@@ -47,8 +47,11 @@ zathura:
 qutebrowser:
 	ln -s ${PWD}/qutebroser ~/.config
 
+compton:
+	ln -s ${PWD}/compton/compton.conf ~/.config
+
 .PHONY: all etc
 etc:
 	issue locale vconsole
 all:
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroswer
+	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroswer compton
