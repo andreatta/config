@@ -32,8 +32,8 @@ URxvt.pointerBlank: 		true
 URxvt*pointerBlankDelay: 	1
 
 # fade unfocused windows
-URxvt*fading:               40
-URxvt*fadeColor:            #000000
+#URxvt*fading:               40
+#URxvt*fadeColor:            #000000
 
 # global colors that also work for xterm
 !URxvt color scheme:
