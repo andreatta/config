@@ -44,7 +44,7 @@ filetype plugin indent on    " required
 
 set t_co=256
 set background=dark
-colorscheme zenburn
+colorscheme gruvbox
 
 " highlight past column 80
 let &colorcolumn=join(range(81,999),",")
@@ -181,7 +181,8 @@ map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
 " save with sudo permission
-cmap w!! !sudo tee % >/dev/null
+cmap w!! silent w !sudo tee > /dev/null %
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " % is current file, make %% current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
