@@ -16,7 +16,7 @@ ZSH_THEME="agnoster"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+#DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -66,7 +66,11 @@ export QT_STYLE_OVERRIDE=gtk
 # start fasd for fasder access to often used folders
 eval "$(fasd --init auto)"
 
+# there is no other editor
 export EDITOR='vim'
+
+# make Ctrl+S usable in vim
+stty -ixon
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
