@@ -18,11 +18,12 @@ bindsym $mod+b border toggle
 
 # autostart
 #exec $psst urxvtd -q -o -f
+exec $psst compton -bc
 exec $psst xmodmap ~/.Xmodmap
 exec $psst redshift
 exec $psst "xbacklight -set 33"
 exec $psst feh --bg-scale ~/img/deathstar.png
-exec $psst xautolock -time 9 -locker 'i3lock -i ~/img/vim-dark.png' &
+exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 # Open a small terminal at startup
