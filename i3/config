@@ -235,16 +235,16 @@ mode "caps" {
 
 # ceeriously styled i3
 set $bg     #2c2c2c
-set $fg     #9f9f9f
-set $hi     #efef8f
-set $ac     #a0afa0
+set $fg     #aaaaaa
+set $hi     #fce94f
+set $ac     #8faf9f
 set $tx     #040404
 set $ia     #8f8f8f
 set $be     #8faf9f
 set $yw     #f8f893
-set $gn     #88b090
-set $rd     #e89393
-set $id     #666666
+set $gn     #81c181
+set $rd     #bf9b76
+set $id     #f9f8ff
 set $ce     #ceecee
 set $sl     #7f7f7f
 
@@ -265,11 +265,12 @@ bar {
     font pango:Source Code Pro for Powerline, FontAwesome 14
     separator_symbol "⋆"
 
-    status_command i3status --config ~/.i3/i3status.conf
+    #status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
-    #status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
     #status_command ~/.i3/i3-conky-initscript.sh
 
+#   statusbar colors       border      background   text
     colors {
         background          $bg
         statusline          $sl
@@ -283,7 +284,6 @@ bar {
 
 # enable floating mode for some applications
 for_window [window_type="splash"] floating enable
-
 for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
 # xev keyboard capture window
 for_window [title="Event Tester"] floating enable
@@ -337,7 +337,7 @@ bindsym $sup+r exec urxvt -e ranger
 bindsym $sup+s exec "rofi -snow -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt"
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
-bindsym $sup+v exec vlc
+bindsym $sup+v exec smplayer
 bindsym $sup+w exec qutebrowser
 bindsym $sup+Shift+w exec firefox
 bindsym $sup+x exec keepassx
