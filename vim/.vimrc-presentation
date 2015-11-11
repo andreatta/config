@@ -16,6 +16,8 @@ Plugin 'bling/vim-airline'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------------------
@@ -36,10 +38,9 @@ filetype plugin indent on    " required
 "-------------------------------------------------------------------------------
 
 set t_co=256
-set background=light
-b
 highlight Normal ctermfg=232 ctermbg=231
-"colorscheme delek
+colorscheme delek
+set background=light
 
 " convenience functions
 syntax on
@@ -58,6 +59,8 @@ set linebreak
 set showbreak=…
 " interpret numbers starting with 0 as decimal
 set nrformats=
+" disable spell checking per default
+set spelllang="en_us"
 set nospell
 " allow buffer switching without saving
 set hidden
@@ -94,6 +97,9 @@ let g:airline_section_z = '𝕒%3b 𝕙%2B 𝕣%{v:register} %3p%% %4l% %3v'
 " YouCompleteMe ycm
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 ""
+
+" Pandoc / Markdown
+let g:pandoc#modules#disabled = ["folding"]
 
 " display linenumbers (relative mode can be toggled)
 set number
@@ -155,6 +161,13 @@ nmap <Leader>v :tabedit $MYVIMRC<CR>
 " .. and reload .vimrc
 nmap <Leader>r :source $MYVIMRC<CR>
 
+" toggle syntax highlighting
+:map <Leader>x :if exists("g:syntax_on") <Bar>
+\   syntax off <Bar>
+\ else <Bar>
+\   syntax enable <Bar>
+\ endif <CR>
+
 " toggle highlighting line
 ":nnoremap <Leader>c :set cursorline! <CR>
 " toggle cursor cross
@@ -200,5 +213,63 @@ function! StripTrailingWhitespace()
 	" clean up: restore previous search history, and cursor position
 	let @/=_s
 	call cursor(l, c)
+endfunction
+" }
+
+" spell checking {
+let b:myLang=0
+let g:myLangList=["nospell","de_ch","en_us"]
+function! ToggleSpell()
+	let b:myLang=b:myLang+1
+	if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+	if b:myLang==0
+		setlocal nospell
+	else
+		execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
+	endif
+	echo "spell checking language:" g:myLangList[b:myLang]
+endfunction
+
+nmap <silent> <F4> :call ToggleSpell()<CR>
+" }
+
+" hexeditor {
+function ToggleHex()
+  " hex mode should be considered a read-only operation
+  " save values for modified and read-only for restoration later,
+  " and clear the read-only flag for now
+  let l:modified=&mod
+  let l:oldreadonly=&readonly
+  let &readonly=0
+  let l:oldmodifiable=&modifiable
+  let &modifiable=1
+  if !exists("b:editHex") || !b:editHex
+    " save old options
+    let b:oldft=&ft
+    let b:oldbin=&bin
+    " set new options
+    setlocal binary " make sure it overrides any textwidth, etc.
+    silent :e " this will reload the file without trickeries
+              "(DOS line endings will be shown entirely )
+    let &ft="xxd"
+    " set status
+    let b:editHex=1
+    " switch to hex editor
+    %!xxd
+  else
+    " restore old options
+    let &ft=b:oldft
+    if !b:oldbin
+      setlocal nobinary
+    endif
+    " set status
+    let b:editHex=0
+    " return to normal editing
+    %!xxd -r
+  endif
+  " restore values for modified and read only state
+  let &mod=l:modified
+  let &readonly=l:oldreadonly
+  let &modifiable=l:oldmodifiable
 endfunction
 " }
