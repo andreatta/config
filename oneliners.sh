@@ -38,6 +38,24 @@ wget -q -O - http://showip.spamt.net/
 # play DVDs
 sudo pacman -S libdvdcss libdvdread libdvdnav
 
+# add user to additional group
+usermod -aG <GROUP> $USER
+
+#################################
+# EFI stub
+#################################
+
+# list current boot menu
+bootmgr -v
+
+# remove entry from menu
+efibootmgr -B -b<hex>
+
+# add entry to EFI stub boot menu
+efibootmgr -d /dev/sdX -p Y -c -L "Arch Linux" -l /vmlinuz-linux -u "root=/dev/sda2 rw initrd=/initramfs-linux.img"
+# Where X and Y are changed to reflect the disk and partition where the ESP is located. Change the root= parameter to reflect your Linux root (disk UUIDs can also be used).
+sudo efibootmgr -d /dev/sda -p 1 -c -L "Arch 4.0.5" -l /vmlinuz-linux-405 -u "root=/dev/sda2 rm initrd=/initramfs-linux.img"
+
 #################################
 # IP address handling
 #################################
