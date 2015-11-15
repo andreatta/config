@@ -11,7 +11,7 @@ set $sup Mod4
 set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
 
-new_window          pixel 1
+new_window          pixel 0
 new_float           pixel 3
 hide_edge_borders   both
 bindsym $mod+b border toggle
@@ -249,7 +249,7 @@ set $ce     #ceecee
 set $sl     #7f7f7f
 
 # set some nice colors      border  background  text    indicator
-client.focused              $id     $ac         $tx     $id
+client.focused              $ac     $ac         $tx     $id
 client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $id
 client.urgent               $yw     $yw         $tx     $id
@@ -296,7 +296,7 @@ for_window [instance="speedcrunch"] floating enabled
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
 #for_window [class="qutebrowser"] tabbed
 for_window [class="rdesktop"] fullscreen
-for_window [class="URxvt"] border pixel 1
+#for_window [class="URxvt"] border pixel 1
 #for_window [class="URxvt" title="sage"] floating enable border pixel 3
 #for_window [title="^Dia v"] resize shrink width 33 px
 for_window [class="Cssh"] floating enable
