@@ -1,0 +1,190 @@
+/* Base */
+
+*, ::before, ::after {
+
+color: #073642 !important;
+background: transparent !important;
+
+}
+
+html * {
+
+color: inherit !important;
+
+}
+
+/* :: Give solid BG :: */
+/* element */
+
+html,
+body,
+li ul,
+ul li,
+table,
+header,
+article,
+section,
+nav,
+menu,
+aside,
+
+/* common */
+
+[class*="nav"],
+[class*="open"],
+[id*="ropdown"], /*dropdown*/
+[class*="ropdown"],
+div[class*="menu"],
+[class*="tooltip"],
+div[class*="popup"],
+div[id*="popup"],
+
+/* Notes, details, etc.  Maybe useful */
+
+div[class*="note"],
+span[class*="note"],
+div[id*="detail"],
+div[class*="detail"],
+div[class*="description"],
+
+/* Also common */
+
+body div[class*="content"],
+body div[class*="container"],
+
+/* Popup divs that use visibility: hidden and display: none */
+
+div[style*="display: block"],
+div[style*="visibility: visible"] {
+
+background-color: #f9f5d7 !important;
+
+}
+
+/* Highlight */
+
+::-moz-selection {
+
+background-color: #fdf6e3 !important;
+color: #002b36 !important;
+
+}
+
+/* ::: anchor/links ::: */
+
+a {
+
+color: #3c3836 !important;
+
+}
+
+a:link         {color: #076678 !important;} /* hyperlink */
+a:visited      {color: #076678 !important;}
+a:hover        {color: #427b57 !important;}
+a:active       {color: #076678 !important;}
+
+/* "Top level" div */
+
+body > div {
+
+background-color: inherit !important;
+
+}
+
+/* :::::: Text Presentation :::::: */
+
+summary,
+details  {
+
+background-color: inherit !important
+
+}
+
+kbd,
+time,
+label,
+.date  {
+
+color: #3c3836 !important
+
+}
+
+mark,
+code,
+pre,
+samp,
+blockquote  {
+
+background-color: #f9f5d7 !important;
+
+}
+
+/* :::::: Tables, cells :::::: */
+
+table table {background: #ebdbb2 !important;}
+th, caption {background: #d5c4a1 !important;}
+
+/* ::: Inputs, textareas ::: */
+
+input,
+textarea,
+button,
+select,
+option,
+optgroup {
+
+color: #3c3836 !important;
+background-color: #f9f5d7 !important;
+
+}
+
+input,
+textarea,
+button {
+
+border-color: #458588 !important;
+
+}
+
+/*: No BG :*/
+
+*:not(:empty):not(span):not([class="html5-volume-slider html5-draggable"]):not([class="html5-player-chrome html5-stop-propagation"]),
+*::before,
+*::after,
+td:empty,
+p:empty, div:empty:not([role]):not([style*="flashblock"]):not([class^="html5"]):not([class*="noscriptPlaceholder"]) {
+
+background-image: none !important;
+
+}
+
+/* :::::: Button styling :::::: */
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button {
+
+background: #bdae93 !important;
+
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+button:hover {
+
+color: #3c3836 !important;
+background: #a89984 !important;
+
+}
+
+.qutehint {
+    background: #af3a03 !important;
+    color: #f9f5d7 !important;
+    font-size: 12px !important;
+}
+
+::-webkit-scrollbar { width: 2px; height: 2px; }
+::-webkit-scrollbar-thumb { background: rgba(255,0,0,0.8); }
+::-webkit-scrollbar-track{ background: #000000 }
