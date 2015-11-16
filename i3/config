@@ -13,7 +13,7 @@ set $update && killall -SIGUSR1 i3status
 
 new_window          pixel 0
 new_float           pixel 3
-hide_edge_borders   both
+hide_edge_borders   none
 bindsym $mod+b border toggle
 
 # autostart
