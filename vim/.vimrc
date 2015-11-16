@@ -124,7 +124,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
 " display linenumbers (relative mode can be toggled)
@@ -189,6 +189,10 @@ map <C-n> :NERDTreeToggle<CR>
 
 " clear search highlights
 nmap <Leader><Space> :nohl<CR>
+
+" syntastic mappings
+nmap <Leader>s :SyntasticCheck<CR>
+nmap <Leader>t :SyntasticToggleMode<CR>
 
 " quickly edit .vimrc
 nmap <Leader>v :tabedit $MYVIMRC<CR>
