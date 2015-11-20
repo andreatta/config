@@ -3,7 +3,7 @@
 *, ::before, ::after {
 
 color: #073642 !important;
-/*background: transparent !important;*/
+background: transparent !important;
 
 }
 
@@ -32,9 +32,8 @@ aside,
 
 [class*="nav"],
 [class*="open"],
-[id*="dropdown"], /*dropdown*/
-[class*="dropdown"],
-[class*="yes-hover"],
+[id*="ropdown"], /*dropdown*/
+[class*="ropdown"],
 div[class*="menu"],
 [class*="tooltip"],
 div[class*="popup"],
@@ -51,7 +50,6 @@ div[class*="description"],
 /* Also common */
 
 body div[class*="content"],
-body div[id*="content"],
 body div[class*="container"],
 
 /* Popup divs that use visibility: hidden and display: none */
@@ -156,7 +154,7 @@ border-color: #458588 !important;
 td:empty,
 p:empty, div:empty:not([role]):not([style*="flashblock"]):not([class^="html5"]):not([class*="noscriptPlaceholder"]) {
 
-/*background-image: none !important;*/
+background-image: none !important;
 
 }
 
@@ -165,10 +163,8 @@ p:empty, div:empty:not([role]):not([style*="flashblock"]):not([class^="html5"]):
 input[type="button"],
 input[type="submit"],
 input[type="reset"],
-[class*="yes-hover"],
 button {
 
-color: #3c3836 !important;
 background: #bdae93 !important;
 
 }
@@ -176,7 +172,6 @@ background: #bdae93 !important;
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
-[class*="yes-hover"]:hover,
 button:hover {
 
 color: #3c3836 !important;
