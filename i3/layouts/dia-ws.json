@@ -1,0 +1,50 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1405,
+       "width": 2560,
+       "x": 0,
+       "y": 35
+    },
+    "name": "Dia v0.97.3",
+    "percent": 0.1,
+    "swallows": [
+       {
+       "class": "^Dia$",
+       // "instance": "^dia$",
+       // "title": "^Dia\\ v0\\.97\\.3$",
+       // "title": "^Dia\\ v0\\.97\\.3$",
+       // "transient_for": "^$",
+       "window_role": "^toolbox_window$"
+       }
+    ],
+    "type": "con"
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 0,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 400,
+       "width": 675,
+       "x": 0,
+       "y": 0
+    },
+    "name": "Diagram1.dia",
+    "percent": 0.9,
+    "swallows": [
+       {
+       "class": "^Dia$",
+       // "instance": "^dia$",
+       // "title": "^Diagram1\\.dia$",
+       // "transient_for": "^$",
+       "window_role": "^diagram_window$"
+       }
+    ],
+    "type": "con"
+}
+

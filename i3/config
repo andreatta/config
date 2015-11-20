@@ -150,7 +150,7 @@ assign [class="Firefox"]     	$w3
 assign [class="qutebrowser"] 	$w3
 assign [class="Thunderbird"] 	$w4
 assign [class="QtCreator"]   	$w6
-assign [class="VirtualBox"]  	$w0
+assign [class="VirtualBox"]  	$w10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -265,9 +265,9 @@ bar {
     font pango:Source Code Pro for Powerline, FontAwesome 14
     separator_symbol "⋆"
 
-    #status_command i3status --config ~/.i3/i3status.conf
+    status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
-    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    #status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
     #status_command ~/.i3/i3-conky-initscript.sh
 
 #   statusbar colors       border      background   text
@@ -298,7 +298,7 @@ for_window [class="Thunderbird" instance="Msgcompose"] floating enable border no
 for_window [class="rdesktop"] fullscreen
 #for_window [class="URxvt"] border pixel 1
 #for_window [class="URxvt" title="sage"] floating enable border pixel 3
-#for_window [title="^Dia v"] resize shrink width 33 px
+#for_window [class="Dia" title="^Dia v"] resize grow left 177, resize grow down 328
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
 for_window [class="XTerm" title="^xkill"] floating enabled border pixel 1
@@ -312,11 +312,11 @@ for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
 bindsym $sup+a exec audacious
-bindsym $sup+b exec brasero
+bindsym $sup+b exec virtualbox
 #bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\Palc\\pcalc.exe"
 bindsym $sup+c exec speedcrunch
 #bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
-bindsym $sup+d exec cssh
+bindsym $sup+d exec ~/.i3/layouts/start-dia.sh
 bindsym $sup+e exec thunderbird
 #bindsym $sup+e exec kmail
 bindsym $sup+f exec pcmanfm
@@ -324,7 +324,7 @@ bindsym $sup+g exec gimp
 bindsym $sup+h exec hterm
 bindsym $sup+i exec inkscape
 bindsym $sup+j exec synology-cloud-station
-bindsym $sup+k exec wireshark-qt -style=gtk
+bindsym $sup+k exec wireshark
 bindsym $sup+l exec libreoffice
 bindsym $sup+m exec mixxx
 bindsym $sup+n exec xset -dpms && google-chrome-stable --url netflix.com && xset +dpms
