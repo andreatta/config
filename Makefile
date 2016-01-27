@@ -1,7 +1,7 @@
 # makefile for setting up my config files
 
 .PHONY: \
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroser compton
+	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroser compton youtube-dl
 
 dunst:
 	@mkdir -p ${HOME}/.config/dunst
@@ -50,8 +50,11 @@ qutebrowser:
 compton:
 	ln -s ${PWD}/compton/compton.conf ~/.config
 
+youtube-dl:
+	ln -s ${PWD}/youtube-dl/youtube-dl.conf ~/.config
+
 .PHONY: all etc
 etc:
 	issue locale vconsole
 all:
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroswer compton
+	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroswer compton youtube-dl
