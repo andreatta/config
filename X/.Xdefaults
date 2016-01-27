@@ -4,10 +4,11 @@
 ##################################################
 
 !URxvt*termName:   rxvt-unicode-256color
+URxvt*locale:	true
 
-URxvt*locale:				true
-
-xterm*faceName:	DejaVu:pixelsize:27
+xterm*faceName:	Inconsolata
+xterm*faceSize: 13
+#xterm*font: *-dejavu-*-*-*-18-*
 
 !URxvt fonts:
 !URxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=20,xft:Monospace:size=20:antialias=true:hinting=true
@@ -22,10 +23,10 @@ URxvt*scrollstyle:          plain
 URxvt*scrollBar:            false
 
 URxvt*urgentOnBell:         true
-URxvt*cursorColor:          #555
-URxvt*cursorColor2:         #cee
 URxvt*cursorBlink:          true
 URxvt*cursorUnderline:      false
+URxvt*cursorColor:          #555
+URxvt*cursorColor2:         #cee
 
 # hide mouse pointer as soon as start typing
 URxvt.pointerBlank: 		true
