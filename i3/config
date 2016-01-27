@@ -262,19 +262,21 @@ bar {
     strip_workspace_numbers yes
     #tray_output none
     #font pango:Inconsolata, FontAwesome 15
-    font pango:Source Code Pro for Powerline, FontAwesome 14
+    #font pango:Source Code Pro for Powerline, FontAwesome 14
+    font pango:Economica, FontAwesome 14
     separator_symbol "⋆"
 
-    status_command i3status --config ~/.i3/i3status.conf
+    #status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
-    #status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    #status_command i3bf
     #status_command ~/.i3/i3-conky-initscript.sh
 
 #   statusbar colors       border      background   text
     colors {
         background          $bg
         statusline          $sl
-        separator           $id
+        separator           $tx
         focused_workspace   $ia        $bg        $ia
         active_workspace    $gn        $ac        $tx
         inactive_workspace  $bg        $ia        $tx
@@ -312,7 +314,7 @@ for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
 bindsym $sup+a exec audacious
-bindsym $sup+b exec virtualbox
+bindsym $sup+b exec sudo modprobe vboxdrv && virtualbox
 #bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\Palc\\pcalc.exe"
 bindsym $sup+c exec speedcrunch
 #bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
@@ -334,7 +336,7 @@ bindsym $sup+p exec "xrandr --output DP1 --auto"
 bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP1 --off"
 bindsym $sup+q exec qtcreator -style=gtk
 bindsym $sup+r exec urxvt -e ranger
-bindsym $sup+s exec "rofi -snow -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt"
+bindsym $sup+s exec rofi -show ssh -font 'SourceCodePro 21' -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec smplayer
@@ -353,6 +355,7 @@ bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
 
 bindsym $sup+1 exec "urxvt -e zsh -c 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
 bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
+bindsym $sup+3 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' 192.168.112.142:3389"
 #bindsym $sup+3
 #bindsym $sup+3
 #bindsym $sup+4
@@ -382,7 +385,8 @@ bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
 bindsym XF86Launch1             exec $psst speedcrunch
 
 # list open windows to switch to
-bindsym $mod+Tab exec rofi -i3 -now -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
+#bindsym $mod+Tab exec rofi -show window -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
+bindsym $mod+Tab exec rofi -show window -font "SourceCodePro 21" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
 
 # Open a small terminal at startup
 #exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 70x15
