@@ -2,8 +2,8 @@
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-#alias ll='ls -Ahl'
-alias lll='ls -Ahls'
+alias ll='ls -lhX'
+alias la='ls -lhXA'
 alias df='df -h'
 alias :q='exit'
 alias ZZ='exit'
@@ -22,12 +22,16 @@ alias rncs='sudo pacman -Rncs'
 # remove orphaned packages
 alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
 
+alias autolock="xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &"
+alias stoplock="pkill -15 xautolock"
+
 # programs
 alias yt='youtube-dl'
 alias c='pcalc'
 alias pdf=zathura
 alias t=tungsten
 alias mix=alsamixer
+alias R='R --quiet'
 
 alias tab='i3-msg layout tabbed && '
 
@@ -37,6 +41,7 @@ alias i3s='vim ~/.i3/i3status.conf'
 alias aka='vim ${ZSH}/custom/aliases.zsh'
 
 # ip address config
+alias myip='hostname -i'
 alias ip+='sudo ip addr add dev enp0s25'
 alias ip-='sudo ip addr delete dev enp0s25'
 alias ip~='sudo ip addr replace dev enp0s25'
