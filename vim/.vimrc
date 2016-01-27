@@ -27,6 +27,7 @@ Plugin 'vim-scripts/AdvancedSorters'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'gelisam/git-slides'
+Plugin 'vim-scripts/drawit'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------------------
@@ -117,6 +118,9 @@ let g:ycm_filetype_blacklist = {}
 " Pandoc / Markdown
 let g:pandoc#modules#disabled = ["folding"]
 
+" DrawIt
+let g:drawit_mode = 'S'
+
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -143,7 +147,9 @@ set history=2000
 " do some magic depending on file extension
 if has("autocmd")
 	" automatically strip trailing whitespace on save
-	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino au BufWritePre <buffer> call StripTrailingWhitespace()
+	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino,r au BufWritePre <buffer> call StripTrailingWhitespace()
+
+	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0
 
 	" syntax highlighting for gdb files
 	au BufNewFile,BufReadPost *.gdb set filetype=gdb
@@ -349,3 +355,8 @@ endfunction
 command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-args>)
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
+
+" some nice abbreviations and corrections
+ab fasle false
+ab FASLE FALSE
+
