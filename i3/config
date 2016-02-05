@@ -49,7 +49,9 @@ bindsym $mod+Shift+w    exec "xterm -e xkill"
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
-bindsym $mod+d exec $psst dmenu_run -i -l 35 -p 'gogo Gadget' -fn 'Inconsolata:bold:pixelsize=36' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
+#bindsym $mod+d exec $psst dmenu_run -i -l 35 -p 'gogo Gadget' -fn 'Inconsolata:bold:pixelsize=36' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
+bindsym $mod+d exec rofi -show run -p "GoGo Gadget:" -lines 3 -eh 2 -padding 480 -opacity "77" -fullscreen -bw 0 -bc "$bg" -bg "$bg" -fg "$ac" -hlbg "$bg" -hlfg "$hi" -font "Hack 23"
+
 
 # change focus (vim style)
 bindsym $mod+h focus left
@@ -160,8 +162,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
+set $mode_resize 
+bindsym $mod+r mode "$mode_resize"
+mode "$mode_resize" {
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
@@ -185,7 +188,7 @@ mode "resize" {
 ##
 # system
 ##
-set $mode_system (l) lock, (o) logout, (s) suspend, (r) reboot, (p) poweroff
+set $mode_system    [L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF
 bindsym $mod+Delete mode "$mode_system"
 bindsym Ctrl+$mod+BackSpace mode "$mode_system"
 mode "$mode_system" {
@@ -202,8 +205,9 @@ mode "$mode_system" {
 
 ##
 # move floating windows with keys
-bindsym $mod+m mode "move" focus floating
-mode "move" {
+set $mode_move 
+bindsym $mod+m mode "$mode_move" focus floating
+mode "$mode_move" {
     bindsym $mod+Tab focus right
 
     bindsym Left  move left
@@ -222,11 +226,12 @@ mode "move" {
 }
 
 # show CapsLock state in statusbar
-bindsym Caps_Lock mode "caps"
-bindsym Shift+Caps_Lock mode "caps"
-bindsym Ctrl+Caps_Lock mode "caps"
-bindsym $mod+Caps_Lock mode "caps"
-mode "caps" {
+set $mode_caps 
+bindsym Caps_Lock mode "$mode_caps"
+bindsym Shift+Caps_Lock mode "$mode_caps"
+bindsym Ctrl+Caps_Lock mode "$mode_caps"
+bindsym $mod+Caps_Lock mode "$mode_caps"
+mode "$mode_caps" {
         bindsym Caps_Lock mode "default"
         bindsym Shift+Caps_Lock mode "default"
         bindsym Ctrl+Caps_Lock mode "default"
@@ -335,7 +340,7 @@ bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
 bindsym $sup+p exec "xrandr --output DP1 --auto"
 bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP1 --off"
 bindsym $sup+q exec qtcreator -style=gtk
-bindsym $sup+r exec urxvt -e ranger
+bindsym $sup+r exec termite -e ranger
 bindsym $sup+s exec rofi -show ssh -font 'SourceCodePro 21' -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
@@ -346,7 +351,7 @@ bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 #bindsym $sup+z exec filezilla
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
 
 # Mouse magic
