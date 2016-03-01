@@ -50,7 +50,24 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ssh-agent git git-fast git-extras github archlinux colorize colored-man cp nmap systemd vi-mode docker)
+plugins=(
+archlinux
+colored-man-pages
+colorize
+cp
+docker
+fasd
+git
+git-extras
+git-fast
+nmap
+pip
+ssh-agent
+sudo
+systemd
+tmux
+vi-mode
+)
 
 # User configuration
 ################################################################################
@@ -60,11 +77,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# set default style for Qt programs
-export QT_STYLE_OVERRIDE=gtk
-
 # start fasd for fasder access to often used folders
-eval "$(fasd --init auto)"
+#eval "$(fasd --init auto)"
 
 # there is no other editor
 export EDITOR='vim'

@@ -1,24 +1,8 @@
-# zathurarc
+# zathurarc-dark
 
-#################################
-# keyboard mappings
-#################################
-map <C-i>	zoom in
-map <C-o>	zoom out
-map zz		zoom best-fit
-
-unmap O
-
-#################################
-# colors
-#################################
-set font                        "Hack 9"
-#set default-bg                  "#ffffff" #00
+set font                        "inconsolata 9"
+#set default-bg                  "#151515" #00
 #set default-fg                  "#202020" #01
-
-set recolor-lightcolor          "#E0E0E0" #00
-set recolor-darkcolor           "#151515" #06
-#set recolor                     "true"
 
 set statusbar-fg                "#B0B0B0" #04
 set statusbar-bg                "#202020" #01
@@ -43,3 +27,7 @@ set completion-fg               "#75B5AA" #0C
 
 set notification-bg             "#90A959" #0B
 set notification-fg             "#151515" #00
+
+set recolor-lightcolor          "#151515" #00
+set recolor-darkcolor           "#E0E0E0" #06
+set recolor                     "true"

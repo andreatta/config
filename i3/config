@@ -5,7 +5,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 ###############################################################################
 
-# modifier = Alt, $sup = 'strange wiggly flag' key
+# Mod1 = Alt, Mod4 = 'strange wiggly flag' key
 set $mod Mod1
 set $sup Mod4
 set $psst --no-startup-id
@@ -17,41 +17,44 @@ hide_edge_borders   none
 bindsym $mod+b border toggle
 
 # autostart
-#exec $psst urxvtd -q -o -f
 exec $psst compton -bc
-exec $psst xmodmap ~/.Xmodmap
 exec $psst redshift
 exec $psst "xbacklight -set 33"
 exec $psst feh --bg-scale ~/img/deathstar.png
 exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
-# Open a small terminal at startup
-#exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 70x15
-#for_window [class="URxvt" instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 865px 512px; move scratchpad
+# Open a small terminal on startup
+set $swidth 600
+set $sheight 300
+set $sbox 660x300
+exec $psst termite --name=_scratchpad_ --geometry=$sbox
+bindsym $mod+p exec $psst termite --name=_scratchpad_ --geometry=$sbox
+
+# list open windows to switch to
+bindsym $mod+Tab exec rofi -show window
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-font pango: Inconsolata 10
-#font pango:DejaVu Sans Mono 8
-#font pango:Droid Sans, FontAwesome 9
+font pango: Hack 9
 #font pango:Source Code Pro for Powerline 14px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Mouse magic
+#bindsym --whole-window $mod+button10 workspace prev_on_output
+#bindsym --whole-window $mod+button11 workspace next_on_output
+
 # kill focused window
 bindsym $mod+Shift+q    kill
-bindsym $mod+Shift+w    exec "xterm -e xkill"
+bindsym $mod+Shift+w    exec "termite --title=xkill -e xkill"
 
 # rename workspace
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
-#bindsym $mod+d exec $psst dmenu_run -i -l 35 -p 'gogo Gadget' -fn 'Inconsolata:bold:pixelsize=36' -nb '#222222' -nf '#ceecee' -sb '#f8f893' -sf '#222222'
-bindsym $mod+d exec rofi -show run -p "GoGo Gadget:" -lines 3 -eh 2 -padding 480 -opacity "77" -fullscreen -bw 0 -bc "$bg" -bg "$bg" -fg "$ac" -hlbg "$bg" -hlfg "$hi" -font "Hack 23"
-
+bindsym $mod+d exec rofi -show run -eh 2 -padding 400 -fullscreen
 
 # change focus (vim style)
 bindsym $mod+h focus left
@@ -91,6 +94,8 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+bindsym button2 floating toggle
+bindsym $mod+button2 floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -100,6 +105,28 @@ bindsym $mod+a focus parent
 
 # focus the child container
 bindsym $mod+c focus child
+
+# enable special modes for some applications
+for_window [window_type="splash"] floating enable
+for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
+# xev keyboard capture window
+for_window [title="Event Tester"] floating enable
+for_window [instance="TeamViewer.exe"] floating enable
+#for_window [class="Audacious"] floating enable, border none
+for_window [instance="speedcrunch"] floating enabled
+#for_window [class="^(?i)chromium"] border none
+#for_window [class="Thunderbird"] border none
+#for_window [class="Thunderbird"] floating enable
+#for_window [class="Thunderbird" instance="Mail"] border none 
+for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
+for_window [title=".*Setting.*|.*Preference.*"] floating enable border normal
+#for_window [class="qutebrowser"] tabbed
+for_window [class="rdesktop"] fullscreen
+#for_window [class="Dia" title="^Dia v"] resize grow left 177, resize grow down 328
+for_window [class="Cssh"] floating enable
+for_window [class="XTerm" title="^CSSH"] border normal
+for_window [title="^xkill"] floating enabled border pixel 10
+for_window [instance="_scratchpad_"] floating enable move scratchpad move absolute position 950 0
 
 # define names for workspaces with some nice symbols
 set $w0 0✪
@@ -239,12 +266,12 @@ mode "$mode_caps" {
 }
 
 # ceeriously styled i3
-set $bg     #2c2c2c
-set $fg     #aaaaaa
+set $bg     #2f343f
+set $fg     #404552
 set $hi     #fce94f
-set $ac     #8faf9f
-set $tx     #040404
-set $ia     #8f8f8f
+set $ac     #4084d6
+set $tx     #2d323d
+set $ia     #9e9e9e
 set $be     #8faf9f
 set $yw     #f8f893
 set $gn     #81c181
@@ -257,7 +284,7 @@ set $sl     #7f7f7f
 client.focused              $ac     $ac         $tx     $id
 client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $id
-client.urgent               $yw     $yw         $tx     $id
+client.urgent               $ac     $ac         $tx     $id
 #border & indicator are ignored
 #client.placeholder          $bg     $bg         $bg     $bg
 
@@ -266,8 +293,6 @@ bar {
     position top
     strip_workspace_numbers yes
     #tray_output none
-    #font pango:Inconsolata, FontAwesome 15
-    #font pango:Source Code Pro for Powerline, FontAwesome 14
     font pango:Economica, FontAwesome 14
     separator_symbol "⋆"
 
@@ -282,35 +307,12 @@ bar {
         background          $bg
         statusline          $sl
         separator           $tx
-        focused_workspace   $ia        $bg        $ia
+        focused_workspace   $ia        $ia        $tx
         active_workspace    $gn        $ac        $tx
-        inactive_workspace  $bg        $ia        $tx
-        urgent_workspace    $yw        $bg        $yw
+        inactive_workspace  $bg        $bg        $ia
+        urgent_workspace    $ac        $bg        $ac
     }
 }
-
-# enable floating mode for some applications
-for_window [window_type="splash"] floating enable
-for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
-# xev keyboard capture window
-for_window [title="Event Tester"] floating enable
-for_window [instance="TeamViewer.exe"] floating enable
-#for_window [class="Audacious"] floating enable, border none
-for_window [instance="speedcrunch"] floating enabled
-#for_window [class="^(?i)chromium"] border none
-#for_window [class="Thunderbird"] border none
-#for_window [class="Thunderbird" instance="Mail"] border none
-for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
-#for_window [class="qutebrowser"] tabbed
-for_window [class="rdesktop"] fullscreen
-#for_window [class="URxvt"] border pixel 1
-#for_window [class="URxvt" title="sage"] floating enable border pixel 3
-#for_window [class="Dia" title="^Dia v"] resize grow left 177, resize grow down 328
-for_window [class="Cssh"] floating enable
-for_window [class="XTerm" title="^CSSH"] border normal
-for_window [class="XTerm" title="^xkill"] floating enabled border pixel 1
-
-#bindsym $mod+Shift+z floating enable; resize grow width 1920 px; resize grow height 500 px; move position center; move scratchpad
 
 #scratchpads
 bindsym $mod+Shift+Super_L move scratchpad
@@ -319,13 +321,13 @@ for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
 bindsym $sup+a exec audacious
-bindsym $sup+b exec sudo modprobe vboxdrv && virtualbox
+bindsym $sup+b exec VirtualBox
 #bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\Palc\\pcalc.exe"
 bindsym $sup+c exec speedcrunch
 #bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
 bindsym $sup+d exec ~/.i3/layouts/start-dia.sh
 bindsym $sup+e exec thunderbird
-#bindsym $sup+e exec kmail
+bindsym $sup+Shift+e exec "kmail --style=gtk"
 bindsym $sup+f exec pcmanfm
 bindsym $sup+g exec gimp
 bindsym $sup+h exec hterm
@@ -341,22 +343,18 @@ bindsym $sup+p exec "xrandr --output DP1 --auto"
 bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP1 --off"
 bindsym $sup+q exec qtcreator -style=gtk
 bindsym $sup+r exec termite -e ranger
-bindsym $sup+s exec rofi -show ssh -font 'SourceCodePro 21' -bg '#2f4f4f' -fg '#ccdc90' -terminal urxvt
+bindsym $sup+s exec rofi -show ssh -terminal termite
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec smplayer
-bindsym $sup+w exec qutebrowser
-bindsym $sup+Shift+w exec firefox
+bindsym $sup+w exec firefox
+bindsym $sup+Shift+w exec qutebrowser
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 #bindsym $sup+z exec filezilla
 
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
-
-# Mouse magic
-#bindsym --whole-window $mod+button10 workspace prev_on_output
-#bindsym --whole-window $mod+button11 workspace next_on_output
 
 bindsym $sup+1 exec "urxvt -e zsh -c 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
 bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
@@ -374,10 +372,11 @@ bindsym $sup+0 focus, floating enable
 
 # screenshot & open in gimp
 bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-bindsym Mod1+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
+bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
 
 # Specialkeys
 bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
+bindsym $sup+backslash          exec $psst ~/.i3/i3exit.sh lock
 bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
 #bindsym XF86AudioPlay           exec audacious -t
 #bindsym XF86AudioNext           exec audacious -fp
@@ -388,13 +387,3 @@ bindsym XF86AudioMute           exec $psst pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
 bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
 bindsym XF86Launch1             exec $psst speedcrunch
-
-# list open windows to switch to
-#bindsym $mod+Tab exec rofi -show window -font "Inconsolata-10" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
-bindsym $mod+Tab exec rofi -show window -font "SourceCodePro 21" -fg "#9f9f9f" -bg "#2c2c2e" -hlfg "#2c2c2e" -hlbg "#ccdc90" -o 85
-
-# Open a small terminal at startup
-#exec --no-startup-id urxvt -name urxvt_scratchpad --geometry 70x15
-
-# Workaround size&position
-#for_window [instance="urxvt_scratchpad"] floating enable; move scratchpad; scratchpad show; move position 865px 512px; move scratchpad

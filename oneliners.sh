@@ -15,6 +15,13 @@ grpck
 
 # convert jpg to png (with imagemagick)
 convert picture.{jpg,png}
+convert -resize 50% picture.png picture.png
+convert example.png -resize 200×100 example.png
+convert example.png -resize x100 example.png
+convert example.jpg -rotate 90 example-rotated.jpg
+
+# base64
+base64 -d <<< <BASE64STRING>
 
 # delete ignored files from git if rules applied later
 git rm --cached filename

@@ -13,7 +13,7 @@ keysym u = u U udiaeresis Udiaeresis
 
 keysym c = c C copyright U2184
 keysym d = d D Greek_alpha Greek_DELTA
-keysym e = e E U01DD U018E
+!keysym e = e E U01DD U018E
 keysym m = m M Greek_mu
 keysym n = n N Greek_ETA
 keysym p = p P Greek_rho Greek_pi
@@ -23,9 +23,19 @@ keysym k = k K U26B7
 keysym v = v V U03D1
 keysym y = y Y Greek_UPSILON
 
-keysym 0 = 0 parenright degree
-keysym 5 = 5 percent EuroSign
-keysym 8 = 8 asterisk infinity
+keycode 21 = equal plus plusminus plus
+
+! digits
+keycode  10 = 1 exclam 		U25A1
+keycode  11 = 2 at			U2713
+keycode  12 = 3 numbersign 	3 		numbersign
+keycode  13 = 4 dollar 		4 		dollar
+keycode  14 = 5 percent 	EuroSign
+keycode  15 = 6 asciicircum 6 		asciicircum
+keycode  16 = 7 ampersand 	7 		ampersand
+keycode  17 = 8 asterisk 	infinity
+keycode  18 = 9 parenleft 	9 		parenleft
+keycode  19 = 0 parenright 	degree
 
 ! who needs CapsLock anyway
 clear Lock

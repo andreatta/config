@@ -1,7 +1,7 @@
 # makefile for setting up my config files
 
 .PHONY: \
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroser compton youtube-dl
+	dunst locale ranger zathura issue packer x vconsole zsh vim qutebroser compton youtube-dl
 
 dunst:
 	@mkdir -p ${HOME}/.config/dunst
@@ -34,15 +34,16 @@ zsh:
 	#@ln -s ${PWD}/zsh/aliases.zsh /usr/share/oh-my-zsh/custom
 	@ln -s ${PWD}/zsh/aliases.zsh ~/src/oh-my-zsh/custom
 
-xmodmap:
-	@ln -s ${PWD}/X/.Xmodmap ${HOME}
+x:
+	@ln -sf ${PWD}/X/.Xmodmap ${HOME}
+	@ln -sf ${PWD}/X/.Xresources ${HOME}
 
 vim:
 	@cp ${PWD}/vim/.vim ${HOME}
 	@mkdir -p ${HOME}/.vim/undo
 
 zathura:
-	@ln -s ${PWD}/zathura/zathurarc ${HOME}
+	@ln -s ${PWD}/zathura ${HOME}/.config
 
 qutebrowser:
 	ln -s ${PWD}/qutebroser ~/.config
@@ -57,4 +58,4 @@ youtube-dl:
 etc:
 	issue locale vconsole
 all:
-	dunst locale ranger zathura issue packer xmodmap vconsole zsh vim qutebroswer compton youtube-dl
+	dunst locale ranger zathura issue packer x vconsole zsh vim qutebroswer compton youtube-dl

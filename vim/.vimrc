@@ -47,12 +47,13 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "-------------------------------------------------------------------------------
 
-set t_co=256
+set t_Co=256
 set background=dark
+"let base16colorspace=&t_Co
 colorscheme gruvbox
 
 " highlight past column 80
-let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(81,999),",")
 
 " convenience functions
 syntax on
@@ -168,14 +169,22 @@ endif
 " special key mappings
 """"""""""""""""""""""""""
 " yank 'til end of line
-map Y y$
+noremap Y y$
 
 " surround current word with preceding character
-map S ysiw
+noremap S ysiw
+
+" Enter appends new line without going to insert mode
+nnoremap <CR> o<Esc>
+nnoremap <C-CR> O<Esc>
+nnoremap <C-J> i<CR><Esc>
+" fix for <CR> mappings in normal mode
+:autocmd CmdwinEnter * nnoremap <CR> <CR>
+:autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " arrow keys special treatment
-noremap <Right> gt
-noremap <Left>  gT
+"noremap <Right> gt
+"noremap <Left>  gT
 "noremap <Up>   <Nop>
 "noremap <Down> <Nop>
 
@@ -359,4 +368,5 @@ command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q
 " some nice abbreviations and corrections
 ab fasle false
 ab FASLE FALSE
+ab esle else
 

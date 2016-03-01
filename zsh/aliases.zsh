@@ -10,6 +10,7 @@ alias ZZ='exit'
 alias lsgroups='cut -d: -f1 /etc/group'
 alias o='xdg-open'
 alias wifi='sudo wifi-menu'
+alias vim='nvim'
 
 # additional git aliases
 alias gmn="git merge --no-ff"

@@ -1,0 +1,24 @@
+! ------------------------------------------------------------------------------
+! reload wirh xrdb ~/.Xresources
+!
+! ------------------------------------------------------------------------------
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+
+rofi.font:							Hack 21
+! Use extended color scheme
+rofi.color-enabled:                 true
+! Color scheme for normal row
+rofi.color-normal:                  argb:00000000, #81c181, argb:11FFFFFF, #81c181, #333
+! Color scheme for urgent row
+rofi.color-urgent:                  argb:00000000,  #ad5234, argb:11FFFFFF, #ad5234, #333
+! Color scheme for active row
+rofi.color-active:                  argb:00000000, #aa1, argb:11FFFFFF, #aa1, #333
+! Color scheme window
+rofi.color-window:                  argb:aa423921, #81c181, #81c181
+! Separator style (none, dash, solid
+rofi.separator-style:				solid
+
+!rofi.hide-scrollbar:				true
