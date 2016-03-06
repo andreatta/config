@@ -37,6 +37,7 @@ zsh:
 x:
 	@ln -sf ${PWD}/X/.Xmodmap ${HOME}
 	@ln -sf ${PWD}/X/.Xresources ${HOME}
+	@ln -sf ${PWD}/X/.xinitrc ${HOME}
 
 vim:
 	@cp ${PWD}/vim/.vim ${HOME}
