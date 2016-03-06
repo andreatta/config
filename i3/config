@@ -21,6 +21,7 @@ exec $psst compton -bc
 exec $psst redshift
 exec $psst "xbacklight -set 33"
 exec $psst feh --bg-scale ~/img/deathstar.png
+#exec $psst imv -f ~/img/deathstar.png &
 exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
@@ -81,7 +82,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split horizontal/vertical
-bindsym $mod+minus      split v
+bindsym $mod+semicolon  split v
 bindsym $mod+backslash  split h
 
 # enter fullscreen mode for the focused container
@@ -140,6 +141,8 @@ set $w7 7❼ ☘
 set $w8 8❽ 
 set $w9 9❾ 
 set $w10 10❿ 
+set $w11 11☰
+set $w12 12☷
 
 # switch to workspace
 bindsym $mod+grave workspace $w0
@@ -153,6 +156,8 @@ bindsym $mod+7 workspace $w7
 bindsym $mod+8 workspace $w8
 bindsym $mod+9 workspace $w9
 bindsym $mod+0 workspace $w10
+bindsym $mod+minus workspace $w11
+bindsym $mod+equal workspace $w12
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
@@ -173,6 +178,8 @@ bindsym $mod+Shift+7 move container to workspace $w7
 bindsym $mod+Shift+8 move container to workspace $w8
 bindsym $mod+Shift+9 move container to workspace $w9
 bindsym $mod+Shift+0 move container to workspace $w10
+bindsym $mod+Shift+minus move container to workspace $w11
+bindsym $mod+Shift+equal move container to workspace $w12
 
 # always open some programs on specified workspace
 assign [class="Firefox"]     	$w3
@@ -293,7 +300,7 @@ bar {
     position top
     strip_workspace_numbers yes
     #tray_output none
-    font pango:Economica, FontAwesome 14
+    font pango:Economica, FontAwesome 15
     separator_symbol "⋆"
 
     #status_command i3status --config ~/.i3/i3status.conf
@@ -309,7 +316,7 @@ bar {
         separator           $tx
         focused_workspace   $ia        $ia        $tx
         active_workspace    $gn        $ac        $tx
-        inactive_workspace  $bg        $bg        $ia
+        inactive_workspace  $bg        $fg        $ia
         urgent_workspace    $ac        $bg        $ac
     }
 }
@@ -351,7 +358,7 @@ bindsym $sup+w exec firefox
 bindsym $sup+Shift+w exec qutebrowser
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
-#bindsym $sup+z exec filezilla
+bindsym $sup+z exec wpa_gui
 
 bindsym $mod+Return exec termite
 bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
@@ -363,7 +370,7 @@ bindsym $sup+3 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GR
 #bindsym $sup+3
 #bindsym $sup+4
 # remote desktop
-bindsym $sup+5 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-server5:3389"
+bindsym $sup+5 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-server5:5900"
 bindsym $sup+6 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'Administrator' gt-server6:3389"
 #bindsym $sup+7
 #bindsym $sup+8
@@ -371,12 +378,13 @@ bindsym $sup+6 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'Ad
 bindsym $sup+0 focus, floating enable
 
 # screenshot & open in gimp
-bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
+bindsym Ctrl+Print exec teiler
+#bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+#bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
 
 # Specialkeys
 bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
-bindsym $sup+backslash          exec $psst ~/.i3/i3exit.sh lock
+bindsym $sup+space          exec $psst ~/.i3/i3exit.sh lock
 bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
 #bindsym XF86AudioPlay           exec audacious -t
 #bindsym XF86AudioNext           exec audacious -fp
