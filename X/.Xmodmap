@@ -26,8 +26,8 @@ keysym y = y Y Greek_UPSILON
 keycode 21 = equal plus plusminus plus
 
 ! digits
-keycode  10 = 1 exclam 		U25A1
-keycode  11 = 2 at			U2713
+keycode  10 = 1 exclam 		U2610
+keycode  11 = 2 at			U2611
 keycode  12 = 3 numbersign 	3 		numbersign
 keycode  13 = 4 dollar 		4 		dollar
 keycode  14 = 5 percent 	EuroSign
