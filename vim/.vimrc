@@ -10,23 +10,25 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'kien/ctrlp.vim'
 Plugin 'davidhalter/jedi-vim'
-"Plugin 'Lokaltog/vim-easymotion'
+Plugin 'gelisam/git-slides'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'kien/ctrlp.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'vim-scripts/AdvancedSorters'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'gelisam/git-slides'
+Plugin 'vim-scripts/AdvancedSorters'
 Plugin 'vim-scripts/drawit'
 
 " All of your Plugins must be added before the following line
@@ -106,15 +108,19 @@ set hlsearch
 set laststatus=2
 let g:airline_theme='base16'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
 
 " ASCII HEX current register
 let g:airline_section_z = '𝕒%3b 𝕙%2B 𝕣%{v:register} %4l/%L %3v'
-""
 
 " YouCompleteMe ycm
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {}
-""
+
+" custom surroundings for vim-surround
+" get keycode with char2nr("<key>")
+let g:surround_36 = "$\r$"			" $
+let g:surround_92 = "$\\\r$"		" \ for latex variables
 
 " Pandoc / Markdown
 let g:pandoc#modules#disabled = ["folding"]
@@ -169,10 +175,10 @@ endif
 " special key mappings
 """"""""""""""""""""""""""
 " yank 'til end of line
-noremap Y y$
+nnoremap Y y$
 
 " surround current word with preceding character
-noremap S ysiw
+nmap S ysiw
 
 " Enter appends new line without going to insert mode
 nnoremap <CR> o<Esc>
