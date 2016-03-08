@@ -370,7 +370,7 @@ bindsym $sup+3 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GR
 #bindsym $sup+3
 #bindsym $sup+4
 # remote desktop
-bindsym $sup+5 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-server5:5900"
+bindsym $sup+5 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-server5"
 bindsym $sup+6 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'Administrator' gt-server6:3389"
 #bindsym $sup+7
 #bindsym $sup+8
