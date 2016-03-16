@@ -49,9 +49,10 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "-------------------------------------------------------------------------------
 
+
+let base16colorspace=256
 set t_Co=256
 set background=dark
-"let base16colorspace=&t_Co
 colorscheme gruvbox
 
 " highlight past column 80
@@ -121,6 +122,7 @@ let g:ycm_filetype_blacklist = {}
 " get keycode with char2nr("<key>")
 let g:surround_36 = "$\r$"			" $
 let g:surround_92 = "$\\\r$"		" \ for latex variables
+let g:surround_126 = "~~\r~~"			" ~ strike through for markdown
 
 " Pandoc / Markdown
 let g:pandoc#modules#disabled = ["folding"]
@@ -181,7 +183,7 @@ nnoremap Y y$
 nmap S ysiw
 
 " Enter appends new line without going to insert mode
-nnoremap <CR> o<Esc>
+"nnoremap <CR> o<Esc>
 nnoremap <C-CR> O<Esc>
 nnoremap <C-J> i<CR><Esc>
 " fix for <CR> mappings in normal mode
@@ -209,7 +211,7 @@ nmap <C-l> <C-w>l
 map <C-n> :NERDTreeToggle<CR>
 
 " clear search highlights
-nmap <Leader><Space> :nohl<CR>
+nmap <Leader><Space> :nohlsearch<CR>
 
 " syntastic mappings
 nmap <Leader>s :SyntasticCheck<CR>
@@ -243,7 +245,7 @@ map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
 " save with sudo permission
-cmap w!! silent w !sudo tee > /dev/null %
+cmap w!! silent w !sudo tee % > /dev/null
 command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " % is current file, make %% current directory
@@ -264,6 +266,9 @@ command -bar Hexeditor call ToggleHex()
 
 " switch language for spell checking
 nmap <silent> <F4> :call ToggleSpell()<CR>
+
+" toggle mouse use between vim and terminal
+nmap <Leader>m	:call ToggleMouse()<CR>
 
 " execute command on current line and paste output into file
 noremap Q :.!sh<CR>
@@ -370,6 +375,27 @@ endfunction
 command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-args>)
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
+
+" vim-togglemouse
+" release mouse to terminal
+fun! ToggleMouse()
+    if !exists("old_mouse")
+        let old_mouse = "a"
+    endif
+
+    if &mouse == ""
+        let &mouse = old_mouse
+		set number
+		set relativenumber
+        echo "Mouse is for Vim (" . &mouse . ")"
+    else
+        let old_mouse = &mouse
+        let &mouse=""
+		set nonumber
+		set norelativenumber
+        echo "Mouse is for terminal"
+    endif
+endfunction
 
 " some nice abbreviations and corrections
 ab fasle false
