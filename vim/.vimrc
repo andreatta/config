@@ -10,7 +10,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'bling/vim-airline'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'gelisam/git-slides'
 Plugin 'gmarik/Vundle.vim'
@@ -25,7 +24,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe' " from AUR
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-scripts/AdvancedSorters'
@@ -48,7 +49,6 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "-------------------------------------------------------------------------------
-
 
 let base16colorspace=256
 set t_Co=256
@@ -84,6 +84,10 @@ set hidden
 set mouse=a
 " make backspace brain compatible
 set backspace=indent,eol,start
+" update open file if changed externally
+set autoread
+" faster redrawing
+set ttyfast
 
 " indenting settings
 set list
@@ -107,9 +111,12 @@ set hlsearch
 
 " airline config
 set laststatus=2
-let g:airline_theme='base16'
+let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#wordcount#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
 
 " ASCII HEX current register
 let g:airline_section_z = '𝕒%3b 𝕙%2B 𝕣%{v:register} %4l/%L %3v'
@@ -268,7 +275,10 @@ command -bar Hexeditor call ToggleHex()
 nmap <silent> <F4> :call ToggleSpell()<CR>
 
 " toggle mouse use between vim and terminal
-nmap <Leader>m	:call ToggleMouse()<CR>
+noremap <Leader>m	:call ToggleMouse()<CR>
+
+" count characters from last selection
+noremap <Leader>s	:call CountSelection()<CR>
 
 " execute command on current line and paste output into file
 noremap Q :.!sh<CR>
@@ -376,9 +386,9 @@ command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-arg
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
 
-" vim-togglemouse
-" release mouse to terminal
-fun! ToggleMouse()
+" toggle mouse use between vim and terminal
+" range => only execute once even if multiple lines are selected
+fun! ToggleMouse() range
     if !exists("old_mouse")
         let old_mouse = "a"
     endif
@@ -397,8 +407,16 @@ fun! ToggleMouse()
     endif
 endfunction
 
+" count selected characters
+fun! CountSelection() range
+	let v_backup = @v
+	silent normal! gv"vy
+	" correctly count wide chars
+	echo strchars(@v)
+	let @v = v_backup
+endfunction
+
 " some nice abbreviations and corrections
 ab fasle false
 ab FASLE FALSE
 ab esle else
-
