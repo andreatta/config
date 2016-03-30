@@ -33,6 +33,7 @@ alias pdf=zathura
 alias t=tungsten
 alias mix=alsamixer
 alias R='R --quiet'
+alias soly='curl -s wttr.in/solothurn | head -n -3'
 
 alias tab='i3-msg layout tabbed && '
 
