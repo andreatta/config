@@ -22,6 +22,7 @@ alias syu='sudo pacman -Syu'
 alias rncs='sudo pacman -Rncs'
 # remove orphaned packages
 alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
+alias getmirrors='curl -o mirrorlist https://www.archlinux.org/mirrorlist/\?country\=all\&protocol\=https\&ip_version\=4\&ip_version\=6\&use_mirror_status\=on && sed -i s/\#Server/Server/ mirrorlist'
 
 alias autolock="xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &"
 alias stoplock="pkill -15 xautolock"
@@ -75,6 +76,9 @@ alias gtso="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\
 alias gt-lab="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off 192.168.112.102:3389"
 alias gibs="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'BBZSOGR\\cyril.andreatta' GISO_INF_L04.bbzsogr.local:3389"
 alias github="https://github.com/andreatta"
+
+# git
+alias gbb="git remote add origin git@bitbucket.org:gtcee/${PWD##*/}.git && git push -u origin --all"
 
 # blackarch
 alias lsblackarch="sudo pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u"
