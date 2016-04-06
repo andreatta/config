@@ -6,7 +6,7 @@
 ###############################################################################
 
 # Mod1 = Alt, Mod4 = 'strange wiggly flag' key
-set $mod Mod1
+set $alt Mod1
 set $sup Mod4
 set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
@@ -14,7 +14,7 @@ set $update && killall -SIGUSR1 i3status
 new_window          pixel 0
 new_float           pixel 3
 hide_edge_borders   none
-bindsym $mod+b border toggle
+bindsym $alt+b border toggle
 
 # autostart
 exec $psst compton -bc
@@ -29,11 +29,11 @@ exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
 set $swidth 600
 set $sheight 300
 set $sbox 660x300
-exec $psst termite --name=_scratchpad_ --geometry=$sbox
-bindsym $mod+p exec $psst termite --name=_scratchpad_ --geometry=$sbox
+#exec $psst termite --name=_scratchpad_ --geometry=$sbox
+bindsym $alt+p exec $psst termite --name=_scratchpad_ --geometry=$sbox
 
 # list open windows to switch to
-bindsym $mod+Tab exec rofi -show window
+bindsym $alt+Tab exec rofi -show window
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -41,77 +41,78 @@ font pango: Hack 9
 #font pango:Source Code Pro for Powerline 14px
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+floating_modifier $alt
 
 # Mouse magic
-#bindsym --whole-window $mod+button10 workspace prev_on_output
-#bindsym --whole-window $mod+button11 workspace next_on_output
+#bindsym --whole-window $alt+button10 workspace prev_on_output
+#bindsym --whole-window $alt+button11 workspace next_on_output
 
 # kill focused window
-bindsym $mod+Shift+q    kill
-bindsym $mod+Shift+w    exec "termite --title=xkill -e xkill"
+bindsym $alt+Shift+q    kill
+bindsym $alt+Shift+w    exec "termite --title=xkill -e xkill"
 
 # rename workspace
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
-bindsym $mod+d exec rofi -show run -eh 2 -padding 400 -fullscreen
+bindsym $alt+d exec rofi -show run -eh 2 -padding 400 -fullscreen
 
 # change focus (vim style)
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $alt+h focus left
+bindsym $alt+j focus down
+bindsym $alt+k focus up
+bindsym $alt+l focus right
 
 # alternatively, you can use the cursor keys
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $alt+Left focus left
+bindsym $alt+Down focus down
+bindsym $alt+Up focus up
+bindsym $alt+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $alt+Shift+h move left
+bindsym $alt+Shift+j move down
+bindsym $alt+Shift+k move up
+bindsym $alt+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $alt+Shift+Left move left
+bindsym $alt+Shift+Down move down
+bindsym $alt+Shift+Up move up
+bindsym $alt+Shift+Right move right
 
 # split horizontal/vertical
-bindsym $mod+semicolon  split v
-bindsym $mod+backslash  split h
+bindsym $alt+semicolon  split v
+bindsym $alt+backslash  split h
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $alt+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $alt+s layout stacking
+bindsym $alt+t layout tabbed
+bindsym $alt+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $alt+Shift+space floating toggle
 bindsym button2 floating toggle
-bindsym $mod+button2 floating toggle
+bindsym $alt+button2 floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $alt+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $alt+a focus parent
 
 # focus the child container
-bindsym $mod+c focus child
+bindsym $alt+c focus child
 
 # enable special modes for some applications
 for_window [window_type="splash"] floating enable
 for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
 # xev keyboard capture window
 for_window [title="Event Tester"] floating enable
+for_window [title="vCoolor"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
 #for_window [class="Audacious"] floating enable, border none
 for_window [instance="speedcrunch"] floating enabled
@@ -127,7 +128,7 @@ for_window [class="rdesktop"] fullscreen
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
 for_window [title="^xkill"] floating enabled border pixel 10
-for_window [instance="_scratchpad_"] floating enable move scratchpad move absolute position 950 0
+for_window [instance="_scratchpad_"] floating enable move scratchpad move absolute position 950 0 resize shrink width 400px
 
 # define names for workspaces with some nice symbols
 set $w0 0✪
@@ -145,19 +146,19 @@ set $w11 11☰
 set $w12 12☷
 
 # switch to workspace
-bindsym $mod+grave workspace $w0
-bindsym $mod+1 workspace $w1
-bindsym $mod+2 workspace $w2
-bindsym $mod+3 workspace $w3
-bindsym $mod+4 workspace $w4
-bindsym $mod+5 workspace $w5
-bindsym $mod+6 workspace $w6
-bindsym $mod+7 workspace $w7
-bindsym $mod+8 workspace $w8
-bindsym $mod+9 workspace $w9
-bindsym $mod+0 workspace $w10
-bindsym $mod+minus workspace $w11
-bindsym $mod+equal workspace $w12
+bindsym $alt+grave workspace $w0
+bindsym $alt+1 workspace $w1
+bindsym $alt+2 workspace $w2
+bindsym $alt+3 workspace $w3
+bindsym $alt+4 workspace $w4
+bindsym $alt+5 workspace $w5
+bindsym $alt+6 workspace $w6
+bindsym $alt+7 workspace $w7
+bindsym $alt+8 workspace $w8
+bindsym $alt+9 workspace $w9
+bindsym $alt+0 workspace $w10
+bindsym $alt+minus workspace $w11
+bindsym $alt+equal workspace $w12
 
 # switch to next/prev workspace
 bindsym $sup+Right workspace next
@@ -167,19 +168,19 @@ workspace_auto_back_and_forth yes
 bindsym $sup+Tab [urgent=latest] focus
 
 # move focused container to workspace
-bindsym $mod+Shift+grave move container to workspace $w0
-bindsym $mod+Shift+1 move container to workspace $w1
-bindsym $mod+Shift+2 move container to workspace $w2
-bindsym $mod+Shift+3 move container to workspace $w3
-bindsym $mod+Shift+4 move container to workspace $w4
-bindsym $mod+Shift+5 move container to workspace $w5
-bindsym $mod+Shift+6 move container to workspace $w6
-bindsym $mod+Shift+7 move container to workspace $w7
-bindsym $mod+Shift+8 move container to workspace $w8
-bindsym $mod+Shift+9 move container to workspace $w9
-bindsym $mod+Shift+0 move container to workspace $w10
-bindsym $mod+Shift+minus move container to workspace $w11
-bindsym $mod+Shift+equal move container to workspace $w12
+bindsym $alt+Shift+grave move container to workspace $w0
+bindsym $alt+Shift+1 move container to workspace $w1
+bindsym $alt+Shift+2 move container to workspace $w2
+bindsym $alt+Shift+3 move container to workspace $w3
+bindsym $alt+Shift+4 move container to workspace $w4
+bindsym $alt+Shift+5 move container to workspace $w5
+bindsym $alt+Shift+6 move container to workspace $w6
+bindsym $alt+Shift+7 move container to workspace $w7
+bindsym $alt+Shift+8 move container to workspace $w8
+bindsym $alt+Shift+9 move container to workspace $w9
+bindsym $alt+Shift+0 move container to workspace $w10
+bindsym $alt+Shift+minus move container to workspace $w11
+bindsym $alt+Shift+equal move container to workspace $w12
 
 # always open some programs on specified workspace
 assign [class="Firefox"]     	$w3
@@ -189,15 +190,15 @@ assign [class="QtCreator"]   	$w6
 assign [class="VirtualBox"]  	$w10
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $alt+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $alt+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 set $mode_resize 
-bindsym $mod+r mode "$mode_resize"
+bindsym $alt+r mode "$mode_resize"
 mode "$mode_resize" {
         # Pressing left will shrink the window’s width.
         # Pressing right will grow the window’s width.
@@ -223,8 +224,8 @@ mode "$mode_resize" {
 # system
 ##
 set $mode_system    [L]OCK       LOG[O]UT       [S]USPEND       [R]EBOOT       [P]OWEROFF
-bindsym $mod+Delete mode "$mode_system"
-bindsym Ctrl+$mod+BackSpace mode "$mode_system"
+bindsym $alt+Delete mode "$mode_system"
+bindsym Ctrl+$alt+BackSpace mode "$mode_system"
 mode "$mode_system" {
     bindsym l exec $psst ~/.i3/i3exit.sh lock, mode "default"
     bindsym o exec $psst ~/.i3/i3exit.sh logout, mode "default"
@@ -240,9 +241,9 @@ mode "$mode_system" {
 ##
 # move floating windows with keys
 set $mode_move 
-bindsym $mod+m mode "$mode_move" focus floating
+bindsym $alt+m mode "$mode_move" focus floating
 mode "$mode_move" {
-    bindsym $mod+Tab focus right
+    bindsym $alt+Tab focus right
 
     bindsym Left  move left
     bindsym Down  move down
@@ -264,12 +265,12 @@ set $mode_caps 
 bindsym Caps_Lock mode "$mode_caps"
 bindsym Shift+Caps_Lock mode "$mode_caps"
 bindsym Ctrl+Caps_Lock mode "$mode_caps"
-bindsym $mod+Caps_Lock mode "$mode_caps"
+bindsym $alt+Caps_Lock mode "$mode_caps"
 mode "$mode_caps" {
         bindsym Caps_Lock mode "default"
         bindsym Shift+Caps_Lock mode "default"
         bindsym Ctrl+Caps_Lock mode "default"
-        bindsym $mod+Caps_Lock mode "default"
+        bindsym $alt+Caps_Lock mode "default"
 }
 
 # ceeriously styled i3
@@ -322,8 +323,8 @@ bar {
 }
 
 #scratchpads
-bindsym $mod+Shift+Super_L move scratchpad
-bindsym $mod+Super_L scratchpad show
+bindsym $alt+Shift+Super_L move scratchpad
+bindsym $alt+Super_L scratchpad show
 for_window [title="^forticlientsslvpn"] move scratchpad show
 
 # My favorite programs
@@ -350,7 +351,7 @@ bindsym $sup+p exec "xrandr --output DP1 --auto"
 bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP1 --off"
 bindsym $sup+q exec qtcreator -style=gtk
 bindsym $sup+r exec termite -e ranger
-bindsym $sup+s exec rofi -show ssh -terminal termite
+bindsym $sup+s exec rofi -show ssh
 #bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec smplayer
@@ -360,12 +361,12 @@ bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 bindsym $sup+z exec wpa_gui
 
-bindsym $mod+Return exec termite
-bindsym $mod+Shift+Return exec urxvt --chdir `xcwd`
+bindsym $alt+Return exec termite
+bindsym $alt+Shift+Return exec urxvt --chdir `xcwd`
 
-bindsym $sup+1 exec "urxvt -e zsh -c 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
+bindsym $sup+1 exec "xterm -e '~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
 bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
-bindsym $sup+3 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' 192.168.112.142:3389"
+bindsym $sup+3 exec "vinagre -f --vnc-scale 192.168.112.13"
 #bindsym $sup+3
 #bindsym $sup+3
 #bindsym $sup+4
@@ -375,7 +376,7 @@ bindsym $sup+6 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'Ad
 #bindsym $sup+7
 #bindsym $sup+8
 #bindsym $sup+9
-bindsym $sup+0 focus, floating enable
+#bindsym $sup+0 focus, floating enable
 
 # screenshot & open in gimp
 bindsym Ctrl+Print exec teiler
