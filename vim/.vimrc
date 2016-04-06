@@ -10,10 +10,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
+"Plugin 'Valloric/YouCompleteMe' " from AUR
 Plugin 'davidhalter/jedi-vim'
 Plugin 'gelisam/git-slides'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'itchyny/vim-cursorword'
+Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'scrooloose/nerdcommenter'
@@ -21,10 +24,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-speeddating'
-"Plugin 'Valloric/YouCompleteMe' " from AUR
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-pandoc/vim-pandoc'
@@ -119,7 +121,7 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 
 " ASCII HEX current register
-let g:airline_section_z = '𝕒%3b 𝕙%2B 𝕣%{v:register} %4l/%L %3v'
+let g:airline_section_z = '𝕕 %2b 𝕙 0x%02B 𝕣%{v:register} %4l/%L %3v'
 
 " YouCompleteMe ycm
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
@@ -147,6 +149,16 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+" vCoolor
+let g:vcoolor_disable_mappings = 1
+let g:vcoolor_lowercase = 1
+"let g:vcoolor_custom_picker = 'zenity --title "custom" --color-selection --show-palette --color '
+let g:vcoolor_map = '<leader>g'
+"let g:vcool_ins_rgb_map = '<leader><S-r>'
+"let g:vcool_ins_hsl_map = '<leader>gh'
+"let g:vcool_ins_rgba_map = '<leader>ga'
+
+
 " display linenumbers (relative mode can be toggled)
 set number
 set relativenumber
@@ -165,7 +177,7 @@ if has("autocmd")
 	" automatically strip trailing whitespace on save
 	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino,r au BufWritePre <buffer> call StripTrailingWhitespace()
 
-	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0
+	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0 shiftwidth=2 tabstop=2
 
 	" syntax highlighting for gdb files
 	au BufNewFile,BufReadPost *.gdb set filetype=gdb
@@ -225,7 +237,7 @@ nmap <Leader>s :SyntasticCheck<CR>
 nmap <Leader>t :SyntasticToggleMode<CR>
 
 " quickly edit .vimrc
-nmap <Leader>v :tabedit $MYVIMRC<CR>
+nmap <Leader>v :tabnew $MYVIMRC<CR>
 " .. and reload .vimrc
 nmap <Leader>r :source $MYVIMRC<CR>
 
@@ -253,7 +265,7 @@ set pastetoggle=<F12>
 
 " save with sudo permission
 cmap w!! silent w !sudo tee % > /dev/null
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+:command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " % is current file, make %% current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -269,7 +281,7 @@ map <F11> :cnext<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 map <F3> :Hexeditor<CR>
-command -bar Hexeditor call ToggleHex()
+:command! -bar Hexeditor call ToggleHex()
 
 " switch language for spell checking
 nmap <silent> <F4> :call ToggleSpell()<CR>
@@ -278,7 +290,7 @@ nmap <silent> <F4> :call ToggleSpell()<CR>
 noremap <Leader>m	:call ToggleMouse()<CR>
 
 " count characters from last selection
-noremap <Leader>s	:call CountSelection()<CR>
+noremap <Leader>c	:call CountSelection()<CR>
 
 " execute command on current line and paste output into file
 noremap Q :.!sh<CR>
@@ -317,7 +329,7 @@ endfunction
 " }
 
 " hexeditor {
-function ToggleHex()
+:function! ToggleHex()
 	" hex mode should be considered a read-only operation
 	" save values for modified and read-only for restoration later,
 	" and clear the read-only flag for now
