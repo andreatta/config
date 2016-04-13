@@ -22,15 +22,17 @@ exec $psst redshift
 exec $psst "xbacklight -set 33"
 exec $psst feh --bg-scale ~/img/deathstar.png
 #exec $psst imv -f ~/img/deathstar.png &
-exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
+exec $psst xautolock -time 9 -resetsaver -locker '~/.i3/i3exit.sh lock' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 # Open a small terminal on startup
 set $swidth 600
 set $sheight 300
 set $sbox 660x300
-#exec $psst termite --name=_scratchpad_ --geometry=$sbox
-bindsym $alt+p exec $psst termite --name=_scratchpad_ --geometry=$sbox
+exec $psst termite --name=_scratchpad_
+exec $psst termite --name=_todo_ -e 'vim ${HOME}/ye-olde-cloude/cee/todo.md'
+exec $psst "sleep 1; i3-msg '[instance=_todo_] mark todo, move scratchpad'"
+bindsym $alt+p exec $psst termite --name=_scratchpad_
 
 # list open windows to switch to
 bindsym $alt+Tab exec rofi -show window
@@ -114,21 +116,21 @@ for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [title="vCoolor"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
-#for_window [class="Audacious"] floating enable, border none
 for_window [instance="speedcrunch"] floating enabled
+for_window [class="Amarok"] floating enable
 #for_window [class="^(?i)chromium"] border none
 #for_window [class="Thunderbird"] border none
 #for_window [class="Thunderbird"] floating enable
 #for_window [class="Thunderbird" instance="Mail"] border none 
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
-for_window [title=".*Setting.*|.*Preference.*"] floating enable border normal
+for_window [window_role=".*Setting.*|.*Preference.*"] floating enable border normal
 #for_window [class="qutebrowser"] tabbed
 for_window [class="rdesktop"] fullscreen
 #for_window [class="Dia" title="^Dia v"] resize grow left 177, resize grow down 328
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
 for_window [title="^xkill"] floating enabled border pixel 10
-for_window [instance="_scratchpad_"] floating enable move scratchpad move absolute position 950 0 resize shrink width 400px
+for_window [instance="_scratchpad_"] move scratchpad, move absolute position 680 0, resize set 1200 600
 
 # define names for workspaces with some nice symbols
 set $w0 0✪
@@ -304,9 +306,9 @@ bar {
     font pango:Economica, FontAwesome 15
     separator_symbol "⋆"
 
-    #status_command i3status --config ~/.i3/i3status.conf
+    status_command i3status --config ~/.i3/i3status.conf
     # use patched i3status
-    status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
+    #status_command ~/src/i3status/i3status --config ~/.i3/i3status.conf
     #status_command i3bf
     #status_command ~/.i3/i3-conky-initscript.sh
 
@@ -352,7 +354,7 @@ bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP1 --
 bindsym $sup+q exec qtcreator -style=gtk
 bindsym $sup+r exec termite -e ranger
 bindsym $sup+s exec rofi -show ssh
-#bindsym $sup+t exec $psst ~/develop/scripts/start-teamviewer.sh
+bindsym $sup+t [con_mark="^todo$"] scratchpad show
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec smplayer
 bindsym $sup+w exec firefox
