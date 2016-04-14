@@ -1,24 +1,40 @@
 ! ------------------------------------------------------------------------------
-! reload wirh xrdb ~/.Xresources
+! Reload changes made to file:
+! xrdb ~/.Xresources
+!
+! To get a list of available options, formatted as Xresources entries run:
+!
+! rofi -dump-Xresources
 !
 ! ------------------------------------------------------------------------------
 
 ! ------------------------------------------------------------------------------
-! ROFI Color theme
+! ROFI setup
 ! ------------------------------------------------------------------------------
 
 rofi.font:							Hack 21
+rofi.terminal:						termite
+
 ! Use extended color scheme
 rofi.color-enabled:                 true
 ! Color scheme for normal row
-rofi.color-normal:                  argb:00000000, #81c181, argb:11FFFFFF, #81c181, #333
+rofi.color-normal:                  argb:00000000, #81c181, argb:33FFFFFF, #81c181, #333
 ! Color scheme for urgent row
-rofi.color-urgent:                  argb:00000000,  #ad5234, argb:11FFFFFF, #ad5234, #333
+rofi.color-urgent:                  argb:00000000,  #ad5234, argb:33FFFFFF, #ad5234, #333
 ! Color scheme for active row
-rofi.color-active:                  argb:00000000, #aa1, argb:11FFFFFF, #aa1, #333
+rofi.color-active:                  argb:00000000, #aa1, argb:33FFFFFF, #aa1, #333
 ! Color scheme window
-rofi.color-window:                  argb:aa423921, #81c181, #81c181
-! Separator style (none, dash, solid
+rofi.color-window:                  argb:dd423921, #81c181, #81c181
+! Separator style (none, dash, solid)
 rofi.separator-style:				solid
 
+! keyboard shortcuts
+!rofi.kb-mode-next:                   Shift+Right
+!rofi.kb-mode-previous:               Shift+Left
+rofi.kb-row-up:                      Up,Control+p,Shift+Tab,Shift+Alt+Tab
+rofi.kb-row-tab:                     Tab,Alt+Tab
+
 !rofi.hide-scrollbar:				true
+
+rofi.ssh-command:					{terminal} -e '{ssh-client} {host}'
+!rofi.ssh-command:					urxvt -e '{ssh-client} {host}'
