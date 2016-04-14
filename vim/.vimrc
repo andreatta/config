@@ -9,13 +9,17 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
 "Plugin 'Valloric/YouCompleteMe' " from AUR
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle plugins {
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'andreatta/i3-vim-syntax'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'gelisam/git-slides'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'itchyny/vim-cursorword'
+Plugin 'itchyny/calendar.vim'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
@@ -51,6 +55,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "-------------------------------------------------------------------------------
+" }
 
 let base16colorspace=256
 set t_Co=256
@@ -58,7 +63,7 @@ set background=dark
 colorscheme gruvbox
 
 " highlight past column 80
-"let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(81,999),",")
 
 " convenience functions
 syntax on
@@ -93,13 +98,10 @@ set ttyfast
 
 " indenting settings
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
-"let g:indent_guides_auto_colors = 0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:˽,eol:↩
+" set colors for special characters
+highlight NonText guifg=darkgrey ctermfg=4 term=standout
+highlight SpecialKey guifg=darkgrey ctermfg=4 term=standout
 
 " search helpers
 nnoremap / /\v
@@ -111,7 +113,38 @@ set incsearch
 set showmatch
 set hlsearch
 
-" airline config
+" display linenumbers (relative mode can be toggled)
+set number
+set relativenumber
+" highlight horizontal line
+set cursorline
+
+" global undo file
+set undofile
+set undodir=~/.vim/undo
+set history=2000
+
+" use global dir for backup and swap files
+set backupdir=~/.vim/.tmp,.
+set directory=~/.vim/.tmp,.
+
+" statusline tweaks {
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin tuning
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" cursor word {
+" highlight background of same words as selected.
+" vim-cursorword has to be install for this to work.
+highlight CursorWord0 ctermbg=15
+" }
+
+" airline config {
 set laststatus=2
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts=1
@@ -119,61 +152,74 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
-
 " ASCII HEX current register
 let g:airline_section_z = '𝕕 %2b 𝕙 0x%02B 𝕣%{v:register} %4l/%L %3v'
+" }
 
-" YouCompleteMe ycm
+" indent guides {
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+" }
+
+" YouCompleteMe ycm {
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_filetype_blacklist = {}
+" }
 
-" custom surroundings for vim-surround
+" custom surroundings for vim-surround {
 " get keycode with char2nr("<key>")
 let g:surround_36 = "$\r$"			" $
 let g:surround_92 = "$\\\r$"		" \ for latex variables
-let g:surround_126 = "~~\r~~"			" ~ strike through for markdown
+let g:surround_126 = "~~\r~~"		" ~ strike through for markdown
+" }
 
-" Pandoc / Markdown
-let g:pandoc#modules#disabled = ["folding"]
+" Pandoc / Markdown {
+"let g:pandoc#modules#disabled = ["folding"]
+" }
 
-" DrawIt
+" DrawIt {
 let g:drawit_mode = 'S'
+" }
 
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
+" syntastic {
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+" }
 
-" vCoolor
+" vCoolor {
 let g:vcoolor_disable_mappings = 1
 let g:vcoolor_lowercase = 1
 "let g:vcoolor_custom_picker = 'zenity --title "custom" --color-selection --show-palette --color '
 let g:vcoolor_map = '<leader>g'
-"let g:vcool_ins_rgb_map = '<leader><S-r>'
-"let g:vcool_ins_hsl_map = '<leader>gh'
-"let g:vcool_ins_rgba_map = '<leader>ga'
+let g:vcool_ins_rgb_map = '<leader>gr'
+let g:vcool_ins_hsl_map = '<leader>gh'
+let g:vcool_ins_rgba_map = '<leader>ga'
+" }
 
+" Calendar {
+let g:calendar_first_day = "monday"
+let g:calendar_week_number = 1
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+let g:Calendar_yank_deleting = 1
+" }
 
-" display linenumbers (relative mode can be toggled)
-set number
-set relativenumber
-" highlight line horizontally
-set cursorline
-" highlight line vertically
-"set cursorcolumn
-
-" global undo file
-set undofile
-set undodir=$HOME/.vim/undo
-set history=2000
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Stuff to do when opening specific file types
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " do some magic depending on file extension
 if has("autocmd")
+	" rule to highlight non printable characters
+	"highlight nonprintable guifg=darkcyan ctermfg=4 term=standout
+	"au bufread * syntax match nonprintable "[^[:punct:][:alnum:]]"
+
 	" automatically strip trailing whitespace on save
 	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino,r au BufWritePre <buffer> call StripTrailingWhitespace()
 
@@ -192,9 +238,10 @@ if has("autocmd")
 	au BufNewFile,BufReadPost *.c,*.md map <F5> :make<cr>
 endif
 
-""""""""""""""""""""""""""
-" special key mappings
-""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Special key mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " yank 'til end of line
 nnoremap Y y$
 
@@ -229,43 +276,13 @@ nmap <C-l> <C-w>l
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
-" clear search highlights
-nmap <Leader><Space> :nohlsearch<CR>
-
-" syntastic mappings
-nmap <Leader>s :SyntasticCheck<CR>
-nmap <Leader>t :SyntasticToggleMode<CR>
-
-" quickly edit .vimrc
-nmap <Leader>v :tabnew $MYVIMRC<CR>
-" .. and reload .vimrc
-nmap <Leader>r :source $MYVIMRC<CR>
-
-" toggle highlighting line
-"nnoremap <Leader>c :set cursorline! <CR>
-" toggle cursor cross
-nnoremap <Leader>C :exec &cursorcolumn? "set cursorline nocursorcolumn" : "set cursorline cursorcolumn"<CR>
-
-" toggle relative line numbers
-nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
-
-" toggle wrapping of lines
-nmap <Leader>w :set wrap!<CR>
-
-" toggle syntax highlighting
-:map <Leader>x :if exists("g:syntax_on") <Bar>
-			\   syntax off <Bar>
-			\ else <Bar>
-			\   syntax enable <Bar>
-			\ endif <CR>
-
 " toggle paste mode
 map <F12> :set invpaste<CR>
 set pastetoggle=<F12>
 
 " save with sudo permission
 cmap w!! silent w !sudo tee % > /dev/null
-:command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " % is current file, make %% current directory
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -281,23 +298,98 @@ map <F11> :cnext<CR>
 
 " ex command for toggling hex mode - define mapping if desired
 map <F3> :Hexeditor<CR>
-:command! -bar Hexeditor call ToggleHex()
+command! -bar Hexeditor call ToggleHex()
 
 " switch language for spell checking
 nmap <silent> <F4> :call ToggleSpell()<CR>
 
-" toggle mouse use between vim and terminal
-noremap <Leader>m	:call ToggleMouse()<CR>
+" execute command on current line and paste output into file
+noremap Q :.!sh<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader keyboard shortcuts {
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" clear search highlights
+nmap <Leader><Space> :nohlsearch<CR>
+
+"nmap <Leader>a
+
+"nmap <Leader>b
 
 " count characters from last selection
 noremap <Leader>c	:call CountSelection()<CR>
 
-" execute command on current line and paste output into file
-noremap Q :.!sh<CR>
+" toggle highlighting line
+"nnoremap <Leader>c :set cursorline! <CR>
+" toggle cursor cross
+nnoremap <Leader>C :exec &cursorcolumn? "set cursorline nocursorcolumn" : "set cursorline cursorcolumn"<CR>
 
-""""""""""""""""""""""""""
-" functions
-""""""""""""""""""""""""""
+"nmap <Leader>d
+
+"nmap <Leader>e
+
+"nmap <Leader>f
+
+"nmap <Leader>g
+" -> color wheel vColor plugin
+
+nmap <Leader>G :Calendar<CR>
+
+"nmap <Leader>h
+
+"nmap <Leader>i
+
+"nmap <Leader>j
+
+"nmap <Leader>k
+
+nmap <Leader>l :set list!<CR>
+
+" toggle mouse use between vim and terminal
+noremap <Leader>m	:call ToggleMouse()<CR>
+
+" toggle relative line numbers
+nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
+
+"nmap <Leader>o
+
+"nmap <Leader>p
+
+"nmap <Leader>q
+
+" reload .vimrc
+nmap <Leader>r :source $MYVIMRC<CR>
+
+" syntastic mappings
+nmap <Leader>s :SyntasticCheck<CR>
+nmap <Leader>t :SyntasticToggleMode<CR>
+
+"nmap <Leader>u
+
+" quickly edit .vimrc
+nmap <Leader>v :tabnew $MYVIMRC<CR>
+
+" toggle wrapping of lines
+nmap <Leader>w :set wrap!<CR>
+
+" toggle syntax highlighting {
+noremap <Leader>x :if exists("g:syntax_on") <Bar>
+			\   syntax off <Bar>
+			\ else <Bar>
+			\   syntax enable <Bar>
+			\ endif <CR>
+" }
+
+"nmap <Leader>y
+
+"nmap <Leader>z
+
+" }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" functions {
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " strip whitespace {
 function! StripTrailingWhitespace()
@@ -329,7 +421,7 @@ endfunction
 " }
 
 " hexeditor {
-:function! ToggleHex()
+function! ToggleHex()
 	" hex mode should be considered a read-only operation
 	" save values for modified and read-only for restoration later,
 	" and clear the read-only flag for now
@@ -420,7 +512,7 @@ fun! ToggleMouse() range
 endfunction
 
 " count selected characters
-fun! CountSelection() range
+function! CountSelection() range
 	let v_backup = @v
 	silent normal! gv"vy
 	" correctly count wide chars
@@ -428,7 +520,14 @@ fun! CountSelection() range
 	let @v = v_backup
 endfunction
 
-" some nice abbreviations and corrections
+" }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" abbreviations and corrections {
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 ab fasle false
 ab FASLE FALSE
 ab esle else
+
+" }
