@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<snippets>
+    <snippet group="C++" trigger="cc" id="" complement="/**" removed="false" modified="false">/* $$ */</snippet>
+    <snippet group="C++" trigger="cout" id="" complement="" removed="false" modified="false">cout &lt;&lt; &quot;$$&quot; &lt;&lt; endl;</snippet>
+    <snippet group="C++" trigger="do" id="cpp_do" complement="" removed="false" modified="true">do {
+    $$
+} while ($condition$);</snippet>
+    <snippet group="C++" trigger="file_read" id="" complement="read file" removed="false" modified="false">QString $content$;
+QFile $file$($fileName$);
+
+if ($file$.open(QIODevice::ReadOnly | QIODevice::Text)) {
+    $content$ = $file$.readAll();
+}</snippet>
+    <snippet group="C++" trigger="file_write" id="" complement="write file" removed="false" modified="false">QFile $file$($fileName$);
+
+if($file$.open(QIODevice::WriteOnly | QIODevice::Text)){
+    QTextStream $ostream$(&amp;$file$);
+    $ostream$ &lt;&lt; $content$;
+}</snippet>
+</snippets>

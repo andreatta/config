@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorSession>
+<!-- Written by QtCreator 3.6.1, 2016-04-04T09:14:55. -->
+<qtcreator>
+ <data>
+  <variable>CascadeSetActive</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>Color</variable>
+  <value type="QString">#666666</value>
+ </data>
+ <data>
+  <variable>EditorSettings</variable>
+  <value type="QByteArray">AAAAD0VkaXRvck1hbmFnZXJWNAAAAAEAAABWAC8AaABvAG0AZQAvAGMAZQBlAC8AcwByAGMALwBxAHQALwBGAG8AbgB0AEMAcgBlAGEAdABvAHIAXwBQADUAMgAyADAALwBtAGEAaQBuAC4AYwBwAHAAAAAMAAAAABgAAAABAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAAAVgAvAGgAbwBtAGUALwBjAGUAZQAvAHMAcgBjAC8AcQB0AC8ARgBvAG4AdABDAHIAZQBhAHQAbwByAF8AUAA1ADIAMgAwAC8AbQBhAGkAbgAuAGMAcABwAAAAEABtAGEAaQBuAC4AYwBwAHAAAAATQ3BwRWRpdG9yLkMrK0VkaXRvcgAAALEAAAANY3VycmVudGVkaXRvcgAAAFYALwBoAG8AbQBlAC8AYwBlAGUALwBzAHIAYwAvAHEAdAAvAEYAbwBuAHQAQwByAGUAYQB0AG8AcgBfAFAANQAyADIAMAAvAG0AYQBpAG4ALgBjAHAAcAAAACYAQwBwAHAARQBkAGkAdABvAHIALgBDACsAKwBFAGQAaQB0AG8AcgAAABgAAAABAAAAAAAAAAAAAAABAAAAAAAAAAA=</value>
+ </data>
+ <data>
+  <variable>ProjectDependencies</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>ProjectList</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">/home/cee/src/qt/FontCreator_P5220/FontCreator_P5220.pro</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>StartupProject</variable>
+  <value type="QString">/home/cee/src/qt/FontCreator_P5220/FontCreator_P5220.pro</value>
+ </data>
+ <data>
+  <variable>value-ActiveMode</variable>
+  <value type="QString">Edit</value>
+ </data>
+ <data>
+  <variable>value-Breakpoints</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-DefaultFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-IndividualFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-ProjectTree.ExpandData</variable>
+  <valuelist type="QVariantList">
+   <valuelist type="QVariantList">
+    <value type="QString">session</value>
+    <value type="QString">session</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/cee/src/qt/FontCreator_P5220/FontCreator_P5220.pro</value>
+    <value type="QString">FontCreator_P5220</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/cee/src/qt/FontCreator_P5220</value>
+    <value type="QString">Sources</value>
+   </valuelist>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.Categories</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">Task.Category.QmlAnalysis</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.IncludeWarnings</variable>
+  <value type="bool">true</value>
+ </data>
+ <data>
+  <variable>value-Watchers</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>valueKeys</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">ActiveMode</value>
+   <value type="QString">Breakpoints</value>
+   <value type="QString">DefaultFormats</value>
+   <value type="QString">IndividualFormats</value>
+   <value type="QString">ProjectTree.ExpandData</value>
+   <value type="QString">TaskWindow.Categories</value>
+   <value type="QString">TaskWindow.IncludeWarnings</value>
+   <value type="QString">Watchers</value>
+  </valuelist>
+ </data>
+</qtcreator>

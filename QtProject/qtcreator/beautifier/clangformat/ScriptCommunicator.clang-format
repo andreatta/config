@@ -1,0 +1,11 @@
+BasedOnStyle: WebKit
+UseTab: Never
+IndentWidth: 4
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: true
+SpacesBeforeTrailingComments: 0
+SpaceBeforeParens: Never
+IndentCaseLabels: true
+PointerBindsToType: true
+MaxEmptyLinesToKeep: 1
+#ColumnLimit: 100

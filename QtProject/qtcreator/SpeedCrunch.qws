@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorSession>
+<!-- Written by QtCreator 3.6.0, 2016-03-06T16:24:33. -->
+<qtcreator>
+ <data>
+  <variable>CascadeSetActive</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>Color</variable>
+  <value type="QString">#666666</value>
+ </data>
+ <data>
+  <variable>EditorSettings</variable>
+  <value type="QByteArray">AAAAD0VkaXRvck1hbmFnZXJWNAAAAAQAAABUAC8AaABvAG0AZQAvAGMAZQBlAC8AeQBlAC0AbwBsAGQAZQAtAGMAbABvAHUAZABlAC8AcwByAGMALwBwAHkAdABoAG8AbgBUAGUAcwB0AC4AcAB5AAAADAAAAAAYAAAAAQAAAAAAAAAAAAAABQAAAAAAAAAAAAAAigAvAGgAbwBtAGUALwBjAGUAZQAvAHkAZQAtAG8AbABkAGUALQBjAGwAbwB1AGQAZQAvAHMAcgBjAC8AUwBlAHIAaQBhAGwATABvAGcAZwBlAHIALwBTAGUAcgBpAGEAbABMAG8AZwBnAGUAcgAvAG0AYQBpAG4AdwBpAG4AZABvAHcALgBjAHAAcAAAAAwAAAAAGAAAAAEAAAEIAAAAAAAAASEAAAAHAAAAAAAAAFIALwBoAG8AbQBlAC8AYwBlAGUALwBzAHIAYwAvAHEAdAAvAHMAcABlAGUAZABjAHIAdQBuAGMAaAAvAHMAcgBjAC8AbQBhAGkAbgAuAGMAcABwAAAADAAAAAAYAAAAAQAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAXgAvAGgAbwBtAGUALwBjAGUAZQAvAHMAcgBjAC8AcQB0AC8AcwBwAGUAZQBkAGMAcgB1AG4AYwBoAC8AcwByAGMALwBnAHUAaQAvAGUAZABpAHQAbwByAC4AYwBwAHAAAAAMAAAAABgAAAABAAAAdAAAAAAAAAABAAAAAAAAAAAAAAACAAAAXgAvAGgAbwBtAGUALwBjAGUAZQAvAHMAcgBjAC8AcQB0AC8AcwBwAGUAZQBkAGMAcgB1AG4AYwBoAC8AcwByAGMALwBnAHUAaQAvAGUAZABpAHQAbwByAC4AYwBwAHAAAAAUAGUAZABpAHQAbwByAC4AYwBwAHAAAAATQ3BwRWRpdG9yLkMrK0VkaXRvcgAAAFIALwBoAG8AbQBlAC8AYwBlAGUALwBzAHIAYwAvAHEAdAAvAHMAcABlAGUAZABjAHIAdQBuAGMAaAAvAHMAcgBjAC8AbQBhAGkAbgAuAGMAcABwAAAAEABtAGEAaQBuAC4AYwBwAHAAAAATQ3BwRWRpdG9yLkMrK0VkaXRvcgAAALkAAAANY3VycmVudGVkaXRvcgAAAF4ALwBoAG8AbQBlAC8AYwBlAGUALwBzAHIAYwAvAHEAdAAvAHMAcABlAGUAZABjAHIAdQBuAGMAaAAvAHMAcgBjAC8AZwB1AGkALwBlAGQAaQB0AG8AcgAuAGMAcABwAAAAJgBDAHAAcABFAGQAaQB0AG8AcgAuAEMAKwArAEUAZABpAHQAbwByAAAAGAAAAAEAAAB0AAAAAAAAAAEAAAAAAAAAAA==</value>
+ </data>
+ <data>
+  <variable>ProjectDependencies</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>ProjectList</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">/home/cee/src/qt/speedcrunch/src/speedcrunch.pro</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>StartupProject</variable>
+  <value type="QString">/home/cee/src/qt/speedcrunch/src/speedcrunch.pro</value>
+ </data>
+ <data>
+  <variable>value-ActiveMode</variable>
+  <value type="QString">Edit</value>
+ </data>
+ <data>
+  <variable>value-Breakpoints</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-DebuggerSeparateWidgetGeometry</variable>
+  <value type="QRect">100x30+0+0</value>
+ </data>
+ <data>
+  <variable>value-DefaultFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-IndividualFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-ProjectTree.ExpandData</variable>
+  <valuelist type="QVariantList">
+   <valuelist type="QVariantList">
+    <value type="QString">session</value>
+    <value type="QString">session</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/cee/src/qt/speedcrunch/src/speedcrunch.pro</value>
+    <value type="QString">speedcrunch</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/cee/src/qt/speedcrunch/src</value>
+    <value type="QString">Sources</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/cee/src/qt/speedcrunch/src/gui</value>
+    <value type="QString">gui</value>
+   </valuelist>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.Categories</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">Task.Category.QmlAnalysis</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.IncludeWarnings</variable>
+  <value type="bool">true</value>
+ </data>
+ <data>
+  <variable>value-Watchers</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>valueKeys</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">ActiveMode</value>
+   <value type="QString">Breakpoints</value>
+   <value type="QString">DebuggerSeparateWidgetGeometry</value>
+   <value type="QString">DefaultFormats</value>
+   <value type="QString">IndividualFormats</value>
+   <value type="QString">ProjectTree.ExpandData</value>
+   <value type="QString">TaskWindow.Categories</value>
+   <value type="QString">TaskWindow.IncludeWarnings</value>
+   <value type="QString">Watchers</value>
+  </valuelist>
+ </data>
+</qtcreator>

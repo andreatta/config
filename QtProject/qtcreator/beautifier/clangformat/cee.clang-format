@@ -1,0 +1,1 @@
+BasedOnStyle: llvm, ColumnLimit: 80, IndentWidth: 4, Standard: Cpp11, PointerBindsToType: false, BreakBeforeBraces: Linux, BreakConstructorInitializersBeforeComma: true, AccessModifierOffset: -4, BreakBeforeBinaryOperators: true

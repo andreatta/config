@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE BlackBerryConfigurations>
+<!-- Written by QtCreator 3.4.2, 2015-08-21T09:16:00. -->
+<qtcreator>
+ <data>
+  <variable>BBConfiguration.Count</variable>
+  <value type="int">0</value>
+ </data>
+ <data>
+  <variable>DefaultConfiguration</variable>
+  <value type="QString">Newest</value>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>

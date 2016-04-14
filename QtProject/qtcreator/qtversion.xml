@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorQtVersions>
+<!-- Written by QtCreator 3.6.1, 2016-04-11T07:52:35. -->
+<qtcreator>
+ <data>
+  <variable>QtVersion.0</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">2</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} in PATH (System)</value>
+   <value type="QString" key="QMakePath">/usr/lib/qt/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.1</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">4</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} (qt4)</value>
+   <value type="QString" key="QMakePath">/usr/lib/qt4/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>QtVersion.2</variable>
+  <valuemap type="QVariantMap">
+   <value type="int" key="Id">6</value>
+   <value type="QString" key="Name">Qt %{Qt:Version} (System)</value>
+   <value type="QString" key="QMakePath">/usr/lib/qt/bin/qmake</value>
+   <value type="QString" key="QtVersion.Type">Qt4ProjectManager.QtVersion.Desktop</value>
+   <value type="bool" key="isAutodetected">false</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>

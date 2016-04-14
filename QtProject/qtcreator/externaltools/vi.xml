@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Written on Thu Mar 17 15:34:04 2016 by Qt Creator 3.6.0-->
+<externaltool id="vi">
+    <description>Opens the current file in vim</description>
+    <displayname>Edit with vim</displayname>
+    <category>Text</category>
+    <executable output="showinpane" error="showinpane" modifiesdocument="yes">
+        <path>termite</path>
+        <arguments>-e vim &quot;%{CurrentDocument:FilePath}&quot;</arguments>
+        <workingdirectory>%{CurrentDocument:Path}</workingdirectory>
+    </executable>
+</externaltool>

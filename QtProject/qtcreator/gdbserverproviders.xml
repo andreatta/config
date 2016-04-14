@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorGdbServerProviders>
+<!-- Written by QtCreator 3.6.1, 2016-04-11T07:52:35. -->
+<qtcreator>
+ <data>
+  <variable>GdbServerProvider.Count</variable>
+  <value type="int">0</value>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>

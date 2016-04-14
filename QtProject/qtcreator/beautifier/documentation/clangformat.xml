@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Created 2016-03-29T11:44:50-->
+<beautifier_documentation>
+    <entry>
+        <key>BasedOnStyle</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;BasedOnStyle&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{string: LLVM, Google, Chromium, Mozilla, WebKit}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AccessModifierOffset</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AccessModifierOffset&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{int}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AlignEscapedNewlinesLeft</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AlignEscapedNewlinesLeft&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AlignTrailingComments</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AlignTrailingComments&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AllowAllParametersOfDeclarationOnNextLine</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AllowAllParametersOfDeclarationOnNextLine&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AllowShortFunctionsOnASingleLine</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AllowShortFunctionsOnASingleLine&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AllowShortIfStatementsOnASingleLine</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AllowShortIfStatementsOnASingleLine&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AllowShortLoopsOnASingleLine</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AllowShortLoopsOnASingleLine&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AlwaysBreakBeforeMultilineStrings</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AlwaysBreakBeforeMultilineStrings&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>AlwaysBreakTemplateDeclarations</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;AlwaysBreakTemplateDeclarations&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>BinPackParameters</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;BinPackParameters&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>BreakBeforeBinaryOperators</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;BreakBeforeBinaryOperators&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>BreakBeforeBraces</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;BreakBeforeBraces&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{BraceBreakingStyle: BS_Attach, BS_Linux, BS_Stroustrup, BS_Allman, BS_GNU}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>BreakBeforeTernaryOperators</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;BreakBeforeTernaryOperators&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>BreakConstructorInitializersBeforeComma</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;BreakConstructorInitializersBeforeComma&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>ColumnLimit</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;ColumnLimit&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>CommentPragmas</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;CommentPragmas&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{string}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>ConstructorInitializerAllOnOneLineOrOnePerLine</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;ConstructorInitializerAllOnOneLineOrOnePerLine&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>ConstructorInitializerIndentWidth</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;ConstructorInitializerIndentWidth&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>ContinuationIndentWidth</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;ContinuationIndentWidth&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>Cpp11BracedListStyle</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;Cpp11BracedListStyle&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>IndentCaseLabels</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;IndentCaseLabels&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>IndentFunctionDeclarationAfterType</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;IndentFunctionDeclarationAfterType&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>IndentWidth</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;IndentWidth&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>Language</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;Language&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{LanguageKind: LK_None, LK_Cpp, LK_JavaScript, LK_Proto}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>MaxEmptyLinesToKeep</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;MaxEmptyLinesToKeep&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>NamespaceIndentation</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;NamespaceIndentation&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{NamespaceIndentationKind: NI_None, NI_Inner, NI_All}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>ObjCSpaceAfterProperty</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;ObjCSpaceAfterProperty&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>ObjCSpaceBeforeProtocolList</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;ObjCSpaceBeforeProtocolList&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PenaltyBreakBeforeFirstCallParameter</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PenaltyBreakBeforeFirstCallParameter&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PenaltyBreakComment</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PenaltyBreakComment&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PenaltyBreakFirstLessLess</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PenaltyBreakFirstLessLess&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PenaltyBreakString</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PenaltyBreakString&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PenaltyExcessCharacter</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PenaltyExcessCharacter&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PenaltyReturnTypeOnItsOwnLine</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PenaltyReturnTypeOnItsOwnLine&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>PointerBindsToType</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;PointerBindsToType&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpaceBeforeAssignmentOperators</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpaceBeforeAssignmentOperators&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpaceBeforeParens</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpaceBeforeParens&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{SpaceBeforeParensOptions: SBPO_Never, SBPO_ControlStatements, SBPO_Always}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpaceInEmptyParentheses</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpaceInEmptyParentheses&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpacesBeforeTrailingComments</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpacesBeforeTrailingComments&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpacesInAngles</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpacesInAngles&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpacesInCStyleCastParentheses</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpacesInCStyleCastParentheses&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpacesInContainerLiterals</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpacesInContainerLiterals&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>SpacesInParentheses</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;SpacesInParentheses&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{bool}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>Standard</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;Standard&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{LanguageStandard: LS_Cpp03, LS_Cpp11, LS_Auto}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>TabWidth</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;TabWidth&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{unsigned}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+    <entry>
+        <key>UseTab</key>
+        <doc>&lt;p&gt;&lt;span class=&quot;option&quot;&gt;UseTab&lt;/span&gt; &lt;span class=&quot;param&quot;&gt;{UseTabStyle: UT_Never, UT_ForIndentation, UT_Always}&lt;/span&gt;&lt;/p&gt;&lt;p&gt;No description available.&lt;/p&gt;</doc>
+    </entry>
+</beautifier_documentation>

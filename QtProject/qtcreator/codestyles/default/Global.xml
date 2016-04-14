@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorCodeStyle>
+<!-- Written by QtCreator 3.4.2, 2015-07-14T20:58:11. -->
+<qtcreator>
+ <data>
+  <variable>CodeStyleData</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="AutoSpacesForTabs">false</value>
+   <value type="int" key="IndentSize">4</value>
+   <value type="int" key="PaddingMode">1</value>
+   <value type="bool" key="SpacesForTabs">true</value>
+   <value type="int" key="TabSize">4</value>
+  </valuemap>
+ </data>
+ <data>
+  <variable>DisplayName</variable>
+  <value type="QString">Global</value>
+ </data>
+</qtcreator>

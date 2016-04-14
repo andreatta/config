@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme version="1.0" name="wombat256 - dark">
+  <!-- This file was generated using vimColorsToQtC.pl. -->
+  <style name="SearchResult" background="#ffff00" foreground="#000000" />
+  <style name="LineNumber" background="#000000" foreground="#857b6f" />
+  <style name="DisabledCode" background="#000000" foreground="#857b6f" />
+  <style name="CurrentLineNumber" foreground="#ffff00" bold="true" />
+  <style name="Selection" background="#444444" foreground="#f6f3e8" />
+  <style name="DillFileLine" background="#384048" foreground="#a0a8b0" />
+  <style name="DiffFileLine" background="#384048" foreground="#a0a8b0" />
+  <style name="DiffContextLine" background="#384048" foreground="#a0a8b0" />
+  <style name="AddedLine" background="#00008b" foreground="#f6f3e8" />
+  <style name="DiffDestChar" background="#00008b" foreground="#f6f3e8" />
+  <style name="DiffSourceLine" background="#8b008b" foreground="#f6f3e8" />
+  <style name="DiffDestLine" background="#8b008b" foreground="#f6f3e8" />
+  <style name="RemovedLine" background="#008b8b" foreground="#0000ff" bold="true" />
+  <style name="DiffSourceChar" background="#008b8b" foreground="#0000ff" bold="true" />
+  <style name="DiffFile" background="#ff0000" foreground="#f6f3e8" bold="true" />
+  <style name="DiffLocation" background="#ff0000" foreground="#f6f3e8" bold="true" />
+  <style name="Occurrences.Unused" foreground="#f6f3e8" />
+  <style name="Occurrences.Rename" foreground="#f6f3e8" />
+  <style name="CurrentLine" background="#2d2d2d" foreground="#f6f3e8" />
+  <style name="Parentheses" background="#857b6f" foreground="#f6f3e8" bold="true" />
+  <style name="Occurrences" background="#857b6f" foreground="#f6f3e8" bold="true" />
+  <style name="Text" background="#242424" foreground="#f6f3e8" italic="false" bold="false" />
+  <style name="Local" foreground="#f6f3e8" />
+  <style name="SearchScope" foreground="#f6f3e8" />
+  <style name="JsScopeVar" foreground="#f6f3e8" italic="true" />
+  <style name="JsImportVar" foreground="#f6f3e8" italic="true" />
+  <style name="JsGlobalVar" foreground="#f6f3e8" italic="true" />
+  <style name="Comment" foreground="#99968b" italic="true" />
+  <style name="QmlExternalId" foreground="#e5786d" italic="true" />
+  <style name="QmlExternalObjectProperty" foreground="#e5786d" italic="true" />
+  <style name="Static" foreground="#e5786d" />
+  <style name="Doxygen.Comment" foreground="#e7f6da" />
+  <style name="Field" foreground="#cae682" />
+  <style name="Label" foreground="#8ac6f2" />
+  <style name="Binding" foreground="#8ac6f2" />
+  <style name="Operator" foreground="#8ac6f2" />
+  <style name="Preprocessor" foreground="#e5786d" />
+  <style name="Type" foreground="#cae682" />
+  <style name="QmlTypeId" foreground="#cae682" />
+  <style name="Doxygen.Tag" background="#ffff00" foreground="#8f8f8f" italic="true" />
+  <style name="String" foreground="#95e454" italic="true" />
+  <style name="Number" foreground="#e5786d" />
+  <style name="Function" foreground="#cae682" />
+  <style name="VirtualMethod" foreground="#cae682" italic="true" />
+  <style name="QmlLocalId" foreground="#cae682" italic="true" />
+  <style name="QmlRootObjectProperty" foreground="#cae682" italic="true" />
+  <style name="QmlScopeObjectProperty" foreground="#cae682" italic="true" />
+  <style name="QmlStateName" foreground="#cae682" />
+  <style name="Keyword" foreground="#8ac6f2" />
+</style-scheme>

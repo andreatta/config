@@ -1,0 +1,87 @@
+/*
+ * https://github.com/victorhaggqvist/qtcreator-style/blob/master/qt-stylesheet.css
+ * http://wiki.qt.io/QtCreatorStyling
+ */
+
+QMainWindow,
+QAbstractItemView,
+QTreeView::branch,
+QTabBar::tab{
+	color: #EAEAEA;
+	background: #333333; 
+	font-size: 9pt;
+}
+
+QAbstractItemView::item:selected {
+	color: #EAEAEA;
+	background-color: #151515;
+}
+
+QScrollBar {
+	border: none;
+	background: #333333;
+	height: 6px;
+	width: 6px;
+	margin: 0px;
+}
+
+QScrollBar::handle{
+	background: #494949;
+	min-width: 10px;
+	min-height: 10px;
+}
+
+QScrollBar::add-line,  QScrollBar::sub-line {
+	background: none;
+	border: none;
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+	background: none;
+}
+
+QTreeView::branch:closed:adjoins-item:has-children {
+	background:  solid #777777;
+	margin: 6px;
+	height: 6px;
+	width: 6px;
+	border-radius: 3px;
+}
+
+QTabBar::tab:selected {
+	font: bold;
+	border-color: #9B9B9B;
+	border-bottom-color: #C2C7CB;
+}
+
+QTabBar::tab:!selected {
+	margin-top: 2px;
+}
+
+QHeaderView::section {
+	background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+	stop:0 #616161, stop: 0.5 #505050,
+	stop: 0.6 #434343, stop:1 #656565);
+	color: white;
+	padding-left: 4px;
+	border: 1px solid #6c6c6c;
+}
+
+QToolBar {
+	border-style: solid;
+	border-style: outset;
+	color: #EAEAEA;
+	background: #333333;
+	font-size: 9pt;
+}
+
+QPlainTextEdit {
+	color: #EAEAEA;
+	background-color: #272822; /* This is the editor background */
+}
+
+QTextEdit {
+	color: #EAEAEA;
+	background-color: #272822; /* This is the editor background */
+}
+
