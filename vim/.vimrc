@@ -223,7 +223,7 @@ if has("autocmd")
 	" automatically strip trailing whitespace on save
 	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino,r au BufWritePre <buffer> call StripTrailingWhitespace()
 
-	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0 shiftwidth=2 tabstop=2
+	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0 shiftwidth=2 tabstop=2 spell spelllang=en_us
 
 	" syntax highlighting for gdb files
 	au BufNewFile,BufReadPost *.gdb set filetype=gdb
@@ -410,7 +410,9 @@ let b:myLang=0
 let g:myLangList=["nospell","de_ch","en_us"]
 function! ToggleSpell()
 	let b:myLang=b:myLang+1
-	if b:myLang>=len(g:myLangList) | let b:myLang=0 | endif
+	if b:myLang>=len(g:myLangList)
+		let b:myLang=0
+	endif
 	if b:myLang==0
 		setlocal nospell
 	else
