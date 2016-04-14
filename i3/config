@@ -17,20 +17,17 @@ hide_edge_borders   none
 bindsym $alt+b border toggle
 
 # autostart
-exec $psst compton -bc
+exec $psst compton -bcf -i 0.7
 exec $psst redshift
-exec $psst "xbacklight -set 33"
+exec $psst xbacklight -set 33
 exec $psst feh --bg-scale ~/img/deathstar.png
 #exec $psst imv -f ~/img/deathstar.png &
 exec $psst xautolock -time 9 -resetsaver -locker '~/.i3/i3exit.sh lock' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 # Open a small terminal on startup
-set $swidth 600
-set $sheight 300
-set $sbox 660x300
 exec $psst termite --name=_scratchpad_
-exec $psst termite --name=_todo_ -e 'vim ${HOME}/ye-olde-cloude/cee/todo.md'
+exec $psst termite --name=_todo_ -e "vim ${HOME}/ye-olde-cloude/cee/todo.md"
 exec $psst "sleep 1; i3-msg '[instance=_todo_] mark todo, move scratchpad'"
 bindsym $alt+p exec $psst termite --name=_scratchpad_
 
@@ -138,14 +135,14 @@ set $w1 1❶ 
 set $w2 2❷ 
 set $w3 3❸ 
 set $w4 4❹ 
-set $w5 5❺ 
+set $w5 5❺ 
 set $w6 6❻ 
 set $w7 7❼ ☘
-set $w8 8❽ 
+set $w8 8❽ 
 set $w9 9❾ 
-set $w10 10❿ 
-set $w11 11☰
-set $w12 12☷
+set $w10 10❿ 
+set $w11 11
+set $w12 12
 
 # switch to workspace
 bindsym $alt+grave workspace $w0
@@ -296,7 +293,7 @@ client.unfocused            $bg     $bg         $ia     $id
 client.focused_inactive     $bg     $bg         $ac     $id
 client.urgent               $ac     $ac         $tx     $id
 #border & indicator are ignored
-#client.placeholder          $bg     $bg         $bg     $bg
+client.placeholder          $bg     $bg         $bg     $bg
 
 # Start i3bar to display a workspace bar
 bar {
@@ -346,7 +343,7 @@ bindsym $sup+j exec synology-cloud-station
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec libreoffice
 bindsym $sup+m exec mixxx
-bindsym $sup+n exec xset -dpms && google-chrome-stable --url netflix.com && xset +dpms
+bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
 bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
 #bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
 bindsym $sup+p exec "xrandr --output DP1 --auto"
@@ -385,13 +382,12 @@ bindsym Ctrl+Print exec teiler
 #bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 #bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
 
+bindsym $alt+F12 [instance="^_scratchpad_$"] scratchpad show
+
 # Specialkeys
 bindsym XF86ScreenSaver         exec $psst ~/.i3/i3exit.sh lock
-bindsym $sup+space          exec $psst ~/.i3/i3exit.sh lock
+bindsym $sup+space          	exec $psst ~/.i3/i3exit.sh lock
 bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
-#bindsym XF86AudioPlay           exec audacious -t
-#bindsym XF86AudioNext           exec audacious -fp
-#bindsym XF86AudioPrev           exec audacious -rp
 bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioMute           exec $psst pactl set-sink-mute @DEFAULT_SINK@ toggle $update
