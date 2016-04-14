@@ -3,6 +3,10 @@ VIM Tipps'n'Tricks
 
 # Misc tips
 
+## Convert markdown file to pdf
+
+	:!pandoc % -o %:r.pdf
+
 ## install / update YCM
 cd ~/.vim/bundle/YouCompleteMe
 python2 install.py --clang-completer --system-libclang
@@ -11,24 +15,25 @@ python2 install.py --clang-completer --system-libclang
 It can be copied to specific project folder if it needs to be adapted.
 
 ## auto complete
-`^x^p`
+
+	^x^p
 
 ## Find patterns
 
 `\v`		very magic switch so special characters like '{' don't have to be escaped.
 
-## Find 4 hex numbers (e.g. 0xf4d5)
+### Find 4 hex numbers (e.g. 0xf4d5)
 
-`/\v\x{4}`
+	/\v\x{4}
 
-## Replace last search pattern with a printf statement
+### Replace last search pattern with a printf statement
 
 Convert number to corresponding character.
-`:%s//\=printf("%c", submatch(1))/`
+	:%s//\=printf("%c", submatch(1))/
 
-## Delete lines not containing a pattern
+### Delete lines not containing a pattern
 
-`:g!/PATTERN/d`
+	:g!/PATTERN/d
 
 # Spellcheck
 
@@ -38,13 +43,13 @@ Convert number to corresponding character.
 ]s			next spellcheck error
 z=			suggestions for current word
 zg			add current word to dictionary
-:spellr	repeat word correction
+:spellr	 repeat word correction
 ```
 
 # Fugitive
 
 ```
-:Gdiff	open 3-way diff on conflicting git branch
+:Gdiff	 open 3-way diff on conflicting git branch
 [c			previous conflicting hunk
 ]c			next conflicting hunk
 dp			shorthand for :diffput
