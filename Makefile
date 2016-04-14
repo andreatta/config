@@ -1,11 +1,14 @@
 # makefile for setting up my config files
 
 .PHONY: \
-	dunst locale ranger zathura issue packer x vconsole zsh vim qutebroser compton youtube-dl
+	dunst gtk locale ranger zathura issue packer x vconsole zsh vim qutebroser compton youtube-dl
 
 dunst:
 	@mkdir -p ${HOME}/.config/dunst
 	@ln -s ${PWD}/dunst/dunstrc ${HOME}/.config/dunst/dunstrc
+
+gtk:
+	@ln -s ${PWD}/gtk/gtk-3.0 ${HOME}/.config/
 
 locale:
 	@sudo ln -sf ${PWD}/etc/locale.conf /etc
@@ -59,4 +62,4 @@ youtube-dl:
 etc:
 	issue locale vconsole
 all:
-	dunst locale ranger zathura issue packer x vconsole zsh vim qutebroswer compton youtube-dl
+	dunst gtk locale ranger zathura issue packer x vconsole zsh vim qutebroswer compton youtube-dl

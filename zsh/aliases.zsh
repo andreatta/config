@@ -19,6 +19,7 @@ alias gmn="git merge --no-ff"
 alias pac='sudo pacman -S'
 alias aur='packer -S'
 alias syu='sudo pacman -Syu'
+alias asyu='packer -Syu'
 alias rncs='sudo pacman -Rncs'
 # remove orphaned packages
 alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
