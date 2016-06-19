@@ -1,5 +1,6 @@
+# vim: ft=config
+
 #Path to your oh-my-zsh installation.
-#export ZSH=/usr/share/oh-my-zsh
 export ZSH=~/src/oh-my-zsh
 
 # Set name of the theme to load.
@@ -7,6 +8,9 @@ export ZSH=~/src/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,23 +55,24 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-archlinux
-colored-man-pages
-colorize
-cp
-docker
-fasd
-git
-git-extras
-git-fast
-nmap
-pip
-ssh-agent
-sudo
-svn
-systemd
-tmux
-vi-mode
+	archlinux
+	colored-man-pages
+	colorize
+	cp
+	docker
+	fasd
+	git
+	git-extras
+	git-fast
+	go
+	nmap
+	pip
+	ssh-agent
+	sudo
+	svn
+	systemd
+	tmux
+	vi-mode
 )
 
 # User configuration
@@ -78,17 +83,22 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# start fasd for fasder access to often used folders
-#eval "$(fasd --init auto)"
-
 # there is no other editor
 export EDITOR='vim'
+
+# make Ctrl+S usable in vim
+stty -ixon
 
 # make ls and tree use colors
 export LS_COLORS='di=1;34:ln=35:so=32:pi=0;33:ex=32:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=1;34:ow=1;34:'
 
-# make Ctrl+S usable in vim
-stty -ixon
+# set path for golang
+export GOPATH=${HOME}/.golang
+
+# completion for pandoc
+autoload bashcompinit
+bashcompinit
+eval "$(pandoc --bash-completion)"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
