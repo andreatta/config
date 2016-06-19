@@ -29,11 +29,31 @@ It can be copied to specific project folder if it needs to be adapted.
 ### Replace last search pattern with a printf statement
 
 Convert number to corresponding character.
-	:%s//\=printf("%c", submatch(1))/
+	`:%s//\=printf("%c", submatch(0))/`
+	`:%s//\=printf("%c", str2nr(submatch(0), 16))/`
 
-### Delete lines not containing a pattern
 
-	:g!/PATTERN/d
+Delete lines containing a pattern
+~~~
+:g/PATTERN/d
+~~~
+
+Delete lines *not* containing a pattern
+~~~
+:g!/PATTERN/d
+:v/PATTERN/d
+~~~
+
+Find number duplications of three
+
+Use very-no-magic flag and create a group of a single digit.
+/\v(\d)\1\1
+
+### Delete empty lines
+
+~~~
+:g/^$/d
+~~~
 
 # Spellcheck
 

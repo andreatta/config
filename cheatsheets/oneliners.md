@@ -1,14 +1,25 @@
+---
+author: Cyril Andreatta
+highlight-style: tango
+---
+
 # get IP of local network
+~~~{#get_ip .bash caption="get IP of local network"}
 ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
+~~~
 
 # get external IP
+```{.bash}
 curl -s icanhazip.com
+```
 
 # convert images
-# http://www.howtogeek.com/109369/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal/
+http://www.howtogeek.com/109369/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal/
 
 # width 200
+```bash
 convert example.png -resize 200 example.png
+```
 
 # height 200
 convert example.png -resize 200 example.png
@@ -16,8 +27,19 @@ convert example.png -resize 200 example.png
 # exact size
 convert example.png -resize 200×100! example.png
 
-# find executables under current path
+# find
+
+## executables under current path
 find . -type f -executable -print
+
+## delete files with any of given extensions
+```
+	find -iregex '.*\.\(db\|wma\|ini\|txt\)$'
+```
+
+```{.bash caption='move all subfolders to root folder'}
+find . -mindepth 2 -type d -exec mv {} . \;
+```
 
 # netcat receive hexadecimal values
 nc -l -p <PORT> | xxd
