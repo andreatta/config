@@ -9,11 +9,12 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-"Plugin 'Valloric/YouCompleteMe' " from AUR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle plugins {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'Valloric/YouCompleteMe' " from AUR
 Plugin 'andreatta/i3-vim-syntax'
+Plugin 'dahu/Insertlessly'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'gelisam/git-slides'
 Plugin 'gmarik/Vundle.vim'
@@ -63,7 +64,7 @@ set background=dark
 colorscheme gruvbox
 
 " highlight past column 80
-let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(81,999),",")
 
 " convenience functions
 syntax on
@@ -128,6 +129,9 @@ set history=2000
 set backupdir=~/.vim/.tmp,.
 set directory=~/.vim/.tmp,.
 
+" use real encryption
+set cm=blowfish2
+
 " statusline tweaks {
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -167,7 +171,10 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " YouCompleteMe ycm {
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_filetype_blacklist = {}
+" disable YCM for specific filetypes
+let g:ycm_filetype_blacklist = { 'xxd': 1 }
 " }
 
 " custom surroundings for vim-surround {
@@ -182,7 +189,7 @@ let g:surround_126 = "~~\r~~"		" ~ strike through for markdown
 " }
 
 " DrawIt {
-let g:drawit_mode = 'S'
+let g:drawit_mode = 'D'
 " }
 
 " syntastic {
@@ -225,6 +232,8 @@ if has("autocmd")
 
 	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0 shiftwidth=2 tabstop=2 spell spelllang=en_us
 
+	"au BufEnter *.txt,*.md colorscheme github
+
 	" syntax highlighting for gdb files
 	au BufNewFile,BufReadPost *.gdb set filetype=gdb
 
@@ -235,7 +244,13 @@ if has("autocmd")
 	au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 	" call make on compilable files
-	au BufNewFile,BufReadPost *.c,*.md map <F5> :make<cr>
+	au BufNewFile,BufReadPost *.c,*cpp,*.md map <F5> :make<cr>
+
+	" automatically save todo list
+	au CursorHold,CursorHoldI todo.md update
+
+	" ignore some words from spell check
+	au BufRead,BufNewFile * :call IgnoreSpellCheck()
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -248,13 +263,19 @@ nnoremap Y y$
 " surround current word with preceding character
 nmap S ysiw
 
+" center screen on search jumps
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
+
 " Enter appends new line without going to insert mode
 "nnoremap <CR> o<Esc>
-nnoremap <C-CR> O<Esc>
-nnoremap <C-J> i<CR><Esc>
+"nnoremap <C-CR> O<Esc>
+"nnoremap <C-J> i<CR><Esc>
 " fix for <CR> mappings in normal mode
-:autocmd CmdwinEnter * nnoremap <CR> <CR>
-:autocmd BufReadPost quickfix nnoremap <CR> <CR>
+"autocmd CmdwinEnter * nnoremap <CR> <CR>
+"autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " arrow keys special treatment
 "noremap <Right> gt
@@ -272,6 +293,10 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+
+" Reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
@@ -302,9 +327,6 @@ command! -bar Hexeditor call ToggleHex()
 
 " switch language for spell checking
 nmap <silent> <F4> :call ToggleSpell()<CR>
-
-" execute command on current line and paste output into file
-noremap Q :.!sh<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader keyboard shortcuts {
@@ -352,11 +374,13 @@ noremap <Leader>m	:call ToggleMouse()<CR>
 " toggle relative line numbers
 nmap <Leader>n :exec &rnu? "se rnu!" : "se rnu"<CR>
 
-"nmap <Leader>o
+nmap <Leader>o :tabnew
 
 "nmap <Leader>p
 
 "nmap <Leader>q
+" execute command on current line and paste output into file
+noremap <Leader>q :.!sh<CR>
 
 " reload .vimrc
 nmap <Leader>r :source $MYVIMRC<CR>
@@ -409,6 +433,8 @@ endfunction
 let b:myLang=0
 let g:myLangList=["nospell","de_ch","en_us"]
 function! ToggleSpell()
+	let l = line(".")
+	let c = col(".")
 	let b:myLang=b:myLang+1
 	if b:myLang>=len(g:myLangList)
 		let b:myLang=0
@@ -419,6 +445,7 @@ function! ToggleSpell()
 		execute "setlocal spell spelllang=".get(g:myLangList, b:myLang)
 	endif
 	echo "spell checking language:" g:myLangList[b:myLang]
+	call cursor(l, c)
 endfunction
 " }
 
@@ -522,6 +549,12 @@ function! CountSelection() range
 	let @v = v_backup
 endfunction
 
+" Ignore some words from spell checking
+function! IgnoreSpellCheck()
+	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
+	syn match SingleChars /\<.\>/ contains=@NoSpell transparent
+	syn cluster Spell add=SingleChars
+endfun
 " }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -531,5 +564,7 @@ endfunction
 ab fasle false
 ab FASLE FALSE
 ab esle else
+ab OHM $\Omega$
+ab KOHM $\kOmega$
 
 " }
