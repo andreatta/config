@@ -41,6 +41,7 @@ x:
 	@ln -sf ${PWD}/X/.Xmodmap ${HOME}
 	@ln -sf ${PWD}/X/.Xresources ${HOME}
 	@ln -sf ${PWD}/X/.xinitrc ${HOME}
+	@ln -sf ${PWD}/X/X11/xorg.conf.d/50-synaptics.conf /etc/X11/xorg.conf.d
 
 vim:
 	@cp ${PWD}/vim/.vim ${HOME}
