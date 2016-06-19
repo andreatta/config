@@ -1,4 +1,4 @@
-# vi: ft=i3 
+# vi: ft=i3
 ###############################################################################
 # ceerious i3 config
 #
@@ -22,12 +22,12 @@ exec $psst redshift
 exec $psst xbacklight -set 33
 exec $psst feh --bg-scale ~/img/deathstar.png
 #exec $psst imv -f ~/img/deathstar.png &
-exec $psst xautolock -time 9 -resetsaver -locker '~/.i3/i3exit.sh lock' &
+exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
 #exec $psst 'urxvt -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -n$USER -s$USER@$HOSTNAME"'
 
 # Open a small terminal on startup
 exec $psst termite --name=_scratchpad_
-exec $psst termite --name=_todo_ -e "vim ${HOME}/ye-olde-cloude/cee/todo.md"
+exec $psst termite --name=_todo_ -e "vim '+set nofen' ${HOME}/ye-olde-cloude/cee/todo.md"
 exec $psst "sleep 1; i3-msg '[instance=_todo_] mark todo, move scratchpad'"
 bindsym $alt+p exec $psst termite --name=_scratchpad_
 
@@ -48,7 +48,7 @@ floating_modifier $alt
 
 # kill focused window
 bindsym $alt+Shift+q    kill
-bindsym $alt+Shift+w    exec "termite --title=xkill -e xkill"
+bindsym $alt+Shift+w    exec "termite --name=_xkill_ -e xkill"
 
 # rename workspace
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
@@ -115,10 +115,6 @@ for_window [title="vCoolor"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
 for_window [instance="speedcrunch"] floating enabled
 for_window [class="Amarok"] floating enable
-#for_window [class="^(?i)chromium"] border none
-#for_window [class="Thunderbird"] border none
-#for_window [class="Thunderbird"] floating enable
-#for_window [class="Thunderbird" instance="Mail"] border none 
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
 for_window [window_role=".*Setting.*|.*Preference.*"] floating enable border normal
 #for_window [class="qutebrowser"] tabbed
@@ -126,8 +122,8 @@ for_window [class="rdesktop"] fullscreen
 #for_window [class="Dia" title="^Dia v"] resize grow left 177, resize grow down 328
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
-for_window [title="^xkill"] floating enabled border pixel 10
 for_window [instance="_scratchpad_"] move scratchpad, move absolute position 680 0, resize set 1200 600
+for_window [instance="_xkill_"] move scratchpad
 
 # define names for workspaces with some nice symbols
 set $w0 0✪
@@ -140,7 +136,7 @@ set $w6 6❻ 
 set $w7 7❼ ☘
 set $w8 8❽ 
 set $w9 9❾ 
-set $w10 10❿ 
+set $w10 10❿
 set $w11 11
 set $w12 12
 
@@ -182,7 +178,7 @@ bindsym $alt+Shift+minus move container to workspace $w11
 bindsym $alt+Shift+equal move container to workspace $w12
 
 # always open some programs on specified workspace
-assign [class="Firefox"]     	$w3
+assign [class="google-chrome"]  $w3
 assign [class="qutebrowser"] 	$w3
 assign [class="Thunderbird"] 	$w4
 assign [class="QtCreator"]   	$w6
@@ -354,16 +350,16 @@ bindsym $sup+s exec rofi -show ssh
 bindsym $sup+t [con_mark="^todo$"] scratchpad show
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec smplayer
-bindsym $sup+w exec firefox
-bindsym $sup+Shift+w exec qutebrowser
+bindsym $sup+w exec qutebrowser
+bindsym $sup+Shift+w exec firefox
 bindsym $sup+x exec keepassx
 bindsym $sup+y exec system-config-printer
 bindsym $sup+z exec wpa_gui
 
 bindsym $alt+Return exec termite
-bindsym $alt+Shift+Return exec urxvt --chdir `xcwd`
+#bindsym $alt+Shift+Return exec termite cd `xcwd`
 
-bindsym $sup+1 exec "xterm -e '~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
+bindsym $sup+1 exec "xterm -e 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
 bindsym $sup+2 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\can' gt-data02:3389"
 bindsym $sup+3 exec "vinagre -f --vnc-scale 192.168.112.13"
 #bindsym $sup+3
@@ -378,9 +374,9 @@ bindsym $sup+6 exec "rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'Ad
 #bindsym $sup+0 focus, floating enable
 
 # screenshot & open in gimp
-bindsym Ctrl+Print exec teiler
-#bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
-#bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
+#bindsym Ctrl+Print exec teiler
+bindsym Ctrl+Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
+bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f' --release
 
 bindsym $alt+F12 [instance="^_scratchpad_$"] scratchpad show
 
