@@ -12,8 +12,8 @@ if [ -s $xmod ]; then
 	xmodmap $xmod
 fi
 
-# set default style for Qt programs
-export QT_STYLE_OVERRIDE=GTK+
+# make Qt blend in
+export QT_STYLE_OVERRIDE='gtk2'
 
 # start gnome keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
