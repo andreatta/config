@@ -54,7 +54,9 @@ bindsym $alt+Shift+w    exec "termite --name=_xkill_ -e xkill"
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
 
 # start customized dmenu for launching any program
-bindsym $alt+d exec rofi -show run -eh 2 -padding 400 -fullscreen
+set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen
+bindsym $alt+d $execute
+bindsym XF86Search $execute
 
 # change focus (vim style)
 bindsym $alt+h focus left
@@ -342,8 +344,8 @@ bindsym $sup+m exec mixxx
 bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
 bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
 #bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
-bindsym $sup+p exec "xrandr --output DP1 --auto"
-bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP1 --off"
+bindsym $sup+p exec "xrandr --output DP-1 --auto"
+bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP-1 --off"
 bindsym $sup+q exec qtcreator -style=gtk
 bindsym $sup+r exec termite -e ranger
 bindsym $sup+s exec rofi -show ssh
@@ -387,6 +389,6 @@ bindsym XF86Sleep               exec $psst ~/.i3/i3exit.sh suspend
 bindsym XF86AudioLowerVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioRaiseVolume    exec $psst pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0 $update
 bindsym XF86AudioMute           exec $psst pactl set-sink-mute @DEFAULT_SINK@ toggle $update
-bindsym XF86MonBrightnessDown   exec xbacklight -dec 5%
-bindsym XF86MonBrightnessUp     exec xbacklight -inc 5%
+bindsym XF86MonBrightnessDown   exec light -U 0.5
+bindsym XF86MonBrightnessUp     exec light -A 0.5
 bindsym XF86Launch1             exec $psst speedcrunch
