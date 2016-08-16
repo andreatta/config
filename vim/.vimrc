@@ -16,6 +16,7 @@ Plugin 'Valloric/YouCompleteMe' " from AUR
 Plugin 'andreatta/i3-vim-syntax'
 Plugin 'dahu/Insertlessly'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'francoiscabrol/ranger.vim'
 Plugin 'gelisam/git-slides'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'gorodinskiy/vim-coloresque'
@@ -23,7 +24,8 @@ Plugin 'itchyny/vim-cursorword'
 Plugin 'itchyny/calendar.vim'
 Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'kien/ctrlp.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'metakirby5/codi.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -58,10 +60,10 @@ filetype plugin indent on    " required
 "-------------------------------------------------------------------------------
 " }
 
-let base16colorspace=256
+"let base16colorspace=256
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+colorscheme hipster
 
 " highlight past column 80
 "let &colorcolumn=join(range(81,999),",")
@@ -98,7 +100,7 @@ set autoread
 set ttyfast
 
 " indenting settings
-set list
+set nolist
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:˽,eol:↩
 " set colors for special characters
 highlight NonText guifg=darkgrey ctermfg=4 term=standout
@@ -145,12 +147,12 @@ set statusline+=%*
 " cursor word {
 " highlight background of same words as selected.
 " vim-cursorword has to be install for this to work.
-highlight CursorWord0 ctermbg=15
+highlight CursorWord0 ctermbg=11
 " }
 
 " airline config {
 set laststatus=2
-let g:airline_theme='tomorrow'
+let g:airline_theme='base16_ocean'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#wordcount#enabled = 1
@@ -170,9 +172,33 @@ let g:indent_guides_enable_on_vim_startup = 1
 " }
 
 " YouCompleteMe ycm {
+let g:ycm_register_as_syntastic_checker = 1 "default 1
+let g:Show_diagnostics_ui = 1 "default 1
+
+"will put icons in Vim's gutter on lines that have a diagnostic set.
+"Turning this off will also turn off the YcmErrorLine and YcmWarningLine
+"highlighting
+let g:ycm_enable_diagnostic_signs = 1
+let g:ycm_enable_diagnostic_highlighting = 0
+let g:ycm_always_populate_location_list = 1 "default 0
+let g:ycm_open_loclist_on_ycm_diags = 1 "default 1
+
+let g:ycm_complete_in_strings = 1 "default 1
+let g:ycm_collect_identifiers_from_tags_files = 0 "default 0
+let g:ycm_path_to_python_interpreter = '' "default ''
+
+let g:ycm_server_use_vim_stdout = 0 "default 0 (logging to console)
+let g:ycm_server_log_level = 'info' "default info
+
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'  "where to search for .ycm_extra_conf.py if not found
+let g:ycm_confirm_extra_conf = 1
+
+let g:ycm_goto_buffer_command = 'same-buffer' "[ 'same-buffer', 'horizontal-split', 'vertical-split', 'new-tab' ]
+let g:ycm_filetype_whitelist = { '*': 1 }
+let g:ycm_key_invoke_completion = '<C-Space>'
+
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_filetype_blacklist = {}
 " disable YCM for specific filetypes
 let g:ycm_filetype_blacklist = { 'xxd': 1 }
 " }
@@ -217,6 +243,11 @@ let g:calendar_google_task = 1
 let g:Calendar_yank_deleting = 1
 " }
 
+" Ranger {
+" use default \f keybinding
+"let g:ranger_map_keys = 0
+" }
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Stuff to do when opening specific file types
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,15 +258,17 @@ if has("autocmd")
 	"highlight nonprintable guifg=darkcyan ctermfg=4 term=standout
 	"au bufread * syntax match nonprintable "[^[:punct:][:alnum:]]"
 
+	" Treat some special files as other filetypes
+	au BufNewFile,BufReadPost *.gdb set filetype=gdb
+	au BufNewFile,BufReadPost *.qml set filetype=css
+	au BufNewFile,BufReadPost *.app set filetype=make
+
 	" automatically strip trailing whitespace on save
 	au FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,vim,config,ino,r au BufWritePre <buffer> call StripTrailingWhitespace()
 
 	au BufRead,BufNewFile *.txt,*.tex,*.md set wrap linebreak nolist textwidth=0 wrapmargin=0 shiftwidth=2 tabstop=2 spell spelllang=en_us
 
 	"au BufEnter *.txt,*.md colorscheme github
-
-	" syntax highlighting for gdb files
-	au BufNewFile,BufReadPost *.gdb set filetype=gdb
 
 	" jump to last position on opening a file
 	au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -260,7 +293,8 @@ endif
 " yank 'til end of line
 nnoremap Y y$
 
-" surround current word with preceding character
+" surround current word with given character
+" e.g. S" will surround with "
 nmap S ysiw
 
 " center screen on search jumps
@@ -317,7 +351,7 @@ inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<cr>
 
 " navigate around quickbuffers
-map <F9> :cprevious<CR>
+map <F9>  :cprevious<CR>
 map <F10> :cclose<CR>
 map <F11> :cnext<CR>
 
@@ -327,6 +361,9 @@ command! -bar Hexeditor call ToggleHex()
 
 " switch language for spell checking
 nmap <silent> <F4> :call ToggleSpell()<CR>
+
+" mappings for navigating with Ycm
+nnoremap <F12> :YcmCompleter GoTo<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader keyboard shortcuts {
@@ -352,6 +389,7 @@ nnoremap <Leader>C :exec &cursorcolumn? "set cursorline nocursorcolumn" : "set c
 "nmap <Leader>e
 
 "nmap <Leader>f
+" Ranger default
 
 "nmap <Leader>g
 " -> color wheel vColor plugin
