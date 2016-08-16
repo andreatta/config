@@ -7,7 +7,7 @@ export ZSH=~/src/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
+ZSH_THEME="cee"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
 #POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
@@ -69,7 +69,7 @@ plugins=(
 	pip
 	ssh-agent
 	sudo
-	svn
+	svn-fast-info
 	systemd
 	tmux
 	vi-mode
@@ -80,11 +80,20 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-ocean.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+export PATH=$HOME/bin:$PATH
+
+# Use all cores to compile
+export MAKEFLAGS='-j4'
 
 # there is no other editor
 export EDITOR='vim'
+export MANPAGER='env MAN_PN=1 vim -M +MANPAGER -'
+# set the webbrowser
+export BROWSER='qutebrowser'
 
 # make Ctrl+S usable in vim
 stty -ixon
@@ -99,6 +108,21 @@ export GOPATH=${HOME}/.golang
 autoload bashcompinit
 bashcompinit
 eval "$(pandoc --bash-completion)"
+
+# automatically add SSH keys to ssh-agent
+if ! pgrep -u $USER ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval $(<~/.ssh-agent-thing)
+fi
+ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+
+# set directory from within termite
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8

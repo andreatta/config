@@ -1,16 +1,20 @@
+# vim: ft=config
+
 # just some convenience aliases
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias l='ls -lhX --group-directories-first'
-alias ll='ls -lhXA --group-directories-first'
+alias l='ls -lhX --group-directories-first -v'
+alias ll='ls -lhvXA --group-directories-first -v'
 alias df='df -h'
 alias :q='exit'
 alias ZZ='exit'
 alias lsgroups='cut -d: -f1 /etc/group'
 alias o='xdg-open'
 alias wifi='sudo wifi-menu'
-alias vim='nvim'
+
+# fasd shortcuts
+alias m='f -e mpv'
 
 # additional git aliases
 alias gmn="git merge --no-ff"
@@ -29,6 +33,7 @@ alias autolock="xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &"
 alias stoplock="pkill -15 xautolock"
 
 # programs
+alias ag='ag --hidden'
 alias yt='youtube-dl'
 alias c='pcalc'
 alias pdf=zathura
@@ -36,6 +41,7 @@ alias t=tungsten
 alias mix=alsamixer
 alias R='R --quiet'
 alias soly='curl -s wttr.in/solothurn | head -n -3'
+alias moon='curl -s wttr.in/moon | head -n -3'
 
 alias tab='i3-msg layout tabbed && '
 
@@ -83,3 +89,13 @@ alias gbb="git remote add origin git@bitbucket.org:gtcee/${PWD##*/}.git && git p
 
 # blackarch
 alias lsblackarch="sudo pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u"
+
+###
+# webdesign
+
+alias modebuero-style='vim scp://hostet5/httpdocs/modebuero/wp-content/themes/square-child/style.css'
+alias modebuero-style-org='vim scp://hostet5/httpdocs/modebuero/wp-content/themes/square/style.css'
+alias andreatta-style='vim scp://hostet5/httpdocs/andreatta/wp-content/themes/drento-cee/style.css'
+
+# GT
+alias smgt="smbclient '\\\gt-data02\\Daten' -U 'GRAPH-TECH\\can'"
