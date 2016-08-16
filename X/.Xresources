@@ -17,14 +17,14 @@ rofi.terminal:						termite
 
 ! Use extended color scheme
 rofi.color-enabled:                 true
-! Color scheme for normal row
-rofi.color-normal:                  argb:00000000, #81c181, argb:33FFFFFF, #81c181, #333
+! Color scheme for normal row       bg,	           fg,      bg alt,        bg hi,   fg hi
+rofi.color-normal:                  argb:00343D46, #81c181, argb:33FFFFFF, #81c181, #333
 ! Color scheme for urgent row
 rofi.color-urgent:                  argb:00000000,  #ad5234, argb:33FFFFFF, #ad5234, #333
 ! Color scheme for active row
 rofi.color-active:                  argb:00000000, #aa1, argb:33FFFFFF, #aa1, #333
 ! Color scheme window
-rofi.color-window:                  argb:dd423921, #81c181, #81c181
+rofi.color-window:                  argb:dd343D46, #A3BE8C, #81c181
 ! Separator style (none, dash, solid)
 rofi.separator-style:				solid
 
@@ -37,4 +37,3 @@ rofi.kb-row-tab:                     Tab,Alt+Tab
 !rofi.hide-scrollbar:				true
 
 rofi.ssh-command:					{terminal} -e '{ssh-client} {host}'
-!rofi.ssh-command:					urxvt -e '{ssh-client} {host}'

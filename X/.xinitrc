@@ -1,4 +1,6 @@
-#! /bin/bash
+#! /usr/bin/sh
+
+#xrandr --dpi 144
 
 # load X resources
 xres=${HOME}/.Xresources
@@ -12,12 +14,16 @@ if [ -s $xmod ]; then
 	xmodmap $xmod
 fi
 
-# make Qt blend in
-export QT_STYLE_OVERRIDE='gtk2'
+# export DISPLAY for dbus
+# needed for gnome-keyring
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 # start gnome keyring
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
-#eval $(ssh-agent)
+# make Qt blend in
+export QT_STYLE_OVERRIDE='gtk2'
+
+# lastly start the window manager
 exec i3
