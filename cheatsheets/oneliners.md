@@ -13,6 +13,11 @@ ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
 curl -s icanhazip.com
 ```
 
+# ping IPv6 and discover all connected devices
+```{.bash}
+ping ff02::1%enp0s25
+```
+
 # convert images
 http://www.howtogeek.com/109369/how-to-quickly-resize-convert-modify-images-from-the-linux-terminal/
 
@@ -130,7 +135,7 @@ tmux -S /tmp/tmux attach
 smbclient -L <SERVER>
 
 # connect
-smbclient '\\<SERVER>\<FOLDER>'
+smbclient '\\<SERVER>\<FOLDER>' -U 'DOMAIN\USERNAME'
 
 # NFS
 # list NFS shares on server
@@ -139,3 +144,5 @@ showmount -e <SERVER-IP>
 # mount NFS share
 sudo mount -t nfs <SERVER>:<PATH> </mountpoint/on/client>
 
+# mount ISO image
+mount -o loop -t iso9660 filename.iso /mnt/iso
