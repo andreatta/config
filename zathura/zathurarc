@@ -3,16 +3,27 @@
 #################################
 # keyboard mappings
 #################################
+
+set adjust-open width
+
 map <C-i>	zoom in
 map <C-o>	zoom out
-map zz		zoom best-fit
+map zz		zoom width
 
-unmap O
+unmap	d
+map 	d	quit
+
+#map 	1	set pages-per-row 1
+#map 	2	set pages-per-row 2
+
+#map <C-s>	:write ~/dwl
+
+unmap	O
 
 #################################
 # colors
 #################################
-set font                        "Hack 9"
+#set font                        "Hack 9"
 #set default-bg                  "#ffffff" #00
 #set default-fg                  "#202020" #01
 
