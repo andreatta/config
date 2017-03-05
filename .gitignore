@@ -4,4 +4,4 @@ vim/.vim/undo/*
 vim/.vim/.tmp/*
 vim/.vim/.netrwhist
 
-i3/log/*
+i3/log
