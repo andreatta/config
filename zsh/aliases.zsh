@@ -25,11 +25,12 @@ alias aur='packer -S'
 alias syu='sudo pacman -Syu'
 alias asyu='packer -Syu'
 alias rncs='sudo pacman -Rncs'
+alias uq="qutebrowser -V | grep '^Git commit' | cut -d' ' -f3 && aur qutebrowser-git --noconfirm && qutebrowser -V | grep '^Git commit' | cut -d' ' -f3"
 # remove orphaned packages
 alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
 alias getmirrors='curl -o mirrorlist https://www.archlinux.org/mirrorlist/\?country\=all\&protocol\=https\&ip_version\=4\&ip_version\=6\&use_mirror_status\=on && sed -i s/\#Server/Server/ mirrorlist'
 
-alias autolock="xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &"
+alias startlock="xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &"
 alias stoplock="pkill -15 xautolock"
 
 # programs
