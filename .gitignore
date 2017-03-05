@@ -1,4 +1,7 @@
 *.swp
 
-vim/.vim/undo/
+vim/.vim/undo/*
+vim/.vim/.tmp/*
 vim/.vim/.netrwhist
+
+i3/log/*
