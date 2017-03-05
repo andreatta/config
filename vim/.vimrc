@@ -65,6 +65,10 @@ set t_Co=256
 set background=dark
 colorscheme hipster
 
+if $SSH_CONNECTION
+	colorscheme zenburn
+endif
+
 " highlight past column 80
 "let &colorcolumn=join(range(81,999),",")
 
@@ -130,6 +134,7 @@ set history=2000
 " use global dir for backup and swap files
 set backupdir=~/.vim/.tmp,.
 set directory=~/.vim/.tmp,.
+set noswapfile
 
 " use real encryption
 set cm=blowfish2
