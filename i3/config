@@ -13,7 +13,7 @@ set $update && killall -SIGUSR1 i3status
 
 new_window          pixel 0
 new_float           pixel 3
-hide_edge_borders   none
+hide_edge_borders   smart
 bindsym $alt+b border toggle
 
 # autostart
@@ -27,7 +27,7 @@ exec $psst xautolock -time 9 -locker '~/.i3/i3exit.sh lock' &
 
 # Open a small terminal on startup
 exec $psst termite --name=_scratchpad_
-exec $psst termite --name=_todo_ -e "vim '+set nofen' ${HOME}/ye-olde-cloude/cee/todo.md"
+exec $psst termite --name=_todo_ -e "vim '+set nofen' -c 'colorscheme github' ${HOME}/ye-olde-cloude/cee/todo.md"
 exec $psst "sleep 1; i3-msg '[instance=_todo_] mark todo, move scratchpad'"
 bindsym $alt+p exec $psst termite --name=_scratchpad_
 
@@ -48,7 +48,7 @@ floating_modifier $alt
 
 # kill focused window
 bindsym $alt+Shift+q    kill
-bindsym $alt+Shift+w    exec "termite --name=_xkill_ -e xkill"
+bindsym $alt+Shift+w    exec --release "termite --name=_xkill_ -e xkill"
 
 # rename workspace
 bindsym Ctrl+Shift+r exec i3-input -F 'rename workspace to "%s"' -P 'rename current workspace: '
@@ -115,7 +115,8 @@ for_window [class="Ddd" instance="^(?!command_shell$)"] floating enable
 for_window [title="Event Tester"] floating enable
 for_window [title="vCoolor"] floating enable
 for_window [instance="TeamViewer.exe"] floating enable
-for_window [instance="speedcrunch"] floating enabled
+for_window [instance="speedcrunch"] floating enable
+for_window [instance="keepassx"] floating enable
 for_window [class="Amarok"] floating enable
 for_window [class="Thunderbird" instance="Msgcompose"] floating enable border normal
 for_window [window_role=".*Setting.*|.*Preference.*"] floating enable border normal
@@ -124,7 +125,7 @@ for_window [class="rdesktop"] fullscreen
 #for_window [class="Dia" title="^Dia v"] resize grow left 177, resize grow down 328
 for_window [class="Cssh"] floating enable
 for_window [class="XTerm" title="^CSSH"] border normal
-for_window [instance="_scratchpad_"] move scratchpad, move absolute position 680 0, resize set 1200 600
+for_window [instance="_scratchpad_"] move scratchpad, move absolute position 680 31, resize set 1200 600
 for_window [instance="_xkill_"] move scratchpad
 
 # define names for workspaces with some nice symbols
@@ -341,7 +342,8 @@ bindsym $sup+i exec inkscape
 bindsym $sup+j exec rainlendar
 bindsym $sup+k exec wireshark
 bindsym $sup+l exec libreoffice
-bindsym $sup+m exec mixxx
+bindsym $sup+m exec clementine
+bindsym $sup+Shift+m exec mixxx
 bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
 bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
 #bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
@@ -352,10 +354,11 @@ bindsym $sup+r exec termite -e ranger
 bindsym $sup+s exec rofi -show ssh
 bindsym $sup+t [con_mark="^todo$"] scratchpad show
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
-bindsym $sup+v exec smplayer
-bindsym $sup+w exec qutebrowser
-bindsym $sup+Shift+w exec firefox
-bindsym $sup+x exec keepassx
+bindsym $sup+v exec vlc
+bindsym $sup+w exec qutebrowser --backend webengine
+#bindsym $sup+w exec qutebrowser
+bindsym $sup+Shift+w exec google-chrome-stable
+bindsym $sup+x exec keepassxc
 bindsym $sup+y exec system-config-printer
 #bindsym $sup+z exec wpa_gui
 
