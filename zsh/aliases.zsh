@@ -21,9 +21,9 @@ alias gmn="git merge --no-ff"
 
 # pacman stuff
 alias pac='sudo pacman -S'
-alias aur='packer -S'
+alias aur='pacaur -S'
 alias syu='sudo pacman -Syu'
-alias asyu='packer -Syu'
+alias asyu='pacaur -Syu'
 alias rncs='sudo pacman -Rncs'
 alias uq="qutebrowser -V | grep '^Git commit' | cut -d' ' -f3 && aur qutebrowser-git --noconfirm && qutebrowser -V | grep '^Git commit' | cut -d' ' -f3"
 # remove orphaned packages
@@ -83,6 +83,7 @@ alias gt6="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u Administrator
 alias gtso="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'GRAPH-TECH\\can' gt-data02:3389"
 alias gt-lab="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off 192.168.112.102:3389"
 alias gibs="rdesktop -f -g 100% -K -P -z -x l -a 16 -r sound:off -u 'BBZSOGR\\cyril.andreatta' GISO_INF_L04.bbzsogr.local:3389"
+alias radex="194.209.162.30"
 alias github="https://github.com/andreatta"
 
 # git
