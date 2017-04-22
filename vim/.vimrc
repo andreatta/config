@@ -1,6 +1,6 @@
-"""""""""""""""""""""""
-" ceerious vim config "
-"""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ceerious vim config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 filetype off
@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle plugins {
+" Vundle plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plugin 'Valloric/YouCompleteMe' " from AUR
 Plugin 'andreatta/i3-vim-syntax'
@@ -26,6 +26,7 @@ Plugin 'KabbAmine/vCoolor.vim'
 Plugin 'kien/ctrlp.vim'
 "Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'metakirby5/codi.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
@@ -102,6 +103,8 @@ set backspace=indent,eol,start
 set autoread
 " faster redrawing
 set ttyfast
+" set PWD to directory from current file
+set autochdir
 
 " indenting settings
 set nolist
@@ -248,6 +251,10 @@ let g:calendar_google_task = 1
 let g:Calendar_yank_deleting = 1
 " }
 
+" Ag > Ack > Grep {
+let g:ackprg = 'ag --vimgrep'
+" }
+
 " Ranger {
 " use default \f keybinding
 "let g:ranger_map_keys = 0
@@ -307,6 +314,8 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
+nnoremap { {zz
+nnoremap } }zz
 
 " Enter appends new line without going to insert mode
 "nnoremap <CR> o<Esc>
@@ -597,7 +606,39 @@ function! IgnoreSpellCheck()
 	"syn match CamelCase /\<[A-Z][a-z]\+[A-Z].\{-}\>/ contains=@NoSpell
 	syn match SingleChars /\<.\>/ contains=@NoSpell transparent
 	syn cluster Spell add=SingleChars
-endfun
+endfunction
+
+function! AdjustFontSize(amount)
+    let s:pattern = '^\(.*\):h\([0-9]\+\)$'
+    let s:minFontSize = 6
+    let s:maxFontSize = 16
+
+    if has("gui_running")
+        let fontName = substitute(&gfn, s:pattern, '\1', '')
+        let curSize = substitute(&gfn, s:pattern, '\2', '')
+        echo fontName
+        echo curSize
+        let newSize = curSize + a:amount
+        if (newSize >= s:minFontSize) && (newSize <= s:maxFontSize)
+            let newFont = fontName . ":h" . newSize
+            let &gfn = newFont
+            echo "set gfn=" . &gfn
+        endif
+    endif
+endfunction
+
+function! LargerFont()
+    call AdjustFontSize(1)
+endfunction
+command! ZoomIn call LargerFont()
+command! Zi call LargerFont()
+
+function! SmallerFont()
+    call AdjustFontSize(-1)
+endfunction
+command! ZoomOut call SmallerFont()
+command! Zo call SmallerFont()
+
 " }
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
