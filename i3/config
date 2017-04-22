@@ -10,6 +10,7 @@ set $alt Mod1
 set $sup Mod4
 set $psst --no-startup-id
 set $update && killall -SIGUSR1 i3status
+set $TERMINAL termite
 
 new_window          pixel 0
 new_float           pixel 3
@@ -101,11 +102,7 @@ bindsym $alt+button2 floating toggle
 
 # change focus between tiling / floating windows
 bindsym $alt+space focus mode_toggle
-
-# focus the parent container
 bindsym $alt+a focus parent
-
-# focus the child container
 bindsym $alt+c focus child
 
 # enable special modes for some applications
@@ -185,7 +182,7 @@ assign [class="google-chrome"]  $w3
 assign [class="qutebrowser"] 	$w3
 assign [class="Thunderbird"] 	$w4
 assign [class="QtCreator"]   	$w6
-assign [class="Eclipse"]   		$w6
+#assign [class="Eclipse"]   		$w6
 assign [class="VirtualBox"]  	$w10
 
 # reload the configuration file
@@ -330,7 +327,8 @@ for_window [title="^forticlientsslvpn"] move scratchpad show
 bindsym $sup+a exec stm32-workbench
 bindsym $sup+b exec VirtualBox
 #bindsym $sup+c exec wine "C:\\Program Files (x86)\\analogx\\Palc\\pcalc.exe"
-bindsym $sup+c exec speedcrunch
+bindsym $sup+c exec wine "${HOME}/.wine/drive_c/Program Files (x86)/AnalogX/PCalc/pcalc.exe"
+bindsym $sup+Shift+c exec speedcrunch
 #bindsym $sup+c exec urxvtc -e sage floating enable; resize shrink width 120 px; resize shrink height 50 px
 bindsym $sup+d exec ~/.i3/layouts/start-dia.sh
 bindsym $sup+e exec thunderbird
@@ -345,7 +343,7 @@ bindsym $sup+l exec libreoffice
 bindsym $sup+m exec clementine
 bindsym $sup+Shift+m exec mixxx
 bindsym $sup+n exec xset -dpms && google-chrome-stable --kiosk --url netflix.com && xset +dpms
-bindsym $sup+o exec /opt/ti/ccsv6/eclipse/ccstudio
+bindsym $sup+o exec qutebrowser https://login.microsoftonline.com
 #bindsym $sup+p exec "xrandr --output DPI1 --auto && xrandr --output LVDS1 --off"
 bindsym $sup+p exec "xrandr --output DP-1 --auto"
 bindsym $sup+Shift+p exec "xrandr --output eDP1 --auto && xrandr --output DP-1 --off"
@@ -355,14 +353,14 @@ bindsym $sup+s exec rofi -show ssh
 bindsym $sup+t [con_mark="^todo$"] scratchpad show
 bindsym $sup+u exec export LANG=de_CH.UTF-8 && fakturama
 bindsym $sup+v exec vlc
-bindsym $sup+w exec qutebrowser --backend webengine
+bindsym $sup+w exec qutebrowser --backend webengine --enable-webengine-inspector
 #bindsym $sup+w exec qutebrowser
 bindsym $sup+Shift+w exec google-chrome-stable
 bindsym $sup+x exec keepassxc
 bindsym $sup+y exec system-config-printer
 #bindsym $sup+z exec wpa_gui
 
-bindsym $alt+Return exec termite
+bindsym $alt+Return exec $TERMINAL
 bindsym $alt+Shift+Return exec termite -d $(xcwd)
 
 bindsym $sup+1 exec "xterm -e 'yes | ~/ye-olde-cloude/gibs/forti/forticlientsslvpn_cli --server vpn.bbzsogr.ch:443 --vpnuser cyril.andreatta'"
