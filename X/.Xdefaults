@@ -1,14 +1,31 @@
-##################################################
-# ceerious settings
-# checkout the look with: colortheme
-##################################################
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! ceerious settings
+! checkout the look with: colortheme
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 !URxvt*termName:   rxvt-unicode-256color
 URxvt*locale:	true
 
-xterm*faceName:	Inconsolata
-xterm*faceSize: 13
-#xterm*font: *-dejavu-*-*-*-18-*
+!! XTerm settings
+!xterm*faceName:	Inconsolata
+!xterm*faceSize: 13
+xterm*font: *-dejavu-*-*-*-18-*
+!xterm*VT100*geometry: 94x28
+!xterm*font: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso8859-1
+!xterm*background: black
+!xterm*foreground: lightblue
+!xterm*loginShell: true
+!xterm*scrollBar: true
+!xterm*rightScrollBar: true
+!xterm*title: XTerm
+!xterm*iconName: XTerm
+!xterm*saveLines: 50000
+!xterm*jumpScroll: true
+!xterm*scrollTtyOutput: false
+!xterm*scrollKey: true
+!xterm*alwaysUseMods: true
+!xterm*metaSendsEscape: true
+!xterm*utf8Title: true
 
 !URxvt fonts:
 !URxvt*font: 	xft:Source Code Pro for Powerline:pixelsize=20,xft:Monospace:size=20:antialias=true:hinting=true
@@ -28,15 +45,15 @@ URxvt*cursorUnderline:      false
 URxvt*cursorColor:          #555
 URxvt*cursorColor2:         #cee
 
-# hide mouse pointer as soon as start typing
+! hide mouse pointer as soon as start typing
 URxvt.pointerBlank: 		true
 URxvt*pointerBlankDelay: 	1
 
-# fade unfocused windows
-#URxvt*fading:               40
-#URxvt*fadeColor:            #000000
+! fade unfocused windows
+!URxvt*fading:               40
+!URxvt*fadeColor:            #000000
 
-# global colors that also work for xterm
+! global colors that also work for xterm
 !URxvt color scheme:
 *background:           #222222
 *foreground:           #aaaaaa

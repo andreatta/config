@@ -11,9 +11,9 @@ keysym a = a A adiaeresis Adiaeresis
 keysym o = o O odiaeresis Odiaeresis
 keysym u = u U udiaeresis Udiaeresis
 
-keysym c = c C copyright U2184
+keysym c = c C ccedilla U2184
 keysym d = d D Greek_alpha Greek_DELTA
-!keysym e = e E U01DD U018E
+keysym e = e E U01DD U018E
 keysym m = m M Greek_mu
 keysym n = n N Greek_ETA
 keysym p = p P Greek_rho Greek_pi
